@@ -4,7 +4,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className="toothy"> My React App!! </h1>
+        <h1>Author's Haven</h1>
       </div>
     );
   }
