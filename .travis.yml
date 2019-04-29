@@ -4,6 +4,10 @@ node_js:
 cache:
   directories:
     - node_modules
+addon:
+  code_climate:
+    repo_token:
+      secure: "Oj3F5J47JQMXCkcokPsdzYT+PYEOCZ8X8WHsaO8etwJ9g6Ep8pfbVpibvSwiBkb9gjpfEdWiAznefE2VL7JrBTXGnnBEdX9CRXL90z5s/0pWT2GyWD8VL9l6IU6r3wJ6B/oLYHaaLZ/HsAx57/KrDIZnLx1WH0Un/gJt6iLrmbBGkC3mAVosFTmF5QJOC8HEZvpWOHVBfkIe64HqzSWObjQLrrxfeWunlmLPjlg8Q2sB7NOFqCx8uCpIp9Ry/z/f8YpV90hGSmr/Fj0rhAWYjdbTaqHzo0XXg46Mcr24dOKleYTpZOscwbt1k2rYqpw0GObbPPPaGVOCpWRupMFbX/+C6m5KWquUcvd7cucD/rKGwZg6H6vRfcvVjDHWksjZz2UgZ10Oq8Y76CirW4j3OGGOAGrGcUXSlzutUeDS14v3aiAqjJLy0JZtTR9AyglUbTgKYhpQ7qnwyEhtSqHAFfLL+WxLmzPuF//CmUjHXtrKz6/Cb9RHgEDrXAyxCTdBxlruM1TQlA5HGD2m+oLuTGecHETQawEm6mfbMPQl5jfRMe8msMBPGHN4XxQlWij0EQaq0bx3eLlm2AczmRL7qbi9wBWJjtbIWkk7JEyUqpIU8vW+zGUFrpbDdMcM6OVZESplMvQZ+jlFMeuu44YpimvvCx5k696Y5EVbpWQNOek="
 before_install:
   - npm update
 install:
