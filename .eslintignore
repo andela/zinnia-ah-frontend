@@ -4,6 +4,6 @@ app.json
 .prettierignore
 .prettierrc
 webpack.config.js
-/dist
-/node_modules
-/public
+/dist/**
+/node_modules/**
+/public/**
