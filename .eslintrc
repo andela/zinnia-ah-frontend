@@ -10,6 +10,7 @@
     "es6": true,
     "jest": true
   },
+  "plugins": ["react"],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
@@ -30,6 +31,18 @@
         "allow": ["req", "res", "err"]
       }
     ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "globals": {
+      "localStorage": true,
+      "document": true,
+      "require": true,
+      "window": true
+    },
     "prettier/prettier": [
       "error",
       {
@@ -39,6 +52,11 @@
         "singleQuote": true,
         "endOfLine": "lf"
       }
-    ]
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   }
 }
