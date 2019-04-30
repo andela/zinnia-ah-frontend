@@ -1,0 +1,15 @@
+app.json
+.babelrc
+/doc
+.prettierignore
+.prettierrc
+webpack.config.js
+/dist/**
+/node_modules/**
+/public/**
+/build/**
+/coverage/**
+/docs/**
+/jsdoc/**
+.circleci
+.github
