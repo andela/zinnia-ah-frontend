@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
-@import '../../assets/variables';
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
+@import "../../assets/variables";
 
 .navbar {
   align-items: center;
@@ -9,7 +9,7 @@
   padding: 0% 6%;
 
   .brand {
-    font-family: 'Sacramento', cursive;
+    font-family: "Sacramento", cursive;
     font-size: 36px;
     line-height: 53px;
   }

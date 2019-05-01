@@ -1,4 +1,4 @@
-@import '../../assets/variables';
+@import "../../assets/variables";
 
 .card {
   background: $primary-white;
@@ -20,7 +20,6 @@ hr {
 }
 
 .tab-label {
-
   .menu {
     border-bottom: 2px solid $secondary-grey;
 
