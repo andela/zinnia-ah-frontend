@@ -114,7 +114,6 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "@sweetalert/with-react": "^0.1.1",
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
@@ -128,7 +127,6 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0",
-    "sweetalert": "^2.1.2"
+    "semantic-ui-react": "^0.86.0"
   }
 }
