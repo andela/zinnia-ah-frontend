@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
+@import "../../assets/variables";
+
+.btn {
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  background-color: $secondary-grey;
+  color: $primary-black;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.btn-dark {
+  background-color: $primary-black;
+  color: $primary-white;
+  border: 1px solid $primary-black;
+}
+
+.btn-white {
+  background-color: $primary-white;
+  color: $primary-black;
+  border: 1px solid $primary-black;
+}

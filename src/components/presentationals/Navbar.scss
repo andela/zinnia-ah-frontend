@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
+@import "../../assets/variables";
+
+.navbar {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  padding: 0% 6%;
+
+  .brand {
+    font-family: "Sacramento", cursive;
+    font-size: 36px;
+    line-height: 53px;
+  }
+
+  .navbar-avatar {
+    align-items: center;
+    display: flex;
+  }
+}
