@@ -3,3 +3,6 @@ eslint:
   config_file: .eslintrc
   ignore_file: .eslintignore
   ignore_file: .prettierrc
+
+stylelint:
+  9.10.1 

@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
+@import "../../assets/variables";
+
+form {
+
+  input {
+    border: 1px solid $primary-grey-opacity-0 !important;
+    border-radius: 5px !important;
+    font-family: "Lato", san-serif !important;
+    height: 50px;
+    margin-top: 15px !important;
+  }
+
+  ::placeholder {
+    color: $secondary-grey-2 !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
+    opacity: 0.6;
+  }
+
+  button {
+    margin-top: 15px !important;
+  }
+}
