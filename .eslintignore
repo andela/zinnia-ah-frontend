@@ -13,3 +13,4 @@ webpack.config.js
 /jsdoc/**
 .circleci
 .github
+semantic/

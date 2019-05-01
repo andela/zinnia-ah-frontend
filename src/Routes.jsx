@@ -9,8 +9,8 @@ import ResetPassword from './pages/ResetPassword.jsx';
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={App} />
-      <Route path="/auth" component={AuthenticationLayout} />
+      <Route path="/" exact component={App} />
+      <Route path="/auth" exact component={AuthenticationLayout} />
       <Route path="/reset-password" exact component={ResetPassword} />
       <Route path="/forgot-password" exact component={ForgotPassword} />
     </Switch>
