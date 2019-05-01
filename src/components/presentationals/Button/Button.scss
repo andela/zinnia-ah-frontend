@@ -2,6 +2,7 @@
 @import '../../../assets/variables';
 
 .btn {
+<<<<<<< HEAD
   background-color: $secondary-grey;
   border-radius: .3125rem;
   color: $primary-black;
@@ -25,4 +26,25 @@
   background-color: $primary-white;
   border: .0625rem solid $primary-black;
   color: $primary-black;
+=======
+  height: 50px;
+  width: 100%;
+  border-radius:5px;
+  text-align: center;
+  background-color: $secondary-grey;
+  color: $primary-black;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.1em;
+}
+.btn-dark {
+  background-color: $primary-black;
+  color:$primary-white;
+  border: 1px solid $primary-black;
+}
+.btn-white {
+  background-color: $primary-white;
+  color:$primary-black;
+  border: 1px solid $primary-black;
+>>>>>>> [chore #165739510]Setup semantic ui and implement templates
 }
