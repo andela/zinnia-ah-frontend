@@ -1,5 +1,5 @@
 import { SIGNUP_SUCCESS, SIGNUP_ERROR, SIGNUP_REQUESTED } from './types';
-import { http } from '../../utils/helpers';
+import { http, setToken } from '../../utils/helpers';
 
 function signUpRequest() {
   return {
@@ -26,6 +26,7 @@ export function signupUser(userData) {
     try {
       dispatch(signUpRequest());
       const { data } = await http.post('/auth/signup', userData);
+      setToken(data.data.token);
       dispatch(signUpSuccess(data));
     } catch (error) {
       dispatch(signUpError(error.response.data.errors));
