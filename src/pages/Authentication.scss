@@ -1,9 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
 
-.d-flex {
+.auth-container {
   display: flex;
+  padding: 0% 6%;
 }
 
-.auth-container {
-  padding: 0% 6%;
+@media only screen and (max-width: 600px) {
+
+  .auth-container {
+    display: block;
+    padding: 0% 0%;
+
+    .left {
+      display: none;
+    }
+
+    .right {
+      // background: red;
+      display: flex;
+      justify-content: center;
+
+      .card {
+        border: 0;
+        box-shadow: none;
+        margin-top: 0px;
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+  .auth-container {
+    display: block;
+    padding: 0% 0%;
+
+    .left {
+      display: none;
+    }
+
+    .right {
+      // background: red;
+      display: flex;
+      justify-content: center;
+
+      .card {
+        // border: 0;
+        // box-shadow: none;
+        margin-top: 0px;
+        width: 80%;
+      }
+    }
+  }
+
 }

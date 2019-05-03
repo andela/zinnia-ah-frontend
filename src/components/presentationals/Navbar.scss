@@ -19,3 +19,13 @@
     display: flex;
   }
 }
+
+
+@media only screen and (max-width: 900px) {
+
+  .navbar {
+    justify-content: center;
+  }
+
+}
+

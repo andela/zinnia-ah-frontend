@@ -10,7 +10,7 @@ const AuthenticationLayout = () => {
     <div>
       <Navbar props={testNavbar} />
       <div className="d-flex auth-container">
-        <AuthenticationIllustration />
+        <AuthenticationIllustration className="illustration" />
         <AuthenticationCard />
       </div>
     </div>
