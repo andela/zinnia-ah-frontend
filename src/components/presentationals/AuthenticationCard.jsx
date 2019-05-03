@@ -1,48 +1,22 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import { Tab, Image, Form } from 'semantic-ui-react';
+import { Tab, Form, Image } from 'semantic-ui-react';
 
-import Title from './Title.jsx';
-import Button from './Button.jsx';
-import './AuthenticationCard.scss';
-import './Form.scss';
+import Button from '../presentationals/Button';
+import '../presentationals/AuthenticationCard.scss';
+import '../presentationals/Form.scss';
 import GoogleIcon from '../../assets/images/google-icon.svg';
 import FacebookIcon from '../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../assets/images/twitter-icon.svg';
+import Title from './Title';
+import Signup from '../signup/Signup';
 
 const panes = [
   {
     menuItem: 'Sign Up',
     render: () => (
       <Tab.Pane attached={false}>
-        <Form>
-          <Form.Field>
-            <input placeholder="Username" />
-          </Form.Field>
-          <Form.Field>
-            <input placeholder="Email" type="email" />
-          </Form.Field>
-          <Form.Field>
-            <input placeholder="Password" type="password" />
-          </Form.Field>
-          <Button button={signupButtonValues} />
-        </Form>
-        <div className="d-flex or-div">
-          <hr />
-          <p className="or">OR</p>
-          <hr />
-        </div>
-        <div className="icon-container">
-          <div className="icon-card">
-            <Image src={GoogleIcon} />
-          </div>
-          <div className="icon-card">
-            <Image src={FacebookIcon} />
-          </div>
-          <div className="icon-card">
-            <Image src={TwitterIcon} />
-          </div>
-        </div>
+        <Signup />
       </Tab.Pane>
     ),
   },
@@ -85,17 +59,6 @@ const panes = [
   },
 ];
 
-const signupButtonValues = {
-  type: 'submit',
-  value: 'GET STARTED',
-  class: 'btn-dark',
-};
-const loginButtonValues = {
-  type: 'submit',
-  value: 'CONTINUE',
-  class: 'btn-dark',
-};
-
 const AuthenticationCard = () => {
   return (
     <div className="right">
@@ -115,6 +78,12 @@ const AuthenticationCard = () => {
 const title = {
   content: 'Become an Author',
   class: 'text-center',
+};
+
+const loginButtonValues = {
+  type: 'submit',
+  value: 'CONTINUE',
+  class: 'btn-dark',
 };
 
 export default AuthenticationCard;

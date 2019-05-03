@@ -5,7 +5,11 @@ import './Button.scss';
 
 const Button = props => {
   return (
-    <button className={`btn ${props.button.class}`} type={props.button.class}>
+    <button
+      className={`btn ${props.button.class}`}
+      type={props.button.class}
+      onClick={props.signUpClick}
+    >
       {props.button.value}
     </button>
   );
@@ -13,10 +17,11 @@ const Button = props => {
 
 Button.propTypes = {
   button: PropTypes.shape({
-    class: PropTypes.string,
+    class: PropTypes.string.isRequired,
     content: PropTypes.string,
     value: PropTypes.string,
   }),
+  signUpClick: PropTypes.func,
 };
 
 export default Button;
