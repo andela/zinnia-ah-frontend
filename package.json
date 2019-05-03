@@ -58,6 +58,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
@@ -81,6 +82,7 @@
     "prettier": "^1.17.0",
     "prettier-stylelint": "^0.4.2",
     "react-hot-loader": "^4.8.4",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "stylelint-config-standard": "^18.3.0",
@@ -89,6 +91,8 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "fs": "0.0.1-security",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
