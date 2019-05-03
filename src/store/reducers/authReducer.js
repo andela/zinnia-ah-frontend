@@ -6,7 +6,6 @@ import {
 
 const initialState = {
   isLoading: false,
-  signupSucess: false,
   errorResponse: null,
   successResponse: null,
 };
@@ -31,7 +30,6 @@ export default function signup(state = initialState, action) {
         ...state,
         isLoading: false,
         errorResponse: action.error,
-        signupSucess: false,
       };
 
     default:
