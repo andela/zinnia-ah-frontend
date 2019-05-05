@@ -16,6 +16,10 @@
     "*.json": [
       "prettier --write",
       "git add --force"
+    ],
+    "*.scss": [
+      "npm run sass-lint:fix",
+      "git add --force"
     ]
   },
   "scripts": {
@@ -24,7 +28,8 @@
     "build": "webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
     "lint": "node_modules/eslint/bin/eslint.js src --fix",
-    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'"
+    "sass-lint": "sass-lint 'src/**/*.scss' -q -v",
+    "sass-lint:fix": "npm run sass-lint && sass-lint-auto-fix"
   },
   "jest": {
     "snapshotSerializers": [
@@ -79,8 +84,9 @@
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "prettier": "^1.17.0",
-    "prettier-stylelint": "^0.4.2",
     "react-hot-loader": "^4.8.4",
+    "sass-lint": "^1.13.1",
+    "sass-lint-auto-fix": "^0.17.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "stylelint-config-standard": "^18.3.0",
@@ -89,6 +95,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",

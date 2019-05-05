@@ -4,5 +4,6 @@ eslint:
   ignore_file: .eslintignore
   ignore_file: .prettierrc
 
-stylelint:
-  9.10.1 
+sass-lint:
+  enabled: true
+  config_file: .sass-lint.yml

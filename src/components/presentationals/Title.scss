@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
-@import "../../assets/variables";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
+@import '../../assets/variables';
 
 .title {
   color: $primary-black;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-size: 20px;
   font-weight: bold;
 }
