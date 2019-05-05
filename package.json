@@ -24,7 +24,8 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "node server.js",
+    "watch": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
     "lint": "node_modules/eslint/bin/eslint.js src --fix",
@@ -96,6 +97,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
