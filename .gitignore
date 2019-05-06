@@ -84,4 +84,5 @@ typings/
 # Serverless directories
 .serverless
 
+#Webpack generated File
 public/
