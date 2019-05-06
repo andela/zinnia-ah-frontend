@@ -29,4 +29,8 @@ AuthenticationLayout.defaultProps = {
   profileUrl: '',
 };
 
+AuthenticationLayout.propTypes = {
+  location: PropTypes.object.isRequired,
+};
+
 export default AuthenticationLayout;
