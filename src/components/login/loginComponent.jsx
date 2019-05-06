@@ -44,7 +44,6 @@ class Login extends Component {
       value: 'CONTINUE',
       class: 'btn-dark',
     };
-    // console.log(this.props.auth);
     return (
       <div>
         <Form onSubmit={this.onSubmit} loading={this.props.auth.isLoading}>
