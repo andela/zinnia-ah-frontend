@@ -10,6 +10,4 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 8000;
-const server = app.listen(port);
-
-export default server;
+app.listen(port);
