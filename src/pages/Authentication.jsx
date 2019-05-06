@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Navbar from '../components/presentationals/Navbar.jsx';
-import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration.jsx';
-import AuthenticationCard from '../components/presentationals/AuthenticationCard.jsx';
-import './Authentication.scss';
+import Navbar from '../components/presentationals/Navbar/Navbar';
+import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration/AuthenticationIllustration';
+import AuthenticationCard from '../components/presentationals/AuthenticationCard/AuthenticationCard';
+import '../pages/Authentication.scss';
 
-const AuthenticationLayout = () => {
+const AuthenticationLayout = testNavbar => {
   return (
     <div>
       <Navbar props={testNavbar} />
@@ -17,8 +17,10 @@ const AuthenticationLayout = () => {
   );
 };
 
-let testNavbar = {
-  profileUrl: '',
+AuthenticationLayout.defaultProps = {
+  testNavbar: {
+    profileUrl: '',
+  },
 };
 
 export default AuthenticationLayout;

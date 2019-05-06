@@ -87,6 +87,7 @@
     "path": "^0.12.7",
     "prettier": "^1.17.0",
     "prettier-stylelint": "^0.4.2",
+    "prop-types": "^15.7.2",
     "react-hot-loader": "^4.8.4",
     "sass-lint": "^1.13.1",
     "sass-lint-auto-fix": "^0.17.0",
@@ -106,6 +107,7 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0"
   }

@@ -1,23 +1,24 @@
 import React from 'react';
 import { Form } from 'semantic-ui-react';
 
-import Title from './Title.jsx';
-import Button from './Button.jsx';
-import './AuthenticationCard.scss';
-import './Form.scss';
+import Title from '../Title/Title';
+import Button from '../Button/Button.jsx';
+import '../AuthenticationCard/AuthenticationCard.scss';
+import '../Form.scss';
 
 const ForgotPasswordCard = () => {
   return (
     <div className="right">
-      <div className="card reset-password">
+      <div className="card forgot-password">
         <Title title={title} />
         <hr />
+        <p>
+          Enter the email you used to sign up and we‘ll send you a password
+          reset link
+        </p>
         <Form>
           <Form.Field>
-            <input placeholder="New Password" type="password" />
-          </Form.Field>
-          <Form.Field>
-            <input placeholder="Confirm Password" type="password" />
+            <input placeholder="Email" type="email" />
           </Form.Field>
           <Button button={buttonValues} />
         </Form>
@@ -27,13 +28,13 @@ const ForgotPasswordCard = () => {
 };
 
 const title = {
-  content: 'Reset Password',
+  content: 'Forgot Password?',
   class: 'text-center',
 };
 
 const buttonValues = {
   type: 'submit',
-  value: 'RESET PASSWORD',
+  value: 'SEND EMAIL',
   class: 'btn-dark',
 };
 

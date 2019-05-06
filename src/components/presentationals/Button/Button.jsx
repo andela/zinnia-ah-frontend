@@ -6,8 +6,8 @@ import './Button.scss';
 const Button = props => {
   return (
     <button
-      className={`btn ${props.button.class}`}
-      type={props.button.class}
+      className={`btn ${props.button.className}`}
+      type={props.button.className}
       onClick={props.signUpClick}
     >
       {props.button.value}
@@ -17,7 +17,7 @@ const Button = props => {
 
 Button.propTypes = {
   button: PropTypes.shape({
-    class: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
     content: PropTypes.string,
     value: PropTypes.string,
   }),

@@ -1,14 +1,12 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { Image, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { signupUser } from '../../store/actions/authActions';
+import { signupUser } from '../../store/modules/auth';
 
-import Button from '../../components/presentationals/Button';
-import '../../components/presentationals/AuthenticationCard.scss';
+import Button from '../../components/presentationals/Button/Button';
+import '../../components/presentationals/AuthenticationCard/AuthenticationCard.scss';
 import '../../components/presentationals/Form.scss';
 import GoogleIcon from '../../assets/images/google-icon.svg';
 import FacebookIcon from '../../assets/images/facebook-icon.svg';
@@ -16,28 +14,40 @@ import TwitterIcon from '../../assets/images/twitter-icon.svg';
 import validator from '../../utils/formValidator';
 
 class Signup extends Component {
-  state = {
-    userCredentials: {
-      email: '',
-      password: '',
-      username: '',
-    },
-    validationErrors: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userCredentials: {
+        email: '',
+        password: '',
+        username: '',
+      },
+      validationErrors: '',
+    };
+  }
 
   userInputHandler = event => {
-    const { userCredentials } = this.state;
-    userCredentials[event.target.name] = event.target.value;
-    this.setState({ userCredentials });
+    this.setState({
+      userCredentials: {
+        ...this.state.userCredentials,
+        [event.target.name]: event.target.value,
+      },
+    });
   };
 
   formValidator = () => {
     const { userCredentials } = this.state;
     const validationErrors = validator(userCredentials);
-    this.setState({ validationErrors });
+    this.setState({
+      validationErrors,
+    });
+
     if (!validationErrors.length) {
       this.setState({ validationErrors: '' });
+      return true;
     }
+    return false;
   };
 
   submitForm = event => {
@@ -49,7 +59,7 @@ class Signup extends Component {
     const signupButtonValues = {
       type: 'submit',
       value: 'GET STARTED',
-      class: 'btn-dark',
+      className: 'btn-dark',
     };
     const { auth } = this.props;
     return (
@@ -60,10 +70,8 @@ class Signup extends Component {
               className="negative"
               placeholder="Username"
               onChange={e => {
-                this.formValidator(), this.userInputHandler(e);
-              }}
-              onBlur={e => {
-                this.formValidator(), this.userInputHandler(e);
+                this.formValidator();
+                this.userInputHandler(e);
               }}
               value={this.state.userCredentials.username}
               name="username"
@@ -76,11 +84,10 @@ class Signup extends Component {
               placeholder="Email"
               type="email"
               onChange={e => {
-                this.formValidator(), this.userInputHandler(e);
+                this.formValidator();
+                this.userInputHandler(e);
               }}
-              onBlur={e => {
-                this.formValidator(), this.userInputHandler(e);
-              }}
+              // onBlur={() => this.formValidator()}
               value={this.state.userCredentials.email}
               name="email"
               required
@@ -91,11 +98,10 @@ class Signup extends Component {
               placeholder="Password"
               type="password"
               onChange={e => {
-                this.formValidator(), this.userInputHandler(e);
+                this.formValidator();
+                this.userInputHandler(e);
               }}
-              onBlur={e => {
-                this.formValidator(), this.userInputHandler(e);
-              }}
+              // onBlur={() => this.formValidator()}
               value={this.state.userCredentials.password}
               name="password"
               required
@@ -110,7 +116,9 @@ class Signup extends Component {
           )}
           <Button
             button={signupButtonValues}
-            signUpClick={e => this.submitForm(e)}
+            signUpClick={e => {
+              this.formValidator() && this.submitForm(e);
+            }}
           />
         </Form>
         <div className="d-flex or-div">
@@ -138,7 +146,11 @@ Signup.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = auth => auth;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth,
+  };
+};
 
 export default connect(
   mapStateToProps,

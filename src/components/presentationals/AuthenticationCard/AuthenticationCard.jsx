@@ -1,15 +1,19 @@
-/* eslint-disable react/display-name */
 import React from 'react';
 import { Tab, Form, Image } from 'semantic-ui-react';
 
-import Button from '../presentationals/Button';
-import '../presentationals/AuthenticationCard.scss';
-import '../presentationals/Form.scss';
-import GoogleIcon from '../../assets/images/google-icon.svg';
-import FacebookIcon from '../../assets/images/facebook-icon.svg';
-import TwitterIcon from '../../assets/images/twitter-icon.svg';
-import Title from './Title';
-import Signup from '../signup/Signup';
+// components
+import Button from '../Button/Button';
+import Title from '../../presentationals/Title/Title';
+import Signup from '../../../pages/Signup/Signup';
+
+// styles
+import './AuthenticationCard.scss';
+import '../../presentationals/Form.scss';
+
+// images
+import GoogleIcon from '../../../assets/images/google-icon.svg';
+import FacebookIcon from '../../../assets/images/facebook-icon.svg';
+import TwitterIcon from '../../../assets/images/twitter-icon.svg';
 
 const panes = [
   {
