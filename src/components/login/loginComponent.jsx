@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Image, Form } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-import Button from '../presentationals/Button.jsx';
+import Button from '../presentationals/Button';
 import '../presentationals/AuthenticationCard.scss';
 import '../presentationals/Form.scss';
 import GoogleIcon from '../../assets/images/google-icon.svg';
@@ -10,32 +10,34 @@ import FacebookIcon from '../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../assets/images/twitter-icon.svg';
 import { connect } from 'react-redux';
 import { loginUser } from '../../store/actions/authActions';
+import validator from '../../utils/formValidator.js';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
-      errors: {},
+      userCredentials: { email: '', password: '' },
+      validationErrors: '',
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    const user = {
-      email: this.state.email,
-      password: this.state.password,
-    };
+  formValidator = () => {
+    const { userCredentials } = this.state;
+    const validationErrors = validator(userCredentials);
+    this.setState({ validationErrors });
+    if (!validationErrors.length) {
+      this.setState({ validationErrors: '' });
+    }
+  };
 
     this.props.loginUser(user);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+  userInputHandler = event => {
+    const { userCredentials } = this.state;
+    userCredentials[event.target.name] = event.target.value;
+    this.setState({ userCredentials });
+  };
 
   render() {
     const loginButtonValues = {
@@ -48,19 +50,36 @@ class Login extends Component {
         <Form onSubmit={this.onSubmit} loading={this.props.auth.isLoading}>
           <Form.Field>
             <input
-              placeholder="Username or Email"
-              value={this.state.email}
-              onChange={this.onChange}
+              className="negative"
+              placeholder="Email"
+              onChange={e => {
+                this.formValidator();
+                this.userInputHandler(e);
+              }}
+              onBlur={e => {
+                this.formValidator();
+                this.userInputHandler(e);
+              }}
+              value={this.state.userCredentials.username}
               name="email"
+              required
             />
           </Form.Field>
           <Form.Field>
             <input
               placeholder="Password"
               type="password"
-              value={this.state.password}
-              onChange={this.onChange}
+              onChange={e => {
+                this.formValidator();
+                this.userInputHandler(e);
+              }}
+              onBlur={e => {
+                this.formValidator();
+                this.userInputHandler(e);
+              }}
+              value={this.state.userCredentials.password}
               name="password"
+              required
             />
           </Form.Field>
           <div className="text-right">
@@ -68,6 +87,13 @@ class Login extends Component {
               Forgot Password?
             </a>
           </div>
+          {this.state.validationErrors.length > 0 && (
+            <div className="ui negative message">
+              {this.state.validationErrors.map(error => (
+                <p key={error}>{error}</p>
+              ))}
+            </div>
+          )}
           <Button button={loginButtonValues} />
         </Form>
         <div className="d-flex or-div">
