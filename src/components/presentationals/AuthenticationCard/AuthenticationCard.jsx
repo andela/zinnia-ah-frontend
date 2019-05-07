@@ -1,10 +1,11 @@
 import React from 'react';
-import { Tab, Form, Image } from 'semantic-ui-react';
+import { Tab, Form } from 'semantic-ui-react';
 
 // components
 import Button from '../Button/Button';
+import Image from '../Image/Image';
 import Title from '../../presentationals/Title/Title';
-import Signup from '../../../pages/Signup/Signup';
+import SignupForm from '../../../pages/Register/Register';
 
 // styles
 import './AuthenticationCard.scss';
@@ -20,7 +21,7 @@ const panes = [
     menuItem: 'Sign Up',
     render: () => (
       <Tab.Pane attached={false}>
-        <Signup />
+        <SignupForm />
       </Tab.Pane>
     ),
   },
@@ -43,9 +44,9 @@ const panes = [
           <Button button={loginButtonValues} />
         </Form>
         <div className="d-flex or-div">
-          <hr />
+          <hr className="hr" />
           <p className="or">OR</p>
-          <hr />
+          <hr className="hr" />
         </div>
         <div className="icon-container">
           <div className="icon-card">
@@ -68,7 +69,7 @@ const AuthenticationCard = () => {
     <div className="right">
       <div className="card">
         <Title title={title} />
-        <hr />
+        <hr className="hr" />
         <Tab
           className="tab-label"
           menu={{ secondary: true, pointing: true }}

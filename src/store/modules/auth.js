@@ -1,7 +1,7 @@
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const SIGNUP_REQUESTED = 'SIGNUP_REQUESTED';
-import { http, setToken } from '../../utils/helpers';
+import { http, setToken } from '../../api';
 
 function signUpRequest() {
   return {
@@ -42,7 +42,7 @@ const initialState = {
   successResponse: [],
 };
 
-export function auth(state = initialState, action) {
+export function authReducer(state = initialState, action) {
   switch (action.type) {
     case SIGNUP_REQUESTED:
       return {

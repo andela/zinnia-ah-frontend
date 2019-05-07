@@ -11,7 +11,7 @@ const ForgotPasswordCard = () => {
     <div className="right">
       <div className="card reset-password">
         <Title title={title} />
-        <hr />
+        <hr className="hr" />
         <Form>
           <Form.Field>
             <input placeholder="New Password" type="password" />

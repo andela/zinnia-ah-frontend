@@ -8,7 +8,7 @@ const Button = props => {
     <button
       className={`btn ${props.button.className}`}
       type={props.button.className}
-      onClick={props.signUpClick}
+      onClick={props.onClick}
     >
       {props.button.value}
     </button>
@@ -21,7 +21,7 @@ Button.propTypes = {
     content: PropTypes.string,
     value: PropTypes.string,
   }),
-  signUpClick: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 export default Button;

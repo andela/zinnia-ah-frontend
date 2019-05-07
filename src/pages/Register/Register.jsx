@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
-import { Image, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { signupUser } from '../../store/modules/auth';
+import {
+  validateInput,
+  checkAllEmptyInputs,
+  fieldChecker,
+} from '../../utils/formValidator';
 
+// components
 import Button from '../../components/presentationals/Button/Button';
+import Image from '../../components/presentationals/Image/Image';
 import '../../components/presentationals/AuthenticationCard/AuthenticationCard.scss';
+
+// styles
 import '../../components/presentationals/Form.scss';
+
+// images
 import GoogleIcon from '../../assets/images/google-icon.svg';
 import FacebookIcon from '../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../assets/images/twitter-icon.svg';
-import validator from '../../utils/formValidator';
 
-class Signup extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      userCredentials: {
-        email: '',
-        password: '',
-        username: '',
-      },
-      validationErrors: '',
-    };
-  }
+class Register extends Component {
+  state = {
+    userCredentials: {
+      email: '',
+      password: '',
+      username: '',
+    },
+    validationErrors: '',
+  };
 
   userInputHandler = event => {
     this.setState({
@@ -36,13 +41,13 @@ class Signup extends Component {
     });
   };
 
-  formValidator = () => {
+  formValidator = event => {
     const { userCredentials } = this.state;
-    const validationErrors = validator(userCredentials);
+    event.preventDefault();
+    const validationErrors = validateInput(userCredentials);
     this.setState({
       validationErrors,
     });
-
     if (!validationErrors.length) {
       this.setState({ validationErrors: '' });
       return true;
@@ -62,51 +67,52 @@ class Signup extends Component {
       className: 'btn-dark',
     };
     const { auth } = this.props;
+    const { userCredentials } = this.state;
     return (
       <div>
-        <Form loading={auth.isLoading}>
-          <Form.Field>
+        <form id="form" data-loading={auth.isLoading} className="form">
+          <div className="form-group">
             <input
-              className="negative"
+              className="form-control"
               placeholder="Username"
               onChange={e => {
-                this.formValidator();
                 this.userInputHandler(e);
+                fieldChecker(e);
               }}
               value={this.state.userCredentials.username}
               name="username"
               required
             />
-          </Form.Field>
+          </div>
 
-          <Form.Field>
+          <div className="form-group">
             <input
               placeholder="Email"
+              className="form-control"
               type="email"
               onChange={e => {
-                this.formValidator();
                 this.userInputHandler(e);
+                fieldChecker(e);
               }}
-              // onBlur={() => this.formValidator()}
               value={this.state.userCredentials.email}
               name="email"
               required
             />
-          </Form.Field>
-          <Form.Field>
+          </div>
+          <div className="form-group">
             <input
+              className="form-control"
               placeholder="Password"
               type="password"
               onChange={e => {
-                this.formValidator();
                 this.userInputHandler(e);
+                fieldChecker(e);
               }}
-              // onBlur={() => this.formValidator()}
               value={this.state.userCredentials.password}
               name="password"
               required
             />
-          </Form.Field>
+          </div>
           {this.state.validationErrors.length > 0 && (
             <div className="ui negative message">
               {this.state.validationErrors.map(error => (
@@ -116,15 +122,17 @@ class Signup extends Component {
           )}
           <Button
             button={signupButtonValues}
-            signUpClick={e => {
-              this.formValidator() && this.submitForm(e);
+            onClick={e => {
+              !checkAllEmptyInputs(userCredentials).length &&
+                this.formValidator(e) &&
+                this.submitForm(e);
             }}
           />
-        </Form>
+        </form>
         <div className="d-flex or-div">
-          <hr />
+          <hr className="hr" />
           <p className="or">OR</p>
-          <hr />
+          <hr className="hr" />
         </div>
         <div className="icon-container">
           <div className="icon-card">
@@ -141,7 +149,7 @@ class Signup extends Component {
     );
   }
 }
-Signup.propTypes = {
+Register.propTypes = {
   signupUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -155,4 +163,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { signupUser },
-)(Signup);
+)(Register);

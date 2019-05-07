@@ -6,7 +6,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-
   .auth-container {
     display: block;
     padding: 0% 0%;
@@ -14,9 +13,7 @@
     .left {
       display: none;
     }
-
     .right {
-      // background: red;
       display: flex;
       justify-content: center;
 
@@ -28,12 +25,9 @@
       }
     }
   }
-
 }
 
-
 @media screen and (min-width: 600px) and (max-width: 900px) {
-
   .auth-container {
     display: block;
     padding: 0% 0%;
@@ -41,19 +35,14 @@
     .left {
       display: none;
     }
-
     .right {
-      // background: red;
       display: flex;
       justify-content: center;
 
       .card {
-        // border: 0;
-        // box-shadow: none;
         margin-top: 0px;
         width: 80%;
       }
     }
   }
-
 }

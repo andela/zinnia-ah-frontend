@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
 
 import Title from '../Title/Title';
 import Button from '../Button/Button.jsx';
@@ -11,17 +10,17 @@ const ForgotPasswordCard = () => {
     <div className="right">
       <div className="card forgot-password">
         <Title title={title} />
-        <hr />
+        <hr className="hr" />
         <p>
           Enter the email you used to sign up and we‘ll send you a password
           reset link
         </p>
-        <Form>
-          <Form.Field>
+        <form className="form">
+          <div className="form-group">
             <input placeholder="Email" type="email" />
-          </Form.Field>
+          </div>
           <Button button={buttonValues} />
-        </Form>
+        </form>
       </div>
     </div>
   );
