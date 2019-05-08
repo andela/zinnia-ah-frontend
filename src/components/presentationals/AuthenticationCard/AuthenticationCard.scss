@@ -1,4 +1,4 @@
-@import "../../../assets/variables";
+@import '../../../assets/variables';
 
 .card {
   background: $primary-white;
@@ -12,7 +12,6 @@
 }
 
 .hr {
-  width: 107px;
   background-color: $secondary-grey;
   border: 0;
   height: 1px;
@@ -29,6 +28,7 @@
       width: 50%;
     }
   }
+
   .segment {
     border: 0;
     box-shadow: none;
@@ -38,14 +38,14 @@
 
 .right {
   .or-div {
-    height: 22px;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 22px;
     margin-top: 25px;
 
     .hr {
-      width: 163px;
       margin-top: 20px;
+      width: 163px;
     }
 
     .or {

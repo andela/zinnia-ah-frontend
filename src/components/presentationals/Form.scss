@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
-@import "../../assets/variables";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
+@import '../../assets/variables';
 
 .form {
   font-size: 1rem;
@@ -12,19 +12,19 @@
 
     .form-control {
       background: #fff;
-      border: 1px solid rgba(84, 95, 125, 0.15);
-      border-radius: 0.28571429rem;
+      border: 1px solid rgba(84, 95, 125, .15);
+      border-radius: .28571429rem;
       box-shadow: 0 20 0 0 transparent inset;
-      color: rgba(0, 0, 0, 0.87);
-      font-family: "Lato", san-serif;
+      color: rgba(0, 0, 0, n.87);
+      font-family: 'Lato', san-serif;
       font-size: 1em;
       height: 50px;
       line-height: 1.21428571em;
-      margin-top: 15px;
       margin: 0;
+      margin-top: 15px;
       outline: 0;
-      padding: 0.67857143em 1em;
-      transition: color 0.1s ease, border-color 0.1s ease;
+      padding: .67857143em 1em;
+      transition: color .1s ease, border-color .1s ease;
       width: 100%;
     }
   }
@@ -37,12 +37,13 @@
     color: $secondary-grey-2;
     font-size: 14px;
     line-height: 17px;
-    opacity: 0.3;
+    opacity: .3;
   }
 }
+
 .loading {
   cursor: default;
-  position: relative;
+  opacity: .3;
   pointer-events: none;
-  opacity: 0.3;
+  position: relative;
 }

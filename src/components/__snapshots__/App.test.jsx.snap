@@ -7,5 +7,12 @@ exports[`App should render correctly 1`] = `
   >
      My React App!! 
   </h1>
+  <Link
+    to="/auth"
+  >
+    <button>
+      Signup
+    </button>
+  </Link>
 </div>
 `;

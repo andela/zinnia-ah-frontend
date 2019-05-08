@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento");
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
 
 .auth-container {
   display: flex;
@@ -8,11 +8,12 @@
 @media only screen and (max-width: 600px) {
   .auth-container {
     display: block;
-    padding: 0% 0%;
+    padding: 0%;
 
     .left {
       display: none;
     }
+
     .right {
       display: flex;
       justify-content: center;
@@ -20,7 +21,7 @@
       .card {
         border: 0;
         box-shadow: none;
-        margin-top: 0px;
+        margin-top: 0;
         width: 100%;
       }
     }
@@ -30,17 +31,18 @@
 @media screen and (min-width: 600px) and (max-width: 900px) {
   .auth-container {
     display: block;
-    padding: 0% 0%;
+    padding: 0%;
 
     .left {
       display: none;
     }
+
     .right {
       display: flex;
       justify-content: center;
 
       .card {
-        margin-top: 0px;
+        margin-top: 0;
         width: 80%;
       }
     }

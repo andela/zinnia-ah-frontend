@@ -5,7 +5,7 @@ import { Tab } from 'semantic-ui-react';
 import Button from '../Button/Button';
 import Image from '../Image/Image';
 import Title from '../../presentationals/Title/Title';
-import SignupForm from '../../../pages/Register/Register';
+import SignupForm from '../../Register/Register';
 
 // styles
 import './AuthenticationCard.scss';

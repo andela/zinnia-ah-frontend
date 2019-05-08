@@ -23,7 +23,8 @@
     ]
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
+    "test:watch": "jest -u --watch",
     "start": "node server.js",
     "watch": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",

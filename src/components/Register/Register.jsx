@@ -10,9 +10,9 @@ import {
 } from '../../utils/formValidator';
 
 // components
-import Button from '../../components/presentationals/Button/Button';
-import Image from '../../components/presentationals/Image/Image';
-import Loader from '../../components/presentationals/Loader/Loader';
+import Button from '../presentationals/Button/Button';
+import Image from '../presentationals/Image/Image';
+import Loader from '../presentationals/Loader/Loader';
 import '../../components/presentationals/AuthenticationCard/AuthenticationCard.scss';
 
 // styles
@@ -71,7 +71,7 @@ class Register extends Component {
     };
     const { userCredentials } = this.state;
     let loader;
-    auth.isLoading && (loader = <Loader text="signing up" size="large" />);
+    auth.isLoading && (loader = <Loader text="please wait" size="large" />);
     return (
       <div>
         {loader}
