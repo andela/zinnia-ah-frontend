@@ -14,7 +14,7 @@
       background: #fff;
       border: 1px solid rgba(84, 95, 125, 0.15);
       border-radius: 0.28571429rem;
-      box-shadow: 0 0 0 0 transparent inset;
+      box-shadow: 0 20 0 0 transparent inset;
       color: rgba(0, 0, 0, 0.87);
       font-family: "Lato", san-serif;
       font-size: 1em;
@@ -39,10 +39,10 @@
     line-height: 17px;
     opacity: 0.3;
   }
-
-  .loading {
-    cursor: default;
-    position: relative;
-    pointer-events: none;
-  }
+}
+.loading {
+  cursor: default;
+  position: relative;
+  pointer-events: none;
+  opacity: 0.3;
 }

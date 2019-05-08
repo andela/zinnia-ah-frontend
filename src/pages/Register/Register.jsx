@@ -12,6 +12,7 @@ import {
 // components
 import Button from '../../components/presentationals/Button/Button';
 import Image from '../../components/presentationals/Image/Image';
+import Loader from '../../components/presentationals/Loader/Loader';
 import '../../components/presentationals/AuthenticationCard/AuthenticationCard.scss';
 
 // styles
@@ -52,25 +53,29 @@ class Register extends Component {
       this.setState({ validationErrors: '' });
       return true;
     }
-    return false;
   };
 
   submitForm = event => {
     event.preventDefault();
-    this.props.signupUser({ ...this.state.userCredentials });
+    this.props.signupUser({
+      ...this.state.userCredentials,
+    });
   };
 
   render() {
+    const { auth } = this.props;
     const signupButtonValues = {
       type: 'submit',
       value: 'GET STARTED',
       className: 'btn-dark',
     };
-    const { auth } = this.props;
     const { userCredentials } = this.state;
+    let loader;
+    auth.isLoading && (loader = <Loader text="signing up" size="large" />);
     return (
       <div>
-        <form id="form" data-loading={auth.isLoading} className="form">
+        {loader}
+        <form id="form" className="form">
           <div className="form-group">
             <input
               className="form-control"

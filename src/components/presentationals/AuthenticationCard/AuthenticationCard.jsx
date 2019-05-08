@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab, Form } from 'semantic-ui-react';
+import { Tab } from 'semantic-ui-react';
 
 // components
 import Button from '../Button/Button';
@@ -29,20 +29,24 @@ const panes = [
     menuItem: 'Login',
     render: () => (
       <Tab.Pane attached={false}>
-        <Form>
-          <Form.Field>
-            <input placeholder="Username or Email" />
-          </Form.Field>
-          <Form.Field>
-            <input placeholder="Password" type="password" />
-          </Form.Field>
+        <form className="form">
+          <div className="form-group">
+            <input className="form-control" placeholder="Username or Email" />
+          </div>
+          <div className="form-group">
+            <input
+              className="form-control"
+              placeholder="Password"
+              type="password"
+            />
+          </div>
           <div className="text-right">
             <a href="/forgot-password" className="text-red">
               Forgot Password?
             </a>
           </div>
           <Button button={loginButtonValues} />
-        </Form>
+        </form>
         <div className="d-flex or-div">
           <hr className="hr" />
           <p className="or">OR</p>
@@ -88,7 +92,7 @@ const title = {
 const loginButtonValues = {
   type: 'submit',
   value: 'CONTINUE',
-  class: 'btn-dark',
+  className: 'btn-dark',
 };
 
 export default AuthenticationCard;
