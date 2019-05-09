@@ -1,87 +1,66 @@
 import React from 'react';
-import { Tab } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
+import { Switch, Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// components
-import Button from '../Button/Button';
-import Image from '../Image/Image';
-import Title from '../../presentationals/Title/Title';
-import SignupForm from '../../Register/Register';
-
-// styles
+import Title from '../Title/Title.jsx';
 import './AuthenticationCard.scss';
-import '../../presentationals/Form.scss';
-
-// images
+import '../Form.scss';
+import LoginForm from '../../container/login/loginComponent';
+import SignupForm from '../../container/Register/Register';
 import GoogleIcon from '../../../assets/images/google-icon.svg';
 import FacebookIcon from '../../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../../assets/images/twitter-icon.svg';
 
-const panes = [
-  {
-    menuItem: 'Sign Up',
-    render: () => (
-      <Tab.Pane attached={false}>
-        <SignupForm />
-      </Tab.Pane>
-    ),
-  },
-  {
-    menuItem: 'Login',
-    render: () => (
-      <Tab.Pane attached={false}>
-        <form className="form">
-          <div className="form-group">
-            <input className="form-control" placeholder="Username or Email" />
-          </div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              placeholder="Password"
-              type="password"
-            />
-          </div>
-          <div className="text-right">
-            <a href="/forgot-password" className="text-red">
-              Forgot Password?
-            </a>
-          </div>
-          <Button type="submit" value="CONTINUE" className="btn-dark" />
-        </form>
-        <div className="d-flex or-div">
-          <hr className="hr" />
-          <p className="or">OR</p>
-          <hr className="hr" />
-        </div>
-        <div className="icon-container">
-          <div className="icon-card">
-            <Image src={GoogleIcon} />
-          </div>
-          <div className="icon-card">
-            <Image src={FacebookIcon} />
-          </div>
-          <div className="icon-card">
-            <Image src={TwitterIcon} />
-          </div>
-        </div>
-      </Tab.Pane>
-    ),
-  },
-];
+const AuthenticationCard = ({ pathname }) => {
+  const loginClass = pathname === '/login' ? 'active item' : 'item';
+  const signupClass = pathname === '/signup' ? 'active item' : 'item';
 
-const AuthenticationCard = () => {
   return (
     <div className="right">
+      <ToastContainer autoClose={8000} />
       <div className="auth-card">
         <Title content="Become an Author" className="text-center" />
-        <hr className="hr" />
-        <Tab
-          className="tab-label"
-          menu={{ secondary: true, pointing: true }}
-          panes={panes}
-        />
+        <hr />
+        <div className="tab-label">
+          <div className="ui pointing secondary menu">
+            <Link className={signupClass} to="/signup">
+              Sign Up
+            </Link>
+            <Link className={loginClass} to="/login">
+              Login
+            </Link>
+          </div>
+          <Switch>
+            <Route path="/login" component={LoginForm} />
+            <Route path="/signup" component={SignupForm} />
+          </Switch>
+          <div className="d-flex or-div">
+            <hr />
+            <p className="or">OR</p>
+            <hr />
+          </div>
+          <div className="icon-container">
+            <div className="icon-card">
+              <Image src={GoogleIcon} />
+            </div>
+            <div className="icon-card">
+              <Image src={FacebookIcon} />
+            </div>
+            <div className="icon-card">
+              <Image src={TwitterIcon} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
+};
+
+AuthenticationCard.propTypes = {
+  pathname: PropTypes.string.isRequired,
 };
 
 export default AuthenticationCard;

@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> should mount correctly 1`] = `
+<Login
+  auth={
+    Object {
+      "errorResponse": Array [],
+      "isLoading": true,
+      "successResponse": Object {
+        "message": "",
+        "status": "success",
+      },
+    }
+  }
+  loginUser={[MockFunction]}
+>
+  <div>
+    <Loader
+      size="large"
+      text="please wait"
+    >
+      <div
+        className="ui active inverted dimmer"
+      >
+        <div
+          className="ui indeterminate text loader large"
+        >
+          please wait
+        </div>
+      </div>
+    </Loader>
+    <form
+      className="form"
+      id="form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <Input
+          className="form-control false"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value=""
+        >
+          <div>
+            <input
+              className="form-control false"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              type="email"
+              value=""
+            />
+          </div>
+        </Input>
+      </div>
+      <div
+        className="form-group"
+      >
+        <Input
+          className="form-control false"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        >
+          <div>
+            <input
+              className="form-control false"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </Input>
+      </div>
+      <div
+        className="text-right"
+      >
+        <a
+          className="text-red"
+          href="/forgot-password"
+        >
+          Forgot Password?
+        </a>
+      </div>
+      <Button
+        className="btn-dark"
+        type="submit"
+        value="CONTINUE"
+      >
+        <button
+          className="btn btn-dark"
+          type="submit"
+        >
+          CONTINUE
+        </button>
+      </Button>
+    </form>
+  </div>
+</Login>
+`;

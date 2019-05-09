@@ -6,12 +6,16 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_INITIALIZED,
   SIGNUP_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_INITIALIZED,
   initialState,
   signUpIntialize,
   signUpSuccess,
   signUpError,
   authReducer,
   signupUser,
+  loginInitialize,
+  loginSuccess,
 } from './auth';
 
 const mockStore = configureStore([thunk]);
@@ -25,7 +29,7 @@ const mockData = {
   },
 };
 
-describe('signup actions', () => {
+describe('SIGNUP ACTIONS', () => {
   it('should dispatch an action for sign up request', () => {
     const action = {
       type: SIGNUP_INITIALIZED,
@@ -77,6 +81,24 @@ describe('signup actions', () => {
   });
 });
 
+describe('LOGIN ACTIONS', () => {
+  it('should dispatch an action for login up request', () => {
+    const action = {
+      type: LOGIN_INITIALIZED,
+    };
+    expect(loginInitialize()).toEqual(action);
+  });
+
+  it('should dispatch an action for login up success', () => {
+    const response = {};
+    const action = {
+      type: LOGIN_SUCCESS,
+      response,
+    };
+    expect(loginSuccess(response)).toEqual(action);
+  });
+});
+
 describe('auth reducer test suite', () => {
   it('should return default state', () => {
     const state = authReducer(initialState, { type: '' });
@@ -88,16 +110,31 @@ describe('auth reducer test suite', () => {
     const state = authReducer(initialState, action);
     expect(state.isLoading).toBe(true);
   });
+
   it('should return signup success reducer', () => {
     const action = signUpSuccess();
     const state = authReducer(initialState, action);
     expect(state.isLoading).toBe(false);
     expect(state.successResponse).toEqual(action.response);
   });
+
   it('should return signup failure reducer', () => {
     const action = signUpError();
     const state = authReducer(initialState, action);
     expect(state.isLoading).toBe(false);
     expect(state.errorResponse).toEqual(action.error);
+  });
+
+  it('should return loginIntialize reducer', () => {
+    const action = loginInitialize();
+    const state = authReducer(initialState, action);
+    expect(state.isLoading).toBe(true);
+  });
+
+  it('should return login success reducer', () => {
+    const action = loginSuccess();
+    const state = authReducer(initialState, action);
+    expect(state.isLoading).toBe(false);
+    expect(state.successResponse).toEqual(action.response);
   });
 });

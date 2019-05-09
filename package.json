@@ -74,7 +74,6 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-config-react": "^1.1.7",
@@ -99,7 +98,6 @@
     "sass-lint-auto-fix": "^0.17.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "stylelint-config-standard": "^18.3.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
@@ -114,6 +112,7 @@
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
+    "react-toastify": "^5.1.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
