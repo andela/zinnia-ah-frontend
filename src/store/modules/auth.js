@@ -3,20 +3,20 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const SIGNUP_REQUESTED = 'SIGNUP_REQUESTED';
 import { http, setToken } from '../../api';
 
-function signUpRequest() {
+export function signUpRequest() {
   return {
     type: SIGNUP_REQUESTED,
   };
 }
 
-function signUpSuccess(response) {
+export function signUpSuccess(response) {
   return {
     type: SIGNUP_SUCCESS,
     response,
   };
 }
 
-function signUpError(error) {
+export function signUpError(error) {
   return {
     type: SIGNUP_ERROR,
     error,
@@ -36,7 +36,7 @@ export function signupUser(userData) {
   };
 }
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: [],
