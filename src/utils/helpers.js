@@ -9,7 +9,6 @@ export const setToken = token => {
     destroyToken();
   }
   localStorage.setItem('token', JSON.stringify(token));
-  return getToken();
 };
 
 export const getToken = () => {
@@ -18,6 +17,5 @@ export const getToken = () => {
 };
 
 export const destroyToken = () => {
-  localStorage.removeItem('token');
-  return null;
+  return localStorage.removeItem('token');
 };
