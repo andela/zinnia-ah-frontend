@@ -71,7 +71,7 @@ const panes = [
 const AuthenticationCard = () => {
   return (
     <div className="right">
-      <div className="card">
+      <div className="auth-card">
         <Title title={title} />
         <hr className="hr" />
         <Tab

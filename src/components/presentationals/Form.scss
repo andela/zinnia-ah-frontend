@@ -9,24 +9,18 @@
   .form-group {
     clear: both;
     margin: 0 0 1em;
+  }
 
-    .form-control {
-      background: #fff;
-      border: 1px solid rgba(84, 95, 125, .15);
-      border-radius: .28571429rem;
-      box-shadow: 0 20 0 0 transparent inset;
-      color: rgba(0, 0, 0, .87);
-      font-family: 'Lato', san-serif;
-      font-size: 1em;
-      height: 50px;
-      line-height: 1.21428571em;
-      margin: 0;
-      margin-top: 15px;
-      outline: 0;
-      padding: .67857143em 1em;
-      transition: color .1s ease, border-color .1s ease;
-      width: 100%;
-    }
+  .form-control {
+    border: 1px solid $primary-grey-opacity-0;
+    border-radius: .28571429rem;
+    color: $primary-black-opacity-8;
+    font: 1em 1.0625em 'Lato', sans-serif;
+    height: 50px;
+    margin: 1.25rem 0 0;
+    outline: 0;
+    padding: .67857143em 1em;
+    width: 100%;
   }
 
   .form-control.error {

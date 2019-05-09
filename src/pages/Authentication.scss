@@ -17,14 +17,14 @@
     .right {
       display: flex;
       justify-content: center;
-
-      .card {
-        border: 0;
-        box-shadow: none;
-        margin-top: 0;
-        width: 100%;
-      }
     }
+  }
+
+  .auth-card {
+    border: 0;
+    box-shadow: none;
+    margin-top: 0;
+    width: 100%;
   }
 }
 
@@ -40,11 +40,11 @@
     .right {
       display: flex;
       justify-content: center;
-
-      .card {
-        margin-top: 0;
-        width: 80%;
-      }
     }
+  }
+
+  .auth-card {
+    margin-top: 0;
+    width: 80%;
   }
 }
