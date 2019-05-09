@@ -1,24 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
 @import '../../assets/variables';
 
-form {
+.form {
+  font-size: 1rem;
+  max-width: 100%;
+  position: relative;
 
-  input {
-    border: 1px solid $primary-grey-opacity-0 !important;
-    border-radius: 5px !important;
-    font-family: 'Lato', san-serif !important;
-    height: 50px;
-    margin-top: 15px !important;
+  .form-group {
+    clear: both;
+    margin: 0 0 1em;
+
+    .form-control {
+      background: #fff;
+      border: 1px solid rgba(84, 95, 125, .15);
+      border-radius: .28571429rem;
+      box-shadow: 0 20 0 0 transparent inset;
+      color: rgba(0, 0, 0, .87);
+      font-family: 'Lato', san-serif;
+      font-size: 1em;
+      height: 50px;
+      line-height: 1.21428571em;
+      margin: 0;
+      margin-top: 15px;
+      outline: 0;
+      padding: .67857143em 1em;
+      transition: color .1s ease, border-color .1s ease;
+      width: 100%;
+    }
+  }
+
+  .form-control.error {
+    border: 1px solid $primary-red;
   }
 
   ::placeholder {
-    color: $secondary-grey-2 !important;
-    font-size: 14px !important;
-    line-height: 17px !important;
-    opacity: .6;
+    color: $secondary-grey-2;
+    font-size: 14px;
+    line-height: 17px;
+    opacity: .3;
   }
+}
 
-  button {
-    margin-top: 15px !important;
-  }
+.loading {
+  cursor: default;
+  opacity: .3;
+  pointer-events: none;
+  position: relative;
 }

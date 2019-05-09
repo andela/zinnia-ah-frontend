@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
-@import '../../assets/variables';
+@import '../../../assets/variables';
 
 .btn {
   background-color: $secondary-grey;
@@ -10,6 +10,7 @@
   font-size: 14px;
   height: 50px;
   letter-spacing: .1em;
+  outline: none;
   text-align: center;
   width: 100%;
 }

@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Register /> mounts correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ConnectFunction>
+    <Register
+      auth={
+        Object {
+          "errorResponse": Array [],
+          "isLoading": false,
+          "successResponse": Array [],
+        }
+      }
+      signupUser={[Function]}
+    >
+      <div>
+        <form
+          className="form"
+          id="form"
+        >
+          <div
+            className="form-group"
+          >
+            <input
+              className="form-control"
+              name="username"
+              onChange={[Function]}
+              placeholder="Username"
+              required={true}
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <input
+              className="form-control"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="email"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <input
+              className="form-control"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              required={true}
+              type="password"
+              value=""
+            />
+          </div>
+          <Button
+            button={
+              Object {
+                "className": "btn-dark",
+                "type": "submit",
+                "value": "GET STARTED",
+              }
+            }
+            onClick={[Function]}
+          >
+            <button
+              className="btn btn-dark"
+              onClick={[Function]}
+              type="btn-dark"
+            >
+              GET STARTED
+            </button>
+          </Button>
+        </form>
+        <div
+          className="d-flex or-div"
+        >
+          <hr
+            className="hr"
+          />
+          <p
+            className="or"
+          >
+            OR
+          </p>
+          <hr
+            className="hr"
+          />
+        </div>
+        <div
+          className="icon-container"
+        >
+          <div
+            className="icon-card"
+          >
+            <Image
+              src=""
+            >
+              <img
+                src=""
+              />
+            </Image>
+          </div>
+          <div
+            className="icon-card"
+          >
+            <Image
+              src=""
+            >
+              <img
+                src=""
+              />
+            </Image>
+          </div>
+          <div
+            className="icon-card"
+          >
+            <Image
+              src=""
+            >
+              <img
+                src=""
+              />
+            </Image>
+          </div>
+        </div>
+      </div>
+    </Register>
+  </ConnectFunction>
+  ,
+</Provider>
+`;

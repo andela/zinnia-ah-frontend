@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown } from 'semantic-ui-react';
-import Avatar from './Avatar.jsx';
-import './Avatar.jsx';
+import Avatar from '../Avatar/Avatar';
 import './Navbar.scss';
 
 const Navbar = ({ props }) => {
@@ -13,7 +12,7 @@ const Navbar = ({ props }) => {
         <div>
           <h1 className="brand">Authors Haven</h1>
         </div>
-        {props.profileUrl !== '' && (
+        {props.profileUrl && (
           <div className="navbar-avatar">
             <Avatar avatarUrl={props.profileUrl} />
             <Dropdown className="dropdown">

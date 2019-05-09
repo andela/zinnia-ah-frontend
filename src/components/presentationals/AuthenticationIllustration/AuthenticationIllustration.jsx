@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Title from './Title.jsx';
-import Illustration from '../../assets/images/reading-lady.svg';
+import Title from '../Title/Title';
+import Illustration from '../../../assets/images/reading-lady.svg';
 import './AuthenticationIllustration.scss';
 
 const AuthenticationIllustration = () => {

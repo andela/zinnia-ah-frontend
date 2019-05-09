@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
-@import '../../assets/variables';
+@import '../../../assets/variables';
 
 .navbar {
   align-items: center;
@@ -20,12 +20,8 @@
   }
 }
 
-
 @media only screen and (max-width: 900px) {
-
   .navbar {
     justify-content: center;
   }
-
 }
-
