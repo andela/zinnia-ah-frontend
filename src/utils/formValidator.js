@@ -1,43 +1,37 @@
 export function checkAllEmptyInputs(userCredentials) {
   const emptyFields = [];
   Object.keys(userCredentials).forEach(key => {
-    if (userCredentials[key].trim() === '') {
-      document.querySelector(`input[name=${key}]`).classList.add('error');
-      emptyFields.push(key);
-    } else {
-      document.querySelector(`input[name=${key}]`).classList.remove('error');
-      emptyFields.splice(emptyFields.indexOf(emptyFields[key]), 1);
-    }
+    userCredentials[key].replace(/([ ])+/g, '') === ''
+      ? emptyFields.push(key)
+      : '';
   });
   return emptyFields;
 }
 
-export function fieldChecker(event) {
+export function fieldChecker(event, currentEmptyFields) {
+  const emptyFields = [...currentEmptyFields];
   const { target } = event;
-  if (target.value === '') {
-    return document
-      .querySelector(`input[name=${target.name}]`)
-      .classList.add('error');
+  const trimmed = target.value.replace(/([ ])+/g, '');
+  if (trimmed !== '') {
+    const index = emptyFields.indexOf(target.name);
+    emptyFields.splice(index, 1);
+    return emptyFields;
   }
-  return document
-    .querySelector(`input[name=${target.name}]`)
-    .classList.remove('error');
+  emptyFields.push(target.name);
+  return emptyFields;
 }
 
 export function validateInput(userCredentials) {
   const validationErrors = [];
   if (userCredentials['username'].trim().length < 3) {
-    document.querySelector('input[name="username"]').classList.add('error');
     validationErrors.push('username must be at least 3 characters');
   }
 
   if (userCredentials['password'].trim().length < 8) {
-    document.querySelector('input[name="password"]').classList.add('error');
     validationErrors.push('password must be at least 8 characters');
   }
 
   if (!userCredentials['password'].match(/^([a-zA-Z0-9]+)$/)) {
-    document.querySelector('input[name="password"]').classList.add('error');
     validationErrors.push('password can only contain alphanumerics');
   }
 
@@ -48,7 +42,6 @@ export function validateInput(userCredentials) {
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
       )
   ) {
-    document.querySelector('input[name="email"]').classList.add('error');
     validationErrors.push('email must be a valid email');
   }
   return validationErrors;

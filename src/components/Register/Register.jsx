@@ -30,21 +30,33 @@ class Register extends Component {
       password: '',
       username: '',
     },
-    validationErrors: '',
+    validationErrors: [],
+    emptyFields: [],
   };
 
   userInputHandler = event => {
+    const { emptyFields } = this.state;
+    const currentEmptyFields = fieldChecker(event, emptyFields);
     this.setState({
       userCredentials: {
         ...this.state.userCredentials,
         [event.target.name]: event.target.value,
       },
+      emptyFields: currentEmptyFields,
     });
   };
 
   formValidator = event => {
-    const { userCredentials } = this.state;
     event.preventDefault();
+    const { userCredentials } = this.state;
+    const emptyFields = checkAllEmptyInputs(userCredentials);
+    if (emptyFields.length) {
+      this.setState({
+        emptyFields,
+      });
+      return false;
+    }
+    this.setState({ emptyFields: [] });
     const validationErrors = validateInput(userCredentials);
     this.setState({
       validationErrors,
@@ -53,6 +65,7 @@ class Register extends Component {
       this.setState({ validationErrors: '' });
       return true;
     }
+    return false;
   };
 
   submitForm = event => {
@@ -64,58 +77,58 @@ class Register extends Component {
 
   render() {
     const { auth } = this.props;
+    const { emptyFields } = this.state;
+    const usernameClasses = ['form-control'];
+    const emailClasses = ['form-control'];
+    const passwordClasses = ['form-control'];
+    emptyFields.includes('email') ? emailClasses.push('error') : '';
+    emptyFields.includes('username') ? usernameClasses.push('error') : '';
+    emptyFields.includes('password') ? passwordClasses.push('error') : '';
     const signupButtonValues = {
       type: 'submit',
       value: 'GET STARTED',
       className: 'btn-dark',
     };
-    const { userCredentials } = this.state;
     let loader;
     auth.isLoading && (loader = <Loader text="please wait" size="large" />);
     return (
       <div>
         {loader}
-        <form id="form" className="form">
+        <form
+          id="form"
+          className="form"
+          onSubmit={e => {
+            this.formValidator(e) && this.submitForm(e);
+          }}
+        >
           <div className="form-group">
             <input
-              className="form-control"
+              className={usernameClasses.join(' ')}
               placeholder="Username"
-              onChange={e => {
-                this.userInputHandler(e);
-                fieldChecker(e);
-              }}
+              onChange={this.userInputHandler}
               value={this.state.userCredentials.username}
               name="username"
-              required
             />
           </div>
 
           <div className="form-group">
             <input
               placeholder="Email"
-              className="form-control"
+              className={emailClasses.join(' ')}
               type="email"
-              onChange={e => {
-                this.userInputHandler(e);
-                fieldChecker(e);
-              }}
+              onChange={this.userInputHandler}
               value={this.state.userCredentials.email}
               name="email"
-              required
             />
           </div>
           <div className="form-group">
             <input
-              className="form-control"
+              className={passwordClasses.join(' ')}
               placeholder="Password"
               type="password"
-              onChange={e => {
-                this.userInputHandler(e);
-                fieldChecker(e);
-              }}
+              onChange={this.userInputHandler}
               value={this.state.userCredentials.password}
               name="password"
-              required
             />
           </div>
           {this.state.validationErrors.length > 0 && (
@@ -125,14 +138,7 @@ class Register extends Component {
               ))}
             </div>
           )}
-          <Button
-            button={signupButtonValues}
-            onClick={e => {
-              !checkAllEmptyInputs(userCredentials).length &&
-                this.formValidator(e) &&
-                this.submitForm(e);
-            }}
-          />
+          <Button button={signupButtonValues} />
         </form>
         <div className="d-flex or-div">
           <hr className="hr" />
@@ -164,6 +170,8 @@ const mapStateToProps = state => {
     auth: state.auth,
   };
 };
+
+export const unwrappedRegister = Register;
 
 export default connect(
   mapStateToProps,
