@@ -1,11 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
+
+// colors
 $primary-white: #fff;
 $primary-black: #000;
 $primary-grey: #828282;
 $secondary-grey: #c4c4c4;
 $secondary-grey-2: #545f7d;
 $primary-red: #f00;
-
+$secondary-black: #666;
 $primary-black-opacity-2: rgba(0, 0, 0, .25);
 $primary-black-opacity-1: rgba(0, 0, 0, .1);
-
 $primary-grey-opacity-0: rgba(84, 95, 125, .15);
+$primary-black-opacity-8: rgba(0, 0, 0, .87);
+
+// fonts
+$lato: 'Lato', sans-serif;
+$sacramento: 'Sacramento', cursive;
+

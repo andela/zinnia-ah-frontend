@@ -1,19 +1,22 @@
 import React from 'react';
 
-import Title from './Title.jsx';
-import Illustration from '../../assets/images/reading-lady.svg';
+import Title from '../Title/Title';
+import Illustration from '../../../assets/images/reading-lady.svg';
 import './AuthenticationIllustration.scss';
 
 const AuthenticationIllustration = () => {
-  const body = {
+  const styles = {
     fontSize: '20px',
     lineHeight: '24px',
     marginTop: '18px',
   };
   return (
     <div className="left">
-      <Title title={title} />
-      <p style={body}>
+      <Title
+        className="title-lg"
+        content="A Safe Haven For The Creative At Heart"
+      />
+      <p style={styles}>
         A community of like minded authors to foster inspiration and innovation
         by leveraging the modern web.
       </p>
@@ -25,11 +28,6 @@ const AuthenticationIllustration = () => {
       </div>
     </div>
   );
-};
-
-const title = {
-  content: 'A Safe Haven For The Creative At Heart',
-  class: 'title-lg',
 };
 
 export default AuthenticationIllustration;

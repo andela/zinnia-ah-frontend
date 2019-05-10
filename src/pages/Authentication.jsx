@@ -1,23 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Navbar from '../components/presentationals/Navbar.jsx';
-import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration.jsx';
-import AuthenticationCard from '../components/presentationals/AuthenticationCard.jsx';
-import './Authentication.scss';
+// components
+import Navbar from '../components/presentationals/Navbar/Navbar';
+import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration/AuthenticationIllustration';
+import AuthenticationCard from '../components/presentationals/AuthenticationCard/AuthenticationCard';
 
-const AuthenticationLayout = () => {
+// styles
+import '../pages/Authentication.scss';
+
+const AuthenticationLayout = ({ profileUrl }) => {
   return (
     <div>
-      <Navbar props={testNavbar} />
+      <Navbar profileUrl={profileUrl} />
       <div className="d-flex auth-container">
-        <AuthenticationIllustration />
+        <AuthenticationIllustration className="illustration" />
         <AuthenticationCard />
       </div>
     </div>
   );
 };
 
-let testNavbar = {
+AuthenticationLayout.propTypes = {
+  profileUrl: PropTypes.string,
+};
+
+AuthenticationLayout.defaultProps = {
   profileUrl: '',
 };
 

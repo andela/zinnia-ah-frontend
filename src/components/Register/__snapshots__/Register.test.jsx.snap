@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Register /> mounts correctly 1`] = `
+<Register
+  auth={
+    Object {
+      "errorResponse": Array [],
+      "isLoading": true,
+      "successResponse": Object {
+        "message": "",
+        "status": "success",
+      },
+    }
+  }
+  signupUser={[MockFunction]}
+>
+  <div>
+    <Loader
+      size="large"
+      text="please wait"
+    >
+      <div
+        className="ui active inverted dimmer"
+      >
+        <div
+          className="ui indeterminate text loader large"
+        >
+          please wait
+        </div>
+      </div>
+    </Loader>
+    <form
+      className="form"
+      id="form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control "
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control "
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control "
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <Button
+        className="btn-dark"
+        type="submit"
+        value="GET STARTED"
+      >
+        <button
+          className="btn btn-dark"
+          type="submit"
+        >
+          GET STARTED
+        </button>
+      </Button>
+    </form>
+    <div
+      className="d-flex or-div"
+    >
+      <hr
+        className="hr"
+      />
+      <p
+        className="or"
+      >
+        OR
+      </p>
+      <hr
+        className="hr"
+      />
+    </div>
+    <div
+      className="icon-container"
+    >
+      <div
+        className="icon-card"
+      >
+        <Image
+          src=""
+        >
+          <img
+            src=""
+          />
+        </Image>
+      </div>
+      <div
+        className="icon-card"
+      >
+        <Image
+          src=""
+        >
+          <img
+            src=""
+          />
+        </Image>
+      </div>
+      <div
+        className="icon-card"
+      >
+        <Image
+          src=""
+        >
+          <img
+            src=""
+          />
+        </Image>
+      </div>
+    </div>
+  </div>
+</Register>
+`;

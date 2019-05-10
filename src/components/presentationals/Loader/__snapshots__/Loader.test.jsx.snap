@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loader /> mounts without exploding 1`] = `
+<div
+  className="ui active inverted dimmer"
+>
+  <div
+    className="ui indeterminate text loader large"
+  >
+    signing up
+  </div>
+</div>
+`;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Navbar from '../components/presentationals/Navbar.jsx';
-import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration.jsx';
-import ForgotPasswordCard from '../components/presentationals/ForgotPasswordCard.jsx';
-import './Authentication.scss';
+import Navbar from '../components/presentationals/Navbar/Navbar';
+import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration/AuthenticationIllustration';
+import ForgotPasswordCard from '../components/presentationals/ForgotPassword/ForgotPassword';
+import '../pages/Authentication.scss';
 
 const ForgotPassword = () => {
   return (
