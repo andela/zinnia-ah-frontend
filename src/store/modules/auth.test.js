@@ -1,18 +1,18 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+import { http } from '../../api/client';
 import {
   SIGNUP_SUCCESS,
-  SIGNUP_REQUESTED,
+  SIGNUP_INITIALIZED,
   SIGNUP_ERROR,
   initialState,
-  signUpRequest,
+  signUpIntialize,
   signUpSuccess,
   signUpError,
   authReducer,
   signupUser,
 } from './auth';
-import { http } from '../../api';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
@@ -28,9 +28,9 @@ const mockData = {
 describe('signup actions', () => {
   it('should dispatch an action for sign up request', () => {
     const action = {
-      type: SIGNUP_REQUESTED,
+      type: SIGNUP_INITIALIZED,
     };
-    expect(signUpRequest()).toEqual(action);
+    expect(signUpIntialize()).toEqual(action);
   });
   it('should dispatch an action for sign up success', () => {
     const response = {};
@@ -52,7 +52,7 @@ describe('signup actions', () => {
     http.post = jest.fn().mockReturnValue(Promise.resolve({ data: mockData }));
     const expectedActions = [
       {
-        type: 'SIGNUP_REQUESTED',
+        type: 'SIGNUP_INITIALIZED',
       },
       {
         type: 'SIGNUP_SUCCESS',
@@ -68,7 +68,7 @@ describe('signup actions', () => {
       .fn()
       .mockReturnValue(Promise.reject(new Error('something bad happened')));
     const errorActions = [
-      { type: 'SIGNUP_REQUESTED' },
+      { type: 'SIGNUP_INITIALIZED' },
       { type: 'SIGNUP_ERROR' },
     ];
     store.dispatch(signupUser()).then(() => {
@@ -83,8 +83,8 @@ describe('auth reducer test suite', () => {
     expect(state).toEqual(initialState);
   });
 
-  it('should return signupRequest reducer', () => {
-    const action = signUpRequest();
+  it('should return signUpIntialize reducer', () => {
+    const action = signUpIntialize();
     const state = authReducer(initialState, action);
     expect(state.isLoading).toBe(true);
   });

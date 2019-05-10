@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import swal from 'sweetalert';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// helper functions
 import { signupUser } from '../../store/modules/auth';
 import {
   validateInput,
-  checkAllEmptyInputs,
+  checkAllEmptyFields,
   fieldChecker,
 } from '../../utils/formValidator';
 
@@ -13,9 +15,9 @@ import {
 import Button from '../presentationals/Button/Button';
 import Image from '../presentationals/Image/Image';
 import Loader from '../presentationals/Loader/Loader';
-import '../../components/presentationals/AuthenticationCard/AuthenticationCard.scss';
 
 // styles
+import '../../components/presentationals/AuthenticationCard/AuthenticationCard.scss';
 import '../../components/presentationals/Form.scss';
 
 // images
@@ -23,7 +25,7 @@ import GoogleIcon from '../../assets/images/google-icon.svg';
 import FacebookIcon from '../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../assets/images/twitter-icon.svg';
 
-class Register extends Component {
+export class Register extends Component {
   state = {
     userCredentials: {
       email: '',
@@ -49,7 +51,7 @@ class Register extends Component {
   formValidator = event => {
     event.preventDefault();
     const { userCredentials } = this.state;
-    const emptyFields = checkAllEmptyInputs(userCredentials);
+    const emptyFields = checkAllEmptyFields(userCredentials);
     if (emptyFields.length) {
       this.setState({
         emptyFields,
@@ -73,27 +75,20 @@ class Register extends Component {
     this.props.signupUser({
       ...this.state.userCredentials,
     });
+    const userCredentials = { email: '', password: '', username: '' };
+    this.setState({
+      userCredentials,
+    });
   };
 
   render() {
-    const { auth } = this.props;
+    const { isLoading, errorResponse, successResponse } = this.props.auth;
     const { emptyFields } = this.state;
-    const usernameClasses = ['form-control'];
-    const emailClasses = ['form-control'];
-    const passwordClasses = ['form-control'];
-    emptyFields.includes('email') ? emailClasses.push('error') : '';
-    emptyFields.includes('username') ? usernameClasses.push('error') : '';
-    emptyFields.includes('password') ? passwordClasses.push('error') : '';
-    const signupButtonValues = {
-      type: 'submit',
-      value: 'GET STARTED',
-      className: 'btn-dark',
-    };
-    let loader;
-    auth.isLoading && (loader = <Loader text="please wait" size="large" />);
+    successResponse.status === 'success' &&
+      swal('congratulations', successResponse.message, 'success');
     return (
       <div>
-        {loader}
+        {isLoading && <Loader text="please wait" size="large" />}
         <form
           id="form"
           className="form"
@@ -103,7 +98,9 @@ class Register extends Component {
         >
           <div className="form-group">
             <input
-              className={usernameClasses.join(' ')}
+              className={`form-control ${
+                emptyFields.includes('username') ? 'error' : ''
+              }`}
               placeholder="Username"
               onChange={this.userInputHandler}
               value={this.state.userCredentials.username}
@@ -114,7 +111,9 @@ class Register extends Component {
           <div className="form-group">
             <input
               placeholder="Email"
-              className={emailClasses.join(' ')}
+              className={`form-control ${
+                emptyFields.includes('email') ? 'error' : ''
+              }`}
               type="email"
               onChange={this.userInputHandler}
               value={this.state.userCredentials.email}
@@ -123,7 +122,9 @@ class Register extends Component {
           </div>
           <div className="form-group">
             <input
-              className={passwordClasses.join(' ')}
+              className={`form-control ${
+                emptyFields.includes('password') ? 'error' : ''
+              }`}
               placeholder="Password"
               type="password"
               onChange={this.userInputHandler}
@@ -138,7 +139,14 @@ class Register extends Component {
               ))}
             </div>
           )}
-          <Button button={signupButtonValues} />
+          {errorResponse.length > 0 && (
+            <div className="ui negative message">
+              {errorResponse.map(error => (
+                <p key={error.message}>{error.message}</p>
+              ))}
+            </div>
+          )}
+          <Button type="submit" value="GET STARTED" className="btn-dark" />
         </form>
         <div className="d-flex or-div">
           <hr className="hr" />
@@ -165,13 +173,7 @@ Register.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-  return {
-    auth: state.auth,
-  };
-};
-
-export const unwrappedRegister = Register;
+const mapStateToProps = state => ({ auth: state.auth });
 
 export default connect(
   mapStateToProps,

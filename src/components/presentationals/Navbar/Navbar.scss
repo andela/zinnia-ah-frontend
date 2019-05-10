@@ -4,14 +4,14 @@
 .navbar {
   align-items: center;
   display: flex;
-  height: 100px;
+  height: 6.25rem;
   justify-content: space-between;
   padding: 0% 6%;
 
   .brand {
     font-family: 'Sacramento', cursive;
-    font-size: 36px;
-    line-height: 53px;
+    font-size: 2.25rem;
+    line-height: 3.3125rem;
   }
 
   .navbar-avatar {
@@ -20,7 +20,7 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 56.25rem) {
   .navbar {
     justify-content: center;
   }

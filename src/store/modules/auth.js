@@ -1,50 +1,53 @@
+import { signUpRequest } from '../../api/client';
+
+//constants
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
-export const SIGNUP_REQUESTED = 'SIGNUP_REQUESTED';
-import { http, setToken } from '../../api';
+export const SIGNUP_INITIALIZED = 'SIGNUP_INITIALIZED';
 
-export function signUpRequest() {
+export const signUpIntialize = () => {
   return {
-    type: SIGNUP_REQUESTED,
+    type: SIGNUP_INITIALIZED,
   };
-}
+};
 
-export function signUpSuccess(response) {
+export const signUpSuccess = response => {
   return {
     type: SIGNUP_SUCCESS,
     response,
   };
-}
+};
 
-export function signUpError(error) {
+export const signUpError = error => {
   return {
     type: SIGNUP_ERROR,
     error,
   };
-}
+};
 
-export function signupUser(userData) {
+export const signupUser = userData => {
   return async dispatch => {
     try {
-      dispatch(signUpRequest());
-      const { data } = await http.post('/auth/signup', userData);
-      setToken(data.data.token);
+      dispatch(signUpIntialize());
+      const { data } = await signUpRequest(userData);
+
       dispatch(signUpSuccess(data));
     } catch (error) {
-      dispatch(signUpError(error.response.data.errors));
+      const { data } = error.response;
+      dispatch(signUpError([data]));
     }
   };
-}
+};
 
 export const initialState = {
   isLoading: false,
   errorResponse: [],
-  successResponse: [],
+  successResponse: { status: '' },
 };
 
-export function authReducer(state = initialState, action) {
+export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SIGNUP_REQUESTED:
+    case SIGNUP_INITIALIZED:
       return {
         ...state,
         isLoading: true,
@@ -55,6 +58,7 @@ export function authReducer(state = initialState, action) {
         ...state,
         successResponse: action.response,
         isLoading: false,
+        errorResponse: [],
       };
 
     case SIGNUP_ERROR:
@@ -67,4 +71,4 @@ export function authReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};

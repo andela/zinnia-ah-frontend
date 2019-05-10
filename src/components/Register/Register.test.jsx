@@ -1,57 +1,57 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
-import { unwrappedRegister as Register } from '../Register/Register';
+import { Register } from '../Register/Register';
+import { decodeToken } from '../../utils/helpers';
 
 const props = {
   auth: {
     isLoading: true,
+    successResponse: {
+      status: 'success',
+      message: '',
+    },
+    errorResponse: [],
   },
   signupUser: jest.fn(),
 };
-const shallowWrapper = shallow(<Register {...props} />);
+
 const mountWrapper = mount(<Register {...props} />);
 
 describe('<Register />', () => {
   it('mounts correctly', () => {
-    expect(shallowWrapper).toMatchSnapshot();
+    expect(mountWrapper).toMatchSnapshot();
   });
 
   it('renders a form with className form', () => {
-    const form = shallowWrapper.find('form');
+    const form = mountWrapper.find('form');
     expect(form.hasClass('form')).toBe(true);
   });
 
   it('rendered a form with 3 input fields', () => {
-    const inputs = shallowWrapper.find('input').getElements();
+    const inputs = mountWrapper.find('input').getElements();
     expect(inputs.length).toBe(3);
   });
 
   it('correctly initializes the value of the username field to an empty string', () => {
-    const input = shallowWrapper.find('input[name="username"]');
-    expect(input.prop('value')).toBe('');
-  });
-
-  it('correctly initializes the value of the email field to an empty string', () => {
-    const input = shallowWrapper.find('input[name="email"]');
-    expect(input.prop('value')).toBe('');
-  });
-
-  it('correctly initializes the value of the password field to an empty string', () => {
-    const input = shallowWrapper.find('input[name="password"]');
-    expect(input.prop('value')).toBe('');
+    const usernameField = mountWrapper.find('input[name="username"]');
+    expect(usernameField.prop('value')).toBe('');
+    const emailField = mountWrapper.find('input[name="email"]');
+    expect(emailField.prop('value')).toBe('');
+    const passwordField = mountWrapper.find('input[name="password"]');
+    expect(passwordField.prop('value')).toBe('');
   });
 
   it('does not submit the form if there is an empty field', () => {
-    const form = shallowWrapper.find('form');
+    const form = mountWrapper.find('form');
     form.simulate('submit', { preventDefault: jest.fn() });
-    expect(shallowWrapper.instance().state.emptyFields.length).toBe(3);
-    expect(shallowWrapper.instance().state.emptyFields).toContain(
+    expect(mountWrapper.instance().state.emptyFields.length).toBe(3);
+    expect(mountWrapper.instance().state.emptyFields).toContain(
       'email',
       'password',
       'username',
     );
-    const input = shallowWrapper.find('input[name="username"]');
+    const input = mountWrapper.find('input[name="username"]');
     expect(input.props().className).toContain('error');
   });
 

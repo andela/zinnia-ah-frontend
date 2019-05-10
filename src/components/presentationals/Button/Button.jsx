@@ -3,24 +3,18 @@ import PropTypes from 'prop-types';
 
 import './Button.scss';
 
-const Button = props => {
+const Button = ({ className, type, onClick, value }) => {
   return (
-    <button
-      className={`btn ${props.button.className}`}
-      type={props.button.className}
-      onClick={props.onClick}
-    >
-      {props.button.value}
+    <button className={`btn ${className}`} type={type} onClick={onClick}>
+      {value}
     </button>
   );
 };
 
 Button.propTypes = {
-  button: PropTypes.shape({
-    className: PropTypes.string.isRequired,
-    content: PropTypes.string,
-    value: PropTypes.string,
-  }),
+  className: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  value: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 

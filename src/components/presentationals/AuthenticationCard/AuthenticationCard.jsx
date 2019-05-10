@@ -45,7 +45,7 @@ const panes = [
               Forgot Password?
             </a>
           </div>
-          <Button button={loginButtonValues} />
+          <Button type="submit" value="CONTINUE" className="btn-dark" />
         </form>
         <div className="d-flex or-div">
           <hr className="hr" />
@@ -72,7 +72,7 @@ const AuthenticationCard = () => {
   return (
     <div className="right">
       <div className="auth-card">
-        <Title title={title} />
+        <Title content="Become an Author" className="text-center" />
         <hr className="hr" />
         <Tab
           className="tab-label"
@@ -82,17 +82,6 @@ const AuthenticationCard = () => {
       </div>
     </div>
   );
-};
-
-const title = {
-  content: 'Become an Author',
-  class: 'text-center',
-};
-
-const loginButtonValues = {
-  type: 'submit',
-  value: 'CONTINUE',
-  className: 'btn-dark',
 };
 
 export default AuthenticationCard;

@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+// components
 import Navbar from '../components/presentationals/Navbar/Navbar';
 import AuthenticationIllustration from '../components/presentationals/AuthenticationIllustration/AuthenticationIllustration';
 import AuthenticationCard from '../components/presentationals/AuthenticationCard/AuthenticationCard';
+
+// styles
 import '../pages/Authentication.scss';
 
-const AuthenticationLayout = testNavbars => {
+const AuthenticationLayout = ({ profileUrl }) => {
   return (
     <div>
-      <Navbar props={testNavbars} />
+      <Navbar profileUrl={profileUrl} />
       <div className="d-flex auth-container">
         <AuthenticationIllustration className="illustration" />
         <AuthenticationCard />
@@ -17,10 +21,12 @@ const AuthenticationLayout = testNavbars => {
   );
 };
 
+AuthenticationLayout.propTypes = {
+  profileUrl: PropTypes.string,
+};
+
 AuthenticationLayout.defaultProps = {
-  testNavbars: {
-    profileUrl: '',
-  },
+  profileUrl: '',
 };
 
 export default AuthenticationLayout;

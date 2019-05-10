@@ -5,16 +5,16 @@ import { Dropdown } from 'semantic-ui-react';
 import Avatar from '../Avatar/Avatar';
 import './Navbar.scss';
 
-const Navbar = ({ props }) => {
+const Navbar = ({ profileUrl }) => {
   return (
     <div>
       <div className="navbar">
         <div>
           <h1 className="brand">Authors Haven</h1>
         </div>
-        {props.profileUrl && (
+        {profileUrl && (
           <div className="navbar-avatar">
-            <Avatar avatarUrl={props.profileUrl} />
+            <Avatar avatarUrl={profileUrl} />
             <Dropdown className="dropdown">
               <Dropdown.Menu>
                 <Dropdown.Item>
