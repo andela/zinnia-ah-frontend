@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { Register } from '../Register/Register';
-import { decodeToken } from '../../utils/helpers';
 
 const props = {
   auth: {
