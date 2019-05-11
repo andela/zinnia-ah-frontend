@@ -1,0 +1,1175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Register /> mounts correctly 1`] = `
+<Profile
+  error={Object {}}
+  getUserProfileRequest={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "igbominadeveloper",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  isLoading={true}
+  profile={
+    Object {
+      "data": Object {
+        "followers": Array [],
+        "followings": Array [],
+        "image": "https://dummyimage.com",
+        "publications": Array [],
+      },
+    }
+  }
+>
+  <div>
+    <Navbar
+      className=""
+      url="https://dummyimage.com"
+    >
+      <div>
+        <div
+          className="navbar"
+        >
+          <div>
+            <h1
+              className="brand"
+            >
+              Authors Haven
+            </h1>
+          </div>
+          <div
+            className="navbar-avatar"
+          >
+            <Avatar
+              className=""
+              url="https://dummyimage.com"
+            >
+              <img
+                alt="avatar"
+                className="avatar "
+                src="https://dummyimage.com"
+              />
+            </Avatar>
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              className="dropdown"
+              closeOnBlur={true}
+              deburr={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              openOnFocus={true}
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              wrapSelection={true}
+            >
+              <Ref
+                innerRef={
+                  Object {
+                    "current": <div
+                      aria-expanded="false"
+                      class="ui dropdown dropdown"
+                      role="listbox"
+                      tabindex="0"
+                    >
+                      <div
+                        aria-live="polite"
+                        class="text"
+                        role="alert"
+                      />
+                      <i
+                        aria-hidden="true"
+                        class="dropdown icon"
+                      />
+                      <div
+                        class="menu transition"
+                      >
+                        <div
+                          class="item"
+                          role="option"
+                        >
+                          <a>
+                            Logout
+                          </a>
+                        </div>
+                      </div>
+                    </div>,
+                  }
+                }
+              >
+                <RefFindNode
+                  innerRef={
+                    Object {
+                      "current": <div
+                        aria-expanded="false"
+                        class="ui dropdown dropdown"
+                        role="listbox"
+                        tabindex="0"
+                      >
+                        <div
+                          aria-live="polite"
+                          class="text"
+                          role="alert"
+                        />
+                        <i
+                          aria-hidden="true"
+                          class="dropdown icon"
+                        />
+                        <div
+                          class="menu transition"
+                        >
+                          <div
+                            class="item"
+                            role="option"
+                          >
+                            <a>
+                              Logout
+                            </a>
+                          </div>
+                        </div>
+                      </div>,
+                    }
+                  }
+                >
+                  <div
+                    aria-expanded={false}
+                    className="ui dropdown dropdown"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    role="listbox"
+                    tabIndex={0}
+                  >
+                    <div
+                      aria-live="polite"
+                      className="text"
+                      role="alert"
+                    />
+                    <Icon
+                      as="i"
+                      className=""
+                      name="dropdown"
+                      onClick={[Function]}
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="dropdown icon"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                    <DropdownMenu
+                      className=""
+                    >
+                      <div
+                        className="menu transition"
+                      >
+                        <DropdownItem>
+                          <div
+                            className="item"
+                            onClick={[Function]}
+                            role="option"
+                          >
+                            <a>
+                              Logout
+                            </a>
+                          </div>
+                        </DropdownItem>
+                      </div>
+                    </DropdownMenu>
+                  </div>
+                </RefFindNode>
+              </Ref>
+            </Dropdown>
+          </div>
+        </div>
+      </div>
+    </Navbar>
+    <div
+      className="profile-container"
+    >
+      <Dimmer
+        active={true}
+      >
+        <DimmerInner
+          active={true}
+        >
+          <Ref
+            innerRef={
+              Object {
+                "current": <div
+                  class="ui active transition visible dimmer"
+                  style="display: flex;"
+                >
+                  <div
+                    class="content"
+                  >
+                    <div
+                      class="ui loader"
+                    />
+                  </div>
+                </div>,
+              }
+            }
+          >
+            <RefFindNode
+              innerRef={
+                Object {
+                  "current": <div
+                    class="ui active transition visible dimmer"
+                    style="display: flex;"
+                  >
+                    <div
+                      class="content"
+                    >
+                      <div
+                        class="ui loader"
+                      />
+                    </div>
+                  </div>,
+                }
+              }
+            >
+              <div
+                className="ui active transition visible dimmer"
+                onClick={[Function]}
+              >
+                <div
+                  className="content"
+                >
+                  <Loader>
+                    <div
+                      className="ui loader"
+                    />
+                  </Loader>
+                </div>
+              </div>
+            </RefFindNode>
+          </Ref>
+        </DimmerInner>
+      </Dimmer>
+      <ProfileSidebar
+        followers={Array []}
+        followings={Array []}
+        image="https://dummyimage.com"
+        publications={Array []}
+      >
+        <div
+          className="sidebar"
+        >
+          <div
+            className="avatar-div"
+          >
+            <Avatar
+              className="avatar-xl"
+              url="https://dummyimage.com"
+            >
+              <img
+                alt="avatar"
+                className="avatar avatar-xl"
+                src="https://dummyimage.com"
+              />
+            </Avatar>
+          </div>
+          <p
+            className="text-center username"
+          />
+          <p
+            className="text-center email"
+          />
+          <div
+            className="follow-div"
+          >
+            <div
+              className="follow-stats"
+            >
+              <p
+                className="text-center count"
+              >
+                0
+              </p>
+              <p
+                className="text-center type"
+              >
+                Followings
+              </p>
+            </div>
+            <div>
+              <p
+                className="text-center count"
+              >
+                0
+              </p>
+              <p
+                className="text-center type"
+              >
+                Followers
+              </p>
+            </div>
+          </div>
+          <div
+            style={
+              Object {
+                "marginTop": "35px",
+                "paddingLeft": "15%",
+                "paddingRight": "15%",
+              }
+            }
+          >
+            <Button
+              className="btn-white"
+              type="submit"
+              value="FOLLOW"
+            >
+              <button
+                className="btn btn-white"
+                type="submit"
+              >
+                FOLLOW
+              </button>
+            </Button>
+          </div>
+          <hr
+            className="sidebar-hr"
+          />
+        </div>
+      </ProfileSidebar>
+      <ProfileMain
+        followers={Array []}
+        followings={Array []}
+        image="https://dummyimage.com"
+        publications={Array []}
+      >
+        <div
+          className="main"
+        >
+          <Title
+            className="title-lg"
+            content="undefined undefined"
+          >
+            <h1
+              className="title title-lg"
+            >
+              undefined undefined
+            </h1>
+          </Title>
+          <div
+            style={
+              Object {
+                "maxHeight": "200px",
+              }
+            }
+          />
+          <div
+            className="profile-tab-menu"
+          >
+            <Tab
+              grid={
+                Object {
+                  "paneWidth": 12,
+                  "tabWidth": 4,
+                }
+              }
+              menu={
+                Object {
+                  "pointing": true,
+                  "secondary": true,
+                }
+              }
+              panes={
+                Array [
+                  Object {
+                    "menuItem": "Posts",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Stats",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Likes",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Comments",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Bookmarks",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Reports",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Settings",
+                    "render": [Function],
+                  },
+                ]
+              }
+              renderActiveOnly={true}
+            >
+              <div>
+                <Menu
+                  activeIndex={0}
+                  items={
+                    Array [
+                      "Posts",
+                      "Stats",
+                      "Likes",
+                      "Comments",
+                      "Bookmarks",
+                      "Reports",
+                      "Settings",
+                    ]
+                  }
+                  onItemClick={[Function]}
+                  pointing={true}
+                  secondary={true}
+                >
+                  <div
+                    className="ui pointing secondary menu"
+                  >
+                    <MenuItem
+                      active={true}
+                      content="Posts"
+                      index={0}
+                      key="Posts"
+                      name="Posts"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="active item"
+                        onClick={[Function]}
+                      >
+                        Posts
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Stats"
+                      index={1}
+                      key="Stats"
+                      name="Stats"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Stats
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Likes"
+                      index={2}
+                      key="Likes"
+                      name="Likes"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Likes
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Comments"
+                      index={3}
+                      key="Comments"
+                      name="Comments"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Comments
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Bookmarks"
+                      index={4}
+                      key="Bookmarks"
+                      name="Bookmarks"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Bookmarks
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Reports"
+                      index={5}
+                      key="Reports"
+                      name="Reports"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Reports
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Settings"
+                      index={6}
+                      key="Settings"
+                      name="Settings"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Settings
+                      </a>
+                    </MenuItem>
+                  </div>
+                </Menu>
+                <TabPane
+                  active={true}
+                  as={[Function]}
+                  attached={false}
+                >
+                  <Segment
+                    attached={false}
+                    className="active tab"
+                  >
+                    <div
+                      className="ui segment active tab"
+                    >
+                      <ArticleLists
+                        articles={Array []}
+                      >
+                        <div
+                          className="post-lists"
+                        >
+                          <p>
+                            You have no publications
+                          </p>
+                        </div>
+                      </ArticleLists>
+                    </div>
+                  </Segment>
+                </TabPane>
+              </div>
+            </Tab>
+          </div>
+        </div>
+      </ProfileMain>
+    </div>
+  </div>
+</Profile>
+`;
+
+exports[`<Register /> mounts correctly 2`] = `
+<Profile
+  error={Object {}}
+  getUserProfileRequest={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "igbominadeveloper",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  isLoading={true}
+  profile={
+    Object {
+      "data": Object {
+        "followers": Array [],
+        "followings": Array [],
+        "image": "",
+        "publications": Array [],
+      },
+    }
+  }
+>
+  <div>
+    <Navbar
+      className=""
+      url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+    >
+      <div>
+        <div
+          className="navbar"
+        >
+          <div>
+            <h1
+              className="brand"
+            >
+              Authors Haven
+            </h1>
+          </div>
+          <div
+            className="navbar-avatar"
+          >
+            <Avatar
+              className=""
+              url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+            >
+              <img
+                alt="avatar"
+                className="avatar "
+                src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+              />
+            </Avatar>
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              className="dropdown"
+              closeOnBlur={true}
+              deburr={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              openOnFocus={true}
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              wrapSelection={true}
+            >
+              <Ref
+                innerRef={
+                  Object {
+                    "current": <div
+                      aria-expanded="false"
+                      class="ui dropdown dropdown"
+                      role="listbox"
+                      tabindex="0"
+                    >
+                      <div
+                        aria-live="polite"
+                        class="text"
+                        role="alert"
+                      />
+                      <i
+                        aria-hidden="true"
+                        class="dropdown icon"
+                      />
+                      <div
+                        class="menu transition"
+                      >
+                        <div
+                          class="item"
+                          role="option"
+                        >
+                          <a>
+                            Logout
+                          </a>
+                        </div>
+                      </div>
+                    </div>,
+                  }
+                }
+              >
+                <RefFindNode
+                  innerRef={
+                    Object {
+                      "current": <div
+                        aria-expanded="false"
+                        class="ui dropdown dropdown"
+                        role="listbox"
+                        tabindex="0"
+                      >
+                        <div
+                          aria-live="polite"
+                          class="text"
+                          role="alert"
+                        />
+                        <i
+                          aria-hidden="true"
+                          class="dropdown icon"
+                        />
+                        <div
+                          class="menu transition"
+                        >
+                          <div
+                            class="item"
+                            role="option"
+                          >
+                            <a>
+                              Logout
+                            </a>
+                          </div>
+                        </div>
+                      </div>,
+                    }
+                  }
+                >
+                  <div
+                    aria-expanded={false}
+                    className="ui dropdown dropdown"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    role="listbox"
+                    tabIndex={0}
+                  >
+                    <div
+                      aria-live="polite"
+                      className="text"
+                      role="alert"
+                    />
+                    <Icon
+                      as="i"
+                      className=""
+                      name="dropdown"
+                      onClick={[Function]}
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="dropdown icon"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                    <DropdownMenu
+                      className=""
+                    >
+                      <div
+                        className="menu transition"
+                      >
+                        <DropdownItem>
+                          <div
+                            className="item"
+                            onClick={[Function]}
+                            role="option"
+                          >
+                            <a>
+                              Logout
+                            </a>
+                          </div>
+                        </DropdownItem>
+                      </div>
+                    </DropdownMenu>
+                  </div>
+                </RefFindNode>
+              </Ref>
+            </Dropdown>
+          </div>
+        </div>
+      </div>
+    </Navbar>
+    <div
+      className="profile-container"
+    >
+      <Dimmer
+        active={true}
+      >
+        <DimmerInner
+          active={true}
+        >
+          <Ref
+            innerRef={
+              Object {
+                "current": <div
+                  class="ui active transition visible dimmer"
+                  style="display: flex;"
+                >
+                  <div
+                    class="content"
+                  >
+                    <div
+                      class="ui loader"
+                    />
+                  </div>
+                </div>,
+              }
+            }
+          >
+            <RefFindNode
+              innerRef={
+                Object {
+                  "current": <div
+                    class="ui active transition visible dimmer"
+                    style="display: flex;"
+                  >
+                    <div
+                      class="content"
+                    >
+                      <div
+                        class="ui loader"
+                      />
+                    </div>
+                  </div>,
+                }
+              }
+            >
+              <div
+                className="ui active transition visible dimmer"
+                onClick={[Function]}
+              >
+                <div
+                  className="content"
+                >
+                  <Loader>
+                    <div
+                      className="ui loader"
+                    />
+                  </Loader>
+                </div>
+              </div>
+            </RefFindNode>
+          </Ref>
+        </DimmerInner>
+      </Dimmer>
+      <ProfileSidebar
+        followers={Array []}
+        followings={Array []}
+        image=""
+        publications={Array []}
+      >
+        <div
+          className="sidebar"
+        >
+          <div
+            className="avatar-div"
+          >
+            <Avatar
+              className="avatar-xl"
+              url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+            >
+              <img
+                alt="avatar"
+                className="avatar avatar-xl"
+                src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+              />
+            </Avatar>
+          </div>
+          <p
+            className="text-center username"
+          />
+          <p
+            className="text-center email"
+          />
+          <div
+            className="follow-div"
+          >
+            <div
+              className="follow-stats"
+            >
+              <p
+                className="text-center count"
+              >
+                0
+              </p>
+              <p
+                className="text-center type"
+              >
+                Followings
+              </p>
+            </div>
+            <div>
+              <p
+                className="text-center count"
+              >
+                0
+              </p>
+              <p
+                className="text-center type"
+              >
+                Followers
+              </p>
+            </div>
+          </div>
+          <div
+            style={
+              Object {
+                "marginTop": "35px",
+                "paddingLeft": "15%",
+                "paddingRight": "15%",
+              }
+            }
+          >
+            <Button
+              className="btn-white"
+              type="submit"
+              value="FOLLOW"
+            >
+              <button
+                className="btn btn-white"
+                type="submit"
+              >
+                FOLLOW
+              </button>
+            </Button>
+          </div>
+          <hr
+            className="sidebar-hr"
+          />
+        </div>
+      </ProfileSidebar>
+      <ProfileMain
+        followers={Array []}
+        followings={Array []}
+        image=""
+        publications={Array []}
+      >
+        <div
+          className="main"
+        >
+          <Title
+            className="title-lg"
+            content="undefined undefined"
+          >
+            <h1
+              className="title title-lg"
+            >
+              undefined undefined
+            </h1>
+          </Title>
+          <div
+            style={
+              Object {
+                "maxHeight": "200px",
+              }
+            }
+          />
+          <div
+            className="profile-tab-menu"
+          >
+            <Tab
+              grid={
+                Object {
+                  "paneWidth": 12,
+                  "tabWidth": 4,
+                }
+              }
+              menu={
+                Object {
+                  "pointing": true,
+                  "secondary": true,
+                }
+              }
+              panes={
+                Array [
+                  Object {
+                    "menuItem": "Posts",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Stats",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Likes",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Comments",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Bookmarks",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Reports",
+                    "render": [Function],
+                  },
+                  Object {
+                    "menuItem": "Settings",
+                    "render": [Function],
+                  },
+                ]
+              }
+              renderActiveOnly={true}
+            >
+              <div>
+                <Menu
+                  activeIndex={0}
+                  items={
+                    Array [
+                      "Posts",
+                      "Stats",
+                      "Likes",
+                      "Comments",
+                      "Bookmarks",
+                      "Reports",
+                      "Settings",
+                    ]
+                  }
+                  onItemClick={[Function]}
+                  pointing={true}
+                  secondary={true}
+                >
+                  <div
+                    className="ui pointing secondary menu"
+                  >
+                    <MenuItem
+                      active={true}
+                      content="Posts"
+                      index={0}
+                      key="Posts"
+                      name="Posts"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="active item"
+                        onClick={[Function]}
+                      >
+                        Posts
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Stats"
+                      index={1}
+                      key="Stats"
+                      name="Stats"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Stats
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Likes"
+                      index={2}
+                      key="Likes"
+                      name="Likes"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Likes
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Comments"
+                      index={3}
+                      key="Comments"
+                      name="Comments"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Comments
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Bookmarks"
+                      index={4}
+                      key="Bookmarks"
+                      name="Bookmarks"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Bookmarks
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Reports"
+                      index={5}
+                      key="Reports"
+                      name="Reports"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Reports
+                      </a>
+                    </MenuItem>
+                    <MenuItem
+                      active={false}
+                      content="Settings"
+                      index={6}
+                      key="Settings"
+                      name="Settings"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="item"
+                        onClick={[Function]}
+                      >
+                        Settings
+                      </a>
+                    </MenuItem>
+                  </div>
+                </Menu>
+                <TabPane
+                  active={true}
+                  as={[Function]}
+                  attached={false}
+                >
+                  <Segment
+                    attached={false}
+                    className="active tab"
+                  >
+                    <div
+                      className="ui segment active tab"
+                    >
+                      <ArticleLists
+                        articles={Array []}
+                      >
+                        <div
+                          className="post-lists"
+                        >
+                          <p>
+                            You have no publications
+                          </p>
+                        </div>
+                      </ArticleLists>
+                    </div>
+                  </Segment>
+                </TabPane>
+              </div>
+            </Tab>
+          </div>
+        </div>
+      </ProfileMain>
+    </div>
+  </div>
+</Profile>
+`;

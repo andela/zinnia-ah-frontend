@@ -5,16 +5,16 @@ import { Dropdown } from 'semantic-ui-react';
 import Avatar from '../Avatar/Avatar';
 import './Navbar.scss';
 
-const Navbar = ({ profileUrl }) => {
+const Navbar = ({ url, className }) => {
   return (
     <div>
       <div className="navbar">
         <div>
           <h1 className="brand">Authors Haven</h1>
         </div>
-        {profileUrl && (
+        {url && (
           <div className="navbar-avatar">
-            <Avatar avatarUrl={profileUrl} />
+            <Avatar className={className} url={url} />
             <Dropdown className="dropdown">
               <Dropdown.Menu>
                 <Dropdown.Item>
@@ -30,10 +30,8 @@ const Navbar = ({ profileUrl }) => {
 };
 
 Navbar.propTypes = {
-  props: PropTypes.shape({
-    profileUrl: PropTypes.string,
-  }),
-  profileUrl: PropTypes.string,
+  className: PropTypes.string,
+  url: PropTypes.string,
 };
 
 export default Navbar;

@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleLists should render correctly 1`] = `
+<ArticleLists
+  articles={
+    Array [
+      Object {
+        "id": 123456789,
+      },
+    ]
+  }
+>
+  <div
+    className="post-lists"
+  >
+    <ItemGroup
+      key="123456789"
+    >
+      <div
+        className="ui items"
+      >
+        <Item>
+          <div
+            className="item"
+          >
+            <ItemImage
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+            >
+              <Image
+                as="img"
+                src="https://react.semantic-ui.com/images/wireframe/image.png"
+                ui={false}
+                wrapped={true}
+              >
+                <div
+                  className="image"
+                >
+                  <img
+                    src="https://react.semantic-ui.com/images/wireframe/image.png"
+                  />
+                </div>
+              </Image>
+            </ItemImage>
+            <ItemContent>
+              <div
+                className="content"
+              >
+                <Title
+                  className="title-article-lg"
+                >
+                  <h1
+                    className="title title-article-lg"
+                  />
+                </Title>
+                <ItemDescription
+                  style={
+                    Object {
+                      "marginBottom": "auto",
+                    }
+                  }
+                >
+                  <div
+                    className="description"
+                    style={
+                      Object {
+                        "marginBottom": "auto",
+                      }
+                    }
+                  >
+                    <p
+                      style={
+                        Object {
+                          "fontSize": "1.125rem",
+                          "fontWeight": "200",
+                          "lineHeight": "1.375rem",
+                        }
+                      }
+                    />
+                  </div>
+                </ItemDescription>
+                <ItemExtra>
+                  <div
+                    className="extra"
+                  >
+                    <div
+                      style={
+                        Object {
+                          "display": "flex",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <p
+                        style={
+                          Object {
+                            "fontSize": "1rem",
+                          }
+                        }
+                      >
+                        3 days ago
+                      </p>
+                      <div
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
+                      >
+                        <p
+                          style={
+                            Object {
+                              "fontSize": "1rem",
+                            }
+                          }
+                        >
+                          2 mins read
+                        </p>
+                        <button
+                          style={
+                            Object {
+                              "background": "transparent",
+                              "border": 0,
+                              "padding": 0,
+                            }
+                          }
+                          type="button"
+                        >
+                          <Icon
+                            as="i"
+                            name="bookmark outline"
+                            style={
+                              Object {
+                                "fontSize": "1.25rem",
+                                "marginLeft": "2.50rem",
+                              }
+                            }
+                          >
+                            <i
+                              aria-hidden="true"
+                              className="bookmark outline icon"
+                              onClick={[Function]}
+                              style={
+                                Object {
+                                  "fontSize": "1.25rem",
+                                  "marginLeft": "2.50rem",
+                                }
+                              }
+                            />
+                          </Icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </ItemExtra>
+              </div>
+            </ItemContent>
+          </div>
+        </Item>
+      </div>
+    </ItemGroup>
+  </div>
+</ArticleLists>
+`;
+
+exports[`ArticleLists should render correctly 2`] = `
+<ArticleLists
+  articles={Array []}
+>
+  <div
+    className="post-lists"
+  >
+    <p>
+      You have no publications
+    </p>
+  </div>
+</ArticleLists>
+`;

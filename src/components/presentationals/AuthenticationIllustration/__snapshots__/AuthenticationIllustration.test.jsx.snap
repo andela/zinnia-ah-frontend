@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthenticationIllustration should render correctly 1`] = `
+<AuthenticationIllustration>
+  <div
+    className="left"
+  >
+    <Title
+      className="title-lg"
+      content="A Safe Haven For The Creative At Heart"
+    >
+      <h1
+        className="title title-lg"
+      >
+        A Safe Haven For The Creative At Heart
+      </h1>
+    </Title>
+    <p
+      style={
+        Object {
+          "fontSize": "20px",
+          "lineHeight": "24px",
+          "marginTop": "18px",
+        }
+      }
+    >
+      A community of like minded authors to foster inspiration and innovation by leveraging the modern web.
+    </p>
+    <div
+      className="illustration-container"
+    >
+      <img
+        alt="A lady sitting on a pile of books and reading a book"
+        src=""
+      />
+    </div>
+  </div>
+</AuthenticationIllustration>
+`;
