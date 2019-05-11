@@ -1,18 +1,11 @@
-import {
-  checkAllEmptyFields,
-  fieldChecker,
-  validateInput,
-} from './formValidator';
+import { validate } from './formValidator';
 
-describe('checkAllEmptyFields', () => {
-  const emptyUserCredentials = { email: '', password: '', username: '' };
-
-  it('returns an array containing all empty fields', () => {
-    expect(typeof checkAllEmptyFields).toBe('function');
-    const emptyFields = checkAllEmptyFields(emptyUserCredentials);
-    expect(emptyFields).toBeInstanceOf(Array);
-    expect(emptyFields.length).toBe(3);
-    expect(emptyFields).toEqual(Object.keys(emptyUserCredentials));
+describe('Form validator: validate()', () => {
+  it('detects empty fields', () => {
+    const errors = validate({ email: '', password: '', username: '' });
+    expect(errors).toBeInstanceOf(Array);
+    expect(errors.length).toBe(3);
+    expect(errors[0].includes('required')).toBe(true);
   });
 
   const validUserCredentials = {
@@ -20,57 +13,34 @@ describe('checkAllEmptyFields', () => {
     password: 'password1',
     username: 'igbominadeveloper',
   };
-  it('returns an empty array', () => {
-    expect(typeof checkAllEmptyFields).toBe('function');
-    const emptyFields = checkAllEmptyFields(validUserCredentials);
-    expect(emptyFields).toBeInstanceOf(Array);
-    expect(emptyFields.length).toBe(0);
-    expect(emptyFields).toEqual([]);
-  });
-});
-
-describe('fieldChecker', () => {
-  it('removes existing value from the current empty fields', () => {
-    const event = { target: { value: 'password1', name: 'password' } };
-    const currentEmptyFields = ['email', 'password'];
-    const emptyFields = fieldChecker(event, currentEmptyFields);
-    expect(typeof fieldChecker).toBe('function');
-    expect(emptyFields.length).toBe(1);
-    expect(emptyFields).toEqual(['email']);
-  });
-
-  it('sets an empty field to the list of empty fields', () => {
-    const event = { target: { value: '', name: 'password' } };
-    const currentEmptyFields = ['email', 'username'];
-    const emptyFields = fieldChecker(event, currentEmptyFields);
-    expect(typeof fieldChecker).toBe('function');
-    expect(emptyFields.length).toBe(3);
-    expect(emptyFields).toEqual(['email', 'username', 'password']);
-  });
-});
-
-describe('validateInput', () => {
-  it('returns an array of validation errors', () => {
-    expect(typeof validateInput).toBe('function');
-    const invalidUserCredentials = {
-      email: 'igbominadeveloperm',
-      password: 'password1',
-      username: 'igbominadeveloper',
-    };
-    const invalidInputs = validateInput(invalidUserCredentials);
-    expect(invalidInputs.length).toBe(1);
-    expect(invalidInputs[0].includes('email')).toBe(true);
-  });
-
   it('returns an empty array when there are no validation errors', () => {
-    expect(typeof validateInput).toBe('function');
-    const invalidUserCredentials = {
-      email: 'igbominadeveloper@ah.com',
-      password: 'password1',
-      username: 'igbominadeveloper',
-    };
-    const invalidInputs = validateInput(invalidUserCredentials);
-    expect(invalidInputs.length).toBe(0);
-    expect(invalidInputs).toEqual([]);
+    const errors = validate(validUserCredentials);
+    expect(errors).toBeInstanceOf(Array);
+    expect(errors.length).toBe(0);
+    expect(errors).toEqual([]);
+  });
+  it('returns errors when characters do not have the required length', () => {
+    const errors = validate({
+      email: 'user@mail.com',
+      password: 'pass',
+      username: 'me',
+    });
+    expect(errors).toBeInstanceOf(Array);
+    expect(errors.length).toBe(2);
+    expect(errors[0].includes('characters')).toBe(true);
+  });
+  it('returns errors when invalid formats are detected', () => {
+    const errors = validate({
+      email: 'invalid-email',
+      password: 'pass#$%Word',
+      username: 'username',
+      randomField: 'random value',
+    });
+    expect(errors).toBeInstanceOf(Array);
+    expect(errors.length).toBe(2);
+    expect(errors[0].includes('password can only contain alphanumerics')).toBe(
+      true,
+    );
+    expect(errors[0].includes('email must be a valid email')).toBe(true);
   });
 });
