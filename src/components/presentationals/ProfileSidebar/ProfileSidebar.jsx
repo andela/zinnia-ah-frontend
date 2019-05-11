@@ -33,18 +33,18 @@ const ProfileSidebar = ({ followers, followings, username, email, image }) => {
           <p className="text-center type">Followers</p>
         </div>
       </div>
-      <div
-        style={{
-          paddingLeft: '15%',
-          paddingRight: '15%',
-          marginTop: '35px',
-        }}
-      >
+      <div style={buttonStyles}>
         <Button className="btn-white" value="FOLLOW" type="submit" />
       </div>
       <hr className="sidebar-hr" />
     </div>
   );
+};
+
+const buttonStyles = {
+  paddingLeft: '15%',
+  paddingRight: '15%',
+  marginTop: '35px',
 };
 
 ProfileSidebar.propTypes = {

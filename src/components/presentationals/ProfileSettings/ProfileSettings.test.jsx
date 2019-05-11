@@ -1,11 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import ForgotPasswordCard from './ForgotPasswordCard';
+import ProfileSettings from './ProfileSettings';
 
-describe('ForgotPasswordCard', () => {
+describe('Settings', () => {
   it('should render correctly', () => {
-    const component = mount(<ForgotPasswordCard />);
+    const component = mount(<ProfileSettings />);
     expect(component).toMatchSnapshot();
   });
 });
