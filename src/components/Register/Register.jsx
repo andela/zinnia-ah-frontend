@@ -5,11 +5,7 @@ import PropTypes from 'prop-types';
 
 // helper functions
 import { signupUser } from '../../store/modules/auth';
-import {
-  validateInput,
-  checkAllEmptyFields,
-  fieldChecker,
-} from '../../utils/formValidator';
+import { validate } from '../../utils/formValidator';
 
 // components
 import Button from '../presentationals/Button/Button';
@@ -33,48 +29,72 @@ export class Register extends Component {
       username: '',
     },
     validationErrors: [],
-    emptyFields: [],
+    invalidFields: [],
   };
 
-  userInputHandler = event => {
-    const { emptyFields } = this.state;
-    const currentEmptyFields = fieldChecker(event, emptyFields);
-    this.setState({
+  userInputHandler = async event => {
+    const errors = validate({ [event.target.name]: event.target.value });
+
+    await this.setState({
       userCredentials: {
         ...this.state.userCredentials,
         [event.target.name]: event.target.value,
       },
-      emptyFields: currentEmptyFields,
+      validationErrors: errors,
+    });
+
+    this.handleInvalidFields();
+  };
+
+  handleInvalidFields = () => {
+    const errors = [...this.state.validationErrors];
+    const fields = Object.keys(this.state.userCredentials);
+    const invalidFields = [];
+
+    errors.forEach(error => {
+      fields.forEach(field => {
+        if (error.includes(field) && !invalidFields.includes(field)) {
+          invalidFields.push(field);
+        }
+      });
+    });
+
+    this.setState({
+      invalidFields,
     });
   };
 
-  formValidator = event => {
+  submitHandler = async event => {
     event.preventDefault();
-    const { userCredentials } = this.state;
-    const emptyFields = checkAllEmptyFields(userCredentials);
-    if (emptyFields.length) {
-      this.setState({
-        emptyFields,
-      });
-      return false;
+    await this.validateForm(event);
+
+    if (this.state.validationErrors.length === 0) {
+      this.submitForm(event);
     }
-    this.setState({ emptyFields: [] });
-    const validationErrors = validateInput(userCredentials);
-    this.setState({
+  };
+
+  validateForm = async () => {
+    const validationErrors = validate({
+      username: this.state.userCredentials.username,
+      email: this.state.userCredentials.email,
+      password: this.state.userCredentials.password,
+    });
+
+    await this.setState({
       validationErrors,
     });
-    if (!validationErrors.length) {
-      this.setState({ validationErrors: '' });
-      return true;
-    }
-    return false;
+
+    this.handleInvalidFields();
   };
 
-  submitForm = event => {
-    event.preventDefault();
+  submitForm = () => {
     this.props.signupUser({
       ...this.state.userCredentials,
     });
+    this.emptyFormFields();
+  };
+
+  emptyFormFields = () => {
     const userCredentials = { email: '', password: '', username: '' };
     this.setState({
       userCredentials,
@@ -83,23 +103,17 @@ export class Register extends Component {
 
   render() {
     const { isLoading, errorResponse, successResponse } = this.props.auth;
-    const { emptyFields } = this.state;
+    const { invalidFields } = this.state;
     successResponse.status === 'success' &&
       swal('congratulations', successResponse.message, 'success');
     return (
       <div>
         {isLoading && <Loader text="please wait" size="large" />}
-        <form
-          id="form"
-          className="form"
-          onSubmit={e => {
-            this.formValidator(e) && this.submitForm(e);
-          }}
-        >
+        <form id="form" className="form" onSubmit={this.submitHandler}>
           <div className="form-group">
             <input
               className={`form-control ${
-                emptyFields.includes('username') ? 'error' : ''
+                invalidFields.includes('username') ? 'error' : ''
               }`}
               placeholder="Username"
               onChange={this.userInputHandler}
@@ -112,7 +126,7 @@ export class Register extends Component {
             <input
               placeholder="Email"
               className={`form-control ${
-                emptyFields.includes('email') ? 'error' : ''
+                invalidFields.includes('email') ? 'error' : ''
               }`}
               type="email"
               onChange={this.userInputHandler}
@@ -123,7 +137,7 @@ export class Register extends Component {
           <div className="form-group">
             <input
               className={`form-control ${
-                emptyFields.includes('password') ? 'error' : ''
+                invalidFields.includes('password') ? 'error' : ''
               }`}
               placeholder="Password"
               type="password"
