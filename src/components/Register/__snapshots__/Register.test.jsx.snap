@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Register /> mounts correctly 1`] = `
+exports[`Render mounts correctly 1`] = `
 <Register
   auth={
     Object {
@@ -39,6 +39,7 @@ exports[`<Register /> mounts correctly 1`] = `
       >
         <input
           className="form-control "
+          data-test="username"
           name="username"
           onChange={[Function]}
           placeholder="Username"

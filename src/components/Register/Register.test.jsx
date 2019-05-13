@@ -15,9 +15,8 @@ const props = {
   signupUser: jest.fn(),
 };
 
-const mountWrapper = mount(<Register {...props} />);
-
-describe('<Register />', () => {
+describe('Render', () => {
+  const mountWrapper = mount(<Register {...props} />);
   it('mounts correctly', () => {
     expect(mountWrapper).toMatchSnapshot();
   });
@@ -31,7 +30,9 @@ describe('<Register />', () => {
     const inputs = mountWrapper.find('input').getElements();
     expect(inputs.length).toBe(3);
   });
-
+});
+describe('Inputs', () => {
+  const mountWrapper = mount(<Register {...props} />);
   it('correctly initializes the value of the username field to an empty string', () => {
     const usernameField = mountWrapper.find('input[name="username"]');
     expect(usernameField.prop('value')).toBe('');
@@ -40,23 +41,9 @@ describe('<Register />', () => {
     const passwordField = mountWrapper.find('input[name="password"]');
     expect(passwordField.prop('value')).toBe('');
   });
-
-  it('does not submit the form if there is an empty field', () => {
-    const form = mountWrapper.find('form');
-    form.simulate('submit', { preventDefault: jest.fn() });
-    expect(mountWrapper.instance().state.emptyFields.length).toBe(3);
-    expect(mountWrapper.instance().state.emptyFields).toContain(
-      'email',
-      'password',
-      'username',
-    );
-    const input = mountWrapper.find('input[name="username"]');
-    expect(input.props().className).toContain('error');
-  });
-
   it('updates all fields with invalid values', () => {
     const username = mountWrapper.find('input[name="username"]');
-    username.instance().value = 'io';
+    username.instance().value = 'io----';
     username.simulate('change');
     const email = mountWrapper.find('input[name="email"]');
     email.instance().value = 'igbominadeveloper@';
@@ -64,7 +51,7 @@ describe('<Register />', () => {
     const password = mountWrapper.find('input[name="password"]');
     password.instance().value = 'password1____';
     password.simulate('change');
-    expect(mountWrapper.state().userCredentials.username).toBe('io');
+    expect(mountWrapper.state().userCredentials.username).toBe('io----');
     expect(mountWrapper.state().userCredentials.email).toBe(
       'igbominadeveloper@',
     );
@@ -72,6 +59,19 @@ describe('<Register />', () => {
     const form = mountWrapper.find('form');
     form.simulate('submit', { preventDefault: jest.fn() });
     expect(mountWrapper.state().validationErrors.length).toBeGreaterThan(0);
+  });
+});
+describe('Error response', () => {
+  const mountWrapper = mount(<Register {...props} />);
+  it('does not submit the form if there is an empty field', () => {
+    const form = mountWrapper.find('form');
+    form.simulate('submit', { preventDefault: jest.fn() });
+    expect(mountWrapper.instance().state.validationErrors.length).toBe(3);
+    expect(mountWrapper.instance().state.validationErrors).toContain(
+      'username is required',
+      'email is required',
+      'password is required',
+    );
   });
 
   it('returns a validation error for an invalid field input', () => {

@@ -1,18 +1,24 @@
+/* eslint-disable no-console */
 import {
-  checkAllEmptyFields,
-  fieldChecker,
-  validateInput,
+  validate,
+  emailError,
+  lengthError,
+  isRequiredError,
+  trim,
+  alphanumError,
 } from './formValidator';
+
+const validationErrors = [];
 
 describe('checkAllEmptyFields', () => {
   const emptyUserCredentials = { email: '', password: '', username: '' };
-
   it('returns an array containing all empty fields', () => {
-    expect(typeof checkAllEmptyFields).toBe('function');
-    const emptyFields = checkAllEmptyFields(emptyUserCredentials);
+    const emptyFields = validate(emptyUserCredentials, validationErrors);
     expect(emptyFields).toBeInstanceOf(Array);
     expect(emptyFields.length).toBe(3);
-    expect(emptyFields).toEqual(Object.keys(emptyUserCredentials));
+    expect(emptyFields.includes(isRequiredError('email'))).toBe(true);
+    expect(emptyFields.includes(isRequiredError('username'))).toBe(true);
+    expect(emptyFields.includes(isRequiredError('password'))).toBe(true);
   });
 
   const validUserCredentials = {
@@ -20,57 +26,83 @@ describe('checkAllEmptyFields', () => {
     password: 'password1',
     username: 'igbominadeveloper',
   };
-  it('returns an empty array', () => {
-    expect(typeof checkAllEmptyFields).toBe('function');
-    const emptyFields = checkAllEmptyFields(validUserCredentials);
+
+  it('returns an empty array when all inputs are filled', () => {
+    const emptyFields = validate(validUserCredentials, validationErrors);
     expect(emptyFields).toBeInstanceOf(Array);
     expect(emptyFields.length).toBe(0);
-    expect(emptyFields).toEqual([]);
+    expect(emptyFields.includes(isRequiredError('username'))).toBe(false);
+    expect(emptyFields.includes(isRequiredError('email'))).toBe(false);
+    expect(emptyFields.includes(isRequiredError('password'))).toBe(false);
+  });
+
+  const emailOnly = {
+    email: 'johndoe@example.com',
+    password: '',
+    username: '',
+  };
+
+  it('removes existing value from the current empty fields error', () => {
+    validationErrors.push(
+      'email is required',
+      'password is required',
+      'password is required',
+    );
+    const emptyFields = validate(emailOnly, validationErrors);
+    expect(emptyFields.length).toBe(2);
+    expect(emptyFields.includes('email is required')).toBe(false);
   });
 });
 
-describe('fieldChecker', () => {
-  it('removes existing value from the current empty fields', () => {
-    const event = { target: { value: 'password1', name: 'password' } };
-    const currentEmptyFields = ['email', 'password'];
-    const emptyFields = fieldChecker(event, currentEmptyFields);
-    expect(typeof fieldChecker).toBe('function');
-    expect(emptyFields.length).toBe(1);
-    expect(emptyFields).toEqual(['email']);
-  });
-
-  it('sets an empty field to the list of empty fields', () => {
-    const event = { target: { value: '', name: 'password' } };
-    const currentEmptyFields = ['email', 'username'];
-    const emptyFields = fieldChecker(event, currentEmptyFields);
-    expect(typeof fieldChecker).toBe('function');
-    expect(emptyFields.length).toBe(3);
-    expect(emptyFields).toEqual(['email', 'username', 'password']);
-  });
-});
-
-describe('validateInput', () => {
+describe('validate user input', () => {
   it('returns an array of validation errors', () => {
-    expect(typeof validateInput).toBe('function');
+    validationErrors.length = 0;
     const invalidUserCredentials = {
+      username: 'ig',
+      password: 'pass',
       email: 'igbominadeveloperm',
-      password: 'password1',
-      username: 'igbominadeveloper',
     };
-    const invalidInputs = validateInput(invalidUserCredentials);
-    expect(invalidInputs.length).toBe(1);
-    expect(invalidInputs[0].includes('email')).toBe(true);
+    const invalidInputsError = validate(
+      invalidUserCredentials,
+      validationErrors,
+    );
+    expect(invalidInputsError.length).toBe(3);
+    expect(invalidInputsError.includes(lengthError('username', 3))).toBe(true);
+    expect(invalidInputsError.includes(emailError)).toBe(true);
   });
+});
 
-  it('returns an empty array when there are no validation errors', () => {
-    expect(typeof validateInput).toBe('function');
-    const invalidUserCredentials = {
-      email: 'igbominadeveloper@ah.com',
-      password: 'password1',
-      username: 'igbominadeveloper',
-    };
-    const invalidInputs = validateInput(invalidUserCredentials);
-    expect(invalidInputs.length).toBe(0);
-    expect(invalidInputs).toEqual([]);
+describe('Trim function', () => {
+  it('trims all spaces', () => {
+    const untrimmed = 'I am raw as it comes';
+    const trimmed = trim(untrimmed);
+    expect(trimmed).toEqual('Iamrawasitcomes');
+  });
+});
+
+describe('Alphanum Error', () => {
+  it('returns a valid message', () => {
+    const field = 'username';
+    const expectedResponse = `${field} can only contain alphanumerics`;
+    const response = alphanumError(field);
+    expect(response).toEqual(expectedResponse);
+  });
+});
+
+describe('Required Field Error', () => {
+  it('returns a valid required field error', () => {
+    const field = 'username';
+    const expectedResponse = `${field} is required`;
+    const response = isRequiredError(field);
+    expect(response).toEqual(expectedResponse);
+  });
+});
+describe('Field Length Error', () => {
+  it('returns a valid field length error', () => {
+    const field = 'username';
+    const requiredLength = 3;
+    const expectedResponse = `${field} must be at least ${requiredLength} characters long`;
+    const response = lengthError(field, requiredLength);
+    expect(response).toEqual(expectedResponse);
   });
 });

@@ -33,7 +33,11 @@ export class Register extends Component {
   };
 
   userInputHandler = async event => {
-    const errors = validate({ [event.target.name]: event.target.value });
+    const { validationErrors } = this.state;
+    const errors = validate(
+      { [event.target.name]: event.target.value },
+      validationErrors,
+    );
 
     await this.setState({
       userCredentials: {
@@ -47,8 +51,9 @@ export class Register extends Component {
   };
 
   handleInvalidFields = () => {
-    const errors = [...this.state.validationErrors];
-    const fields = Object.keys(this.state.userCredentials);
+    const { validationErrors, userCredentials } = this.state;
+    const errors = [...validationErrors];
+    const fields = Object.keys(userCredentials);
     const invalidFields = [];
 
     errors.forEach(error => {
@@ -66,38 +71,46 @@ export class Register extends Component {
 
   submitHandler = async event => {
     event.preventDefault();
-    await this.validateForm(event);
-
-    if (this.state.validationErrors.length === 0) {
-      this.submitForm(event);
+    await this.validateForm();
+    const { validationErrors } = this.state;
+    if (validationErrors.length === 0) {
+      this.submitForm();
     }
   };
 
   validateForm = async () => {
-    const validationErrors = validate({
-      username: this.state.userCredentials.username,
-      email: this.state.userCredentials.email,
-      password: this.state.userCredentials.password,
-    });
+    const { validationErrors, userCredentials } = this.state;
+
+    const newValidationErrors = validate(
+      {
+        username: userCredentials.username,
+        email: userCredentials.email,
+        password: userCredentials.password,
+      },
+      validationErrors,
+    );
 
     await this.setState({
-      validationErrors,
+      validationErrors: newValidationErrors,
     });
-
     this.handleInvalidFields();
   };
 
   submitForm = () => {
+    const { userCredentials } = this.state;
     this.props.signupUser({
-      ...this.state.userCredentials,
+      ...userCredentials,
     });
-    this.emptyFormFields();
+    this.emptyFormFields({ password: '' });
   };
 
-  emptyFormFields = () => {
-    const userCredentials = { email: '', password: '', username: '' };
+  emptyFormFields = fields => {
+    const { userCredentials } = this.state;
     this.setState({
-      userCredentials,
+      userCredentials: {
+        ...userCredentials,
+        ...fields,
+      },
     });
   };
 
@@ -109,9 +122,11 @@ export class Register extends Component {
     return (
       <div>
         {isLoading && <Loader text="please wait" size="large" />}
+
         <form id="form" className="form" onSubmit={this.submitHandler}>
           <div className="form-group">
             <input
+              data-test="username"
               className={`form-control ${
                 invalidFields.includes('username') ? 'error' : ''
               }`}
@@ -121,7 +136,6 @@ export class Register extends Component {
               name="username"
             />
           </div>
-
           <div className="form-group">
             <input
               placeholder="Email"
@@ -156,10 +170,13 @@ export class Register extends Component {
           {errorResponse.length > 0 && (
             <div className="ui negative message">
               {errorResponse.map(error => (
-                <p key={error.message}>{error.message}</p>
+                <p key={error.errors || error.message}>
+                  {error.errors || error.message}
+                </p>
               ))}
             </div>
           )}
+
           <Button type="submit" value="GET STARTED" className="btn-dark" />
         </form>
         <div className="d-flex or-div">
