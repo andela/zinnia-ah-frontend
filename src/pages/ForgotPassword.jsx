@@ -22,6 +22,20 @@ class ForgotPassword extends Component {
     this.setState({ email: e.target.value });
   };
 
+  forgotPasswordRequest = async ({ email }) => {
+    try {
+      const response = await http.post('/auth/users/forgot-password', {
+        email,
+      });
+      this.setState({ isLoading: false });
+      toastbar.success('A reset link has been sent to your email');
+      return response.data;
+    } catch (error) {
+      this.setState({ isLoading: false });
+      toastbar.error('Something went wrong. Request Unsuccessful!');
+    }
+  };
+
   submitRequest = e => {
     e.preventDefault();
     const { email } = this.state;

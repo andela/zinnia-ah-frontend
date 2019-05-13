@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
-@import "../../assets/variables";
+@import '../../../assets/variables';
 
 .title {
   color: $primary-black;

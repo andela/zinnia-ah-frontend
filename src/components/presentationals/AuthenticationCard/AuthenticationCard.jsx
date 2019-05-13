@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import { Image } from 'semantic-ui-react';
 import { Switch, Route, Link } from 'react-router-dom';

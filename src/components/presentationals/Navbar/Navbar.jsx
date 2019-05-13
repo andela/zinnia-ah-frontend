@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown } from 'semantic-ui-react';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar/Avatar.jsx';
 import './Navbar.scss';
 
 const Navbar = ({ url, className }) => {
@@ -32,6 +32,10 @@ const Navbar = ({ url, className }) => {
 Navbar.propTypes = {
   className: PropTypes.string,
   url: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  profileUrl: '',
 };
 
 export default Navbar;

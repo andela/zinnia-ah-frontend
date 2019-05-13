@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Title from '../Title/Title';
+import Title from '../Title/Title.jsx';
 import Illustration from '../../../assets/images/reading-lady.svg';
 import './AuthenticationIllustration.scss';
 
 const AuthenticationIllustration = () => {
-  const styles = {
+  const body = {
     fontSize: '20px',
     lineHeight: '24px',
     marginTop: '18px',
@@ -13,10 +13,10 @@ const AuthenticationIllustration = () => {
   return (
     <div className="left">
       <Title
-        className="title-lg"
         content="A Safe Haven For The Creative At Heart"
+        className="title-lg"
       />
-      <p style={styles}>
+      <p style={body}>
         A community of like minded authors to foster inspiration and innovation
         by leveraging the modern web.
       </p>

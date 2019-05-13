@@ -26,9 +26,3 @@
   border: .0625rem solid $primary-black;
   color: $primary-black;
 }
-
-.btn-white:hover {
-  background-color: $primary-black;
-  border: 1px solid $primary-black;
-  color: $primary-white;
-}

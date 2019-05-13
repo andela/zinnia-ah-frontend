@@ -1,23 +1,13 @@
+/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
-import Title from './Title.jsx';
-import Button from './Button.jsx';
+import Title from '../Title/Title.jsx';
+import Button from '../Button/Button.jsx';
 
-import './AuthenticationCard.scss';
-import './Form.scss';
-
-const title = {
-  content: 'Reset Password',
-  className: 'text-center',
-};
-
-const buttonValues = {
-  type: 'submit',
-  value: 'RESET PASSWORD',
-  className: 'btn-dark',
-};
+import '../AuthenticationCard/AuthenticationCard.scss';
+import '../Form.scss';
 
 const errorStyle = {
   color: 'red',
@@ -28,19 +18,18 @@ const ResetPasswordCard = ({
   password,
   confirmPassword,
   handleChange,
-  names,
   errors,
   handleSubmit,
 }) => {
   const {
-    password: inputPassword,
-    confirmPassword: inputConfirmPassword,
-  } = names;
-  const { password: errorPassword } = errors;
+    password: errorPassword,
+    confirmPassword: errorConfirmPassword,
+  } = errors;
+
   return (
     <div className="right">
       <div className="card reset-password">
-        <Title title={title} />
+        <Title content="Reset Password" className="text-center" />
         <hr />
         <Form onSubmit={handleSubmit}>
           <Form.Field>
@@ -49,7 +38,7 @@ const ResetPasswordCard = ({
               type="password"
               onChange={handleChange}
               value={password}
-              name={inputPassword}
+              name="password"
             />
             {errorPassword && <span style={errorStyle}>{errorPassword}</span>}
           </Form.Field>
@@ -59,13 +48,13 @@ const ResetPasswordCard = ({
               type="password"
               onChange={handleChange}
               value={confirmPassword}
-              name={inputConfirmPassword}
+              name="confirmPassword"
             />
             {errors.confirmPassword && (
-              <span style={errorStyle}>{errors.confirmPassword}</span>
+              <span style={errorStyle}>{errorConfirmPassword}</span>
             )}
           </Form.Field>
-          <Button button={buttonValues} />
+          <Button type="submit" value="RESET PASSWORD" className="btn-dark" />
         </Form>
       </div>
     </div>
@@ -76,7 +65,6 @@ ResetPasswordCard.propTypes = {
   password: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  names: PropTypes.object.isRequired,
   errors: PropTypes.object,
   handleSubmit: PropTypes.func.isRequired,
 };

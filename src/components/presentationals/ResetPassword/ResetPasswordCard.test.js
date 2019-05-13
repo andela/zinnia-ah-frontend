@@ -1,22 +1,29 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Form } from 'semantic-ui-react';
 
-import ForgotPasswordCard from './ForgotPasswordCard';
+import ResetPasswordCard from './ResetPasswordCard';
 import Title from '../Title/Title';
 import Button from '../Button/Button';
 
 configure({ adapter: new Adapter() });
 
-describe('<ForgotPasswordCard />', () => {
+const props = {
+  password: '',
+  confirmPassword: '',
+  handleChange: jest.fn(),
+  errors: { password: '', confirmPassword: '' },
+  handleSubmit: jest.fn(),
+};
+
+describe('<ResetPasswordCard />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ForgotPasswordCard />);
+    wrapper = shallow(<ResetPasswordCard {...props} />);
   });
 
-  test('renders', () => {
+  it('should render <ResetPasswordCard />', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
@@ -33,20 +40,10 @@ describe('<ForgotPasswordCard />', () => {
       wrapper.containsAnyMatchingElements([
         <Button
           type="submit"
-          value="SEND EMAIL"
+          value="RESET PASSWORD"
           className="btn-dark"
           key="first"
         />,
-      ]),
-    ).toEqual(true);
-  });
-
-  it('should contain a form', () => {
-    expect(
-      wrapper.containsAnyMatchingElements([
-        <Form.Field key="first">
-          <input />
-        </Form.Field>,
       ]),
     ).toEqual(true);
   });
