@@ -18,7 +18,8 @@ const ResetPassword = () => {
 };
 
 let testNavbar = {
-  profileUrl: '',
+  url: '',
+  class: '',
 };
 
 export default ResetPassword;

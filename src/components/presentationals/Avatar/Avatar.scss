@@ -1,3 +1,5 @@
+@import '../../../assets/variables';
+
 .avatar {
   border-radius: 100%;
   height: 2.8125rem;
@@ -12,4 +14,38 @@
 
 .dropdown {
   height: 100%;
+}
+
+.avatar-div {
+  .overlay-image {
+    align-content: flex-end;
+    align-items: flex-end;
+    background-color: $avatar-overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    border-radius: 100%;
+    color: $avatar-overlay-button;
+    cursor: pointer;
+    display: none;
+    font-size: 2.5rem;
+    height: 200px;
+    justify-content: flex-end;
+    position: absolute;
+    text-align: center;
+    width: 200px;
+
+    .camera {
+      padding-right: 7vmin;
+      padding-top: -16vmin;
+    }
+  }
+
+  .overlay-image:hover {
+    background-color: rgba(136, 135, 135, .774);
+  }
+
+  .show {
+    display: flex;
+  }
 }

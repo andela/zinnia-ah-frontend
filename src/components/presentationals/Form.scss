@@ -9,6 +9,12 @@
   .form-group {
     clear: both;
     margin: 0 0 1em;
+    input {
+      border: 1px solid $primary-grey-opacity-0 !important;
+      border-radius: 5px !important;
+      font-family: 'Lato', san-serif !important;
+      height: 50px;
+      margin-top: 15px !important;
   }
 
   .form-control {
@@ -27,11 +33,12 @@
     border: .0625rem solid $primary-red;
   }
 
-  ::placeholder {
-    color: $secondary-grey-2;
-    font-size: .875rem;
-    line-height: 1.0625rem;
-    opacity: .3;
+    ::placeholder {
+      color: $secondary-grey-2;
+      font-size: .875rem;
+      line-height: 1.0625rem;
+      opacity: .3;
+    }
   }
 }
 
@@ -39,9 +46,17 @@
   margin: 15px 0;
 }
 
-.loading {
-  cursor: default;
-  opacity: .3;
-  pointer-events: none;
-  position: relative;
+input {
+  &[name='upload_profile_picture'] {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 }
+
+  .loading {
+    cursor: default;
+    opacity: .3;
+    pointer-events: none;
+    position: relative;
+  }

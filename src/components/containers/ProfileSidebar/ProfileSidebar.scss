@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700|Sacramento');
+@import '../../../assets/variables';
+
+.sidebar {
+  width: 25%;
+
+  .avatar-div {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .username {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 26px;
+    margin-bottom: 15px;
+  }
+
+  .email {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 17px;
+    margin-bottom: 15px;
+  }
+
+  .sidebar-hr {
+    margin-top: 30px;
+    width: 75%;
+  }
+}
+
+.follow-div {
+  color: $secondary-black;
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  justify-content: space-around;
+  line-height: 17px;
+  margin-bottom: 15px;
+
+  .count {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .sidebar {
+    width: 100%;
+
+    .sidebar-hr {
+      display: none;
+    }
+  }
+}
