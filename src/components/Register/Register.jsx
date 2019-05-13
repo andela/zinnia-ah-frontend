@@ -1,10 +1,13 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 import swal from 'sweetalert';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// helper functions
+// reducers
 import { signupUser } from '../../store/modules/auth';
+
+// helper functions
 import { validate } from '../../utils/formValidator';
 
 // components
@@ -32,22 +35,25 @@ export class Register extends Component {
     invalidFields: [],
   };
 
-  userInputHandler = async event => {
+  userInputHandler = event => {
     const { validationErrors } = this.state;
     const errors = validate(
       { [event.target.name]: event.target.value },
       validationErrors,
     );
 
-    await this.setState({
-      userCredentials: {
-        ...this.state.userCredentials,
-        [event.target.name]: event.target.value,
+    this.setState(
+      {
+        userCredentials: {
+          ...this.state.userCredentials,
+          [event.target.name]: event.target.value,
+        },
+        validationErrors: errors,
       },
-      validationErrors: errors,
-    });
-
-    this.handleInvalidFields();
+      () => {
+        this.handleInvalidFields();
+      },
+    );
   };
 
   handleInvalidFields = () => {
@@ -71,14 +77,17 @@ export class Register extends Component {
 
   submitHandler = async event => {
     event.preventDefault();
+
     await this.validateForm();
+
     const { validationErrors } = this.state;
+
     if (validationErrors.length === 0) {
       this.submitForm();
     }
   };
 
-  validateForm = async () => {
+  validateForm = () => {
     const { validationErrors, userCredentials } = this.state;
 
     const newValidationErrors = validate(
@@ -90,10 +99,12 @@ export class Register extends Component {
       validationErrors,
     );
 
-    await this.setState({
-      validationErrors: newValidationErrors,
-    });
-    this.handleInvalidFields();
+    this.setState(
+      {
+        validationErrors: newValidationErrors,
+      },
+      () => this.handleInvalidFields(),
+    );
   };
 
   submitForm = () => {
@@ -101,15 +112,11 @@ export class Register extends Component {
     this.props.signupUser({
       ...userCredentials,
     });
-    this.emptyFormFields({ password: '' });
-  };
 
-  emptyFormFields = fields => {
-    const { userCredentials } = this.state;
     this.setState({
       userCredentials: {
         ...userCredentials,
-        ...fields,
+        password: '',
       },
     });
   };
