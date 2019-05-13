@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import Title from '../Title/Title';
 import ArticleLists from '../ArticleLists/ArticleLists';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
+import Stats from '../Stats/Stats';
 
 // styles
 import './ProfileMain.scss';
@@ -34,7 +35,11 @@ const ProfileMain = ({
     },
     {
       menuItem: 'Stats',
-      render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Stats />
+        </Tab.Pane>
+      ),
     },
     {
       menuItem: 'Likes',
