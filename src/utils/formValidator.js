@@ -103,12 +103,6 @@ export const validate = (values, validationErrors) => {
         password(values[key]);
         break;
 
-      case 'all':
-        username(values[key]);
-        email(values[key]);
-        password(values[key]);
-        break;
-
       default:
         break;
     }

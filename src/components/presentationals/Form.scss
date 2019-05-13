@@ -12,32 +12,33 @@
   }
 
   .form-control {
-    border: .0625rem solid $primary-grey-opacity-0;
-    border-radius: .28571429rem;
+    border: 0.0625rem solid $primary-grey-opacity-0;
+    border-radius: 0.28571429rem;
     color: $primary-black-opacity-8;
     font: 1em 1.0625em 'Lato', sans-serif;
     height: 3.125rem;
     margin: 1.25rem 0 0;
     outline: 0;
-    padding: .67857143em 1em;
+    padding: 0.67857143em 1em;
+    transition: all 400ms ease;
     width: 100%;
   }
 
   .form-control.error {
-    border: .0625rem solid $primary-red;
+    border: 0.0625rem solid $primary-red;
   }
 
   ::placeholder {
     color: $secondary-grey-2;
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.0625rem;
-    opacity: .3;
+    opacity: 0.3;
   }
 }
 
 .loading {
   cursor: default;
-  opacity: .3;
+  opacity: 0.3;
   pointer-events: none;
   position: relative;
 }
