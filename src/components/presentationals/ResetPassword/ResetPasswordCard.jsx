@@ -1,36 +1,24 @@
-/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
-import Title from '../Title/Title.jsx';
-import Button from '../Button/Button.jsx';
+import Title from '../Title/Title';
+import Button from '../Button/Button';
 
 import '../AuthenticationCard/AuthenticationCard.scss';
 import '../Form.scss';
 
-const errorStyle = {
-  color: 'red',
-  marginTop: '8px',
-};
-
 const ResetPasswordCard = ({
   password,
-  confirmPassword,
   handleChange,
-  errors,
+  validationErrors,
   handleSubmit,
 }) => {
-  const {
-    password: errorPassword,
-    confirmPassword: errorConfirmPassword,
-  } = errors;
-
   return (
     <div className="right">
-      <div className="card reset-password">
+      <div className="auth-card reset-password">
         <Title content="Reset Password" className="text-center" />
-        <hr />
+        <hr className="hr" />
         <Form onSubmit={handleSubmit}>
           <Form.Field>
             <input
@@ -40,18 +28,12 @@ const ResetPasswordCard = ({
               value={password}
               name="password"
             />
-            {errorPassword && <span style={errorStyle}>{errorPassword}</span>}
-          </Form.Field>
-          <Form.Field>
-            <input
-              placeholder="Confirm Password"
-              type="password"
-              onChange={handleChange}
-              value={confirmPassword}
-              name="confirmPassword"
-            />
-            {errors.confirmPassword && (
-              <span style={errorStyle}>{errorConfirmPassword}</span>
+            {validationErrors.length > 0 && (
+              <div className="ui negative message">
+                {validationErrors.map(error => (
+                  <p key={error}>{error}</p>
+                ))}
+              </div>
             )}
           </Form.Field>
           <Button type="submit" value="RESET PASSWORD" className="btn-dark" />
@@ -63,9 +45,8 @@ const ResetPasswordCard = ({
 
 ResetPasswordCard.propTypes = {
   password: PropTypes.string.isRequired,
-  confirmPassword: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object,
+  validationErrors: PropTypes.array,
   handleSubmit: PropTypes.func.isRequired,
 };
 

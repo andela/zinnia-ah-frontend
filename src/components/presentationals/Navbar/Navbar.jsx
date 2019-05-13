@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown } from 'semantic-ui-react';
-import Avatar from '../Avatar/Avatar.jsx';
+import Avatar from '../Avatar/Avatar';
 import './Navbar.scss';
 
 const Navbar = ({ url, className }) => {

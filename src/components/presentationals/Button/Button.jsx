@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 import './Button.scss';
 
-const Button = props => {
-  const { className, type, value } = props;
+const Button = ({ className, type, onClick, value }) => {
   return (
-    <button className={`btn ${className}`} type={type}>
+    <button className={`btn ${className}`} type={type} onClick={onClick}>
       {value}
     </button>
   );
 };
 
 Button.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string.isRequired,
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Button;

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
-import Title from '../Title/Title.jsx';
-import Button from '../Button/Button.jsx';
+import Title from '../Title/Title';
+import Button from '../Button/Button';
 
 import '../AuthenticationCard/AuthenticationCard.scss';
 import '../Form.scss';
@@ -11,9 +11,9 @@ import '../Form.scss';
 const ForgotPasswordCard = ({ email, onChange, submitRequest }) => {
   return (
     <div className="right">
-      <div className="card forgot-password">
+      <div className="auth-card forgot-password">
         <Title content="Forgot Password?" className="text-center" />
-        <hr />
+        <hr className="hr" />
         <p>
           Enter the email you used to sign up and we‘ll send you a password
           reset link
@@ -28,7 +28,11 @@ const ForgotPasswordCard = ({ email, onChange, submitRequest }) => {
               onChange={onChange}
             />
           </Form.Field>
-          <Button type="submit" value="SEND EMAIL" className="btn-dark" />
+          <Button
+            type="submit"
+            value="SEND INSTRUCTIONS"
+            className="btn-dark"
+          />
         </Form>
       </div>
     </div>
@@ -38,7 +42,7 @@ const ForgotPasswordCard = ({ email, onChange, submitRequest }) => {
 ForgotPasswordCard.propTypes = {
   email: PropTypes.string,
   onChange: PropTypes.func,
-  submitRequest: PropTypes.func.isRequired,
+  submitRequest: PropTypes.func,
 };
 
 export default ForgotPasswordCard;

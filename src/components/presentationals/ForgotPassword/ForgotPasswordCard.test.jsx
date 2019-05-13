@@ -1,13 +1,10 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import { Form } from 'semantic-ui-react';
 
 import ForgotPasswordCard from './ForgotPasswordCard';
 import Title from '../Title/Title';
 import Button from '../Button/Button';
-
-configure({ adapter: new Adapter() });
 
 describe('<ForgotPasswordCard />', () => {
   let wrapper;
@@ -16,8 +13,9 @@ describe('<ForgotPasswordCard />', () => {
     wrapper = shallow(<ForgotPasswordCard />);
   });
 
-  test('renders', () => {
+  it('should render without errors', () => {
     expect(wrapper.exists()).toBe(true);
+    expect(wrapper.find('.auth-card').length).toBe(1);
   });
 
   it('should render a <Title />', () => {
@@ -33,7 +31,7 @@ describe('<ForgotPasswordCard />', () => {
       wrapper.containsAnyMatchingElements([
         <Button
           type="submit"
-          value="SEND EMAIL"
+          value="SEND INSTRUCTIONS"
           className="btn-dark"
           key="first"
         />,

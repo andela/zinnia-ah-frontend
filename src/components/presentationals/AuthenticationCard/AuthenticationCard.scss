@@ -1,85 +1,94 @@
 @import '../../../assets/variables';
 
-.card {
-  width: 467px;
-  padding: 30px 48px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+.auth-card {
+  background: $primary-white;
+  border: .0625rem solid $primary-black-opacity-2;
+  border-radius: .625rem;
+  box-shadow: 0 .9375rem 5.625rem $primary-black-opacity-1;
   box-sizing: border-box;
-  box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 1.875rem;
+  padding: 1.875rem 3rem;
+  width: 29.1875rem;
 }
-hr {
-  width: 107px;
+
+.hr {
   background-color: $secondary-grey;
-  height: 1px;
-  border: none;
-  margin-bottom: 24px;
+  border: 0;
+  height: .0625rem;
+  margin-bottom: 1.5rem;
+  width: 6.6875rem;
 }
-.tab-label{
+
+.tab-label {
   .menu {
-    border-bottom: 2px solid $secondary-grey;
+    border-bottom: .125rem solid $secondary-grey;
+
     .item {
       color: $primary-grey;
       width: 50%;
     }
   }
+
   .segment {
-    padding: 0px;
-    border: none;
+    border: 0;
     box-shadow: none;
-    -webkit-box-shadow: none;
+    padding: 0;
   }
 }
 
-.right{
+.right {
   .or-div {
-    height: 22px;
-    display: flex;
     align-items: center;
-    margin-top: 25px;
-    hr{
-      width: 163px!important;
-      margin-top: 20px;
+    display: flex;
+    height: 1.375rem;
+    margin-top: 1.5625rem;
+
+    .hr {
+      margin-top: 1.25rem;
+      width: 10.1875rem;
     }
+
     .or {
+      color: $primary-black;
+      font-size: 1.125rem;
       font-weight: bold;
-      font-size: 18px;
-      line-height: 22px;
+      line-height: 1.375rem;
+      margin: 0 .3125rem;
       text-align: center;
-      color: #000000;
-      margin: 0px 5px;
     }
   }
+
   .icon-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
+    margin-top: 1.25rem;
+
     .icon-card {
-      width: 70px;
-      height: 70px;
-      background: #FFFFFF;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-      display: flex;
-      justify-content: center;
       align-items: center;
+      background: $primary-white;
+      border-radius: .3125rem;
+      box-shadow: 0 .25rem .25rem $primary-black-opacity-2;
+      display: flex;
+      height: 4.375rem;
+      justify-content: center;
+      width: 4.375rem;
     }
   }
-}
 
-.text-right {
-  text-align: right;
-}
-.text-red {
-  color: $primary-red;
-}
+  .text-right {
+    text-align: right;
+  }
 
-.forgot-password {
-  margin-top: 175px;
-}
-.reset-password {
-  margin-top: 150px;
+  .text-red {
+    color: $primary-red;
+  }
+
+  .forgot-password {
+    margin-top: 10.9375rem;
+  }
+
+  .reset-password {
+    margin-top: 9.375rem;
+  }
 }

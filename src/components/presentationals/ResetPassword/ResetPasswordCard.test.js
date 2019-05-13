@@ -1,18 +1,15 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import ResetPasswordCard from './ResetPasswordCard';
 import Title from '../Title/Title';
 import Button from '../Button/Button';
 
-configure({ adapter: new Adapter() });
-
 const props = {
   password: '',
   confirmPassword: '',
   handleChange: jest.fn(),
-  errors: { password: '', confirmPassword: '' },
+  validationErrors: [],
   handleSubmit: jest.fn(),
 };
 
