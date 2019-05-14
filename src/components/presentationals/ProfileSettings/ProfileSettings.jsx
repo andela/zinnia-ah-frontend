@@ -162,6 +162,11 @@ class ProfileSettings extends Component {
 ProfileSettings.propTypes = {
   uploadImageToServer: PropTypes.func.isRequired,
   updateUserProfileRequest: PropTypes.func.isRequired,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  username: PropTypes.string,
+  email: PropTypes.string,
+  updateAt: PropTypes.string,
 };
 
 const mapStateToProps = state => {
