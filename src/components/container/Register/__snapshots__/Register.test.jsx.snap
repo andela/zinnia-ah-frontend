@@ -37,37 +37,71 @@ exports[`<Register /> mounts correctly 1`] = `
       <div
         className="form-group"
       >
-        <input
-          className="form-control "
+        <Input
+          className="form-control false"
           name="username"
           onChange={[Function]}
           placeholder="Username"
+          type="text"
           value=""
-        />
+        >
+          <div>
+            <input
+              className="form-control false"
+              name="username"
+              onChange={[Function]}
+              placeholder="Username"
+              type="text"
+              value=""
+            />
+          </div>
+        </Input>
       </div>
       <div
         className="form-group"
       >
-        <input
-          className="form-control "
+        <Input
+          className="form-control false"
           name="email"
           onChange={[Function]}
           placeholder="Email"
           type="email"
           value=""
-        />
+        >
+          <div>
+            <input
+              className="form-control false"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              type="email"
+              value=""
+            />
+          </div>
+        </Input>
       </div>
       <div
         className="form-group"
       >
-        <input
-          className="form-control "
+        <Input
+          className="form-control false"
           name="password"
           onChange={[Function]}
           placeholder="Password"
           type="password"
           value=""
-        />
+        >
+          <div>
+            <input
+              className="form-control false"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </Input>
       </div>
       <Button
         className="btn-dark"
@@ -82,58 +116,6 @@ exports[`<Register /> mounts correctly 1`] = `
         </button>
       </Button>
     </form>
-    <div
-      className="d-flex or-div"
-    >
-      <hr
-        className="hr"
-      />
-      <p
-        className="or"
-      >
-        OR
-      </p>
-      <hr
-        className="hr"
-      />
-    </div>
-    <div
-      className="icon-container"
-    >
-      <div
-        className="icon-card"
-      >
-        <Image
-          src=""
-        >
-          <img
-            src=""
-          />
-        </Image>
-      </div>
-      <div
-        className="icon-card"
-      >
-        <Image
-          src=""
-        >
-          <img
-            src=""
-          />
-        </Image>
-      </div>
-      <div
-        className="icon-card"
-      >
-        <Image
-          src=""
-        >
-          <img
-            src=""
-          />
-        </Image>
-      </div>
-    </div>
   </div>
 </Register>
 `;

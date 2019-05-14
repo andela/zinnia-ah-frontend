@@ -5,7 +5,7 @@ app.json
 .prettierrc
 webpack.config.js
 /dist/**
-/node_modules/**
+node_modules
 /public/**
 /build/**
 /coverage/**
@@ -13,3 +13,4 @@ webpack.config.js
 /jsdoc/**
 .circleci
 .github
+semantic/

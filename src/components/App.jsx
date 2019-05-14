@@ -8,7 +8,10 @@ class App extends Component {
     return (
       <div>
         <h1 className="toothy"> My React App!! </h1>
-        <Link to="/auth">
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+        <Link to="/signup">
           <button>Signup</button>
         </Link>
       </div>

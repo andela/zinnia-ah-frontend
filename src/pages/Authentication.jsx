@@ -9,13 +9,13 @@ import AuthenticationCard from '../components/presentationals/AuthenticationCard
 // styles
 import '../pages/Authentication.scss';
 
-const AuthenticationLayout = ({ profileUrl }) => {
+const AuthenticationLayout = ({ profileUrl, location }) => {
   return (
     <div>
       <Navbar profileUrl={profileUrl} />
       <div className="d-flex auth-container">
         <AuthenticationIllustration className="illustration" />
-        <AuthenticationCard />
+        <AuthenticationCard pathname={location.pathname} />
       </div>
     </div>
   );
@@ -27,6 +27,10 @@ AuthenticationLayout.propTypes = {
 
 AuthenticationLayout.defaultProps = {
   profileUrl: '',
+};
+
+AuthenticationLayout.propTypes = {
+  location: PropTypes.object.isRequired,
 };
 
 export default AuthenticationLayout;

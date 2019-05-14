@@ -44,14 +44,12 @@ describe('<Register />', () => {
   it('does not submit the form if there is an empty field', () => {
     const form = mountWrapper.find('form');
     form.simulate('submit', { preventDefault: jest.fn() });
-    expect(mountWrapper.instance().state.emptyFields.length).toBe(3);
-    expect(mountWrapper.instance().state.emptyFields).toContain(
-      'email',
-      'password',
-      'username',
+    expect(mountWrapper.instance().state.validationErrors.length).toBe(3);
+    expect(mountWrapper.instance().state.validationErrors).toContain(
+      'username is required',
+      'email is required',
+      'password is required',
     );
-    const input = mountWrapper.find('input[name="username"]');
-    expect(input.props().className).toContain('error');
   });
 
   it('updates all fields with invalid values', () => {
