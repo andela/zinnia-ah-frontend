@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 // components
 import Title from '../Title/Title';
 import ArticleLists from '../ArticleLists/ArticleLists';
+import ProfileSettings from '../ProfileSettings/ProfileSettings';
 
 // styles
 import './ProfileMain.scss';
@@ -53,7 +54,11 @@ const ProfileMain = ({
     },
     {
       menuItem: 'Settings',
-      render: () => <Tab.Pane attached={false}>Tab 6 Content</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <ProfileSettings />
+        </Tab.Pane>
+      ),
     },
   ];
 

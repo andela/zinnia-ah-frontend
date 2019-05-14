@@ -5,11 +5,8 @@ import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import Button from '../../presentationals/Button/Button.jsx';
-import { generateFormData } from '../../../utils/helpers';
-import {
-  updateUserProfileRequest,
-  uploadImageToServer,
-} from '../../../store/modules/Profile';
+import { generateFormData, uploadImageToServer } from '../../../utils/helpers';
+import { updateUserProfileRequest } from '../../../store/modules/Profile';
 import Loader from '../../presentationals/Loader/Loader.jsx';
 
 class ProfileSettings extends Component {
@@ -37,7 +34,7 @@ class ProfileSettings extends Component {
     if (this.state.tabName === 'userSettings') {
       this.EditAvatarOverLay();
     }
-    if (this.props.profile.updatedAt !== prevProps.profile.updatedAt) {
+    if (this.props.updatedAt !== prevProps.updatedAt) {
       this.setState({ isLoading: null });
     }
   }
@@ -102,14 +99,14 @@ class ProfileSettings extends Component {
                 fluid
                 label="First name"
                 placeholder="Jane"
-                defaultValue={this.props.profile.firstName}
+                defaultValue={this.props.firstName}
                 name="firstName"
               />
               <Form.Input
                 fluid
                 label="Last name"
                 placeholder="Doe"
-                defaultValue={this.props.profile.lastName}
+                defaultValue={this.props.lastName}
                 name="lastName"
               />
             </Form.Group>
@@ -118,7 +115,7 @@ class ProfileSettings extends Component {
                 fluid
                 label="Email Address"
                 placeholder="example@mail.com"
-                defaultValue={this.props.profile.email}
+                defaultValue={this.props.email}
                 type="email"
                 name="email"
               />
@@ -126,7 +123,7 @@ class ProfileSettings extends Component {
                 fluid
                 label="Username"
                 placeholder="janedoe1"
-                defaultValue={this.props.profile.username}
+                defaultValue={this.props.username}
                 name="username"
               />
             </Form.Group>
@@ -135,7 +132,7 @@ class ProfileSettings extends Component {
               name="bio"
               placeholder="Tell us more about you...(450 characters max)"
               maxLength="450"
-              defaultValue={this.props.profile.bio}
+              defaultValue={this.props.bio}
               rows={5}
             />
             <div
@@ -163,12 +160,15 @@ class ProfileSettings extends Component {
 }
 
 ProfileSettings.propTypes = {
-  profile: PropTypes.object.isRequired,
   uploadImageToServer: PropTypes.func.isRequired,
   updateUserProfileRequest: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ profile: state.profileReducer.profile });
+const mapStateToProps = state => {
+  const { data } = state.profile.profile;
+  return data;
+};
+
 export default connect(
   mapStateToProps,
   { updateUserProfileRequest, uploadImageToServer },

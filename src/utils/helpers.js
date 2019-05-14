@@ -1,4 +1,7 @@
 import jwt from 'jsonwebtoken';
+import axios from 'axios';
+
+import { CLOUDINARY_API, CLOUD_PRESET } from '../config/config';
 
 export const decodeToken = token => {
   return jwt.decode(token);
@@ -33,3 +36,19 @@ export function generateFormData(formElement) {
   }
   return formData;
 }
+
+export const uploadImageToServer = ({ image, tag }, callback) => async () => {
+  const formData = new FormData();
+  formData.append('upload_preset', CLOUD_PRESET);
+  formData.append('tags', tag);
+  formData.append('file', image);
+
+  const uploadedImage = await axios(CLOUDINARY_API, {
+    method: 'POST',
+    data: formData,
+  });
+  if (uploadedImage.status === 200) {
+    return callback(null, uploadedImage.data.secure_url);
+  }
+  return callback(true, 'Please try, uploading the image again');
+};

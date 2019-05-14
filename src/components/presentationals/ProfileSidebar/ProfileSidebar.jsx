@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 // components
@@ -11,11 +12,18 @@ import './ProfileSidebar.scss';
 // config
 import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
 
+const CameraIcon = () => <Icon name="camera" />;
+const OverlayImage = () => (
+  <div className="overlay-image">
+    <CameraIcon />
+  </div>
+);
 const ProfileSidebar = ({ followers, followings, username, email, image }) => {
   return (
     <div className="sidebar">
       <div className="avatar-div">
         <Avatar url={image || DEFAULT_USER_IMAGE_URL} className="avatar-xl" />
+        <OverlayImage />
       </div>
       <p className="text-center username">{username}</p>
       <p className="text-center email">{email}</p>
