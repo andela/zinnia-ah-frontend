@@ -23,7 +23,8 @@
     ]
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest -u --watch",
     "start": "node server.js",
     "watch": "webpack-dev-server --mode development --open --hot",
@@ -43,8 +44,17 @@
       "./src/setupTests.js"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|less|scss|svg)$": "<rootDir>/src/components/__mocks__/fileMock.js"
-    }
+      "^.+\\.(css|less|scss|svg)$": "<rootDir>/src/components/__mocks__/fileMock.js",
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "babel-jest"
+    },
+    "transform": {
+      "^.+\\.(jsx|js)?$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ]
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar should render correctly 1`] = `
+<Avatar
+  className="btn"
+  src="http://dummyimage.jpg"
+>
+  <img
+    alt="avatar"
+    className="avatar btn"
+  />
+</Avatar>
+`;
