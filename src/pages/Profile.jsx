@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Navbar from '../components/presentationals/Navbar/Navbar';
@@ -11,6 +11,7 @@ import ProfileSidebar from '../components/presentationals/ProfileSidebar/Profile
 import ProfileMain from '../components/presentationals/ProfileMain/ProfileMain';
 
 // styles
+import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
 
 // images

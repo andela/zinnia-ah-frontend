@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -161,6 +161,12 @@ class ProfileSettings extends Component {
     );
   }
 }
+
+ProfileSettings.propTypes = {
+  profile: PropTypes.object.isRequired,
+  uploadImageToServer: PropTypes.func.isRequired,
+  updateUserProfileRequest: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({ profile: state.profileReducer.profile });
 export default connect(

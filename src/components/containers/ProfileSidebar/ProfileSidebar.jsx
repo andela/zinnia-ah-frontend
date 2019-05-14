@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import Avatar from '../../presentationals/Avatar/Avatar.jsx';
 import Button from '../../presentationals/Button/Button.jsx';
@@ -55,4 +54,8 @@ const buttonStyles = {
   paddingLeft: '15%',
   paddingRight: '15%',
   marginTop: '35px',
+};
+
+ProfileSidebar.propTypes = {
+  profile: PropTypes.object.isRequired,
 };

@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tab, Icon } from 'semantic-ui-react';
 
 import Title from '../../presentationals/Title/Title.jsx';
@@ -101,3 +99,7 @@ export default function ProfileMain(props) {
     </div>
   );
 }
+
+ProfileMain.propTypes = {
+  profile: PropTypes.object.isRequired,
+};
