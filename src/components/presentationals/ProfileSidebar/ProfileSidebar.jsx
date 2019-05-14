@@ -9,21 +9,29 @@ import Button from '../Button/Button';
 // styles
 import './ProfileSidebar.scss';
 
-// config
+// config and helpers
 import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
+import { handleImageEventClick } from '../../../utils/helpers';
 
 const CameraIcon = () => <Icon name="camera" />;
 const OverlayImage = () => (
-  <div className="overlay-image">
+  <div className="overlay-image show" onClick={handleImageEventClick}>
     <CameraIcon />
   </div>
 );
-const ProfileSidebar = ({ followers, followings, username, email, image }) => {
+const ProfileSidebar = ({
+  followers,
+  followings,
+  username,
+  email,
+  image,
+  currentView,
+}) => {
   return (
     <div className="sidebar">
       <div className="avatar-div">
         <Avatar url={image || DEFAULT_USER_IMAGE_URL} className="avatar-xl" />
-        <OverlayImage />
+        {currentView === 'userSettings' ? <OverlayImage /> : ''}
       </div>
       <p className="text-center username">{username}</p>
       <p className="text-center email">{email}</p>

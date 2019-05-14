@@ -52,3 +52,7 @@ export const uploadImageToServer = ({ image, tag }, callback) => async () => {
   }
   return callback(true, 'Please try, uploading the image again');
 };
+
+export const handleImageEventClick = () => {
+  return document.querySelector('input[name=upload_profile_picture]').click();
+};

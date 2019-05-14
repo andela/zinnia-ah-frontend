@@ -305,6 +305,7 @@ exports[`<Profile /> mounts correctly 1`] = `
         bio="I am the correct user"
         email="dummy@user.com"
         firstName="mr"
+        currentView="default"
         followers={Array []}
         followings={Array []}
         image="https://dummyimage.com"
@@ -405,6 +406,7 @@ exports[`<Profile /> mounts correctly 1`] = `
         lastName="user"
         publications={Array []}
         username="dummyuser"
+        view={[Function]}
       >
         <div
           className="main"
@@ -949,6 +951,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
         bio="I am the correct user"
         email="dummy@user.com"
         firstName="mr"
+        currentView="default"
         followers={Array []}
         followings={Array []}
         image="https://dummyimage.com"
@@ -1049,6 +1052,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
         lastName="user"
         publications={Array []}
         username="dummyuser"
+        view={[Function]}
       >
         <div
           className="main"

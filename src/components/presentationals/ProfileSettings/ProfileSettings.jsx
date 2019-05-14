@@ -17,37 +17,17 @@ class ProfileSettings extends Component {
   };
 
   componentDidMount() {
-    this.EditAvatarOverLay();
+    this.props.currentView;
   }
 
   componentWillUnmount() {
-    const menuContent = document.querySelector('.profile-tab-menu .active.item')
-      .innerHTML;
-    if (menuContent !== 'userSettings') {
-      const avatarOverlay = this.EditAvatarOverLay('hide');
-      avatarOverlay.removeEventListener('click', this.handleImageEventClick);
-      avatarOverlay.classList.remove('show');
-    }
+    return this.props.currentView('default');
   }
 
   componentDidUpdate(prevProps) {
-    if (this.state.tabName === 'userSettings') {
-      this.EditAvatarOverLay();
-    }
     if (this.props.updatedAt !== prevProps.updatedAt) {
       this.setState({ isLoading: null });
     }
-  }
-
-  EditAvatarOverLay(className = 'show') {
-    const avatarOverlay = document.querySelector('.avatar-div .overlay-image');
-    avatarOverlay.classList.add(className);
-    avatarOverlay.addEventListener('click', this.handleImageEventClick);
-    return avatarOverlay;
-  }
-
-  handleImageEventClick() {
-    return document.querySelector('input[name=upload_profile_picture]').click();
   }
 
   handleSubmit = event => {
@@ -160,13 +140,15 @@ class ProfileSettings extends Component {
 }
 
 ProfileSettings.propTypes = {
+  currentView: PropTypes.func,
   uploadImageToServer: PropTypes.func.isRequired,
   updateUserProfileRequest: PropTypes.func.isRequired,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   username: PropTypes.string,
   email: PropTypes.string,
-  updateAt: PropTypes.string,
+  updatedAt: PropTypes.string,
+  bio: PropTypes.string,
 };
 
 const mapStateToProps = state => {

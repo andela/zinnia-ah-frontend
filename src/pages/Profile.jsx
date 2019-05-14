@@ -22,6 +22,12 @@ import { getUserProfileRequest } from '../store/modules/profile';
 import { deleteArticle } from '../store/modules/profile';
 
 export class Profile extends Component {
+  state = {
+    view: 'default',
+  };
+  changeView = (view = 'userSettings') => {
+    this.setState({ view });
+  };
   componentDidMount() {
     this.props.getUserProfileRequest(this.props.match.params.username);
   }
@@ -56,6 +62,8 @@ export class Profile extends Component {
             publications={publications}
             deleteArticle={deleteArticleFunction}
             isDeleting={isDeleting}
+            view={this.changeView}
+            currentView={this.state.view}
           />
         </div>
       </div>

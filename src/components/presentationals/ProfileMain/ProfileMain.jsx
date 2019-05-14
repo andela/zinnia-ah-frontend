@@ -18,6 +18,7 @@ const ProfileMain = ({
   publications,
   deleteArticle,
   isDeleting,
+  view,
 }) => {
   const panes = [
     {
@@ -56,7 +57,7 @@ const ProfileMain = ({
       menuItem: 'Settings',
       render: () => (
         <Tab.Pane attached={false}>
-          <ProfileSettings />
+          <ProfileSettings currentView={view} />
         </Tab.Pane>
       ),
     },
@@ -86,6 +87,7 @@ ProfileMain.propTypes = {
   publications: PropTypes.array,
   deleteArticle: PropTypes.func,
   isDeleting: PropTypes.bool,
+  view: PropTypes.func,
 };
 
 export default ProfileMain;

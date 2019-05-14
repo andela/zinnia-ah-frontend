@@ -1,0 +1,388 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileSettings should render profile settings correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ConnectFunction>
+    <ProfileSettings
+      bio=""
+      email="example@mail.com"
+      firstName=""
+      followers={Array []}
+      followings={Array []}
+      image=""
+      lastName=""
+      publications={Array []}
+      updateUserProfileRequest={[Function]}
+      uploadImageToServer={[Function]}
+      username="examplename"
+    >
+      <div
+        className="settings"
+      >
+        <div
+          className="edit-profile"
+        >
+          <Form
+            as="form"
+            onSubmit={[Function]}
+          >
+            <form
+              className="ui form"
+              onSubmit={[Function]}
+            >
+              <FormGroup
+                widths="equal"
+              >
+                <div
+                  className="equal width fields"
+                >
+                  <FormInput
+                    as={[Function]}
+                    control={[Function]}
+                    defaultValue=""
+                    fluid={true}
+                    label="First name"
+                    name="firstName"
+                    placeholder="Jane"
+                  >
+                    <FormField
+                      control={[Function]}
+                      defaultValue=""
+                      fluid={true}
+                      label="First name"
+                      name="firstName"
+                      placeholder="Jane"
+                    >
+                      <div
+                        className="field"
+                      >
+                        <label>
+                          First name
+                        </label>
+                        <Input
+                          defaultValue=""
+                          fluid={true}
+                          name="firstName"
+                          placeholder="Jane"
+                          type="text"
+                        >
+                          <div
+                            className="ui fluid input"
+                          >
+                            <input
+                              defaultValue=""
+                              name="firstName"
+                              onChange={[Function]}
+                              placeholder="Jane"
+                              type="text"
+                            />
+                          </div>
+                        </Input>
+                      </div>
+                    </FormField>
+                  </FormInput>
+                  <FormInput
+                    as={[Function]}
+                    control={[Function]}
+                    defaultValue=""
+                    fluid={true}
+                    label="Last name"
+                    name="lastName"
+                    placeholder="Doe"
+                  >
+                    <FormField
+                      control={[Function]}
+                      defaultValue=""
+                      fluid={true}
+                      label="Last name"
+                      name="lastName"
+                      placeholder="Doe"
+                    >
+                      <div
+                        className="field"
+                      >
+                        <label>
+                          Last name
+                        </label>
+                        <Input
+                          defaultValue=""
+                          fluid={true}
+                          name="lastName"
+                          placeholder="Doe"
+                          type="text"
+                        >
+                          <div
+                            className="ui fluid input"
+                          >
+                            <input
+                              defaultValue=""
+                              name="lastName"
+                              onChange={[Function]}
+                              placeholder="Doe"
+                              type="text"
+                            />
+                          </div>
+                        </Input>
+                      </div>
+                    </FormField>
+                  </FormInput>
+                </div>
+              </FormGroup>
+              <FormGroup
+                widths="equal"
+              >
+                <div
+                  className="equal width fields"
+                >
+                  <FormInput
+                    as={[Function]}
+                    control={[Function]}
+                    defaultValue="example@mail.com"
+                    fluid={true}
+                    label="Email Address"
+                    name="email"
+                    placeholder="example@mail.com"
+                    type="email"
+                  >
+                    <FormField
+                      control={[Function]}
+                      defaultValue="example@mail.com"
+                      fluid={true}
+                      label="Email Address"
+                      name="email"
+                      placeholder="example@mail.com"
+                      type="email"
+                    >
+                      <div
+                        className="field"
+                      >
+                        <label>
+                          Email Address
+                        </label>
+                        <Input
+                          defaultValue="example@mail.com"
+                          fluid={true}
+                          name="email"
+                          placeholder="example@mail.com"
+                          type="email"
+                        >
+                          <div
+                            className="ui fluid input"
+                          >
+                            <input
+                              defaultValue="example@mail.com"
+                              name="email"
+                              onChange={[Function]}
+                              placeholder="example@mail.com"
+                              type="email"
+                            />
+                          </div>
+                        </Input>
+                      </div>
+                    </FormField>
+                  </FormInput>
+                  <FormInput
+                    as={[Function]}
+                    control={[Function]}
+                    defaultValue="examplename"
+                    fluid={true}
+                    label="Username"
+                    name="username"
+                    placeholder="janedoe1"
+                  >
+                    <FormField
+                      control={[Function]}
+                      defaultValue="examplename"
+                      fluid={true}
+                      label="Username"
+                      name="username"
+                      placeholder="janedoe1"
+                    >
+                      <div
+                        className="field"
+                      >
+                        <label>
+                          Username
+                        </label>
+                        <Input
+                          defaultValue="examplename"
+                          fluid={true}
+                          name="username"
+                          placeholder="janedoe1"
+                          type="text"
+                        >
+                          <div
+                            className="ui fluid input"
+                          >
+                            <input
+                              defaultValue="examplename"
+                              name="username"
+                              onChange={[Function]}
+                              placeholder="janedoe1"
+                              type="text"
+                            />
+                          </div>
+                        </Input>
+                      </div>
+                    </FormField>
+                  </FormInput>
+                </div>
+              </FormGroup>
+              <FormTextArea
+                as={[Function]}
+                control={[Function]}
+                defaultValue=""
+                label="Bio"
+                maxLength="450"
+                name="bio"
+                placeholder="Tell us more about you...(450 characters max)"
+                rows={5}
+              >
+                <FormField
+                  control={[Function]}
+                  defaultValue=""
+                  label="Bio"
+                  maxLength="450"
+                  name="bio"
+                  placeholder="Tell us more about you...(450 characters max)"
+                  rows={5}
+                >
+                  <div
+                    className="field"
+                  >
+                    <label>
+                      Bio
+                    </label>
+                    <TextArea
+                      as="textarea"
+                      defaultValue=""
+                      maxLength="450"
+                      name="bio"
+                      placeholder="Tell us more about you...(450 characters max)"
+                      rows={5}
+                    >
+                      <Ref
+                        innerRef={
+                          Object {
+                            "current": <textarea
+                              maxlength="450"
+                              name="bio"
+                              placeholder="Tell us more about you...(450 characters max)"
+                              rows="5"
+                            />,
+                          }
+                        }
+                      >
+                        <RefFindNode
+                          innerRef={
+                            Object {
+                              "current": <textarea
+                                maxlength="450"
+                                name="bio"
+                                placeholder="Tell us more about you...(450 characters max)"
+                                rows="5"
+                              />,
+                            }
+                          }
+                        >
+                          <textarea
+                            defaultValue=""
+                            maxLength="450"
+                            name="bio"
+                            onChange={[Function]}
+                            onInput={[Function]}
+                            placeholder="Tell us more about you...(450 characters max)"
+                            rows={5}
+                          />
+                        </RefFindNode>
+                      </Ref>
+                    </TextArea>
+                  </div>
+                </FormField>
+              </FormTextArea>
+              <div
+                className="field"
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "flex-end",
+                  }
+                }
+              >
+                <Button
+                  className="btn-dark"
+                  type="submit"
+                  value="SAVE CHANGES"
+                >
+                  <button
+                    className="btn btn-dark"
+                    type="submit"
+                  >
+                    SAVE CHANGES
+                  </button>
+                </Button>
+                <FormInput
+                  accept="image/*"
+                  as={[Function]}
+                  control={[Function]}
+                  fluid={true}
+                  name="upload_profile_picture"
+                  onChange={[Function]}
+                  placeholder="Select Profile Pix"
+                  type="file"
+                >
+                  <FormField
+                    accept="image/*"
+                    control={[Function]}
+                    fluid={true}
+                    name="upload_profile_picture"
+                    onChange={[Function]}
+                    placeholder="Select Profile Pix"
+                    type="file"
+                  >
+                    <div
+                      className="field"
+                    >
+                      <Input
+                        accept="image/*"
+                        fluid={true}
+                        name="upload_profile_picture"
+                        onChange={[Function]}
+                        placeholder="Select Profile Pix"
+                        type="file"
+                      >
+                        <div
+                          className="ui fluid input"
+                        >
+                          <input
+                            accept="image/*"
+                            name="upload_profile_picture"
+                            onChange={[Function]}
+                            placeholder="Select Profile Pix"
+                            type="file"
+                          />
+                        </div>
+                      </Input>
+                    </div>
+                  </FormField>
+                </FormInput>
+              </div>
+            </form>
+          </Form>
+        </div>
+      </div>
+    </ProfileSettings>
+  </ConnectFunction>
+</Provider>
+`;
