@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Authentication Card /> should render with no errors 1`] = `
+<div
+  className="right"
+>
+  <div
+    className="auth-card"
+  >
+    <Title
+      className="text-center"
+      content="Become an Author"
+    />
+    <hr
+      className="hr"
+    />
+    <Tab
+      className="tab-label"
+      grid={
+        Object {
+          "paneWidth": 12,
+          "tabWidth": 4,
+        }
+      }
+      menu={
+        Object {
+          "pointing": true,
+          "secondary": true,
+        }
+      }
+      panes={
+        Array [
+          Object {
+            "menuItem": "Sign Up",
+            "render": [Function],
+          },
+          Object {
+            "menuItem": "Login",
+            "render": [Function],
+          },
+        ]
+      }
+      renderActiveOnly={true}
+    />
+    <div
+      className="icon-container"
+    >
+      <a
+        href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google"
+      >
+        <div
+          className="icon-card"
+          data-test="social-icon"
+        >
+          <Image
+            src=""
+          />
+        </div>
+      </a>
+      <a
+        href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook"
+      >
+        <div
+          className="icon-card"
+          data-test="social-icon"
+        >
+          <Image
+            src=""
+          />
+        </div>
+      </a>
+      <a
+        href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter"
+      >
+        <div
+          className="icon-card"
+          data-test="social-icon"
+        >
+          <Image
+            src=""
+          />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;

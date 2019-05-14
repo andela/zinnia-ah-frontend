@@ -85,6 +85,16 @@ export const signupUser = userData => {
   };
 };
 
+<<<<<<< HEAD
+=======
+export const initialState = {
+  isLoading: false,
+  errorResponse: [],
+  successResponse: { status: '' },
+  userData: {},
+};
+
+>>>>>>> [feature] setup tests
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNUP_INITIALIZED:

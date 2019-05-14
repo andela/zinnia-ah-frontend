@@ -116,6 +116,24 @@ exports[`<Register /> mounts correctly 1`] = `
         </button>
       </Button>
     </form>
+<<<<<<< HEAD:src/components/container/Register/__snapshots__/Register.test.jsx.snap
+=======
+    <div
+      className="d-flex or-div"
+    >
+      <hr
+        className="hr"
+      />
+      <p
+        className="or"
+      >
+        OR
+      </p>
+      <hr
+        className="hr"
+      />
+    </div>
+>>>>>>> [feature] setup tests:src/components/Register/__snapshots__/Register.test.jsx.snap
   </div>
 </Register>
 `;

@@ -79,6 +79,7 @@
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "check-prop-types": "^1.1.2",
     "css-loader": "^2.1.1",
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.9.0",
@@ -114,7 +115,6 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "@sweetalert/with-react": "^0.1.1",
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
@@ -128,7 +128,6 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0",
-    "sweetalert": "^2.1.2"
+    "semantic-ui-react": "^0.86.0"
   }
 }
