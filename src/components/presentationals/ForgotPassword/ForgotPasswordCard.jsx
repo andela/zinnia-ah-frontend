@@ -9,7 +9,7 @@ const ForgotPasswordCard = () => {
   return (
     <div className="right">
       <div className="card forgot-password">
-        <Title title={title} />
+        <Title content="Forgot Password?" className="text-center" />
         <hr className="hr" />
         <p>
           Enter the email you used to sign up and we‘ll send you a password
@@ -19,22 +19,11 @@ const ForgotPasswordCard = () => {
           <div className="form-group">
             <input placeholder="Email" type="email" />
           </div>
-          <Button button={buttonValues} />
+          <Button type="submit" value="SEND EMAIL" className="btn-dark" />
         </form>
       </div>
     </div>
   );
-};
-
-const title = {
-  content: 'Forgot Password?',
-  class: 'text-center',
-};
-
-const buttonValues = {
-  type: 'submit',
-  value: 'SEND EMAIL',
-  class: 'btn-dark',
 };
 
 export default ForgotPasswordCard;
