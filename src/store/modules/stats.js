@@ -1,12 +1,20 @@
 import { getReadingStats } from '../../api/client';
 
-export const GET_STATS_SUCCESS = 'GET_STATS_SUCCESS';
+export const GET_READS_COUNT = 'GET_READS_COUNT';
+export const GET_HITS_COUNT = 'GET_HITS_COUNT';
 export const GET_STATS_ERROR = 'GET_STATS_ERROR';
 
-export const getUserStats = response => {
+export const getUserReadStats = count => {
   return {
-    type: GET_STATS_SUCCESS,
-    response,
+    type: GET_READS_COUNT,
+    count,
+  };
+};
+
+export const getUserHitStats = count => {
+  return {
+    type: GET_HITS_COUNT,
+    count,
   };
 };
 
@@ -21,8 +29,19 @@ export const getUserReadingStats = username => {
   return async dispatch => {
     try {
       const { data } = await getReadingStats(username);
-      localStorage.setItem('userprofile', JSON.stringify(data));
-      dispatch(getUserStats(data));
+      // console.log(data.data.rows);
+      const count = data.data.count;
+      // let Reads, Hits;
+      // // rows = 'array of articles'
+      // rows.forEach(article => {
+      //   if (article.userId === username) {
+      //     const Reads =
+      //   };
+
+      // });
+
+      // localStorage.setItem('userprofile', JSON.stringify(data));
+      dispatch(getUserReadStats(count));
     } catch (error) {
       const { data } = error.response;
       dispatch(getStatsError([data]));
@@ -31,25 +50,21 @@ export const getUserReadingStats = username => {
 };
 
 export const initialState = {
-  isLoading: false,
-  errorResponse: [],
-  successResponse: {},
+  count: 0,
+  rows: [],
 };
 
 export const statsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_STATS_SUCCESS:
+    case GET_READS_COUNT:
       return {
         ...state,
-        isLoading: false,
-        successResponse: action.response,
-        errorResponse: [],
+        response: action.count,
       };
     case GET_STATS_ERROR:
       return {
         ...state,
-        isLoading: false,
-        errorResponse: action.error,
+        error: action.error,
       };
     default:
       return state;
