@@ -1,4 +1,5 @@
-import { getReadingStats } from '../../api/client';
+import { getReadingStats } from '../../api/users';
+import { setToken } from '../../api/helpers';
 
 export const GET_READS_COUNT = 'GET_READS_COUNT';
 export const GET_HITS_COUNT = 'GET_HITS_COUNT';
@@ -28,7 +29,10 @@ export const getStatsError = error => {
 export const getUserReadingStats = username => {
   return async dispatch => {
     try {
+      // setToken(data.data.token);
+      // console.log(setToken);
       const { data } = await getReadingStats(username);
+      setToken(data.data.token);
       // console.log(data.data.rows);
       const count = data.data.count;
       // let Reads, Hits;

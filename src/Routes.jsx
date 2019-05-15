@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import AuthenticationLayout from './pages/Authentication';
 import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
+// import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
 import Stats from './components/presentationals/Stats/Stats';
 
@@ -14,7 +14,7 @@ const Routes = () => {
       <Route exact path="/" component={App} />
       <Route exact path="/login" component={AuthenticationLayout} />
       <Route exact path="/signup" component={AuthenticationLayout} />
-      <Route path="/reset-password" exact component={ResetPassword} />
+      {/* <Route path="/reset-password" exact component={ResetPassword} /> */}
       <Route path="/forgot-password" exact component={ForgotPassword} />
       <Route path="/@:username" component={Profile} />
       <Route path="/stats" component={Stats} />
