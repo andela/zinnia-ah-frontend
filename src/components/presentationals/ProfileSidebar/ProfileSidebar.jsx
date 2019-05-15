@@ -69,6 +69,7 @@ ProfileSidebar.propTypes = {
   username: PropTypes.string,
   email: PropTypes.string,
   image: PropTypes.string,
+  currentView: PropTypes.string,
 };
 
 export default ProfileSidebar;
