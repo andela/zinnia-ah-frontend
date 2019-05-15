@@ -26,7 +26,7 @@ const profile = {
   message: 'fetched user',
 };
 
-describe.only('ProfileSettings', () => {
+describe('ProfileSettings', () => {
   beforeEach(() => {
     const mockStore = configureMockStore();
     store = mockStore({ profile: { profile } });
