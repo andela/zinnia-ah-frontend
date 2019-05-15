@@ -25,7 +25,7 @@ class ProfileSettings extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.updatedAt !== prevProps.updatedAt) {
+    if (this.props.data.updatedAt !== prevProps.data.updatedAt) {
       this.setState({ isLoading: false });
     }
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 
 import ProfileSettings from './ProfileSettings';
@@ -33,6 +33,24 @@ describe('ProfileSettings', () => {
       </Provider>,
     );
     expect(component).toMatchSnapshot();
+    component.unmount();
+  });
+
+  it('should simulate image preview correctly', () => {
+    const file = new File(['(⌐□_□)'], 'chucknorris.png', {
+      type: 'image/png',
+    });
+    const component = mount(
+      <Provider store={store}>
+        <ProfileSettings currentView={profileData.currentView} />
+      </Provider>,
+    );
+
+    component
+      .find('input[name="upload_profile_picture"]')
+      .simulate('change', { target: { files: [file] } });
+    expect(component.state('previewImage')).toEqual(undefined);
+    component.unmount();
   });
 
   it('returns initial reducer state', () => {
