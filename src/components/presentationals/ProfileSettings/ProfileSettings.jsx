@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import Button from '../../presentationals/Button/Button.jsx';
 import { generateFormData, uploadImageToServer } from '../../../utils/helpers';
-import { updateUserProfileRequest } from '../../../store/modules/Profile';
+import { updateUserProfileRequest } from '../../../store/modules/profile';
 import Loader from '../../presentationals/Loader/Loader.jsx';
 
 class ProfileSettings extends Component {
