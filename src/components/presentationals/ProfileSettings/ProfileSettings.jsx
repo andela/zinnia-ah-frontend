@@ -11,13 +11,13 @@ import Loader from '../../presentationals/Loader/Loader.jsx';
 
 class ProfileSettings extends Component {
   state = {
-    isLoading: null,
+    isLoading: false,
     tabName: 'userSettings',
     previewImage: null,
   };
 
   componentDidMount() {
-    this.props.currentView;
+    return this.props.currentView();
   }
 
   componentWillUnmount() {
@@ -26,7 +26,7 @@ class ProfileSettings extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.updatedAt !== prevProps.updatedAt) {
-      this.setState({ isLoading: null });
+      this.setState({ isLoading: false });
     }
   }
 
@@ -67,6 +67,7 @@ class ProfileSettings extends Component {
   };
 
   render() {
+    const { firstName, lastName, bio, username, email } = this.props.data;
     return (
       <div className="settings">
         <div className="edit-profile">
@@ -79,14 +80,14 @@ class ProfileSettings extends Component {
                 fluid
                 label="First name"
                 placeholder="Jane"
-                defaultValue={this.props.firstName}
+                defaultValue={firstName}
                 name="firstName"
               />
               <Form.Input
                 fluid
                 label="Last name"
                 placeholder="Doe"
-                defaultValue={this.props.lastName}
+                defaultValue={lastName}
                 name="lastName"
               />
             </Form.Group>
@@ -95,7 +96,7 @@ class ProfileSettings extends Component {
                 fluid
                 label="Email Address"
                 placeholder="example@mail.com"
-                defaultValue={this.props.email}
+                defaultValue={email}
                 type="email"
                 name="email"
               />
@@ -103,7 +104,7 @@ class ProfileSettings extends Component {
                 fluid
                 label="Username"
                 placeholder="janedoe1"
-                defaultValue={this.props.username}
+                defaultValue={username}
                 name="username"
               />
             </Form.Group>
@@ -112,7 +113,7 @@ class ProfileSettings extends Component {
               name="bio"
               placeholder="Tell us more about you...(450 characters max)"
               maxLength="450"
-              defaultValue={this.props.bio}
+              defaultValue={bio}
               rows={5}
             />
             <div
@@ -143,17 +144,18 @@ ProfileSettings.propTypes = {
   currentView: PropTypes.func,
   uploadImageToServer: PropTypes.func.isRequired,
   updateUserProfileRequest: PropTypes.func.isRequired,
-  firstName: PropTypes.string,
-  lastName: PropTypes.string,
-  username: PropTypes.string,
-  email: PropTypes.string,
-  updatedAt: PropTypes.string,
-  bio: PropTypes.string,
+  data: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    username: PropTypes.string,
+    email: PropTypes.string,
+    updatedAt: PropTypes.string,
+    bio: PropTypes.string,
+  }),
 };
 
 const mapStateToProps = state => {
-  const { data } = state.profile.profile;
-  return data;
+  return { data: state.profile.profile.data };
 };
 
 export default connect(

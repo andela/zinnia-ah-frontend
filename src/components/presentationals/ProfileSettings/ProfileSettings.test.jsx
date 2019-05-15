@@ -9,16 +9,10 @@ import { Provider } from 'react-redux';
 let store;
 const profileData = {
   data: {
-    followers: [],
-    followings: [],
     username: 'examplename',
     email: 'example@mail.com',
-    image: '',
-    bio: '',
-    firstName: '',
-    lastName: '',
-    publications: [],
   },
+  currentView: () => {},
 };
 const profile = {
   ...profileData,
@@ -35,7 +29,7 @@ describe('ProfileSettings', () => {
   it('should render profile settings correctly', () => {
     const component = mount(
       <Provider store={store}>
-        <ProfileSettings />
+        <ProfileSettings currentView={profileData.currentView} />
       </Provider>,
     );
     expect(component).toMatchSnapshot();
@@ -59,5 +53,12 @@ describe('ProfileSettings', () => {
         },
       },
     });
+  });
+
+  it('returns new reducer state', () => {
+    profileData.data.username = 'exampleusername';
+    profileData.data.email = 'example@mail.com';
+    const reducer = profileReducer(profileData, {});
+    expect(reducer).toEqual(profileData);
   });
 });

@@ -13,19 +13,19 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
     }
   }
 >
-  <ConnectFunction>
+  <ConnectFunction
+    currentView={[Function]}
+  >
     <ProfileSettings
-      bio=""
-      email="example@mail.com"
-      firstName=""
-      followers={Array []}
-      followings={Array []}
-      image=""
-      lastName=""
-      publications={Array []}
+      currentView={[Function]}
+      data={
+        Object {
+          "email": "example@mail.com",
+          "username": "examplename",
+        }
+      }
       updateUserProfileRequest={[Function]}
       uploadImageToServer={[Function]}
-      username="examplename"
     >
       <div
         className="settings"
@@ -50,7 +50,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   <FormInput
                     as={[Function]}
                     control={[Function]}
-                    defaultValue=""
                     fluid={true}
                     label="First name"
                     name="firstName"
@@ -58,7 +57,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   >
                     <FormField
                       control={[Function]}
-                      defaultValue=""
                       fluid={true}
                       label="First name"
                       name="firstName"
@@ -71,7 +69,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                           First name
                         </label>
                         <Input
-                          defaultValue=""
                           fluid={true}
                           name="firstName"
                           placeholder="Jane"
@@ -81,7 +78,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                             className="ui fluid input"
                           >
                             <input
-                              defaultValue=""
                               name="firstName"
                               onChange={[Function]}
                               placeholder="Jane"
@@ -95,7 +91,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   <FormInput
                     as={[Function]}
                     control={[Function]}
-                    defaultValue=""
                     fluid={true}
                     label="Last name"
                     name="lastName"
@@ -103,7 +98,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   >
                     <FormField
                       control={[Function]}
-                      defaultValue=""
                       fluid={true}
                       label="Last name"
                       name="lastName"
@@ -116,7 +110,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                           Last name
                         </label>
                         <Input
-                          defaultValue=""
                           fluid={true}
                           name="lastName"
                           placeholder="Doe"
@@ -126,7 +119,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                             className="ui fluid input"
                           >
                             <input
-                              defaultValue=""
                               name="lastName"
                               onChange={[Function]}
                               placeholder="Doe"
@@ -242,7 +234,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
               <FormTextArea
                 as={[Function]}
                 control={[Function]}
-                defaultValue=""
                 label="Bio"
                 maxLength="450"
                 name="bio"
@@ -251,7 +242,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
               >
                 <FormField
                   control={[Function]}
-                  defaultValue=""
                   label="Bio"
                   maxLength="450"
                   name="bio"
@@ -266,7 +256,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                     </label>
                     <TextArea
                       as="textarea"
-                      defaultValue=""
                       maxLength="450"
                       name="bio"
                       placeholder="Tell us more about you...(450 characters max)"
@@ -297,7 +286,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                           }
                         >
                           <textarea
-                            defaultValue=""
                             maxLength="450"
                             name="bio"
                             onChange={[Function]}
