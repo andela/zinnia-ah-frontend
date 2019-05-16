@@ -21,5 +21,12 @@ exports[`App should render correctly 1`] = `
       Signup
     </button>
   </Link>
+  <Link
+    to="/editor"
+  >
+    <button>
+      Editor
+    </button>
+  </Link>
 </div>
 `;
