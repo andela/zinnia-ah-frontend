@@ -1,0 +1,22 @@
+.comment-card {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .like-button {
+    all: unset;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  .user-thumbnail {
+    margin-bottom: 15px;
+  }
+
+  .comment-body {
+    margin-left: 53px;
+  }
+}
