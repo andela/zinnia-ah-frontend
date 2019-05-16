@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Dimmer, Loader } from 'semantic-ui-react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Navbar from '../components/presentationals/Navbar/Navbar';
@@ -16,19 +18,26 @@ import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 //actions
 import { getUserProfileRequest } from '../store/modules/profile';
+import { deleteArticle } from '../store/modules/profile';
 
 export class Profile extends Component {
   componentDidMount() {
-    this.props.getUserProfileRequest('igbominadeveloper');
+    this.props.getUserProfileRequest(this.props.match.params.username);
   }
   render() {
     const {
-      profile: { data },
+      profile,
+      publications,
+      followings,
+      followers,
       isLoading,
+      deleteArticle: deleteArticleFunction,
+      isDeleting,
     } = this.props;
     return (
       <div>
-        <Navbar url={data.image || DEFAULT_USER_IMAGE_URL} className="" />
+        <ToastContainer autoClose={4000} />
+        <Navbar url={profile.image || DEFAULT_USER_IMAGE_URL} className="" />
         <div className="profile-container">
           {isLoading && (
             <Dimmer active>
@@ -36,8 +45,17 @@ export class Profile extends Component {
             </Dimmer>
           )}
 
-          <ProfileSidebar {...data} />
-          <ProfileMain {...data} />
+          <ProfileSidebar
+            {...profile}
+            followers={followers}
+            followings={followings}
+          />
+          <ProfileMain
+            {...profile}
+            publications={publications}
+            deleteArticle={deleteArticleFunction}
+            isDeleting={isDeleting}
+          />
         </div>
       </div>
     );
@@ -46,18 +64,38 @@ export class Profile extends Component {
 
 Profile.propTypes = {
   getUserProfileRequest: PropTypes.func,
-  profile: PropTypes.shape({
-    data: PropTypes.object,
-  }),
+  profile: PropTypes.object,
+  publications: PropTypes.array,
+  followings: PropTypes.array,
+  followers: PropTypes.array,
+  deleteArticle: PropTypes.func,
+  isDeleting: PropTypes.bool,
   isLoading: PropTypes.bool,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+    }),
+  }),
 };
 
 export const mapStateToProps = state => ({
-  profile: state.profile.profile,
+  profile: {
+    firstName: state.profile.firstName,
+    lastName: state.profile.lastName,
+    bio: state.profile.bio,
+    image: state.profile.image,
+    email: state.profile.email,
+    username: state.profile.username,
+  },
+  error: state.profile.error,
   isLoading: state.profile.isLoading,
+  isDeleting: state.profile.isDeleting,
+  publications: state.profile.publications,
+  followings: state.profile.followings,
+  followers: state.profile.followers,
 });
 
 export default connect(
   mapStateToProps,
-  { getUserProfileRequest },
+  { getUserProfileRequest, deleteArticle },
 )(Profile);

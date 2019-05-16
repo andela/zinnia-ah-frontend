@@ -3,21 +3,20 @@ import { mount } from 'enzyme';
 
 import ArticleLists from './ArticleLists';
 
-const articles = [
-  {
-    id: 123456789,
-  },
-];
-const emptyArticles = [];
-
+const deleteArticle = jest.fn();
+const isDeleting = false;
+const articleId = '1q2345t6y7u8iokjhbvfr43wsdfghyuikjnbgvfrt56yh';
+const articles = [{}, {}];
 describe('ArticleLists', () => {
   it('should render correctly', () => {
-    const component = mount(<ArticleLists articles={articles} />);
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should render correctly', () => {
-    const component = mount(<ArticleLists articles={emptyArticles} />);
+    const component = mount(
+      <ArticleLists
+        articles={articles}
+        deleteArticle={() => deleteArticle(articleId, articles)}
+        isDeleting={isDeleting}
+        key={articleId}
+      />,
+    );
     expect(component).toMatchSnapshot();
   });
 });

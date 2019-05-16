@@ -10,13 +10,24 @@ import ArticleLists from '../ArticleLists/ArticleLists';
 // styles
 import './ProfileMain.scss';
 
-const ProfileMain = ({ firstName, lastName, bio, publications }) => {
+const ProfileMain = ({
+  firstName,
+  lastName,
+  bio,
+  publications,
+  deleteArticle,
+  isDeleting,
+}) => {
   const panes = [
     {
       menuItem: 'Posts',
       render: () => (
         <Tab.Pane attached={false}>
-          <ArticleLists articles={publications} />
+          <ArticleLists
+            articles={publications}
+            deleteArticle={deleteArticle}
+            isDeleting={isDeleting}
+          />
         </Tab.Pane>
       ),
     },
@@ -68,6 +79,8 @@ ProfileMain.propTypes = {
   lastName: PropTypes.string,
   bio: PropTypes.string,
   publications: PropTypes.array,
+  deleteArticle: PropTypes.func,
+  isDeleting: PropTypes.bool,
 };
 
 export default ProfileMain;
