@@ -26,7 +26,6 @@ const ProfileSidebar = ({
   email,
   image,
   currentView,
-  view,
 }) => {
   return (
     <div className="sidebar">
