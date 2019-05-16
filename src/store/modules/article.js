@@ -2,10 +2,10 @@ import { articleRequest } from '../../api/article';
 
 //constants
 export const CREATE_ARTCLE_INITIALIZED = 'CREATE_ARTCLE_INITIALIZED';
-export const CREATE_SUCCESS_SUCCESS = 'CREATE_SUCCESS_SUCCESS';
+export const CREATE_ARTICLE_SUCCESS = 'CREATE_ARTICLE_SUCCESS';
 export const CREATE_ARTICLE_ERROR = 'CREATE_ARTICLE_ERROR';
 
-const createArticleInitialized = () => {
+export const createArticleInitialized = () => {
   return {
     type: CREATE_ARTCLE_INITIALIZED,
   };
@@ -13,7 +13,7 @@ const createArticleInitialized = () => {
 
 export const createArticleSuccess = response => {
   return {
-    type: CREATE_SUCCESS_SUCCESS,
+    type: CREATE_ARTICLE_SUCCESS,
     response,
   };
 };
@@ -25,7 +25,7 @@ export const createArticleError = error => {
   };
 };
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: {
@@ -53,7 +53,7 @@ export const articleReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-    case CREATE_SUCCESS_SUCCESS:
+    case CREATE_ARTICLE_SUCCESS:
       return {
         ...state,
         successResponse: action.response,

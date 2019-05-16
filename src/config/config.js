@@ -6,9 +6,10 @@ export const DEFAULT_PROFILE_PICTURE =
 
 const IMAGE_API = 'https://api.cloudinary.com/v1_1/';
 
-export const CLOUDINARY_API = `${IMAGE_API}${process.env.CLOUD_USERNAME}/${
-  process.env.CLOUD_ACTION
-}/`;
+export const CLOUDINARY_API = `${IMAGE_API}/emmsdan/upload`;
 export const CLOUD_PRESET = 'upload_app';
 
 export const FRONTEND_URL = 'https://zinnia-ah-frontend-staging.herokuapp.com';
+
+export const CREATE_ARTICLE_CLOUDINARY_ULR =
+  'https://api.cloudinary.com/v1_1/trix/image/upload';

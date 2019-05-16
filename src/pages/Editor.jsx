@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Editor from '../components/container/Editor/Editor';
+import EditorContainer from '../components/container/Editor/Editor';
 
-export class EditorContainer extends Component {
+export class Editor extends Component {
   render() {
     return (
       <div>
-        <Editor />
+        <EditorContainer />
       </div>
     );
   }
 }
 
-export default EditorContainer;
+export default Editor;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { EditorState, convertToRaw } from 'draft-js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import { WithContext as ReactTags } from 'react-tag-input';
+import { imageHandler } from '../../../utils/helpers.js';
 
 //Styles
 import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -66,17 +66,7 @@ export class EditorContainer extends Component {
 
   fileUploadHandler = async file => {
     const { imageThumbnail } = this.state;
-    const url = 'https://api.cloudinary.com/v1_1/trix/image/upload';
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'zinniahteam');
-
-    const data = await axios.post(url, formData, {
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    });
-
+    const data = await imageHandler(file);
     if (imageThumbnail === '') {
       this.setState({
         imageThumbnail: data.data.secure_url,
@@ -88,16 +78,16 @@ export class EditorContainer extends Component {
   submitArticle = event => {
     event.preventDefault();
 
-    const getDescription = string => {
+    const getPreview = string => {
       return string.substring(0, 500);
     };
 
     const { title, body, imageThumbnail, tags } = this.state;
-    const description = `${getDescription(
+    const description = `${getPreview(
       JSON.stringify(body.getCurrentContent().getPlainText()),
     )}...`;
 
-    const bodyCheck = `${getDescription(
+    const bodyCheck = `${getPreview(
       JSON.stringify(body.getCurrentContent().getPlainText()),
     )}`;
 
@@ -118,14 +108,6 @@ export class EditorContainer extends Component {
     this.props.createArticle(articleInput);
   };
 
-  enlargeTextarea = () => {
-    const element = document.querySelector('.title-textarea');
-    setTimeout(() => {
-      element.style.cssText = 'height: auto; padding: 0';
-      element.style.cssText = `height: ${element.scrollHeight + 2}px`;
-    }, 0);
-  };
-
   render() {
     const {
       article: { isLoading },
@@ -133,6 +115,7 @@ export class EditorContainer extends Component {
 
     const { body, tags } = this.state;
 
+    //Get unique keycodes
     const KeyCodes = {
       comma: 188,
       enter: 13,
@@ -141,7 +124,6 @@ export class EditorContainer extends Component {
     const delimiters = [KeyCodes.comma, KeyCodes.enter];
     return (
       <div>
-        {/* {console.log(this.props)} */}
         {isLoading && <Loader text="please wait" size="large" />}
         <Navbar />
         <div className="editor-main">

@@ -29,7 +29,6 @@ describe('<EditorContainer />', () => {
     input.simulate('change');
     MountWrapper.instance().handleDelete();
     MountWrapper.instance().handleDrag({ id: 'tat', text: 'tat' }, 3, 4);
-    MountWrapper.instance().enlargeTextarea();
     MountWrapper.instance().fileUploadHandler();
     expect(wrapper).toMatchSnapshot();
   });

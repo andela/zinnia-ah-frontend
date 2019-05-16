@@ -13,7 +13,6 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SOCIAL_SUCCESS = 'SOCIAL_SUCCESS';
 
 export const initialState = {
-  isAuthenticated: false,
   isLoading: false,
   errorResponse: [],
   successResponse: { status: '' },
@@ -130,7 +129,6 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         successResponse: action.response,
         isLoading: false,
-        isAuthenticated: true,
         errorResponse: [],
       };
 

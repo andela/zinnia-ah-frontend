@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditorContainer /> renders the component 1`] = `
+<div>
+  <Loader
+    size="large"
+    text="please wait"
+  />
+  <Navbar />
+  <div
+    className="editor-main"
+  >
+    <TextArea
+      autoFocus="autoFocus"
+      className="title-textarea"
+      name="title"
+      onChange={[Function]}
+      placeholder="Title"
+      rows="1"
+      value=""
+    />
+    <div
+      className="editor-container"
+    >
+      <t
+        customDecorators={Array []}
+        editorClassName="demo-editor"
+        editorState={
+          EditorState {
+            "_immutable": Immutable.Record {
+              "allowUndo": true,
+              "currentContent": Immutable.Record {
+                "entityMap": Object {
+                  "__add": [Function],
+                  "__create": [Function],
+                  "__get": [Function],
+                  "__getLastCreatedEntityKey": [Function],
+                  "__mergeData": [Function],
+                  "__replaceData": [Function],
+                  "add": [Function],
+                  "create": [Function],
+                  "get": [Function],
+                  "getLastCreatedEntityKey": [Function],
+                  "mergeData": [Function],
+                  "replaceData": [Function],
+                },
+                "blockMap": Immutable.OrderedMap {
+                  "123": Immutable.Record {
+                    "key": "123",
+                    "type": "unstyled",
+                    "text": "",
+                    "characterList": Immutable.List [],
+                    "depth": 0,
+                    "data": Immutable.Map {},
+                  },
+                },
+                "selectionBefore": Immutable.Record {
+                  "anchorKey": "123",
+                  "anchorOffset": 0,
+                  "focusKey": "123",
+                  "focusOffset": 0,
+                  "isBackward": false,
+                  "hasFocus": false,
+                },
+                "selectionAfter": Immutable.Record {
+                  "anchorKey": "123",
+                  "anchorOffset": 0,
+                  "focusKey": "123",
+                  "focusOffset": 0,
+                  "isBackward": false,
+                  "hasFocus": false,
+                },
+              },
+              "decorator": null,
+              "directionMap": Immutable.OrderedMap {
+                "123": "LTR",
+              },
+              "forceSelection": false,
+              "inCompositionMode": false,
+              "inlineStyleOverride": null,
+              "lastChangeType": null,
+              "nativelyRenderedContent": null,
+              "redoStack": Immutable.Stack [],
+              "selection": Immutable.Record {
+                "anchorKey": "123",
+                "anchorOffset": 0,
+                "focusKey": "123",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+              "treeMap": Immutable.OrderedMap {
+                "123": Immutable.List [
+                  Immutable.Record {
+                    "start": 0,
+                    "end": 0,
+                    "decoratorKey": null,
+                    "leaves": Immutable.List [
+                      Immutable.Record {
+                        "start": 0,
+                        "end": 0,
+                      },
+                    ],
+                  },
+                ],
+              },
+              "undoStack": Immutable.Stack [],
+            },
+          }
+        }
+        localization={
+          Object {
+            "locale": "en",
+            "translations": Object {},
+          }
+        }
+        onEditorStateChange={[Function]}
+        placeholder="Write your post..."
+        stripPastedStyles={false}
+        toolbar={
+          Object {
+            "history": Object {
+              "inDropdown": true,
+            },
+            "image": Object {
+              "alignmentEnabled": false,
+              "alt": Object {
+                "mandatory": false,
+                "present": false,
+              },
+              "defaultSize": Object {
+                "height": "500",
+                "width": "1000",
+              },
+              "inputAccept": "image/gif,image/jpeg,image/jpg,image/png,image/svg",
+              "placeHolder": "Write your story...",
+              "previewImage": true,
+              "uploadCallback": [Function],
+            },
+            "inline": Object {
+              "inDropdown": true,
+            },
+            "link": Object {
+              "inDropdown": true,
+            },
+            "list": Object {
+              "inDropdown": true,
+            },
+            "options": Array [
+              "inline",
+              "blockType",
+              "textAlign",
+              "colorPicker",
+              "link",
+              "emoji",
+              "image",
+              "history",
+            ],
+            "textAlign": Object {
+              "inDropdown": true,
+            },
+          }
+        }
+        toolbarHidden={false}
+        toolbarOnFocus={true}
+        wrapperClassName="demo-wrapper"
+      />
+      <div
+        className="tags"
+      >
+        <DragDropContext(ReactTags)
+          delimiters={
+            Array [
+              188,
+              13,
+            ]
+          }
+          handleAddition={[Function]}
+          handleDelete={[Function]}
+          handleDrag={[Function]}
+          tags={Array []}
+        />
+      </div>
+      <div
+        className="d-flex justify-content-end"
+      >
+        <div
+          className="res-width-btn"
+        >
+          <Button
+            className="btn-dark"
+            onClick={[Function]}
+            type="submit"
+            value="POST ARTICLE"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
