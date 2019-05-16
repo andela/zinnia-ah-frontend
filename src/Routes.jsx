@@ -3,8 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import App from './components/App';
 import AuthenticationLayout from './pages/Authentication';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';
 import NotFound from './pages/NotFound/NotFound';
