@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stats test suite should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ConnectFunction
+    getUserReadStats={[MockFunction]}
+    stats={
+      Object {
+        "hits": Array [],
+        "reads": Array [],
+      }
+    }
+  >
+    <Stats
+      dispatch={[Function]}
+      getUserReadStats={[Function]}
+      stats={
+        Object {
+          "hits": Array [],
+          "reads": Array [],
+        }
+      }
+    >
+      <div
+        className="count"
+      >
+        <div
+          className="stats-tab-menu"
+        >
+          <Tab
+            grid={
+              Object {
+                "paneWidth": 12,
+                "tabWidth": 4,
+              }
+            }
+            menu={
+              Object {
+                "pointing": true,
+                "secondary": true,
+              }
+            }
+            panes={
+              Array [
+                Object {
+                  "menuItem": <MenuItem>
+                    READS
+                    <Label>
+                      0
+                    </Label>
+                  </MenuItem>,
+                  "render": [Function],
+                },
+                Object {
+                  "menuItem": <MenuItem>
+                    HITS
+                    <Label>
+                      0
+                    </Label>
+                  </MenuItem>,
+                  "render": [Function],
+                },
+              ]
+            }
+            renderActiveOnly={true}
+          >
+            <div>
+              <Menu
+                activeIndex={0}
+                items={
+                  Array [
+                    <MenuItem>
+                      READS
+                      <Label>
+                        0
+                      </Label>
+                    </MenuItem>,
+                    <MenuItem>
+                      HITS
+                      <Label>
+                        0
+                      </Label>
+                    </MenuItem>,
+                  ]
+                }
+                onItemClick={[Function]}
+                pointing={true}
+                secondary={true}
+              >
+                <div
+                  className="ui pointing secondary menu"
+                >
+                  <MenuItem
+                    active={true}
+                    index={0}
+                    key="reads"
+                    onClick={[Function]}
+                  >
+                    <a
+                      className="active item"
+                      onClick={[Function]}
+                    >
+                      READS
+                      <Label>
+                        <div
+                          className="ui label"
+                          onClick={[Function]}
+                        >
+                          0
+                        </div>
+                      </Label>
+                    </a>
+                  </MenuItem>
+                  <MenuItem
+                    active={false}
+                    index={1}
+                    key="hits"
+                    onClick={[Function]}
+                  >
+                    <a
+                      className="item"
+                      onClick={[Function]}
+                    >
+                      HITS
+                      <Label>
+                        <div
+                          className="ui label"
+                          onClick={[Function]}
+                        >
+                          0
+                        </div>
+                      </Label>
+                    </a>
+                  </MenuItem>
+                </div>
+              </Menu>
+              <TabPane
+                active={true}
+                as={[Function]}
+              >
+                <Segment
+                  attached="bottom"
+                  className="active tab"
+                >
+                  <div
+                    className="ui bottom attached segment active tab"
+                  >
+                    <div
+                      style={
+                        Object {
+                          "marginTop": "0.0625rem",
+                        }
+                      }
+                    >
+                      <ReadingList
+                        articles={Array []}
+                        type="reads"
+                      >
+                        <div
+                          className="post-lists"
+                        >
+                          <p
+                            style={
+                              Object {
+                                "fontSize": "30px",
+                                "fontWeight": "bolder",
+                              }
+                            }
+                          >
+                            You have no reads
+                          </p>
+                        </div>
+                      </ReadingList>
+                    </div>
+                  </div>
+                </Segment>
+              </TabPane>
+            </div>
+          </Tab>
+        </div>
+      </div>
+    </Stats>
+  </ConnectFunction>
+</Provider>
+`;

@@ -24,12 +24,12 @@ const mockData = {
 };
 describe('stats actions', () => {
   it('should dispatch an action for getting reading stats', () => {
-    const response = {};
+    const data = {};
     const action = {
       type: GET_READS_COUNT,
-      response,
+      data,
     };
-    expect(getUserReadStats(response)).toEqual(action);
+    expect(getUserReadStats(data)).toEqual(action);
   });
   it('should dispatch an action for reading stats error', () => {
     const error = '';
@@ -44,10 +44,11 @@ describe('stats actions', () => {
     const expectedActions = [
       {
         type: 'GET_READS_COUNT',
-        response: mockData,
+        data: {},
       },
     ];
     return store.dispatch(getUserReadingStats()).then(() => {
+      // console.log({ store });
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -68,15 +69,13 @@ describe('reading stats reducer test suite', () => {
     expect(state).toEqual(initialState);
   });
   it('should return successful user stats reducer', () => {
-    const action = getUserReadStats();
+    const action = { hits: [], reads: [] };
     const state = statsReducer(initialState, action);
-    // expect(state.isLoading).toBe(false);
-    expect(state.successResponse).toEqual(action.response);
+    expect(state.data).toEqual(action.data);
   });
   it('should return failed user stats reducer', () => {
     const action = getStatsError();
     const state = statsReducer(initialState, action);
-    // expect(state.isLoading).toBe(false);
     expect(state.errorResponse).toEqual(action.error);
   });
 });

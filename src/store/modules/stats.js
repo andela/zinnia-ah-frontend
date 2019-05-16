@@ -1,21 +1,14 @@
 import { getReadingStats } from '../../api/users';
-import { setToken } from '../../api/helpers';
+import { getToken, decodeToken } from '../../api/helpers';
 
 export const GET_READS_COUNT = 'GET_READS_COUNT';
 export const GET_HITS_COUNT = 'GET_HITS_COUNT';
 export const GET_STATS_ERROR = 'GET_STATS_ERROR';
 
-export const getUserReadStats = count => {
+export const getUserReadStats = data => {
   return {
     type: GET_READS_COUNT,
-    count,
-  };
-};
-
-export const getUserHitStats = count => {
-  return {
-    type: GET_HITS_COUNT,
-    count,
+    data,
   };
 };
 
@@ -26,26 +19,23 @@ export const getStatsError = error => {
   };
 };
 
-export const getUserReadingStats = username => {
+export const getUserReadingStats = () => {
   return async dispatch => {
     try {
-      // setToken(data.data.token);
-      // console.log(setToken);
-      const { data } = await getReadingStats(username);
-      setToken(data.data.token);
-      // console.log(data.data.rows);
-      const count = data.data.count;
-      // let Reads, Hits;
-      // // rows = 'array of articles'
-      // rows.forEach(article => {
-      //   if (article.userId === username) {
-      //     const Reads =
-      //   };
+      const {
+        data: {
+          data: { count, rows },
+        },
+      } = await getReadingStats();
+      const token = getToken();
+      const { id } = decodeToken(token);
+      // console.log(rows[0].article.userId);
+      const hits = rows.filter(row => row.article.userId === id);
+      const reads = rows.filter(row => row.article.userId !== id);
 
-      // });
-
-      // localStorage.setItem('userprofile', JSON.stringify(data));
-      dispatch(getUserReadStats(count));
+      dispatch(
+        getUserReadStats({ count, articles: rows, stats: { hits, reads } }),
+      );
     } catch (error) {
       const { data } = error.response;
       dispatch(getStatsError([data]));
@@ -54,8 +44,8 @@ export const getUserReadingStats = username => {
 };
 
 export const initialState = {
-  count: 0,
-  rows: [],
+  hits: [],
+  reads: [],
 };
 
 export const statsReducer = (state = initialState, action) => {
@@ -63,7 +53,8 @@ export const statsReducer = (state = initialState, action) => {
     case GET_READS_COUNT:
       return {
         ...state,
-        response: action.count,
+        hits: action.data.stats.hits,
+        reads: action.data.stats.reads,
       };
     case GET_STATS_ERROR:
       return {

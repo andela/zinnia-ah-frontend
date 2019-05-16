@@ -1,5 +1,9 @@
 import { http } from './client';
+import { getToken } from './helpers';
 
 export const getReadingStats = async username => {
-  return await http.get(`/users/profiles/${username}/stats`);
+  let token = getToken();
+  return await http.get(`/users/profiles/${username}/stats`, {
+    headers: { Authorization: JSON.parse(token) },
+  });
 };

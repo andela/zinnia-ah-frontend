@@ -2,40 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Tab, Label, Menu } from 'semantic-ui-react';
-// import ArticleLists from '../ArticleLists/ArticleLists';
-// import Title from '../Title/Title';
-import {
-  getUserReadingStats,
-  statsReducer,
-} from '../../../store/modules/stats';
+
+import { getUserReadingStats } from '../../../store/modules/stats';
 
 // styles
 import './Stats.scss';
 
+//components
+import ReadingList from '../../presentationals/ReadingLists/ReadingList';
+
 const Stats = props => {
-  const { readStats, getUserReadStats } = props;
+  const {
+    stats: { hits, reads },
+    getUserReadStats,
+  } = props;
+
   const getStats = async () => {
     await getUserReadStats();
   };
+
   React.useEffect(() => {
     getStats();
   }, []);
+
   const panes = [
     {
       menuItem: (
         <Menu.Item key="reads">
-          READS<Label>8{readStats}</Label>
+          READS<Label>{reads.length}</Label>
         </Menu.Item>
       ),
       render: () => (
         <Tab.Pane>
           <div
             style={{
-              marginTop: '100px',
+              marginTop: '0.0625rem',
             }}
           >
-            Reads
-            {/* <ReadingList /> */}
+            <ReadingList articles={reads} type="reads" />
           </div>
         </Tab.Pane>
       ),
@@ -43,12 +47,23 @@ const Stats = props => {
     {
       menuItem: (
         <Menu.Item key="hits">
-          HITS<Label>20</Label>
+          HITS<Label>{hits.length}</Label>
         </Menu.Item>
       ),
-      render: () => <Tab.Pane>Hits</Tab.Pane>,
+      render: () => (
+        <Tab.Pane>
+          <div
+            style={{
+              marginTop: '0.0625rem',
+            }}
+          >
+            <ReadingList articles={hits} type="hits" />
+          </div>
+        </Tab.Pane>
+      ),
     },
   ];
+
   return (
     <div className="count">
       <div className="stats-tab-menu">
@@ -57,14 +72,14 @@ const Stats = props => {
     </div>
   );
 };
-const mapStateToProps = () => ({
-  articlesRead: statsReducer.response,
+const mapStateToProps = state => ({
+  stats: state.stats,
 });
 const mapDispatchToProps = dispatch => ({
   getUserReadStats: () => dispatch(getUserReadingStats()),
 });
 Stats.propTypes = {
-  readStats: PropTypes.number,
+  stats: PropTypes.object.isRequired,
   getUserReadStats: PropTypes.func,
 };
 

@@ -3,8 +3,13 @@
 .stats-tab-menu {
   margin-top: 2.5rem;
 
-  .ui.secondary.pointing.menu {
-    border-bottom: 0;
+  .ui.secondary.pointing.menu .item {
+    border-bottom: .0625rem solid $secondary-grey;
+    color: $secondary-black-2;
+    font-family: $lato;
+    font-size: 1.875rem;
+    line-height: 1.8125rem;
+    width: 50%;
   }
 
   .ui.secondary.pointing.menu .item {
@@ -31,6 +36,5 @@
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    margin-top: 100px;
   }
 }
