@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { shallow } from 'enzyme';
+import checkPropTypes from 'check-prop-types';
 
 import AuthenticationCard from '../AuthenticationCard/AuthenticationCard';
 
@@ -15,11 +16,24 @@ describe('<Authentication Card />', () => {
   let component;
 
   beforeEach(() => {
-    component = setupComponent();
+    component = setupComponent({ pathname: 'example prop' });
   });
 
   it('should render with no errors', () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it('should receive props', () => {
+    const expectedProps = { pathname: 'example prop' };
+
+    const propsError = checkPropTypes(
+      AuthenticationCard.propTypes,
+      expectedProps,
+      'props',
+      AuthenticationCard.pathname,
+    );
+
+    expect(propsError).toBeUndefined();
   });
 
   it('should render the social icons', () => {

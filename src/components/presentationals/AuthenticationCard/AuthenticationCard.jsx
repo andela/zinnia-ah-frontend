@@ -14,16 +14,23 @@ import GoogleIcon from '../../../assets/images/google-icon.svg';
 import FacebookIcon from '../../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../../assets/images/twitter-icon.svg';
 
+const googleUrl =
+  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google';
+const facebookUrl =
+  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook';
+const twitterUrl =
+  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter';
+
 const AuthenticationCard = ({ pathname }) => {
   const loginClass = pathname === '/login' ? 'active item' : 'item';
   const signupClass = pathname === '/signup' ? 'active item' : 'item';
 
   return (
     <div className="right">
-      <ToastContainer autoClose={8000} />
+      <ToastContainer autoClose={5000} />
       <div className="auth-card">
         <Title content="Become an Author" className="text-center" />
-        <hr />
+        <hr className="hr" />
         <div className="tab-label">
           <div className="ui pointing secondary menu">
             <Link className={signupClass} to="/signup">
@@ -43,15 +50,21 @@ const AuthenticationCard = ({ pathname }) => {
             <hr />
           </div>
           <div className="icon-container">
-            <div className="icon-card">
-              <Image src={GoogleIcon} />
-            </div>
-            <div className="icon-card">
-              <Image src={FacebookIcon} />
-            </div>
-            <div className="icon-card">
-              <Image src={TwitterIcon} />
-            </div>
+            <a href={googleUrl}>
+              <div className="icon-card" data-test="social-icon">
+                <Image src={GoogleIcon} />
+              </div>
+            </a>
+            <a href={facebookUrl}>
+              <div className="icon-card" data-test="social-icon">
+                <Image src={FacebookIcon} />
+              </div>
+            </a>
+            <a href={twitterUrl}>
+              <div className="icon-card" data-test="social-icon">
+                <Image src={TwitterIcon} />
+              </div>
+            </a>
           </div>
         </div>
       </div>

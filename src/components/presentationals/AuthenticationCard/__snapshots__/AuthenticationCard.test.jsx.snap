@@ -4,6 +4,30 @@ exports[`<Authentication Card /> should render with no errors 1`] = `
 <div
   className="right"
 >
+  <ToastContainer
+    autoClose={5000}
+    bodyClassName={null}
+    className={null}
+    closeButton={
+      <CloseButton
+        ariaLabel="close"
+      />
+    }
+    closeOnClick={true}
+    draggable={true}
+    draggablePercent={80}
+    hideProgressBar={false}
+    newestOnTop={false}
+    pauseOnFocusLoss={true}
+    pauseOnHover={true}
+    position="top-right"
+    progressClassName={null}
+    progressStyle={null}
+    rtl={false}
+    style={null}
+    toastClassName={null}
+    transition={[Function]}
+  />
   <div
     className="auth-card"
   >
@@ -14,73 +38,108 @@ exports[`<Authentication Card /> should render with no errors 1`] = `
     <hr
       className="hr"
     />
-    <Tab
-      className="tab-label"
-      grid={
-        Object {
-          "paneWidth": 12,
-          "tabWidth": 4,
-        }
-      }
-      menu={
-        Object {
-          "pointing": true,
-          "secondary": true,
-        }
-      }
-      panes={
-        Array [
-          Object {
-            "menuItem": "Sign Up",
-            "render": [Function],
-          },
-          Object {
-            "menuItem": "Login",
-            "render": [Function],
-          },
-        ]
-      }
-      renderActiveOnly={true}
-    />
     <div
-      className="icon-container"
+      className="tab-label"
     >
-      <a
-        href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google"
+      <div
+        className="ui pointing secondary menu"
       >
-        <div
-          className="icon-card"
-          data-test="social-icon"
+        <Link
+          className="item"
+          to="/signup"
         >
-          <Image
-            src=""
-          />
-        </div>
-      </a>
-      <a
-        href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook"
+          Sign Up
+        </Link>
+        <Link
+          className="item"
+          to="/login"
+        >
+          Login
+        </Link>
+      </div>
+      <Switch>
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(Login)",
+              "type": [Function],
+            }
+          }
+          path="/login"
+        />
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(Register)",
+              "type": [Function],
+            }
+          }
+          path="/signup"
+        />
+      </Switch>
+      <div
+        className="d-flex or-div"
       >
-        <div
-          className="icon-card"
-          data-test="social-icon"
+        <hr />
+        <p
+          className="or"
         >
-          <Image
-            src=""
-          />
-        </div>
-      </a>
-      <a
-        href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter"
+          OR
+        </p>
+        <hr />
+      </div>
+      <div
+        className="icon-container"
       >
-        <div
-          className="icon-card"
-          data-test="social-icon"
+        <a
+          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google"
         >
-          <Image
-            src=""
-          />
-        </div>
-      </a>
+          <div
+            className="icon-card"
+            data-test="social-icon"
+          >
+            <Image
+              as="img"
+              src=""
+              ui={true}
+            />
+          </div>
+        </a>
+        <a
+          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook"
+        >
+          <div
+            className="icon-card"
+            data-test="social-icon"
+          >
+            <Image
+              as="img"
+              src=""
+              ui={true}
+            />
+          </div>
+        </a>
+        <a
+          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter"
+        >
+          <div
+            className="icon-card"
+            data-test="social-icon"
+          >
+            <Image
+              as="img"
+              src=""
+              ui={true}
+            />
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

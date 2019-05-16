@@ -7,14 +7,3 @@ export const http = axios.create({
     Authorization: getToken(),
   },
 });
-<<<<<<< HEAD
-=======
-
-export const signUpRequest = async credentials => {
-  return await http.post('/auth/signup', credentials);
-};
-
-export const socialLoginRequest = provider => {
-  return http.get(`/auth/${provider}`);
-};
->>>>>>> [feature] setup tests

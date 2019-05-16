@@ -1,4 +1,6 @@
 import { toast } from 'react-toastify';
+import jsonwebtoken from 'jsonwebtoken';
+
 import { signUpRequest, loginRequest } from '../../api/auth';
 import { setToken } from '../../api/helpers';
 
@@ -9,11 +11,13 @@ export const SIGNUP_INITIALIZED = 'SIGNUP_INITIALIZED';
 export const LOGIN_INITIALIZED = 'LOGIN_REQUESTED';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const SOCIAL_SUCCESS = 'SOCIAL_SUCCESS';
 
 export const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: { status: '' },
+  loggedInUser: {},
 };
 
 export const signUpIntialize = () => {
@@ -56,6 +60,13 @@ export const loginError = error => {
   };
 };
 
+export const socialSuccess = user => {
+  return {
+    type: SOCIAL_SUCCESS,
+    user,
+  };
+};
+
 export const loginUser = userData => {
   return async dispatch => {
     try {
@@ -85,16 +96,43 @@ export const signupUser = userData => {
   };
 };
 
-<<<<<<< HEAD
-=======
-export const initialState = {
-  isLoading: false,
-  errorResponse: [],
-  successResponse: { status: '' },
-  userData: {},
+export const socialAuth = (history, location) => {
+  return dispatch => {
+    try {
+      dispatch(loginInitialize());
+      let query = location.search;
+      query = query.replace('?', '');
+      query = query.split('&');
+      let queryObj = {};
+
+      query.forEach(item => {
+        const array = item.split('=');
+        queryObj[array[0]] = array[1];
+      });
+
+      const { token, isNewRecord } = queryObj;
+      const { email, username, id } = jsonwebtoken.decode(token);
+
+      let message;
+
+      isNewRecord === 'true'
+        ? (message = `Hi, ${email} \n Welcome to Authors Haven`)
+        : (message = `Welcome Back ${username}`);
+
+      history.push('/');
+
+      toast.success(message);
+      setToken(token);
+      return dispatch(socialSuccess({ email, username, id }));
+    } catch (error) {
+      const message = 'Authentication failed. Please try again';
+      history.push('/login');
+      toast.error(message);
+      return dispatch(loginError(message));
+    }
+  };
 };
 
->>>>>>> [feature] setup tests
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNUP_INITIALIZED:
@@ -137,6 +175,12 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         errorResponse: action.error,
+      };
+    case SOCIAL_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        loggedInUser: action.user,
       };
 
     default:
