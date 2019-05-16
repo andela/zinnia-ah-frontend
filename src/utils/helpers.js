@@ -23,10 +23,6 @@ export const destroyToken = () => {
   return localStorage.removeItem('token');
 };
 
-export const getUserId = () => {
-  return 'no id yet, please specify';
-};
-
 export function generateFormData(formElement) {
   const formData = {};
   for (let elem of formElement) {

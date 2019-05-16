@@ -17,11 +17,11 @@ class ProfileSettings extends Component {
   };
 
   componentDidMount() {
-    return this.props.currentView();
+   this.props.currentView();
   }
 
   componentWillUnmount() {
-    return this.props.currentView('default');
+    this.props.currentView('default');
   }
 
   componentDidUpdate(prevProps) {

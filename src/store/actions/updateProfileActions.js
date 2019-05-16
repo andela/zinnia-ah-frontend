@@ -8,9 +8,6 @@ export default function updateProfileRequest(
   constantType = null,
 ) {
   switch (type) {
-    case null:
-      return { type: constantType || UPDATE_USER_PROFILE_REQUEST };
-
     case 'SUCCESS':
       return {
         type: constantType || UPDATE_USER_PROFILE_SUCCESS,
@@ -22,5 +19,7 @@ export default function updateProfileRequest(
         type: constantType || UPDATE_USER_PROFILE_ERROR,
         error: response,
       };
+    default:
+      return { type: constantType || UPDATE_USER_PROFILE_REQUEST };
   }
 }
