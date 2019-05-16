@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.scss';
-import StarRating from './presentationals/StarRating/StarRating';
+import StarRating from './container/StarRating/StarRating';
 
 class App extends Component {
   render() {
