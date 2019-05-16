@@ -44,25 +44,23 @@ exports[`<EditorContainer /> renders the component 1`] = `
         </div>
       </div>
     </Navbar>
-    <Input
+    <TextArea
       className="dark"
       name="title"
       onChange={[Function]}
       placeholder="Title"
-      type="text"
       value=""
     >
       <div>
-        <input
+        <textarea
           className="dark"
           name="title"
           onChange={[Function]}
           placeholder="Title"
-          type="text"
           value=""
         />
       </div>
-    </Input>
+    </TextArea>
     <div
       className="editor-container"
     >
@@ -89,8 +87,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                   "replaceData": [Function],
                 },
                 "blockMap": Immutable.OrderedMap {
-                  "d9ej7": Immutable.Record {
-                    "key": "d9ej7",
+                  "f1r2l": Immutable.Record {
+                    "key": "f1r2l",
                     "type": "unstyled",
                     "text": "",
                     "characterList": Immutable.List [],
@@ -99,17 +97,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                   },
                 },
                 "selectionBefore": Immutable.Record {
-                  "anchorKey": "d9ej7",
+                  "anchorKey": "f1r2l",
                   "anchorOffset": 0,
-                  "focusKey": "d9ej7",
+                  "focusKey": "f1r2l",
                   "focusOffset": 0,
                   "isBackward": false,
                   "hasFocus": false,
                 },
                 "selectionAfter": Immutable.Record {
-                  "anchorKey": "d9ej7",
+                  "anchorKey": "f1r2l",
                   "anchorOffset": 0,
-                  "focusKey": "d9ej7",
+                  "focusKey": "f1r2l",
                   "focusOffset": 0,
                   "isBackward": false,
                   "hasFocus": false,
@@ -117,7 +115,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
               },
               "decorator": null,
               "directionMap": Immutable.OrderedMap {
-                "d9ej7": "LTR",
+                "f1r2l": "LTR",
               },
               "forceSelection": false,
               "inCompositionMode": false,
@@ -126,15 +124,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
               "nativelyRenderedContent": null,
               "redoStack": Immutable.Stack [],
               "selection": Immutable.Record {
-                "anchorKey": "d9ej7",
+                "anchorKey": "f1r2l",
                 "anchorOffset": 0,
-                "focusKey": "d9ej7",
+                "focusKey": "f1r2l",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
               },
               "treeMap": Immutable.OrderedMap {
-                "d9ej7": Immutable.List [
+                "f1r2l": Immutable.List [
                   Immutable.Record {
                     "start": 0,
                     "end": 0,
@@ -212,7 +210,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
         <div
           aria-label="rdw-wrapper"
           className="demo-wrapper rdw-editor-wrapper"
-          id="rdw-wrapper-8446"
+          id="rdw-wrapper-1062"
           onBlur={[Function]}
           onClick={[Function]}
         >
@@ -301,8 +299,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -311,17 +309,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -336,7 +334,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -345,15 +343,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -649,8 +647,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -659,17 +657,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -684,7 +682,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -693,15 +691,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -982,8 +980,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -992,17 +990,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -1017,7 +1015,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -1026,15 +1024,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -1327,8 +1325,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -1337,17 +1335,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -1362,7 +1360,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -1371,15 +1369,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -1659,8 +1657,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -1669,17 +1667,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -1694,7 +1692,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -1703,15 +1701,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -2106,8 +2104,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -2116,17 +2114,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -2141,7 +2139,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -2150,15 +2148,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -2533,8 +2531,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -2543,17 +2541,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -2568,7 +2566,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -2577,15 +2575,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -2843,8 +2841,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -2853,17 +2851,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -2878,7 +2876,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -2887,15 +2885,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -3231,8 +3229,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "replaceData": [Function],
                       },
                       "blockMap": Immutable.OrderedMap {
-                        "d9ej7": Immutable.Record {
-                          "key": "d9ej7",
+                        "f1r2l": Immutable.Record {
+                          "key": "f1r2l",
                           "type": "unstyled",
                           "text": "",
                           "characterList": Immutable.List [],
@@ -3241,17 +3239,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         },
                       },
                       "selectionBefore": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
                       },
                       "selectionAfter": Immutable.Record {
-                        "anchorKey": "d9ej7",
+                        "anchorKey": "f1r2l",
                         "anchorOffset": 0,
-                        "focusKey": "d9ej7",
+                        "focusKey": "f1r2l",
                         "focusOffset": 0,
                         "isBackward": false,
                         "hasFocus": false,
@@ -3266,7 +3264,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                       ],
                     },
                     "directionMap": Immutable.OrderedMap {
-                      "d9ej7": "LTR",
+                      "f1r2l": "LTR",
                     },
                     "forceSelection": false,
                     "inCompositionMode": false,
@@ -3275,15 +3273,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                     "nativelyRenderedContent": null,
                     "redoStack": Immutable.Stack [],
                     "selection": Immutable.Record {
-                      "anchorKey": "d9ej7",
+                      "anchorKey": "f1r2l",
                       "anchorOffset": 0,
-                      "focusKey": "d9ej7",
+                      "focusKey": "f1r2l",
                       "focusOffset": 0,
                       "isBackward": false,
                       "hasFocus": false,
                     },
                     "treeMap": Immutable.OrderedMap {
-                      "d9ej7": Immutable.List [
+                      "f1r2l": Immutable.List [
                         Immutable.Record {
                           "start": 0,
                           "end": 0,
@@ -3318,7 +3316,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                 className="DraftEditor-root"
               >
                 <DraftEditorPlaceholder
-                  accessibilityID="placeholder-1gnif"
+                  accessibilityID="placeholder-3eqgg"
                   editorState={
                     EditorState {
                       "_immutable": Immutable.Record {
@@ -3339,8 +3337,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                             "replaceData": [Function],
                           },
                           "blockMap": Immutable.OrderedMap {
-                            "d9ej7": Immutable.Record {
-                              "key": "d9ej7",
+                            "f1r2l": Immutable.Record {
+                              "key": "f1r2l",
                               "type": "unstyled",
                               "text": "",
                               "characterList": Immutable.List [],
@@ -3349,17 +3347,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                             },
                           },
                           "selectionBefore": Immutable.Record {
-                            "anchorKey": "d9ej7",
+                            "anchorKey": "f1r2l",
                             "anchorOffset": 0,
-                            "focusKey": "d9ej7",
+                            "focusKey": "f1r2l",
                             "focusOffset": 0,
                             "isBackward": false,
                             "hasFocus": false,
                           },
                           "selectionAfter": Immutable.Record {
-                            "anchorKey": "d9ej7",
+                            "anchorKey": "f1r2l",
                             "anchorOffset": 0,
-                            "focusKey": "d9ej7",
+                            "focusKey": "f1r2l",
                             "focusOffset": 0,
                             "isBackward": false,
                             "hasFocus": false,
@@ -3374,7 +3372,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                           ],
                         },
                         "directionMap": Immutable.OrderedMap {
-                          "d9ej7": "LTR",
+                          "f1r2l": "LTR",
                         },
                         "forceSelection": false,
                         "inCompositionMode": false,
@@ -3383,15 +3381,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         "nativelyRenderedContent": null,
                         "redoStack": Immutable.Stack [],
                         "selection": Immutable.Record {
-                          "anchorKey": "d9ej7",
+                          "anchorKey": "f1r2l",
                           "anchorOffset": 0,
-                          "focusKey": "d9ej7",
+                          "focusKey": "f1r2l",
                           "focusOffset": 0,
                           "isBackward": false,
                           "hasFocus": false,
                         },
                         "treeMap": Immutable.OrderedMap {
-                          "d9ej7": Immutable.List [
+                          "f1r2l": Immutable.List [
                             Immutable.Record {
                               "start": 0,
                               "end": 0,
@@ -3416,7 +3414,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                   >
                     <div
                       className="public-DraftEditorPlaceholder-inner"
-                      id="placeholder-1gnif"
+                      id="placeholder-3eqgg"
                       style={
                         Object {
                           "whiteSpace": "pre-wrap",
@@ -3431,7 +3429,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                   className="DraftEditor-editorContainer"
                 >
                   <div
-                    aria-describedby="placeholder-1gnif"
+                    aria-describedby="placeholder-3eqgg"
                     aria-expanded={null}
                     aria-label="rdw-editor"
                     className="notranslate public-DraftEditor-content"
@@ -3562,7 +3560,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                           },
                         }
                       }
-                      editorKey="1gnif"
+                      editorKey="3eqgg"
                       editorState={
                         EditorState {
                           "_immutable": Immutable.Record {
@@ -3583,8 +3581,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                                 "replaceData": [Function],
                               },
                               "blockMap": Immutable.OrderedMap {
-                                "d9ej7": Immutable.Record {
-                                  "key": "d9ej7",
+                                "f1r2l": Immutable.Record {
+                                  "key": "f1r2l",
                                   "type": "unstyled",
                                   "text": "",
                                   "characterList": Immutable.List [],
@@ -3593,17 +3591,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                                 },
                               },
                               "selectionBefore": Immutable.Record {
-                                "anchorKey": "d9ej7",
+                                "anchorKey": "f1r2l",
                                 "anchorOffset": 0,
-                                "focusKey": "d9ej7",
+                                "focusKey": "f1r2l",
                                 "focusOffset": 0,
                                 "isBackward": false,
                                 "hasFocus": false,
                               },
                               "selectionAfter": Immutable.Record {
-                                "anchorKey": "d9ej7",
+                                "anchorKey": "f1r2l",
                                 "anchorOffset": 0,
-                                "focusKey": "d9ej7",
+                                "focusKey": "f1r2l",
                                 "focusOffset": 0,
                                 "isBackward": false,
                                 "hasFocus": false,
@@ -3618,7 +3616,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                               ],
                             },
                             "directionMap": Immutable.OrderedMap {
-                              "d9ej7": "LTR",
+                              "f1r2l": "LTR",
                             },
                             "forceSelection": false,
                             "inCompositionMode": false,
@@ -3627,15 +3625,15 @@ exports[`<EditorContainer /> renders the component 1`] = `
                             "nativelyRenderedContent": null,
                             "redoStack": Immutable.Stack [],
                             "selection": Immutable.Record {
-                              "anchorKey": "d9ej7",
+                              "anchorKey": "f1r2l",
                               "anchorOffset": 0,
-                              "focusKey": "d9ej7",
+                              "focusKey": "f1r2l",
                               "focusOffset": 0,
                               "isBackward": false,
                               "hasFocus": false,
                             },
                             "treeMap": Immutable.OrderedMap {
-                              "d9ej7": Immutable.List [
+                              "f1r2l": Immutable.List [
                                 Immutable.Record {
                                   "start": 0,
                                   "end": 0,
@@ -3661,14 +3659,14 @@ exports[`<EditorContainer /> renders the component 1`] = `
                         <div
                           className=""
                           data-block={true}
-                          data-editor="1gnif"
-                          data-offset-key="d9ej7-0-0"
-                          key="d9ej7"
+                          data-editor="3eqgg"
+                          data-offset-key="f1r2l-0-0"
+                          key="f1r2l"
                         >
                           <DraftEditorBlock
                             block={
                               Immutable.Record {
-                                "key": "d9ej7",
+                                "key": "f1r2l",
                                 "type": "unstyled",
                                 "text": "",
                                 "characterList": Immutable.List [],
@@ -3694,8 +3692,8 @@ exports[`<EditorContainer /> renders the component 1`] = `
                                   "replaceData": [Function],
                                 },
                                 "blockMap": Immutable.OrderedMap {
-                                  "d9ej7": Immutable.Record {
-                                    "key": "d9ej7",
+                                  "f1r2l": Immutable.Record {
+                                    "key": "f1r2l",
                                     "type": "unstyled",
                                     "text": "",
                                     "characterList": Immutable.List [],
@@ -3704,17 +3702,17 @@ exports[`<EditorContainer /> renders the component 1`] = `
                                   },
                                 },
                                 "selectionBefore": Immutable.Record {
-                                  "anchorKey": "d9ej7",
+                                  "anchorKey": "f1r2l",
                                   "anchorOffset": 0,
-                                  "focusKey": "d9ej7",
+                                  "focusKey": "f1r2l",
                                   "focusOffset": 0,
                                   "isBackward": false,
                                   "hasFocus": false,
                                 },
                                 "selectionAfter": Immutable.Record {
-                                  "anchorKey": "d9ej7",
+                                  "anchorKey": "f1r2l",
                                   "anchorOffset": 0,
-                                  "focusKey": "d9ej7",
+                                  "focusKey": "f1r2l",
                                   "focusOffset": 0,
                                   "isBackward": false,
                                   "hasFocus": false,
@@ -3768,13 +3766,13 @@ exports[`<EditorContainer /> renders the component 1`] = `
                             }
                             direction="LTR"
                             forceSelection={false}
-                            key="d9ej7"
-                            offsetKey="d9ej7-0-0"
+                            key="f1r2l"
+                            offsetKey="f1r2l-0-0"
                             selection={
                               Immutable.Record {
-                                "anchorKey": "d9ej7",
+                                "anchorKey": "f1r2l",
                                 "anchorOffset": 0,
-                                "focusKey": "d9ej7",
+                                "focusKey": "f1r2l",
                                 "focusOffset": 0,
                                 "isBackward": false,
                                 "hasFocus": false,
@@ -3798,12 +3796,12 @@ exports[`<EditorContainer /> renders the component 1`] = `
                           >
                             <div
                               className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                              data-offset-key="d9ej7-0-0"
+                              data-offset-key="f1r2l-0-0"
                             >
                               <DraftEditorLeaf
                                 block={
                                   Immutable.Record {
-                                    "key": "d9ej7",
+                                    "key": "f1r2l",
                                     "type": "unstyled",
                                     "text": "",
                                     "characterList": Immutable.List [],
@@ -3848,13 +3846,13 @@ exports[`<EditorContainer /> renders the component 1`] = `
                                 }
                                 forceSelection={false}
                                 isLast={true}
-                                key="d9ej7-0-0"
-                                offsetKey="d9ej7-0-0"
+                                key="f1r2l-0-0"
+                                offsetKey="f1r2l-0-0"
                                 selection={
                                   Immutable.Record {
-                                    "anchorKey": "d9ej7",
+                                    "anchorKey": "f1r2l",
                                     "anchorOffset": 0,
-                                    "focusKey": "d9ej7",
+                                    "focusKey": "f1r2l",
                                     "focusOffset": 0,
                                     "isBackward": false,
                                     "hasFocus": false,
@@ -3865,7 +3863,7 @@ exports[`<EditorContainer /> renders the component 1`] = `
                                 text=""
                               >
                                 <span
-                                  data-offset-key="d9ej7-0-0"
+                                  data-offset-key="f1r2l-0-0"
                                   style={Object {}}
                                 >
                                   <DraftEditorTextNode>
@@ -3902,6 +3900,92 @@ exports[`<EditorContainer /> renders the component 1`] = `
           POST ARTICLE
         </button>
       </Button>
+      <div>
+        <DragDropContext(ReactTags)
+          delimiters={
+            Array [
+              188,
+              13,
+            ]
+          }
+          handleAddition={[Function]}
+          handleDelete={[Function]}
+          handleDrag={[Function]}
+          tags={Array []}
+        >
+          <ReactTags
+            allowAdditionFromPaste={true}
+            allowDeleteFromEmptyInput={true}
+            allowDragDrop={true}
+            allowUnique={true}
+            autocomplete={false}
+            autofocus={true}
+            delimiters={
+              Array [
+                188,
+                13,
+              ]
+            }
+            handleAddition={[Function]}
+            handleDelete={[Function]}
+            handleDrag={[Function]}
+            inline={true}
+            inputFieldPosition="inline"
+            labelField="text"
+            placeholder="Add new tag"
+            readOnly={false}
+            resetInputOnDelete={true}
+            suggestions={Array []}
+            tags={Array []}
+          >
+            <div
+              className="ReactTags__tags react-tags-wrapper"
+            >
+              <div
+                className="ReactTags__selected"
+              >
+                <div
+                  className="ReactTags__tagInput"
+                >
+                  <input
+                    aria-label="Add new tag"
+                    className="ReactTags__tagInputField"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onPaste={[Function]}
+                    placeholder="Add new tag"
+                    type="text"
+                  />
+                  <Suggestions
+                    classNames={
+                      Object {
+                        "activeSuggestion": "ReactTags__activeSuggestion",
+                        "remove": "ReactTags__remove",
+                        "selected": "ReactTags__selected",
+                        "suggestions": "ReactTags__suggestions",
+                        "tag": "ReactTags__tag",
+                        "tagInput": "ReactTags__tagInput",
+                        "tagInputField": "ReactTags__tagInputField",
+                        "tags": "ReactTags__tags",
+                      }
+                    }
+                    handleClick={[Function]}
+                    handleHover={[Function]}
+                    isFocused={false}
+                    labelField="text"
+                    minQueryLength={2}
+                    query=""
+                    selectedIndex={-1}
+                    suggestions={Array []}
+                  />
+                </div>
+              </div>
+            </div>
+          </ReactTags>
+        </DragDropContext(ReactTags)>
+      </div>
     </div>
   </div>
 </EditorContainer>
