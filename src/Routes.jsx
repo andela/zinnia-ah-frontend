@@ -15,7 +15,7 @@ const Routes = () => {
       <Route exact path="/signup" component={AuthenticationLayout} />
       <Route path="/reset-password" exact component={ResetPassword} />
       <Route path="/forgot-password" exact component={ForgotPassword} />
-      <Route path="/username" component={Profile} />
+      <Route path="/@:username" component={Profile} />
     </Switch>
   );
 };

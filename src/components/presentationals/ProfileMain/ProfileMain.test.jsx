@@ -4,10 +4,18 @@ import { mount } from 'enzyme';
 import ProfileMain from './ProfileMain';
 
 const props = {
-  firstName: 'wefdw',
-  lastName: 'efwfw',
-  bio: 'dwefd3ew',
+  firstName: 'mr',
+  lastName: 'user',
+  bio: 'I am the correct user',
   publications: [],
+  followings: [],
+  followers: [],
+  image: 'http://dummyImage.jpg',
+  email: 'dummy@user.com',
+  username: 'dummyuser',
+  error: {},
+  isLoading: true,
+  isDeleting: false,
 };
 
 const undefinedProps = {

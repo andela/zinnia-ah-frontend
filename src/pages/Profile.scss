@@ -6,6 +6,18 @@
   padding: 0% 6%;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.ui.items > .item .extra > * {
+  margin: 0;
+}
+
 @media only screen and (max-width: 37.5rem) {
 
   .profile-container {
