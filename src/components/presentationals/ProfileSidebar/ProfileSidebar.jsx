@@ -26,6 +26,7 @@ const ProfileSidebar = ({
   email,
   image,
   currentView,
+  view,
 }) => {
   return (
     <div className="sidebar">
@@ -69,7 +70,7 @@ ProfileSidebar.propTypes = {
   username: PropTypes.string,
   email: PropTypes.string,
   image: PropTypes.string,
-  currentView: PropTypes.string,
+  currentView: PropTypes.string.isRequired,
 };
 
 export default ProfileSidebar;

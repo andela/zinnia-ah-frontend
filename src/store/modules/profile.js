@@ -29,6 +29,7 @@ export const getUserProfile = profile => ({
   image: profile.image,
   email: profile.email,
   username: profile.username,
+  updatedAt: profile.updatedAt,
 });
 
 export const deleteArticleProcess = () => ({
@@ -52,7 +53,7 @@ export const updateUserProfileError = error => ({
 
 export const updateUserProfile = profile => ({
   type: UPDATE_USER_PROFILE_SUCCESS,
-  payload: profile,
+  ...profile,
 });
 
 export const getUserProfileRequest = username => async dispatch => {
@@ -84,7 +85,7 @@ export const updateUserProfileRequest = formData => async dispatch => {
     if (data.status === 'success') {
       localStorage.setItem('userprofile', JSON.stringify(data));
       toast.success('Profile updated successfully');
-      return dispatch(updateUserProfile(data));
+      return dispatch(updateUserProfile(data.data));
     }
     toast.error('Sorry could not updated profile');
     return dispatch(updateUserProfileError(data.message));
@@ -103,6 +104,7 @@ export const DEFAULT_STATE = {
   image: '',
   email: '',
   username: '',
+  updatedAt: '',
   error: {},
   isLoading: true,
   isDeleting: false,
@@ -124,6 +126,7 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
         image: action.image,
         email: action.email,
         username: action.username,
+        updatedAt: action.updatedAt,
         isLoading: false,
       };
     case GET_PROFILE_ERROR:

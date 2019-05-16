@@ -303,9 +303,9 @@ exports[`<Profile /> mounts correctly 1`] = `
       </Dimmer>
       <ProfileSidebar
         bio="I am the correct user"
+        currentView="default"
         email="dummy@user.com"
         firstName="mr"
-        currentView="default"
         followers={Array []}
         followings={Array []}
         image="https://dummyimage.com"
@@ -398,6 +398,7 @@ exports[`<Profile /> mounts correctly 1`] = `
       </ProfileSidebar>
       <ProfileMain
         bio="I am the correct user"
+        currentView="default"
         deleteArticle={[MockFunction]}
         email="dummy@user.com"
         firstName="mr"
@@ -949,9 +950,9 @@ exports[`<Profile /> mounts correctly without image 1`] = `
       </Dimmer>
       <ProfileSidebar
         bio="I am the correct user"
+        currentView="default"
         email="dummy@user.com"
         firstName="mr"
-        currentView="default"
         followers={Array []}
         followings={Array []}
         image="https://dummyimage.com"
@@ -1044,6 +1045,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
       </ProfileSidebar>
       <ProfileMain
         bio="I am the correct user"
+        currentView="default"
         deleteArticle={[MockFunction]}
         email="dummy@user.com"
         firstName="mr"

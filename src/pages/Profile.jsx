@@ -56,6 +56,7 @@ export class Profile extends Component {
             {...profile}
             followers={followers}
             followings={followings}
+            currentView={this.state.view}
           />
           <ProfileMain
             {...profile}

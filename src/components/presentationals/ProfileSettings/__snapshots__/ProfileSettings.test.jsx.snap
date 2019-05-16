@@ -20,10 +20,18 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
       currentView={[Function]}
       data={
         Object {
-          "email": "example@mail.com",
-          "username": "examplename",
+          "profile": Object {
+            "currentView": [Function],
+            "data": Object {
+              "email": "example@mail.com",
+              "username": "examplename",
+            },
+            "message": "fetched user",
+            "status": "success",
+          },
         }
       }
+      getUserProfileRequest={[Function]}
       updateUserProfileRequest={[Function]}
       uploadImageToServer={[Function]}
     >
@@ -140,7 +148,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   <FormInput
                     as={[Function]}
                     control={[Function]}
-                    defaultValue="example@mail.com"
                     fluid={true}
                     label="Email Address"
                     name="email"
@@ -149,7 +156,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   >
                     <FormField
                       control={[Function]}
-                      defaultValue="example@mail.com"
                       fluid={true}
                       label="Email Address"
                       name="email"
@@ -163,7 +169,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                           Email Address
                         </label>
                         <Input
-                          defaultValue="example@mail.com"
                           fluid={true}
                           name="email"
                           placeholder="example@mail.com"
@@ -173,7 +178,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                             className="ui fluid input"
                           >
                             <input
-                              defaultValue="example@mail.com"
                               name="email"
                               onChange={[Function]}
                               placeholder="example@mail.com"
@@ -187,7 +191,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   <FormInput
                     as={[Function]}
                     control={[Function]}
-                    defaultValue="examplename"
                     fluid={true}
                     label="Username"
                     name="username"
@@ -195,7 +198,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                   >
                     <FormField
                       control={[Function]}
-                      defaultValue="examplename"
                       fluid={true}
                       label="Username"
                       name="username"
@@ -208,7 +210,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                           Username
                         </label>
                         <Input
-                          defaultValue="examplename"
                           fluid={true}
                           name="username"
                           placeholder="janedoe1"
@@ -218,7 +219,6 @@ exports[`ProfileSettings should render profile settings correctly 1`] = `
                             className="ui fluid input"
                           >
                             <input
-                              defaultValue="examplename"
                               name="username"
                               onChange={[Function]}
                               placeholder="janedoe1"

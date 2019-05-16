@@ -60,16 +60,17 @@ describe('ProfileSettings', () => {
     expect(reducer).toEqual({
       error: {},
       isLoading: true,
-      profile: {
-        data: {
-          bio: '',
-          firstName: '',
-          followers: [],
-          followings: [],
-          lastName: '',
-          publications: [],
-        },
-      },
+      bio: '',
+      email: '',
+      firstName: '',
+      followers: [],
+      followings: [],
+      image: '',
+      isDeleting: false,
+      lastName: '',
+      publications: [],
+      updatedAt: '',
+      username: '',
     });
   });
 

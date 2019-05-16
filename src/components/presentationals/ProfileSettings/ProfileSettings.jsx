@@ -6,7 +6,10 @@ import { toast } from 'react-toastify';
 
 import Button from '../../presentationals/Button/Button.jsx';
 import { generateFormData, uploadImageToServer } from '../../../utils/helpers';
-import { updateUserProfileRequest } from '../../../store/modules/profile';
+import {
+  updateUserProfileRequest,
+  getUserProfileRequest,
+} from '../../../store/modules/profile';
 import Loader from '../../presentationals/Loader/Loader.jsx';
 
 class ProfileSettings extends Component {
@@ -17,12 +20,13 @@ class ProfileSettings extends Component {
   };
 
   componentDidMount() {
-   this.props.currentView();
+    this.props.currentView();
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = async () => {
     this.props.currentView('default');
-  }
+    await this.props.getUserProfileRequest(this.props.data.username);
+  };
 
   componentDidUpdate(prevProps) {
     if (this.props.data.updatedAt !== prevProps.data.updatedAt) {
@@ -144,6 +148,7 @@ ProfileSettings.propTypes = {
   currentView: PropTypes.func,
   uploadImageToServer: PropTypes.func.isRequired,
   updateUserProfileRequest: PropTypes.func.isRequired,
+  getUserProfileRequest: PropTypes.func.isRequired,
   data: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
@@ -155,10 +160,10 @@ ProfileSettings.propTypes = {
 };
 
 const mapStateToProps = state => {
-  return { data: state.profile.profile.data };
+  return { data: state.profile };
 };
 
 export default connect(
   mapStateToProps,
-  { updateUserProfileRequest, uploadImageToServer },
+  { updateUserProfileRequest, uploadImageToServer, getUserProfileRequest },
 )(ProfileSettings);
