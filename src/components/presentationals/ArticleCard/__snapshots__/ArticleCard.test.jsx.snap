@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleCard:::  should render ArticleCard correctly 1`] = `
+<Article
+  article={
+    Object {
+      "author": Object {
+        "firstName": "example",
+        "image": "image_url.png",
+        "lastName": "purpose",
+        "username": "example1",
+      },
+      "description": "article card testing sample, layout",
+      "slug": "article-card-title-1234",
+      "title": "article card title",
+    }
+  }
+>
+  <div
+    className="article"
+  >
+    <div
+      className="thumbnail"
+    >
+      <a
+        href="article-card-title-1234"
+      >
+        <img
+          src="https://alagirart.com/wp-content/uploads/2015/07/import_placeholder.png"
+        />
+      </a>
+    </div>
+    <div
+      className="description"
+    >
+      <a
+        href="article-card-title-1234"
+      >
+        <Title
+          className="ui header"
+          content="article card title"
+        >
+          <h1
+            className="title ui header"
+          >
+            article card title
+          </h1>
+        </Title>
+      </a>
+      <p>
+        article card testing sample, layout
+      </p>
+    </div>
+  </div>
+</Article>
+`;
