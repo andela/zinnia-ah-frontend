@@ -1,7 +1,13 @@
 import { toast } from 'react-toastify';
 
 import { signUpRequest, loginRequest } from '../../api/auth';
-import { setToken } from '../../api/helpers';
+import {
+  setToken,
+  encodeUserObject,
+  destroyEncodedUser,
+  destroyToken,
+  getEncodedUser,
+} from '../../api/helpers';
 
 //constants
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
@@ -11,12 +17,14 @@ export const LOGIN_INITIALIZED = 'LOGIN_REQUESTED';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SOCIAL_SUCCESS = 'SOCIAL_SUCCESS';
+export const LOGOUT_INITIALIZED = 'LOGOUT_INITIALIZED';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 export const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: { status: '' },
-  loggedInUser: {},
+  loggedInUser: null,
 };
 
 export const signUpIntialize = () => {
@@ -66,13 +74,27 @@ export const socialSuccess = user => {
   };
 };
 
-export const loginUser = userData => {
+export const logoutInitialize = () => {
+  return {
+    type: LOGOUT_INITIALIZED,
+  };
+};
+
+export const logoutSuccess = () => {
+  return {
+    type: LOGOUT_SUCCESS,
+  };
+};
+
+export const loginUser = (userData, history, redirectUrl) => {
   return async dispatch => {
     try {
       dispatch(loginInitialize());
       const { data } = await loginRequest(userData);
       setToken(data.data.token);
-      dispatch(loginSuccess(data));
+      encodeUserObject(data.data.authenticatedUser);
+      dispatch(loginSuccess(data.data.authenticatedUser));
+      history.push(redirectUrl);
       toast.success(data.message);
     } catch (error) {
       const { data } = error.response;
@@ -81,17 +103,39 @@ export const loginUser = userData => {
   };
 };
 
-export const signupUser = userData => {
+export const signupUser = (userData, history) => {
   return async dispatch => {
     try {
       dispatch(signUpIntialize());
       const { data } = await signUpRequest(userData);
       dispatch(signUpSuccess(data));
+      history.push('/');
       toast.success(data.message);
     } catch (error) {
       const { data } = error.response;
       dispatch(signUpError([data]));
     }
+  };
+};
+
+export const autoLogin = (userObject = {}) => {
+  return async dispatch => {
+    try {
+      dispatch(loginInitialize());
+      userObject = getEncodedUser();
+      dispatch(loginSuccess(userObject));
+    } catch (error) {
+      toast.error(error.message);
+      dispatch(loginError(error));
+    }
+  };
+};
+export const logout = () => {
+  return async dispatch => {
+    dispatch(logoutInitialize());
+    destroyEncodedUser();
+    destroyToken();
+    dispatch(logoutSuccess());
   };
 };
 
@@ -127,7 +171,7 @@ export const authReducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
+        loggedInUser: action.response,
         isLoading: false,
         errorResponse: [],
       };
@@ -138,11 +182,27 @@ export const authReducer = (state = initialState, action) => {
         isLoading: false,
         errorResponse: action.error,
       };
+
     case SOCIAL_SUCCESS:
       return {
         ...state,
         isLoading: false,
         loggedInUser: action.user,
+      };
+
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        loggedInUser: null,
+        successResponse: {},
+        errorResponse: [],
+        isLoading: false,
+      };
+
+    case LOGOUT_INITIALIZED:
+      return {
+        ...state,
+        isLoading: true,
       };
 
     default:

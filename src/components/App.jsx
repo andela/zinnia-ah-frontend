@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.scss';
+import StarRating from './container/StarRating/StarRating';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <div>
         <ToastContainer autoClose={5000} />
         <h1 className="toothy"> My React App!! </h1>
+        <StarRating />
         <Link to="/login">
           <button>Login</button>
         </Link>

@@ -14,6 +14,9 @@ import {
   loginInitialize,
   loginSuccess,
   socialSuccess,
+  autoLogin,
+  LOGOUT_SUCCESS,
+  logoutSuccess,
 } from './auth';
 import { setupStore } from '../../utils/testHelpers';
 
@@ -23,7 +26,7 @@ const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: { status: '' },
-  loggedInUser: {},
+  loggedInUser: null,
 };
 describe('SIGNUP ACTIONS', () => {
   const signupMockData = {
@@ -62,6 +65,9 @@ describe('SIGNUP ACTIONS', () => {
     expect(signUpError(error)).toEqual(action);
   });
   it('should dispatch a successful signup action', () => {
+    const history = {
+      push: jest.fn(),
+    };
     http.post = jest
       .fn()
       .mockReturnValue(Promise.resolve({ data: signupMockData }));
@@ -74,7 +80,7 @@ describe('SIGNUP ACTIONS', () => {
         response: signupMockData,
       },
     ];
-    return store.dispatch(signupUser()).then(() => {
+    return store.dispatch(signupUser({}, history)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -89,6 +95,16 @@ describe('SIGNUP ACTIONS', () => {
     ];
     store.dispatch(signupUser()).then(() => {
       expect(store.getActions()).toEqual(errorActions);
+    });
+  });
+
+  it('should dispatch a successful autologin action', () => {
+    const autoLoginActions = [
+      { type: 'LOGIN_REQUESTED' },
+      { type: 'LOGIN_SUCCESS', response: null },
+    ];
+    store.dispatch(autoLogin({})).then(() => {
+      expect(store.getActions()).toEqual(autoLoginActions);
     });
   });
 });
@@ -106,7 +122,7 @@ describe('LOGIN ACTIONS', () => {
   });
 
   it('should dispatch an action for login up success', () => {
-    const response = {};
+    const response = null;
     const action = {
       type: LOGIN_SUCCESS,
       response,
@@ -121,6 +137,15 @@ describe('LOGIN ACTIONS', () => {
       user,
     };
     expect(socialSuccess(user)).toEqual(action);
+  });
+});
+
+describe('LOGOUT ACTION', () => {
+  it('should dispatch an action for login up request', () => {
+    const action = {
+      type: LOGOUT_SUCCESS,
+    };
+    expect(logoutSuccess()).toEqual(action);
   });
 });
 
@@ -163,6 +188,7 @@ describe('auth reducer test suite', () => {
   it('should return loginIntialize reducer', () => {
     const action = loginInitialize();
     const state = authReducer(initialState, action);
+
     expect(state.isLoading).toBe(true);
   });
 
@@ -170,7 +196,6 @@ describe('auth reducer test suite', () => {
     const action = loginSuccess();
     const state = authReducer(initialState, action);
     expect(state.isLoading).toBe(false);
-    expect(state.successResponse).toEqual(action.response);
   });
 
   it('should return social success reducer', () => {
@@ -179,5 +204,14 @@ describe('auth reducer test suite', () => {
     expect(state.isLoading).toBe(false);
     expect(state.errorResponse).toEqual([]);
     expect(state.loggedInUser).toEqual(action.user);
+  });
+
+  it('should empty the store when logout is successful', () => {
+    const action = logoutSuccess();
+    const state = authReducer(initialState, action);
+    expect(state.isLoading).toBe(false);
+    expect(state.errorResponse).toEqual([]);
+    expect(state.successResponse).toEqual({});
+    expect(state.loggedInUser).toEqual(null);
   });
 });

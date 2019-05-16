@@ -125,7 +125,6 @@ export class EditorContainer extends Component {
     return (
       <div>
         {isLoading && <Loader text="please wait" size="large" />}
-        <Navbar />
         <div className="editor-main">
           <TextArea
             autoFocus="autoFocus"

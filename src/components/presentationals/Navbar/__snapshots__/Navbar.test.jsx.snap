@@ -1,22 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar should render correctly 1`] = `
-<Navbar
-  className=""
-  profileUrl="http://dummyimage.com"
->
-  <div>
-    <div
-      className="navbar"
-    >
-      <div>
+<div>
+  <div
+    className="navbar"
+  >
+    <div>
+      <Link
+        to="/"
+      >
         <h1
           className="brand"
         >
           Authors Haven
         </h1>
-      </div>
+      </Link>
     </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "row-reverse",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
   </div>
-</Navbar>
+</div>
 `;
