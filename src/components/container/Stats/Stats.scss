@@ -1,0 +1,31 @@
+@import '../../../assets/variables';
+
+.stats-tab-menu {
+  margin-top: 2.5rem;
+
+  .ui.secondary.pointing.menu .item {
+    border-bottom: .0625rem solid $secondary-grey;
+    color: $secondary-black-2;
+    font-family: $lato;
+    font-size: 1.875rem;
+    line-height: 1.8125rem;
+    width: 50%;
+  }
+
+  .ui.secondary.pointing.menu .item:first-child {
+    border-right: .0625rem solid $primary-black;
+  }
+
+  .ui.secondary.pointing.menu a.active {
+    border-bottom: .0625rem solid $primary-black;
+    color: $primary-black;
+    font-size: 1.875rem;
+    font-weight: 500;
+  }
+
+  .ui.attached.segment {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

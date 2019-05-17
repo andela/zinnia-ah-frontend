@@ -813,24 +813,6 @@ exports[`ProfileMain should render Settings Tab correctly 1`] = `
 </MenuItem>
 `;
 
-exports[`ProfileMain should render Stats Tab correctly 1`] = `
-<MenuItem
-  active={false}
-  content="Stats"
-  index={1}
-  key="Stats"
-  name="Stats"
-  onClick={[Function]}
->
-  <a
-    className="item"
-    onClick={[Function]}
-  >
-    Stats
-  </a>
-</MenuItem>
-`;
-
 exports[`ProfileMain should render correctly 1`] = `
 <ProfileMain
   bio="I am the correct user"
