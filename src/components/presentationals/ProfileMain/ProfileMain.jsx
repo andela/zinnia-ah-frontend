@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // components
 import Title from '../Title/Title';
 import ArticleLists from '../ArticleLists/ArticleLists';
-import Stats from '../Stats/Stats';
+import Stats from '../../../components/container/Stats/Stats';
 
 // styles
 import './ProfileMain.scss';

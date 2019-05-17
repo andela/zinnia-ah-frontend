@@ -5,10 +5,10 @@ import { Item } from 'semantic-ui-react';
 // components
 import Title from '../Title/Title';
 
-const ReadingList = ({ articles, type }) => {
+const ReadingList = ({ reads, type }) => {
   return (
     <div className="post-lists">
-      {articles.length < 1 ? (
+      {reads.length === 0 ? (
         <p
           style={{
             fontWeight: 'bolder',
@@ -16,12 +16,12 @@ const ReadingList = ({ articles, type }) => {
           }}
         >{`You have no ${type}`}</p>
       ) : (
-        articles.map(article => (
-          <Item.Group key={article.article.id}>
+        reads.map(read => (
+          <Item.Group key={read.id}>
             <Item>
               <Item.Content>
                 <Title
-                  content={article.article.title}
+                  content={read.article.title}
                   className="title-article-lg"
                 />
                 <Item.Description
@@ -36,7 +36,7 @@ const ReadingList = ({ articles, type }) => {
                       fontWeight: '200',
                     }}
                   >
-                    {article.article.description}
+                    {read.article.description}
                   </p>
                 </Item.Description>
               </Item.Content>
@@ -49,7 +49,7 @@ const ReadingList = ({ articles, type }) => {
 };
 
 ReadingList.propTypes = {
-  articles: PropTypes.array,
+  reads: PropTypes.array,
   type: PropTypes.string,
 };
 

@@ -48,11 +48,11 @@ describe('ProfileMain', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render Stats Tab correctly', () => {
-    const component = mount(<ProfileMain {...props} />);
-    const login = component.find('MenuItem[name="Stats"]').simulate('click');
-    expect(login).toMatchSnapshot();
-  });
+  // it('should render Stats Tab correctly', () => {
+  //   const component = mount(<ProfileMain {...props} />);
+  //   const login = component.find('MenuItem[name="Stats"]').simulate('click');
+  //   expect(login).toMatchSnapshot();
+  // });
 
   it('should render Likes Tab correctly', () => {
     const component = mount(<ProfileMain {...props} />);

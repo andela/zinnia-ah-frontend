@@ -5,10 +5,11 @@ export const GET_READS_COUNT = 'GET_READS_COUNT';
 export const GET_HITS_COUNT = 'GET_HITS_COUNT';
 export const GET_STATS_ERROR = 'GET_STATS_ERROR';
 
-export const getUserReadStats = data => {
+export const getUserReadStats = (hits, reads) => {
   return {
     type: GET_READS_COUNT,
-    data,
+    hits,
+    reads,
   };
 };
 
@@ -24,18 +25,15 @@ export const getUserReadingStats = () => {
     try {
       const {
         data: {
-          data: { count, rows },
+          data: { rows },
         },
       } = await getReadingStats();
       const token = getToken();
       const { id } = decodeToken(token);
-      // console.log(rows[0].article.userId);
       const hits = rows.filter(row => row.article.userId === id);
       const reads = rows.filter(row => row.article.userId !== id);
 
-      dispatch(
-        getUserReadStats({ count, articles: rows, stats: { hits, reads } }),
-      );
+      dispatch(getUserReadStats(hits, reads));
     } catch (error) {
       const { data } = error.response;
       dispatch(getStatsError([data]));
@@ -53,8 +51,8 @@ export const statsReducer = (state = initialState, action) => {
     case GET_READS_COUNT:
       return {
         ...state,
-        hits: action.data.stats.hits,
-        reads: action.data.stats.reads,
+        hits: action.hits,
+        reads: action.reads,
       };
     case GET_STATS_ERROR:
       return {

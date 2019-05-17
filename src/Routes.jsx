@@ -6,7 +6,7 @@ import AuthenticationLayout from './pages/Authentication';
 import ForgotPassword from './pages/ForgotPassword';
 // import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
-import Stats from './components/presentationals/Stats/Stats';
+import Stats from './components/container/Stats/Stats';
 
 const Routes = () => {
   return (

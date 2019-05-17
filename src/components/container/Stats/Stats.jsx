@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Tab, Label, Menu } from 'semantic-ui-react';
@@ -11,79 +12,70 @@ import './Stats.scss';
 //components
 import ReadingList from '../../presentationals/ReadingLists/ReadingList';
 
-const Stats = props => {
-  const {
-    stats: { hits, reads },
-    getUserReadStats,
-  } = props;
-
-  const getStats = async () => {
-    await getUserReadStats();
-  };
-
-  React.useEffect(() => {
-    getStats();
-  }, []);
-
-  const panes = [
-    {
-      menuItem: (
-        <Menu.Item key="reads">
-          READS<Label>{reads.length}</Label>
-        </Menu.Item>
-      ),
-      render: () => (
-        <Tab.Pane>
-          <div
-            style={{
-              marginTop: '0.0625rem',
-            }}
-          >
-            <ReadingList articles={reads} type="reads" />
-          </div>
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: (
-        <Menu.Item key="hits">
-          HITS<Label>{hits.length}</Label>
-        </Menu.Item>
-      ),
-      render: () => (
-        <Tab.Pane>
-          <div
-            style={{
-              marginTop: '0.0625rem',
-            }}
-          >
-            <ReadingList articles={hits} type="hits" />
-          </div>
-        </Tab.Pane>
-      ),
-    },
-  ];
-
-  return (
-    <div className="count">
-      <div className="stats-tab-menu">
-        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+export class Stats extends Component {
+  componentDidMount() {
+    this.props.getUserReadingStats();
+  }
+  render() {
+    const { hits, reads } = this.props;
+    const panes = [
+      {
+        menuItem: (
+          <Menu.Item key="reads">
+            READS<Label>{reads.length}</Label>
+          </Menu.Item>
+        ),
+        render: () => (
+          <Tab.Pane>
+            <div
+              style={{
+                marginTop: '0.0625rem',
+              }}
+            >
+              <ReadingList reads={reads} type="hits" />
+            </div>
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: (
+          <Menu.Item key="hits">
+            HITS<Label>{hits.length}</Label>
+          </Menu.Item>
+        ),
+        render: () => (
+          <Tab.Pane>
+            <div
+              style={{
+                marginTop: '0.0625rem',
+              }}
+            >
+              <p>No hits yet</p>
+            </div>
+          </Tab.Pane>
+        ),
+      },
+    ];
+    return (
+      <div className="count">
+        <div className="stats-tab-menu">
+          <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+Stats.propTypes = {
+  hits: PropTypes.array,
+  reads: PropTypes.array,
+  getUserReadingStats: PropTypes.func,
 };
 const mapStateToProps = state => ({
-  stats: state.stats,
+  hits: state.stats.hits,
+  reads: state.stats.reads,
 });
-const mapDispatchToProps = dispatch => ({
-  getUserReadStats: () => dispatch(getUserReadingStats()),
-});
-Stats.propTypes = {
-  stats: PropTypes.object.isRequired,
-  getUserReadStats: PropTypes.func,
-};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  { getUserReadingStats },
 )(Stats);
