@@ -39,9 +39,10 @@
   margin: 15px 0;
 }
 
-.loading {
-  cursor: default;
-  opacity: .3;
-  pointer-events: none;
-  position: relative;
+input {
+  &[name='upload_profile_picture'] {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 }

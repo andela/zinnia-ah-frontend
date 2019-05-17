@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 // components
 import Title from '../Title/Title';
 import ArticleLists from '../ArticleLists/ArticleLists';
+import ProfileSettings from '../ProfileSettings/ProfileSettings';
 
 // styles
 import './ProfileMain.scss';
@@ -17,6 +18,7 @@ const ProfileMain = ({
   publications,
   deleteArticle,
   isDeleting,
+  view,
 }) => {
   const panes = [
     {
@@ -53,7 +55,11 @@ const ProfileMain = ({
     },
     {
       menuItem: 'Settings',
-      render: () => <Tab.Pane attached={false}>Tab 6 Content</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <ProfileSettings currentView={view} />
+        </Tab.Pane>
+      ),
     },
   ];
 
@@ -81,6 +87,7 @@ ProfileMain.propTypes = {
   publications: PropTypes.array,
   deleteArticle: PropTypes.func,
   isDeleting: PropTypes.bool,
+  view: PropTypes.func,
 };
 
 export default ProfileMain;

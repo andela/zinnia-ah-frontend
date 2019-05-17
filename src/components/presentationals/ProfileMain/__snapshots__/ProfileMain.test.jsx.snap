@@ -796,21 +796,252 @@ exports[`ProfileMain should render Reports Tab correctly 1`] = `
 `;
 
 exports[`ProfileMain should render Settings Tab correctly 1`] = `
-<MenuItem
-  active={false}
-  content="Settings"
-  index={6}
-  key="Settings"
-  name="Settings"
-  onClick={[Function]}
+<ProfileMain
+  bio="I am the correct user"
+  email="dummy@user.com"
+  error={Object {}}
+  firstName="mr"
+  followers={Array []}
+  followings={Array []}
+  image="http://dummyImage.jpg"
+  isDeleting={false}
+  isLoading={true}
+  lastName="user"
+  publications={Array []}
+  username="dummyuser"
 >
-  <a
-    className="item"
-    onClick={[Function]}
+  <div
+    className="main"
   >
-    Settings
-  </a>
-</MenuItem>
+    <Title
+      className="title-lg"
+      content="mr user"
+    >
+      <h1
+        className="title title-lg"
+      >
+        mr user
+      </h1>
+    </Title>
+    <div
+      style={
+        Object {
+          "maxHeight": "200px",
+        }
+      }
+    >
+      I am the correct user
+    </div>
+    <div
+      className="profile-tab-menu"
+    >
+      <Tab
+        grid={
+          Object {
+            "paneWidth": 12,
+            "tabWidth": 4,
+          }
+        }
+        menu={
+          Object {
+            "pointing": true,
+            "secondary": true,
+          }
+        }
+        panes={
+          Array [
+            Object {
+              "menuItem": "Posts",
+              "render": [Function],
+            },
+            Object {
+              "menuItem": "Stats",
+              "render": [Function],
+            },
+            Object {
+              "menuItem": "Likes",
+              "render": [Function],
+            },
+            Object {
+              "menuItem": "Comments",
+              "render": [Function],
+            },
+            Object {
+              "menuItem": "Bookmarks",
+              "render": [Function],
+            },
+            Object {
+              "menuItem": "Reports",
+              "render": [Function],
+            },
+            Object {
+              "menuItem": "Settings",
+              "render": [Function],
+            },
+          ]
+        }
+        renderActiveOnly={true}
+      >
+        <div>
+          <Menu
+            activeIndex={0}
+            items={
+              Array [
+                "Posts",
+                "Stats",
+                "Likes",
+                "Comments",
+                "Bookmarks",
+                "Reports",
+                "Settings",
+              ]
+            }
+            onItemClick={[Function]}
+            pointing={true}
+            secondary={true}
+          >
+            <div
+              className="ui pointing secondary menu"
+            >
+              <MenuItem
+                active={true}
+                content="Posts"
+                index={0}
+                key="Posts"
+                name="Posts"
+                onClick={[Function]}
+              >
+                <a
+                  className="active item"
+                  onClick={[Function]}
+                >
+                  Posts
+                </a>
+              </MenuItem>
+              <MenuItem
+                active={false}
+                content="Stats"
+                index={1}
+                key="Stats"
+                name="Stats"
+                onClick={[Function]}
+              >
+                <a
+                  className="item"
+                  onClick={[Function]}
+                >
+                  Stats
+                </a>
+              </MenuItem>
+              <MenuItem
+                active={false}
+                content="Likes"
+                index={2}
+                key="Likes"
+                name="Likes"
+                onClick={[Function]}
+              >
+                <a
+                  className="item"
+                  onClick={[Function]}
+                >
+                  Likes
+                </a>
+              </MenuItem>
+              <MenuItem
+                active={false}
+                content="Comments"
+                index={3}
+                key="Comments"
+                name="Comments"
+                onClick={[Function]}
+              >
+                <a
+                  className="item"
+                  onClick={[Function]}
+                >
+                  Comments
+                </a>
+              </MenuItem>
+              <MenuItem
+                active={false}
+                content="Bookmarks"
+                index={4}
+                key="Bookmarks"
+                name="Bookmarks"
+                onClick={[Function]}
+              >
+                <a
+                  className="item"
+                  onClick={[Function]}
+                >
+                  Bookmarks
+                </a>
+              </MenuItem>
+              <MenuItem
+                active={false}
+                content="Reports"
+                index={5}
+                key="Reports"
+                name="Reports"
+                onClick={[Function]}
+              >
+                <a
+                  className="item"
+                  onClick={[Function]}
+                >
+                  Reports
+                </a>
+              </MenuItem>
+              <MenuItem
+                active={false}
+                content="Settings"
+                index={6}
+                key="Settings"
+                name="Settings"
+                onClick={[Function]}
+              >
+                <a
+                  className="item"
+                  onClick={[Function]}
+                >
+                  Settings
+                </a>
+              </MenuItem>
+            </div>
+          </Menu>
+          <TabPane
+            active={true}
+            as={[Function]}
+            attached={false}
+          >
+            <Segment
+              attached={false}
+              className="active tab"
+            >
+              <div
+                className="ui segment active tab"
+              >
+                <ArticleLists
+                  articles={Array []}
+                  isDeleting={false}
+                >
+                  <div
+                    className="post-lists"
+                  >
+                    <p>
+                      You have no publications
+                    </p>
+                  </div>
+                </ArticleLists>
+              </div>
+            </Segment>
+          </TabPane>
+        </div>
+      </Tab>
+    </div>
+  </div>
+</ProfileMain>
 `;
 
 exports[`ProfileMain should render Stats Tab correctly 1`] = `

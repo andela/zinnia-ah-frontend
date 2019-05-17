@@ -18,7 +18,8 @@ const ForgotPassword = () => {
 };
 
 let testNavbar = {
-  profileUrl: '',
+  url: '',
+  class: '',
 };
 
 export default ForgotPassword;

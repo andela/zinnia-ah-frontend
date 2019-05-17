@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Navbar from '../components/presentationals/Navbar/Navbar';
@@ -11,6 +11,7 @@ import ProfileSidebar from '../components/presentationals/ProfileSidebar/Profile
 import ProfileMain from '../components/presentationals/ProfileMain/ProfileMain';
 
 // styles
+import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
 
 // images
@@ -21,6 +22,12 @@ import { getUserProfileRequest } from '../store/modules/profile';
 import { deleteArticle } from '../store/modules/profile';
 
 export class Profile extends Component {
+  state = {
+    view: 'default',
+  };
+  changeView = (view = 'userSettings') => {
+    this.setState({ view });
+  };
   componentDidMount() {
     this.props.getUserProfileRequest(this.props.match.params.username);
   }
@@ -49,12 +56,15 @@ export class Profile extends Component {
             {...profile}
             followers={followers}
             followings={followings}
+            currentView={this.state.view}
           />
           <ProfileMain
             {...profile}
             publications={publications}
             deleteArticle={deleteArticleFunction}
             isDeleting={isDeleting}
+            view={this.changeView}
+            currentView={this.state.view}
           />
         </div>
       </div>
