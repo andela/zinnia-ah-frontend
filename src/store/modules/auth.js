@@ -1,5 +1,4 @@
 import { toast } from 'react-toastify';
-import jsonwebtoken from 'jsonwebtoken';
 
 import { signUpRequest, loginRequest } from '../../api/auth';
 import { setToken } from '../../api/helpers';
@@ -92,44 +91,6 @@ export const signupUser = userData => {
     } catch (error) {
       const { data } = error.response;
       dispatch(signUpError([data]));
-    }
-  };
-};
-
-export const socialAuth = (history, location) => {
-  return dispatch => {
-    try {
-      dispatch(loginInitialize());
-      let query = location.search;
-      query = query.replace('?', '');
-      query = query.split('&');
-      let queryObj = {};
-
-      query.forEach(item => {
-        const array = item.split('=');
-        queryObj[array[0]] = array[1];
-      });
-
-      const { token, isNewRecord } = queryObj;
-      const { email, username, id } = jsonwebtoken.decode(token);
-
-      let message;
-
-      isNewRecord === 'true'
-        ? (message = `Hi, ${email} \n Welcome to Authors Haven`)
-        : (message = `Welcome Back ${username}`);
-
-      history.push('/');
-
-      toast.success(message);
-      setToken(token);
-
-      return dispatch(socialSuccess({ email, username, id }));
-    } catch (error) {
-      const message = 'Authentication failed. Please try again';
-      history.push('/login');
-      toast.error(message);
-      return dispatch(loginError(message));
     }
   };
 };

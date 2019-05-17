@@ -15,11 +15,11 @@ import FacebookIcon from '../../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../../assets/images/twitter-icon.svg';
 
 const googleUrl =
-  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google';
+  'https://zinnia-ah-backend-demo.herokuapp.com/api/v1/auth/google?redirectTo=https://demo-zinnia.herokuapp.com/social-auth';
 const facebookUrl =
-  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook';
+  'https://zinnia-ah-backend-demo.herokuapp.com/api/v1/auth/facebook?redirectTo=https://demo-zinnia.herokuapp.com/social-auth';
 const twitterUrl =
-  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter';
+  'https://zinnia-ah-backend-demo.herokuapp.com/api/v1/auth/twitter?redirectTo=https://demo-zinnia.herokuapp.com/social-auth';
 
 const AuthenticationCard = ({ pathname }) => {
   const loginClass = pathname === '/login' ? 'active item' : 'item';

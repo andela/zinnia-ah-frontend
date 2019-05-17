@@ -84,19 +84,7 @@ exports[`ArticleLists should render correctly 1`] = `
                     <Button
                       className="btn-transparent"
                       type="button"
-                      value={
-                        <Icon
-                          as="i"
-                          name="bookmark outline"
-                          style={
-                            Object {
-                              "color": "#000000",
-                              "fontSize": "1.25rem",
-                              "margin": "0",
-                            }
-                          }
-                        />
-                      }
+                      value=""
                     >
                       <button
                         className="btn btn-transparent"
@@ -185,20 +173,20 @@ exports[`ArticleLists should render correctly 1`] = `
                             <Button
                               className="btn-transparent"
                               type="button"
-                              value={
-                                <Icon
-                                  as="i"
-                                  name="trash"
-                                  style={
-                                    Object {
-                                      "color": "#ff0000",
-                                      "fontSize": "1.5rem",
-                                      "margin": "0",
-                                    }
+                              value=""
+                            >
+                              <Icon
+                                as="i"
+                                name="trash"
+                                style={
+                                  Object {
+                                    "color": "#ff0000",
+                                    "fontSize": "1.5rem",
+                                    "margin": "0",
                                   }
-                                />
-                              }
-                            />
+                                }
+                              />
+                            </Button>
                           }
                         >
                           <Portal
@@ -215,20 +203,20 @@ exports[`ArticleLists should render correctly 1`] = `
                               <Button
                                 className="btn-transparent"
                                 type="button"
-                                value={
-                                  <Icon
-                                    as="i"
-                                    name="trash"
-                                    style={
-                                      Object {
-                                        "color": "#ff0000",
-                                        "fontSize": "1.5rem",
-                                        "margin": "0",
-                                      }
+                                value=""
+                              >
+                                <Icon
+                                  as="i"
+                                  name="trash"
+                                  style={
+                                    Object {
+                                      "color": "#ff0000",
+                                      "fontSize": "1.5rem",
+                                      "margin": "0",
                                     }
-                                  />
-                                }
-                              />
+                                  }
+                                />
+                              </Button>
                             }
                           >
                             <Ref
@@ -245,19 +233,7 @@ exports[`ArticleLists should render correctly 1`] = `
                                   onMouseEnter={[Function]}
                                   onMouseLeave={[Function]}
                                   type="button"
-                                  value={
-                                    <Icon
-                                      as="i"
-                                      name="trash"
-                                      style={
-                                        Object {
-                                          "color": "#ff0000",
-                                          "fontSize": "1.5rem",
-                                          "margin": "0",
-                                        }
-                                      }
-                                    />
-                                  }
+                                  value=""
                                 >
                                   <button
                                     className="btn btn-transparent"
@@ -374,19 +350,7 @@ exports[`ArticleLists should render correctly 1`] = `
                     <Button
                       className="btn-transparent"
                       type="button"
-                      value={
-                        <Icon
-                          as="i"
-                          name="bookmark outline"
-                          style={
-                            Object {
-                              "color": "#000000",
-                              "fontSize": "1.25rem",
-                              "margin": "0",
-                            }
-                          }
-                        />
-                      }
+                      value=""
                     >
                       <button
                         className="btn btn-transparent"
@@ -475,20 +439,20 @@ exports[`ArticleLists should render correctly 1`] = `
                             <Button
                               className="btn-transparent"
                               type="button"
-                              value={
-                                <Icon
-                                  as="i"
-                                  name="trash"
-                                  style={
-                                    Object {
-                                      "color": "#ff0000",
-                                      "fontSize": "1.5rem",
-                                      "margin": "0",
-                                    }
+                              value=""
+                            >
+                              <Icon
+                                as="i"
+                                name="trash"
+                                style={
+                                  Object {
+                                    "color": "#ff0000",
+                                    "fontSize": "1.5rem",
+                                    "margin": "0",
                                   }
-                                />
-                              }
-                            />
+                                }
+                              />
+                            </Button>
                           }
                         >
                           <Portal
@@ -505,20 +469,20 @@ exports[`ArticleLists should render correctly 1`] = `
                               <Button
                                 className="btn-transparent"
                                 type="button"
-                                value={
-                                  <Icon
-                                    as="i"
-                                    name="trash"
-                                    style={
-                                      Object {
-                                        "color": "#ff0000",
-                                        "fontSize": "1.5rem",
-                                        "margin": "0",
-                                      }
+                                value=""
+                              >
+                                <Icon
+                                  as="i"
+                                  name="trash"
+                                  style={
+                                    Object {
+                                      "color": "#ff0000",
+                                      "fontSize": "1.5rem",
+                                      "margin": "0",
                                     }
-                                  />
-                                }
-                              />
+                                  }
+                                />
+                              </Button>
                             }
                           >
                             <Ref
@@ -535,19 +499,7 @@ exports[`ArticleLists should render correctly 1`] = `
                                   onMouseEnter={[Function]}
                                   onMouseLeave={[Function]}
                                   type="button"
-                                  value={
-                                    <Icon
-                                      as="i"
-                                      name="trash"
-                                      style={
-                                        Object {
-                                          "color": "#ff0000",
-                                          "fontSize": "1.5rem",
-                                          "margin": "0",
-                                        }
-                                      }
-                                    />
-                                  }
+                                  value=""
                                 >
                                   <button
                                     className="btn btn-transparent"
