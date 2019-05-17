@@ -12,15 +12,6 @@
     width: 50%;
   }
 
-  .ui.secondary.pointing.menu .item {
-    border-bottom: .0625rem solid $secondary-grey;
-    color: $secondary-black-2;
-    font-family: $lato;
-    font-size: 1.875rem;
-    line-height: 1.8125rem;
-    width: 50%;
-  }
-
   .ui.secondary.pointing.menu .item:first-child {
     border-right: .0625rem solid $primary-black;
   }
