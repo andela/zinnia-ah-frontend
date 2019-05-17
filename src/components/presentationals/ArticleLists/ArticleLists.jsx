@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Item, Icon } from 'semantic-ui-react';
+import { Item, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react';
 
 // config
 import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
 
 // components
+import Button from '../Button/Button';
 import Title from '../Title/Title';
 
-const ArticleLists = ({ articles }) => {
+const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
   return (
     <div className="post-lists">
       {articles.length === 0 ? (
@@ -22,7 +23,40 @@ const ArticleLists = ({ articles }) => {
               />
 
               <Item.Content>
-                <Title content={article.title} className="title-article-lg" />
+                <div className="d-flex">
+                  <div style={{ marginRight: 'auto' }}>
+                    <Title
+                      content={article.title}
+                      className="title-article-lg"
+                    />
+                  </div>
+                  <div style={{ marginRight: '0.8rem' }}>
+                    <p
+                      style={{
+                        fontSize: '1rem',
+                        width: '100%',
+                      }}
+                    >
+                      2 mins read
+                    </p>
+                  </div>
+                  <div>
+                    <Button
+                      className="btn-transparent"
+                      type="button"
+                      value={
+                        <Icon
+                          name="bookmark outline"
+                          style={{
+                            fontSize: '1.25rem',
+                            margin: '0',
+                            color: '#000000',
+                          }}
+                        />
+                      }
+                    />
+                  </div>
+                </div>
                 <Item.Description
                   style={{
                     marginBottom: 'auto',
@@ -39,47 +73,48 @@ const ArticleLists = ({ articles }) => {
                   </p>
                 </Item.Description>
                 <Item.Extra>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: '1rem',
-                      }}
-                    >
-                      3 days ago
-                    </p>
-                    <div
-                      style={{
-                        display: 'flex',
-                      }}
-                    >
-                      <p
-                        style={{
-                          fontSize: '1rem',
-                        }}
+                  <div className="d-flex justify-content-between">
+                    <p style={{ fontSize: '1rem' }}>3 days ago</p>
+                    <div>
+                      <Modal
+                        trigger={
+                          <Button
+                            className="btn-transparent"
+                            type="button"
+                            value={
+                              <Icon
+                                name="trash"
+                                style={{
+                                  fontSize: '1.5rem',
+                                  margin: '0',
+                                  color: '#ff0000',
+                                }}
+                              />
+                            }
+                          />
+                        }
+                        closeIcon
+                        size="tiny"
                       >
-                        2 mins read
-                      </p>
-                      <button
-                        type="button"
-                        style={{
-                          padding: 0,
-                          border: 0,
-                          background: 'transparent',
-                        }}
-                      >
-                        <Icon
-                          name="bookmark outline"
-                          style={{
-                            fontSize: '1.25rem',
-                            marginLeft: '2.50rem',
-                          }}
-                        />
-                      </button>
+                        {isDeleting && (
+                          <Dimmer active>
+                            <Loader />
+                          </Dimmer>
+                        )}
+                        <Modal.Header>Delete Article!</Modal.Header>
+                        <Modal.Content>
+                          <p>Are you sure you want to delete this Article?</p>
+                        </Modal.Content>
+                        <Modal.Actions>
+                          <Button
+                            className="btn-dark mb-3"
+                            type="button"
+                            value="DELETE"
+                            key="delete"
+                            onClick={() => deleteArticle(article.id, articles)}
+                          />
+                        </Modal.Actions>
+                      </Modal>
                     </div>
                   </div>
                 </Item.Extra>
@@ -94,6 +129,8 @@ const ArticleLists = ({ articles }) => {
 
 ArticleLists.propTypes = {
   articles: PropTypes.array,
+  deleteArticle: PropTypes.any,
+  isDeleting: PropTypes.bool,
 };
 
 export default ArticleLists;

@@ -1,7 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextArea = ({ placeholder, className, onChange, value, name }) => {
+const TextArea = ({
+  placeholder,
+  className,
+  onChange,
+  value,
+  name,
+  cols,
+  rows,
+  onKeyDown,
+  autofocus,
+}) => {
   return (
     <div>
       <textarea
@@ -10,17 +20,25 @@ const TextArea = ({ placeholder, className, onChange, value, name }) => {
         onChange={onChange}
         value={value}
         name={name}
+        cols={cols}
+        rows={rows}
+        onKeyDown={onKeyDown}
+        autofocus={autofocus}
       />
     </div>
   );
 };
 
 TextArea.propTypes = {
-  className: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  cols: PropTypes.string,
+  rows: PropTypes.string,
+  onKeyDown: PropTypes.func,
+  autofocus: PropTypes.string,
 };
 
 export default TextArea;

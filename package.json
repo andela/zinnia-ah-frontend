@@ -23,7 +23,7 @@
     ]
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest -u",
     "test:coverage": "jest --coverage",
     "test:watch": "jest -u --watch",
     "start": "node server.js",

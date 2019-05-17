@@ -1,8 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Register /> mounts correctly 1`] = `
+exports[`<Profile /> mounts correctly 1`] = `
 <Profile
+  deleteArticle={[MockFunction]}
   error={Object {}}
+  followers={Array []}
+  followings={Array []}
   getUserProfileRequest={
     [MockFunction] {
       "calls": Array [
@@ -18,19 +21,56 @@ exports[`<Register /> mounts correctly 1`] = `
       ],
     }
   }
+  isDeleting={false}
   isLoading={true}
-  profile={
+  match={
     Object {
-      "data": Object {
-        "followers": Array [],
-        "followings": Array [],
-        "image": "https://dummyimage.com",
-        "publications": Array [],
+      "params": Object {
+        "username": "igbominadeveloper",
       },
     }
   }
+  profile={
+    Object {
+      "bio": "I am the correct user",
+      "email": "dummy@user.com",
+      "firstName": "mr",
+      "image": "https://dummyimage.com",
+      "lastName": "user",
+      "username": "dummyuser",
+    }
+  }
+  publications={Array []}
 >
   <div>
+    <ToastContainer
+      autoClose={4000}
+      bodyClassName={null}
+      className={null}
+      closeButton={
+        <CloseButton
+          ariaLabel="close"
+        />
+      }
+      closeOnClick={true}
+      draggable={true}
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      progressClassName={null}
+      progressStyle={null}
+      rtl={false}
+      style={null}
+      toastClassName={null}
+      transition={[Function]}
+    >
+      <div
+        className="Toastify"
+      />
+    </ToastContainer>
     <Navbar
       className=""
       url="https://dummyimage.com"
@@ -262,10 +302,14 @@ exports[`<Register /> mounts correctly 1`] = `
         </DimmerInner>
       </Dimmer>
       <ProfileSidebar
+        bio="I am the correct user"
+        email="dummy@user.com"
+        firstName="mr"
         followers={Array []}
         followings={Array []}
         image="https://dummyimage.com"
-        publications={Array []}
+        lastName="user"
+        username="dummyuser"
       >
         <div
           className="sidebar"
@@ -286,10 +330,14 @@ exports[`<Register /> mounts correctly 1`] = `
           </div>
           <p
             className="text-center username"
-          />
+          >
+            dummyuser
+          </p>
           <p
             className="text-center email"
-          />
+          >
+            dummy@user.com
+          </p>
           <div
             className="follow-div"
           >
@@ -348,22 +396,27 @@ exports[`<Register /> mounts correctly 1`] = `
         </div>
       </ProfileSidebar>
       <ProfileMain
-        followers={Array []}
-        followings={Array []}
+        bio="I am the correct user"
+        deleteArticle={[MockFunction]}
+        email="dummy@user.com"
+        firstName="mr"
         image="https://dummyimage.com"
+        isDeleting={false}
+        lastName="user"
         publications={Array []}
+        username="dummyuser"
       >
         <div
           className="main"
         >
           <Title
             className="title-lg"
-            content="undefined undefined"
+            content="mr user"
           >
             <h1
               className="title title-lg"
             >
-              undefined undefined
+              mr user
             </h1>
           </Title>
           <div
@@ -372,7 +425,9 @@ exports[`<Register /> mounts correctly 1`] = `
                 "maxHeight": "200px",
               }
             }
-          />
+          >
+            I am the correct user
+          </div>
           <div
             className="profile-tab-menu"
           >
@@ -565,6 +620,8 @@ exports[`<Register /> mounts correctly 1`] = `
                     >
                       <ArticleLists
                         articles={Array []}
+                        deleteArticle={[MockFunction]}
+                        isDeleting={false}
                       >
                         <div
                           className="post-lists"
@@ -587,9 +644,12 @@ exports[`<Register /> mounts correctly 1`] = `
 </Profile>
 `;
 
-exports[`<Register /> mounts correctly 2`] = `
+exports[`<Profile /> mounts correctly without image 1`] = `
 <Profile
+  deleteArticle={[MockFunction]}
   error={Object {}}
+  followers={Array []}
+  followings={Array []}
   getUserProfileRequest={
     [MockFunction] {
       "calls": Array [
@@ -605,22 +665,59 @@ exports[`<Register /> mounts correctly 2`] = `
       ],
     }
   }
+  isDeleting={false}
   isLoading={true}
-  profile={
+  match={
     Object {
-      "data": Object {
-        "followers": Array [],
-        "followings": Array [],
-        "image": "",
-        "publications": Array [],
+      "params": Object {
+        "username": "igbominadeveloper",
       },
     }
   }
+  profile={
+    Object {
+      "bio": "I am the correct user",
+      "email": "dummy@user.com",
+      "firstName": "mr",
+      "image": "https://dummyimage.com",
+      "lastName": "user",
+      "username": "dummyuser",
+    }
+  }
+  publications={Array []}
 >
   <div>
+    <ToastContainer
+      autoClose={4000}
+      bodyClassName={null}
+      className={null}
+      closeButton={
+        <CloseButton
+          ariaLabel="close"
+        />
+      }
+      closeOnClick={true}
+      draggable={true}
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      progressClassName={null}
+      progressStyle={null}
+      rtl={false}
+      style={null}
+      toastClassName={null}
+      transition={[Function]}
+    >
+      <div
+        className="Toastify"
+      />
+    </ToastContainer>
     <Navbar
       className=""
-      url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+      url="https://dummyimage.com"
     >
       <div>
         <div
@@ -638,12 +735,12 @@ exports[`<Register /> mounts correctly 2`] = `
           >
             <Avatar
               className=""
-              url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+              url="https://dummyimage.com"
             >
               <img
                 alt="avatar"
                 className="avatar "
-                src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+                src="https://dummyimage.com"
               />
             </Avatar>
             <Dropdown
@@ -849,10 +946,14 @@ exports[`<Register /> mounts correctly 2`] = `
         </DimmerInner>
       </Dimmer>
       <ProfileSidebar
+        bio="I am the correct user"
+        email="dummy@user.com"
+        firstName="mr"
         followers={Array []}
         followings={Array []}
-        image=""
-        publications={Array []}
+        image="https://dummyimage.com"
+        lastName="user"
+        username="dummyuser"
       >
         <div
           className="sidebar"
@@ -862,21 +963,25 @@ exports[`<Register /> mounts correctly 2`] = `
           >
             <Avatar
               className="avatar-xl"
-              url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+              url="https://dummyimage.com"
             >
               <img
                 alt="avatar"
                 className="avatar avatar-xl"
-                src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+                src="https://dummyimage.com"
               />
             </Avatar>
           </div>
           <p
             className="text-center username"
-          />
+          >
+            dummyuser
+          </p>
           <p
             className="text-center email"
-          />
+          >
+            dummy@user.com
+          </p>
           <div
             className="follow-div"
           >
@@ -935,22 +1040,27 @@ exports[`<Register /> mounts correctly 2`] = `
         </div>
       </ProfileSidebar>
       <ProfileMain
-        followers={Array []}
-        followings={Array []}
-        image=""
+        bio="I am the correct user"
+        deleteArticle={[MockFunction]}
+        email="dummy@user.com"
+        firstName="mr"
+        image="https://dummyimage.com"
+        isDeleting={false}
+        lastName="user"
         publications={Array []}
+        username="dummyuser"
       >
         <div
           className="main"
         >
           <Title
             className="title-lg"
-            content="undefined undefined"
+            content="mr user"
           >
             <h1
               className="title title-lg"
             >
-              undefined undefined
+              mr user
             </h1>
           </Title>
           <div
@@ -959,7 +1069,9 @@ exports[`<Register /> mounts correctly 2`] = `
                 "maxHeight": "200px",
               }
             }
-          />
+          >
+            I am the correct user
+          </div>
           <div
             className="profile-tab-menu"
           >
@@ -1152,6 +1264,8 @@ exports[`<Register /> mounts correctly 2`] = `
                     >
                       <ArticleLists
                         articles={Array []}
+                        deleteArticle={[MockFunction]}
+                        isDeleting={false}
                       >
                         <div
                           className="post-lists"

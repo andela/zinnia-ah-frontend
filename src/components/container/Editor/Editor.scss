@@ -1,0 +1,111 @@
+@import '../../../assets/variables';
+
+.title-textarea {
+  border: 0;
+  color: $primary-black;
+  font-family: $lora;
+  font-size: 3.125rem;
+  font-weight: bold;
+  line-height: 4rem;
+  overflow: hidden;
+  resize: none;
+  width: 100%;
+}
+
+.title-textarea:focus {
+  outline: 0;
+}
+
+.title-textarea::placeholder {
+  color: $secondary-black-opacity-6;
+  font-family: $lora;
+  font-size: 3.125rem;
+  font-weight: bold;
+  line-height: 4rem;
+}
+
+.editor-main {
+  padding: 1% 6%;
+}
+
+.demo-wrapper {
+  margin-bottom: 2rem;
+  min-height: 35rem;
+}
+
+.public-DraftEditorPlaceholder-inner {
+  color: $secondary-black-opacity-6;
+  font-family: $lato;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+}
+
+[data-text='true'] {
+  color: $primary-black;
+  font-family: $lato;
+  font-size: 1.5rem;
+  letter-spacing: .07rem;
+  line-height: 1.8125rem;
+}
+
+.tags {
+  align-items: center;
+  display: flex;
+  height: auto;
+  margin-bottom: 2rem;
+  min-height: 2.5rem;
+
+  .ReactTags__selected {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  .ReactTags__tag {
+    background: $secondary-grey;
+    border-radius: .125rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: .625rem;
+    margin-right: .625rem;
+    max-height: 2.5rem;
+    min-width: 2.5rem;
+    padding: .125rem .3125rem;
+  }
+
+  .ReactTags__remove {
+    margin-left: .625rem;
+  }
+
+  .ReactTags__tagInput input {
+    border: 0;
+  }
+
+  .ReactTags__tagInput input:focus {
+    outline: 0;
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.res-width-btn {
+  width: 20%;
+}
+
+@media only screen and (max-width: 37.5rem) {
+  .res-width-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 37.5rem) and (max-width: 50rem) {
+  .res-width-btn {
+    width: 35%;
+  }
+}
