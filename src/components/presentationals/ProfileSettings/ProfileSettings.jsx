@@ -23,16 +23,16 @@ class ProfileSettings extends Component {
     this.props.currentView();
   }
 
-  componentWillUnmount = async () => {
+  componentWillUnmount() {
     this.props.currentView('default');
-    await this.props.getUserProfileRequest(this.props.data.username);
-  };
+  }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate = async prevProps => {
     if (this.props.data.updatedAt !== prevProps.data.updatedAt) {
       this.setState({ isLoading: false });
+      await this.props.getUserProfileRequest(this.props.data.username);
     }
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
