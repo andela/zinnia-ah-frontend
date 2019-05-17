@@ -123,6 +123,7 @@ export const socialAuth = (history, location) => {
 
       toast.success(message);
       setToken(token);
+
       return dispatch(socialSuccess({ email, username, id }));
     } catch (error) {
       const message = 'Authentication failed. Please try again';
