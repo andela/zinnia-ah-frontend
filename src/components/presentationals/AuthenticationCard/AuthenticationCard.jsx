@@ -2,8 +2,6 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 import { Switch, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import Title from '../Title/Title.jsx';
 import './AuthenticationCard.scss';
@@ -14,12 +12,11 @@ import GoogleIcon from '../../../assets/images/google-icon.svg';
 import FacebookIcon from '../../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../../assets/images/twitter-icon.svg';
 
-const googleUrl =
-  'https://zinnia-ah-backend-demo.herokuapp.com/api/v1/auth/google?redirectTo=https://demo-zinnia.herokuapp.com/social-auth';
-const facebookUrl =
-  'https://zinnia-ah-backend-demo.herokuapp.com/api/v1/auth/facebook?redirectTo=https://demo-zinnia.herokuapp.com/social-auth';
-const twitterUrl =
-  'https://zinnia-ah-backend-demo.herokuapp.com/api/v1/auth/twitter?redirectTo=https://demo-zinnia.herokuapp.com/social-auth';
+import { FRONTEND_URL, HOST_URL } from '../../../config/config';
+
+const googleUrl = `${HOST_URL}/auth/google?redirectTo=${FRONTEND_URL}/social-auth`;
+const facebookUrl = `${HOST_URL}/auth/facebook?redirectTo=${FRONTEND_URL}/social-auth`;
+const twitterUrl = `${HOST_URL}/auth/twitter?redirectTo=${FRONTEND_URL}/social-auth`;
 
 const AuthenticationCard = ({ pathname }) => {
   const loginClass = pathname === '/login' ? 'active item' : 'item';
@@ -27,7 +24,6 @@ const AuthenticationCard = ({ pathname }) => {
 
   return (
     <div className="right">
-      <ToastContainer autoClose={5000} />
       <div className="auth-card">
         <Title content="Become an Author" className="text-center" />
         <hr className="hr" />

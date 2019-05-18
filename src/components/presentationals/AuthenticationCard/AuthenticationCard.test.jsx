@@ -4,7 +4,7 @@ import checkPropTypes from 'check-prop-types';
 
 import AuthenticationCard from '../AuthenticationCard/AuthenticationCard';
 
-import { findByTestAttribute } from '../../../utils/testHelpers';
+import { findByTestAttribute } from '../../../components/presentationals/SocialAuth/SocialAuth.test';
 
 const setupComponent = (props = {}) => {
   const component = shallow(<AuthenticationCard {...props} />);

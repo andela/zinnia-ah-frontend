@@ -1,67 +1,56 @@
-/* eslint-disable no-console */
+import React from 'react';
 import { connect } from 'react-redux';
-import jsonwebtoken from 'jsonwebtoken';
 import { toast } from 'react-toastify';
+import qs from 'qs';
 
+//modules
 import {
-  socialSuccess,
   loginInitialize,
+  socialSuccess,
   loginError,
 } from '../../../store/modules/auth';
-import { setToken } from '../../../api/helpers';
 
-const SocialAuth = ({ location, history }) => {
-  loginInitialize();
+// components
+import Loader from '../Loader/Loader';
+
+//helpers
+import { setToken, decodeToken } from '../../../api/helpers';
+
+const SocialAuth = ({ location, history, ...props }) => {
+  props.loginInitialize();
+
+  const loader = (
+    <Loader data-test="loader" size="large" text="redirecting, please wait" />
+  );
 
   try {
     let query = location.search;
     query = query.replace('?', '');
-    query = query.split('&');
-    let queryObj = {};
-
-    query.forEach(item => {
-      const array = item.split('=');
-      queryObj[array[0]] = array[1];
-    });
-
-    const { token, isNewRecord } = queryObj;
-
-    const { user } = jsonwebtoken.decode(token);
-
+    const { token, isNewRecord } = qs.parse(query);
+    const { user } = decodeToken(token);
     const { username, email, id } = user;
-
     let message;
 
     isNewRecord === 'true'
-      ? (message = `Hi, ${email} \n Welcome to Authors Haven`)
+      ? (message = `Hi, ${email}, Welcome to Authors Haven`)
       : (message = `Welcome Back ${username}`);
 
     history.push('/');
-
     toast.success(message);
     setToken(token);
+    props.socialSuccess({ email, username, id });
 
-    socialSuccess({ email, username, id });
-
-    return null;
+    return loader;
   } catch (error) {
     const message = 'Authentication failed. Please try again';
     history.push('/login');
-    toast.error(message);
-    loginError(message);
-    return null;
+    toast.error(error.message);
+    props.loginError([message]);
+    return loader;
   }
 };
 
-const mapStateToProps = state => ({ isLoading: state.auth.isLoading });
-
-const mapDispatchToProps = dispatch => ({
-  loginInitialize: () => dispatch(loginInitialize()),
-  socialSuccess: user => dispatch(socialSuccess(user)),
-  loginError: message => dispatch(loginError(message)),
-});
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+  null,
+  { loginInitialize, socialSuccess, loginError },
 )(SocialAuth);
