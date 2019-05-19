@@ -7,3 +7,7 @@ export const articleRequest = async credentials => {
     headers: { 'x-access-token': token },
   });
 };
+
+export const fetchArticle = async uniqueId => {
+  return await http.get(`/articles/${uniqueId}`);
+};

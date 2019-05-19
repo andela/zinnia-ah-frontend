@@ -5,6 +5,7 @@ import App from './components/App';
 import AuthenticationLayout from './pages/Authentication';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Article from './pages/Article';
 import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';
 import NotFound from './pages/NotFound/NotFound';
@@ -22,6 +23,7 @@ const Routes = () => {
       <Route path="/social-auth" exact component={SocialAuth} />
       <Route path="/editor" component={Editor} />
       <Route component={NotFound} />
+      <Route path="/:uniqueId" component={Article} />
     </Switch>
   );
 };

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article should render without errors 1`] = `
+<Fragment>
+  <Navbar
+    profileUrl=""
+  />
+  <div
+    className="d-flex auth-container"
+    data-test="article"
+  />
+</Fragment>
+`;
