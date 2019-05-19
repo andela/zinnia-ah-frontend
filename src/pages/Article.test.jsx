@@ -2,17 +2,20 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import checkPropTypes from 'check-prop-types';
 
-import Article from './Article';
+import { Article } from './Article';
 import { findByTestAttribute } from '../utils/testHelpers';
 
 const props = {
   match: {
     params: {
-      uniqueId: '',
+      articleId: '',
     },
   },
-  getArticle: jest.fn(),
+  getSingleArticle: jest.fn(),
+  isLoading: false,
+  article: {},
 };
+
 describe('Article', () => {
   it('should render without errors', () => {
     const wrapper = shallow(<Article {...props} />);
@@ -21,13 +24,13 @@ describe('Article', () => {
   });
 
   it('should receive props', () => {
-    const expectedProps = { uniqueId: '' };
+    const expectedProps = { ...props };
 
     const propsError = checkPropTypes(
       Article.propTypes,
       expectedProps,
       'props',
-      Article.uniqueId,
+      Article,
     );
 
     expect(propsError).toBeUndefined();

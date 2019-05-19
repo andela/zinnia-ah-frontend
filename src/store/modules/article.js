@@ -83,9 +83,6 @@ export const getSingleArticle = uniqueId => {
 };
 export const articleReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'value':
-      break;
-
     case FETCH_ARTICLE_START:
       return {
         ...state,

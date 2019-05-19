@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author Render should render without errors 1`] = `
+<div
+  className="container"
+  data-test="author"
+>
+  <div
+    className="avatar-div"
+  >
+    <Avatar
+      className="avatar-xl"
+      url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+    />
+  </div>
+  <p
+    className="text-center fullname"
+  >
+     
+  </p>
+  <Link
+    to="@"
+  >
+    <p
+      className="text-center username"
+    >
+      @
+    </p>
+  </Link>
+  <Button
+    className="btn-white"
+    type="submit"
+    value="FOLLOW"
+  />
+</div>
+`;

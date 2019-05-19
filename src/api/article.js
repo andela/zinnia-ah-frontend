@@ -8,6 +8,6 @@ export const articleRequest = async credentials => {
   });
 };
 
-export const fetchArticle = async uniqueId => {
-  return await http.get(`/articles/${uniqueId}`);
+export const fetchArticle = async articleId => {
+  return await http.get(`/articles/${articleId}`);
 };

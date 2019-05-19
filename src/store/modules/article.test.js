@@ -1,6 +1,3 @@
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
 import { http } from '../../api/client';
 import {
   CREATE_ARTCLE_INITIALIZED,
@@ -10,7 +7,6 @@ import {
   createArticleSuccess,
   createArticleError,
   createArticle,
-  initialState,
   articleReducer,
   getArticleStart,
   getArticleSuccess,
@@ -22,6 +18,12 @@ import {
 } from './article';
 
 import { setupStore } from '../../utils/testHelpers';
+
+const initialState = {
+  isLoading: false,
+  article: {},
+  error: {},
+};
 
 describe('ARTICLES', () => {
   describe('CREATE ARTICLE ACTIONS', () => {
@@ -148,7 +150,7 @@ describe('ARTICLES', () => {
       const action = getArticleFailure(error);
       const state = articleReducer(initialState, action);
       expect(state.isLoading).toBe(false);
-      expect(state.article).toEqual(undefined);
+      expect(state.article).toEqual({});
       expect(state.error).toEqual(error);
     });
   });
@@ -179,7 +181,7 @@ describe('ARTICLES', () => {
     });
   });
 
-  describe('INTEGRATION TESTS', () => {
+  describe('INTEGRATION TEST', () => {
     let store;
     beforeEach(() => {
       store = setupStore(initialState);
@@ -208,7 +210,9 @@ describe('ARTICLES', () => {
         comments: [],
       };
 
-      http.get = jest.fn().mockReturnValue(Promise.resolve({ data: article }));
+      http.get = jest
+        .fn()
+        .mockReturnValue(Promise.resolve({ data: { data: article } }));
 
       const expectedActions = [
         {
@@ -220,9 +224,11 @@ describe('ARTICLES', () => {
         },
       ];
 
-      store.dispatch(getSingleArticle('article')).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+      return store
+        .dispatch(getSingleArticle('47d790b9-9995-40df-a1e6-c3ad634253ef'))
+        .then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        });
     });
 
     it('fails to fetch an article', () => {
@@ -243,7 +249,7 @@ describe('ARTICLES', () => {
         },
       ];
 
-      store.dispatch(getSingleArticle('article')).then(() => {
+      return store.dispatch(getSingleArticle('article')).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });

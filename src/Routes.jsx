@@ -24,6 +24,7 @@ const Routes = () => {
       <Route path="/editor" component={Editor} />
       <Route component={NotFound} />
       <Route path="/:uniqueId" component={Article} />
+      <Route path="/:articleId" component={Article} />
     </Switch>
   );
 };

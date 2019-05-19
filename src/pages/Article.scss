@@ -1,0 +1,26 @@
+.article-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0% 6%;
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 6.25rem;
+    justify-content: space-between;
+    width: 25%;
+  }
+
+  .links {
+    width: max-content;
+  }
+
+  .content {
+    text-align: justify;
+  }
+
+  .author {
+    display: flex;
+    width: 25%;
+  }
+}

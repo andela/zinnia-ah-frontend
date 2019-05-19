@@ -5,13 +5,13 @@ export const decodeToken = token => {
 };
 
 export const setToken = token => {
-  localStorage.setItem('token', token);
+  localStorage.setItem('token', JSON.stringify(token));
   return getToken();
 };
 
 export const getToken = () => {
   const token = localStorage.getItem('token');
-  return token;
+  return JSON.parse(token);
 };
 
 export const destroyToken = () => {

@@ -6,8 +6,64 @@ exports[`Article should render without errors 1`] = `
     profileUrl=""
   />
   <div
-    className="d-flex auth-container"
+    className="d-flex article-container"
     data-test="article"
-  />
+  >
+    <div
+      className="author"
+    />
+    <div
+      className="content"
+    >
+      <Item>
+        <Title
+          className="title-lg"
+        />
+        a few seconds ago
+        <ItemContent>
+          <ItemImage
+            size="massive"
+          />
+          <br />
+          <ItemDescription />
+        </ItemContent>
+      </Item>
+    </div>
+    <div
+      className="sidebar"
+    >
+      <a
+        className="links"
+        href="https://twitter.com/intent/tweet?text=undefined&url=http://localhost/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Icon
+          as="i"
+          name="twitter"
+          size="large"
+        />
+      </a>
+      <a>
+        <Icon
+          as="i"
+          name="facebook"
+          size="large"
+        />
+      </a>
+      <a
+        className="links"
+        href="mailto:''?subject=undefined&body=http://localhost/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Icon
+          as="i"
+          name="mail"
+          size="large"
+        />
+      </a>
+    </div>
+  </div>
 </Fragment>
 `;
