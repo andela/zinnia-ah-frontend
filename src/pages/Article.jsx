@@ -32,6 +32,7 @@ export class Article extends Component {
   }
   render() {
     const { article } = this.props;
+
     return (
       <Fragment>
         {this.props.isLoading && (
