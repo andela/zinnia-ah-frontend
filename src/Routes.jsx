@@ -7,7 +7,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';
-import NotFound from './components/presentationals/NotFound/NotFound';
+import NotFound from './pages/NotFound/NotFound';
 
 const Routes = () => {
   return (

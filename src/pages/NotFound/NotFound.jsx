@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import Navbar from '../Navbar/Navbar';
-import Button from '../Button/Button';
+import Navbar from '../../components/presentationals/Navbar/Navbar';
+import Button from '../../components/presentationals/Button/Button';
 
 import './NotFound.scss';
 const NotFound = () => {
