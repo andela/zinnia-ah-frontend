@@ -34,6 +34,7 @@ Navbar.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   url: PropTypes.string,
+  children: PropTypes.any,
 };
 
 export default Navbar;
