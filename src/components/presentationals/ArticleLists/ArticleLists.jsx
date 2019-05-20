@@ -41,20 +41,16 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                     </p>
                   </div>
                   <div>
-                    <Button
-                      className="btn-transparent"
-                      type="button"
-                      value={
-                        <Icon
-                          name="bookmark outline"
-                          style={{
-                            fontSize: '1.25rem',
-                            margin: '0',
-                            color: '#000000',
-                          }}
-                        />
-                      }
-                    />
+                    <Button className="btn-transparent" type="button" value="">
+                      <Icon
+                        name="bookmark outline"
+                        style={{
+                          fontSize: '1.25rem',
+                          margin: '0',
+                          color: '#000000',
+                        }}
+                      />
+                    </Button>
                   </div>
                 </div>
                 <Item.Description
@@ -81,17 +77,17 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                           <Button
                             className="btn-transparent"
                             type="button"
-                            value={
-                              <Icon
-                                name="trash"
-                                style={{
-                                  fontSize: '1.5rem',
-                                  margin: '0',
-                                  color: '#ff0000',
-                                }}
-                              />
-                            }
-                          />
+                            value=""
+                          >
+                            <Icon
+                              name="trash"
+                              style={{
+                                fontSize: '1.5rem',
+                                margin: '0',
+                                color: '#ff0000',
+                              }}
+                            />
+                          </Button>
                         }
                         closeIcon
                         size="tiny"

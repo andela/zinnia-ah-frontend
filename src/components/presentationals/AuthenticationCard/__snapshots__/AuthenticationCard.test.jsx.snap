@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Authentication Card /> should render with no errors 1`] = `
+<div
+  className="right"
+>
+  <div
+    className="auth-card"
+  >
+    <Title
+      className="text-center"
+      content="Become an Author"
+    />
+    <hr
+      className="hr"
+    />
+    <div
+      className="tab-label"
+    >
+      <div
+        className="ui pointing secondary menu"
+      >
+        <Link
+          className="item"
+          to="/signup"
+        >
+          Sign Up
+        </Link>
+        <Link
+          className="item"
+          to="/login"
+        >
+          Login
+        </Link>
+      </div>
+      <Switch>
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(Login)",
+              "type": [Function],
+            }
+          }
+          path="/login"
+        />
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(Register)",
+              "type": [Function],
+            }
+          }
+          path="/signup"
+        />
+      </Switch>
+      <div
+        className="d-flex or-div"
+      >
+        <hr />
+        <p
+          className="or"
+        >
+          OR
+        </p>
+        <hr />
+      </div>
+      <div
+        className="icon-container"
+      >
+        <a
+          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
+        >
+          <div
+            className="icon-card"
+            data-test="social-icon"
+          >
+            <Image
+              as="img"
+              src=""
+              ui={true}
+            />
+          </div>
+        </a>
+        <a
+          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
+        >
+          <div
+            className="icon-card"
+            data-test="social-icon"
+          >
+            <Image
+              as="img"
+              src=""
+              ui={true}
+            />
+          </div>
+        </a>
+        <a
+          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
+        >
+          <div
+            className="icon-card"
+            data-test="social-icon"
+          >
+            <Image
+              as="img"
+              src=""
+              ui={true}
+            />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
