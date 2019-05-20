@@ -5,7 +5,7 @@ import { Dropdown } from 'semantic-ui-react';
 import Avatar from '../Avatar/Avatar';
 import './Navbar.scss';
 
-const Navbar = ({ url, className }) => {
+const Navbar = ({ url, className, children }) => {
   return (
     <div>
       <div className="navbar">
@@ -24,13 +24,16 @@ const Navbar = ({ url, className }) => {
             </Dropdown>
           </div>
         )}
+        {children && children}
       </div>
     </div>
   );
 };
 
 Navbar.propTypes = {
+  children: PropTypes.any,
   className: PropTypes.string,
+  profileUrl: PropTypes.string,
   url: PropTypes.string,
 };
 

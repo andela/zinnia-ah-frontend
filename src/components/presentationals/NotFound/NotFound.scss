@@ -1,0 +1,59 @@
+.hide-sm {
+  display: block;
+}
+
+.hide-lg {
+  display: none;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.text-large {
+  font-size: 17rem;
+  font-weight: 100;
+  margin: 2rem 0;
+}
+
+.text-medium {
+  font-size: 1.5rem;
+}
+
+.hero-text {
+  font-size: 17rem;
+  font-weight: 100;
+  margin: 2rem 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media only screen and (max-width: 56.25rem) {
+  .hide-sm {
+    display: none;
+  }
+
+  .hide-lg {
+    display: block;
+  }
+
+  .hero-text {
+    font-size: 5.5rem;
+    font-weight: 100;
+    margin: 2rem 0;
+  }
+
+  .text-content {
+    padding: 0 5%;
+ }
+}
