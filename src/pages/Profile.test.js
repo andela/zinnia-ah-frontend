@@ -29,7 +29,7 @@ const props = {
 
 const propsWithoutImage = {
   profile: {
-    image: 'https://dummyimage.com',
+    image: '',
     firstName: 'mr',
     lastName: 'user',
     bio: 'I am the correct user',

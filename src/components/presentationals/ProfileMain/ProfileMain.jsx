@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import Title from '../Title/Title';
 import ArticleLists from '../ArticleLists/ArticleLists';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
+import BookmarkLists from '../../container/BookmarkLists/BookmarkLists';
 
 // styles
 import './ProfileMain.scss';
@@ -47,7 +48,11 @@ const ProfileMain = ({
     },
     {
       menuItem: 'Bookmarks',
-      render: () => <Tab.Pane attached={false}>Tab 5 Content</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <BookmarkLists articles={publications} />
+        </Tab.Pane>
+      ),
     },
     {
       menuItem: 'Reports',

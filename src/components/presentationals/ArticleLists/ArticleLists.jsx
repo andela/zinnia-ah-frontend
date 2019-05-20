@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Item, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react';
+import moment from 'moment';
 
 // config
 import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
@@ -37,7 +38,7 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                         width: '100%',
                       }}
                     >
-                      2 mins read
+                      {article.readTime} mins read
                     </p>
                   </div>
                   <div>
@@ -70,7 +71,9 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                 </Item.Description>
                 <Item.Extra>
                   <div className="d-flex justify-content-between">
-                    <p style={{ fontSize: '1rem' }}>3 days ago</p>
+                    <p style={{ fontSize: '1rem' }}>
+                      {moment().from(article.createdAt, 'YYYYMMDD')} ago
+                    </p>
                     <div>
                       <Modal
                         trigger={

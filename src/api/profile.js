@@ -7,3 +7,7 @@ export const getProfileRequest = async username => {
 export const deleteArticleRequest = async articleId => {
   return await http.delete(`/articles/${articleId}`);
 };
+
+export const getBookmarksRequest = async () => {
+  return await http.get(`/users/bookmarks`);
+};

@@ -8,6 +8,9 @@ import {
   DELETE_ARTICLE_PROCESS,
   DELETE_ARTICLE_SUCCESS,
   DELETE_ARTICLE_ERROR,
+  GET_BOOKMARKS_PROCESS,
+  GET_BOOKMARKS_SUCCESS,
+  GET_BOOKMARKS_ERROR,
   DEFAULT_STATE,
   getUserProfileRequest,
   getUserProfile,
@@ -15,6 +18,10 @@ import {
   deleteArticleProcess,
   deleteArticleSuccess,
   deleteArticleError,
+  getBookmarksProcess,
+  getBookmarksSuccess,
+  getBookmarksError,
+  getBookmarks,
   profileReducer,
   deleteArticle,
 } from './profile';
@@ -193,6 +200,82 @@ describe('actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+
+  it('should create an action to start the action of getting bookmarks', () => {
+    const expectedAction = {
+      type: GET_BOOKMARKS_PROCESS,
+    };
+    expect(getBookmarksProcess()).toEqual(expectedAction);
+  });
+
+  it('should create an action to complete the action of getting bookmarks', () => {
+    const publications = [];
+    const expectedAction = {
+      type: GET_BOOKMARKS_SUCCESS,
+      publications,
+    };
+    expect(getBookmarksSuccess(publications)).toEqual(expectedAction);
+  });
+
+  it('should create an action to if getting bookmarks does not succeed', () => {
+    const error = {};
+    const expectedAction = {
+      type: GET_BOOKMARKS_ERROR,
+      error,
+    };
+    expect(getBookmarksError(error)).toEqual(expectedAction);
+  });
+
+  it('should dispatch a successful get-bookmarks action', () => {
+    const data = {
+      status: '',
+      message: '',
+      data: {
+        bookmarks: [{}],
+      },
+    };
+    http.get = jest.fn().mockReturnValue(Promise.resolve({ data: data }));
+    const expectedActions = [
+      {
+        type: 'GET_BOOKMARKS_PROCESS',
+      },
+      {
+        type: 'GET_BOOKMARKS_SUCCESS',
+        publications: [{}],
+      },
+    ];
+
+    const store = mockStore(DEFAULT_STATE);
+    return store.dispatch(getBookmarks()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch an error action if get-bookmark fails', () => {
+    const data = {
+      status: '',
+      message: '',
+    };
+
+    http.get = jest.fn().mockReturnValue(Promise.reject({ data: data }));
+    const expectedActions = [
+      { type: 'GET_BOOKMARKS_PROCESS' },
+      {
+        type: 'GET_BOOKMARKS_ERROR',
+        error: {
+          data: {
+            status: '',
+            message: '',
+          },
+        },
+      },
+    ];
+
+    const store = mockStore(DEFAULT_STATE);
+    return store.dispatch(getBookmarks()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
 });
 
 describe('reducers', () => {
@@ -223,7 +306,7 @@ describe('reducers', () => {
     expect(state.isDeleting).toEqual(true);
   });
 
-  it('should return a state when the an article has been successfully deleted', () => {
+  it('should return a state when an article has been successfully deleted', () => {
     const action = deleteArticleSuccess();
     const state = profileReducer(DEFAULT_STATE, action);
     expect(state.publications).toEqual(action.publications);
@@ -235,5 +318,25 @@ describe('reducers', () => {
     const state = profileReducer(DEFAULT_STATE, action);
     expect(state.error).toEqual(action.error);
     expect(state.isDeleting).toEqual(false);
+  });
+
+  it('should return a state when the process to get users bookmarks has begun', () => {
+    const action = getBookmarksProcess();
+    const state = profileReducer(DEFAULT_STATE, action);
+    expect(state.isLoading).toEqual(true);
+  });
+
+  it('should return a state when bookmarks has been successfully gotten', () => {
+    const action = getBookmarksSuccess();
+    const state = profileReducer(DEFAULT_STATE, action);
+    expect(state.bookmarks).toEqual(action.publications);
+    expect(state.isLoading).toEqual(false);
+  });
+
+  it('should return an error state when when bookmarks has not been successfully gotten', () => {
+    const action = getBookmarksError();
+    const state = profileReducer(DEFAULT_STATE, action);
+    expect(state.error).toEqual(action.error);
+    expect(state.isLoading).toEqual(false);
   });
 });

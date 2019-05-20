@@ -682,7 +682,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
       "bio": "I am the correct user",
       "email": "dummy@user.com",
       "firstName": "mr",
-      "image": "https://dummyimage.com",
+      "image": "",
       "lastName": "user",
       "username": "dummyuser",
     }
@@ -720,7 +720,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
     </ToastContainer>
     <Navbar
       className=""
-      url="https://dummyimage.com"
+      url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
     >
       <div>
         <div
@@ -738,12 +738,12 @@ exports[`<Profile /> mounts correctly without image 1`] = `
           >
             <Avatar
               className=""
-              url="https://dummyimage.com"
+              url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
             >
               <img
                 alt="avatar"
                 className="avatar "
-                src="https://dummyimage.com"
+                src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
               />
             </Avatar>
             <Dropdown
@@ -955,7 +955,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
         firstName="mr"
         followers={Array []}
         followings={Array []}
-        image="https://dummyimage.com"
+        image=""
         lastName="user"
         username="dummyuser"
       >
@@ -967,12 +967,12 @@ exports[`<Profile /> mounts correctly without image 1`] = `
           >
             <Avatar
               className="avatar-xl"
-              url="https://dummyimage.com"
+              url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
             >
               <img
                 alt="avatar"
                 className="avatar avatar-xl"
-                src="https://dummyimage.com"
+                src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
               />
             </Avatar>
           </div>
@@ -1049,7 +1049,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
         deleteArticle={[MockFunction]}
         email="dummy@user.com"
         firstName="mr"
-        image="https://dummyimage.com"
+        image=""
         isDeleting={false}
         lastName="user"
         publications={Array []}

@@ -474,24 +474,6 @@ exports[`ProfileMain should not render correctly 2`] = `
 </ProfileMain>
 `;
 
-exports[`ProfileMain should render Bookmarks Tab correctly 1`] = `
-<MenuItem
-  active={false}
-  content="Bookmarks"
-  index={4}
-  key="Bookmarks"
-  name="Bookmarks"
-  onClick={[Function]}
->
-  <a
-    className="item"
-    onClick={[Function]}
-  >
-    Bookmarks
-  </a>
-</MenuItem>
-`;
-
 exports[`ProfileMain should render Comments Tab correctly 1`] = `
 <MenuItem
   active={false}
