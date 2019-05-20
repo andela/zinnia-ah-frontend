@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import checkPropTypes from 'check-prop-types';
 
 import { Article } from './Article';
-import { findByTestAttribute } from '../utils/testHelpers';
 
 const props = {
   match: {
@@ -16,11 +15,26 @@ const props = {
   article: {},
 };
 
+const loadingProps = {
+  match: {
+    params: {
+      articleId: '',
+    },
+  },
+  getSingleArticle: jest.fn(),
+  isLoading: true,
+  article: {},
+};
+
 describe('Article', () => {
   it('should render without errors', () => {
     const wrapper = shallow(<Article {...props} />);
     expect(wrapper).toMatchSnapshot();
-    expect(findByTestAttribute(wrapper, 'article').length).toEqual(1);
+  });
+
+  it('should render without errors', () => {
+    const wrapper = shallow(<Article {...loadingProps} />);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should receive props', () => {

@@ -13,13 +13,18 @@ const props = {
   },
 };
 
+const propsWithoutProfile = {};
+
 describe('Author', () => {
   describe('Render', () => {
     it('should render without errors', () => {
       const component = shallow(<Author {...props} />);
       expect(component).toMatchSnapshot();
-      const wrapper = findByTestAttribute(component, 'author');
-      expect(wrapper.length).toBe(1);
+    });
+
+    it('should render without errors ans without props', () => {
+      const component = shallow(<Author {...propsWithoutProfile} />);
+      expect(component).toMatchSnapshot();
     });
   });
 

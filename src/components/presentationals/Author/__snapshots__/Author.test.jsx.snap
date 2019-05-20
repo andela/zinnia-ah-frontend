@@ -8,16 +8,19 @@ exports[`Author Render should render without errors 1`] = `
   <div
     className="avatar-div"
   >
-    <Avatar
-      className="avatar-xl"
-      url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
-    />
+    <Link
+      to="@"
+    >
+      <Avatar
+        className="avatar-lg"
+        url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+      />
+    </Link>
   </div>
-  <p
-    className="text-center fullname"
-  >
-     
-  </p>
+  <Title
+    className="title-md text-center"
+    content=" "
+  />
   <Link
     to="@"
   >
@@ -27,10 +30,16 @@ exports[`Author Render should render without errors 1`] = `
       @
     </p>
   </Link>
-  <Button
-    className="btn-white"
-    type="submit"
-    value="FOLLOW"
-  />
+  <div
+    className="d-flex justify-content-center"
+  >
+    <Button
+      className="btn-white btn-sm"
+      type="submit"
+      value="FOLLOW"
+    />
+  </div>
 </div>
 `;
+
+exports[`Author Render should render without errors ans without props 1`] = `""`;
