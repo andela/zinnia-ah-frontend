@@ -1,0 +1,4 @@
+diff a/src/store/modules/tag.js b/src/store/modules/tag.js	(rejected hunks)
+@@ -23 +23 @@ export const getArticleByTagProcess = () => ({
+-export const getArticleByTagSuccess = (articles) => ({
++export const getArticleByTagSuccess = articles => ({
