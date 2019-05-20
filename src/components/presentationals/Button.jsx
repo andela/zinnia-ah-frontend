@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import './Button.scss';
 
 const Button = props => {
+  const { className, type, value } = props['button'];
   return (
-    <button className={`btn ${props.button.class}`} type={props.button.class}>
-      {props.button.value}
+    <button className={`btn ${className}`} type={type}>
+      {value}
     </button>
   );
 };

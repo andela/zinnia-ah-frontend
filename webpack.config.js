@@ -10,8 +10,7 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         exclude: [/node_modules/, /.test.(js|jsx)$/],
         use: ['babel-loader'],
@@ -29,7 +28,7 @@ module.exports = {
               name: 'images/[hash]-[name].[ext]',
             },
           },
-        ],
+        }, ],
       },
       {
         resolve: {
