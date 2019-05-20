@@ -73,6 +73,7 @@ exports[`<Profile /> mounts correctly 1`] = `
     </ToastContainer>
     <Navbar
       className=""
+      profileUrl=""
       url="https://dummyimage.com"
     >
       <div>
@@ -720,6 +721,7 @@ exports[`<Profile /> mounts correctly without image 1`] = `
     </ToastContainer>
     <Navbar
       className=""
+      profileUrl=""
       url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
     >
       <div>

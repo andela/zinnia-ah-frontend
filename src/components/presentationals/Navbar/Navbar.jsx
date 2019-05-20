@@ -34,4 +34,8 @@ Navbar.propTypes = {
   url: PropTypes.string,
 };
 
+Navbar.defaultProps = {
+  profileUrl: '',
+};
+
 export default Navbar;
