@@ -69,6 +69,7 @@ describe('ProfileSettings', () => {
       isDeleting: false,
       lastName: '',
       publications: [],
+      bookmarks: [],
       updatedAt: '',
       username: '',
     });
