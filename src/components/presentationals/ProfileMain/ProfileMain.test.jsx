@@ -50,34 +50,30 @@ describe('ProfileMain', () => {
 
   it('should render Stats Tab correctly', () => {
     const component = mount(<ProfileMain {...props} />);
-    const login = component.find('MenuItem[name="Stats"]').simulate('click');
-    expect(login).toMatchSnapshot();
+    const stats = component.find('MenuItem[name="Stats"]').simulate('click');
+    expect(stats).toMatchSnapshot();
   });
 
   it('should render Likes Tab correctly', () => {
     const component = mount(<ProfileMain {...props} />);
-    const login = component.find('MenuItem[name="Likes"]').simulate('click');
-    expect(login).toMatchSnapshot();
+    const likes = component.find('MenuItem[name="Likes"]').simulate('click');
+    expect(likes).toMatchSnapshot();
   });
 
   it('should render Comments Tab correctly', () => {
     const component = mount(<ProfileMain {...props} />);
-    const login = component.find('MenuItem[name="Comments"]').simulate('click');
-    expect(login).toMatchSnapshot();
-  });
-
-  it('should render Bookmarks Tab correctly', () => {
-    const component = mount(<ProfileMain {...props} />);
-    const login = component
-      .find('MenuItem[name="Bookmarks"]')
+    const comments = component
+      .find('MenuItem[name="Comments"]')
       .simulate('click');
-    expect(login).toMatchSnapshot();
+    expect(comments).toMatchSnapshot();
   });
 
   it('should render Reports Tab correctly', () => {
     const component = mount(<ProfileMain {...props} />);
-    const login = component.find('MenuItem[name="Reports"]').simulate('click');
-    expect(login).toMatchSnapshot();
+    const reports = component
+      .find('MenuItem[name="Reports"]')
+      .simulate('click');
+    expect(reports).toMatchSnapshot();
   });
 
   it('should render Settings Tab correctly', () => {

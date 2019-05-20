@@ -1,7 +1,11 @@
 import { toast } from 'react-toastify';
 
-import { getProfileRequest, deleteArticleRequest } from '../../api/profile';
 import { http } from '../../api/client';
+import {
+  getProfileRequest,
+  deleteArticleRequest,
+  getBookmarksRequest,
+} from '../../api/profile';
 
 export const GET_PROFILE_ERROR = 'GET_PROFILE_ERROR';
 export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
@@ -12,6 +16,9 @@ export const UPDATE_USER_PROFILE_ERROR = 'UPDATE_USER_PROFILE_ERROR';
 export const UPDATE_USER_PROFILE_SUCCESS = 'UPDATE_USER_PROFILE_SUCCESS';
 export const UPDATE_IMAGE_ERROR = 'UPDATE_IMAGE_ERROR';
 export const UPDATE_IMAGE_SUCCESS = 'UPDATE_IMAGE_SUCCESS';
+export const GET_BOOKMARKS_PROCESS = 'GET_BOOKMARKS_PROCESS';
+export const GET_BOOKMARKS_SUCCESS = 'GET_BOOKMARKS_SUCCESS';
+export const GET_BOOKMARKS_ERROR = 'GET_BOOKMARKS_ERROR';
 
 export const getUserProfileError = error => ({
   type: GET_PROFILE_ERROR,
@@ -43,6 +50,20 @@ export const deleteArticleSuccess = publications => ({
 
 export const deleteArticleError = error => ({
   type: DELETE_ARTICLE_ERROR,
+  error,
+});
+
+export const getBookmarksProcess = () => ({
+  type: GET_BOOKMARKS_PROCESS,
+});
+
+export const getBookmarksSuccess = publications => ({
+  type: GET_BOOKMARKS_SUCCESS,
+  publications,
+});
+
+export const getBookmarksError = error => ({
+  type: GET_BOOKMARKS_ERROR,
   error,
 });
 
@@ -94,6 +115,16 @@ export const updateUserProfileRequest = formData => async dispatch => {
   }
 };
 
+export const getBookmarks = () => async dispatch => {
+  try {
+    dispatch(getBookmarksProcess());
+    const { data } = await getBookmarksRequest();
+    dispatch(getBookmarksSuccess(data.data.bookmarks));
+  } catch (error) {
+    dispatch(getBookmarksError(error));
+  }
+};
+
 export const DEFAULT_STATE = {
   firstName: '',
   lastName: '',
@@ -101,6 +132,7 @@ export const DEFAULT_STATE = {
   publications: [],
   followings: [],
   followers: [],
+  bookmarks: [],
   image: '',
   email: '',
   username: '',
@@ -153,6 +185,23 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
         ...state,
         error: action.error,
         isDeleting: false,
+      };
+    case GET_BOOKMARKS_PROCESS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case GET_BOOKMARKS_SUCCESS:
+      return {
+        ...state,
+        bookmarks: action.publications,
+        isLoading: false,
+      };
+    case GET_BOOKMARKS_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
       };
     default:
       return state;

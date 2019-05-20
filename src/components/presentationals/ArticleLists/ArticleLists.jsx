@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Item, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react';
+import moment from 'moment';
 
 // config
 import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
@@ -37,24 +38,20 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                         width: '100%',
                       }}
                     >
-                      2 mins read
+                      {article.readTime} mins read
                     </p>
                   </div>
                   <div>
-                    <Button
-                      className="btn-transparent"
-                      type="button"
-                      value={
-                        <Icon
-                          name="bookmark outline"
-                          style={{
-                            fontSize: '1.25rem',
-                            margin: '0',
-                            color: '#000000',
-                          }}
-                        />
-                      }
-                    />
+                    <Button className="btn-transparent" type="button" value="">
+                      <Icon
+                        name="bookmark outline"
+                        style={{
+                          fontSize: '1.25rem',
+                          margin: '0',
+                          color: '#000000',
+                        }}
+                      />
+                    </Button>
                   </div>
                 </div>
                 <Item.Description
@@ -74,24 +71,26 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                 </Item.Description>
                 <Item.Extra>
                   <div className="d-flex justify-content-between">
-                    <p style={{ fontSize: '1rem' }}>3 days ago</p>
+                    <p style={{ fontSize: '1rem' }}>
+                      {moment().from(article.createdAt, 'YYYYMMDD')} ago
+                    </p>
                     <div>
                       <Modal
                         trigger={
                           <Button
                             className="btn-transparent"
                             type="button"
-                            value={
-                              <Icon
-                                name="trash"
-                                style={{
-                                  fontSize: '1.5rem',
-                                  margin: '0',
-                                  color: '#ff0000',
-                                }}
-                              />
-                            }
-                          />
+                            value=""
+                          >
+                            <Icon
+                              name="trash"
+                              style={{
+                                fontSize: '1.5rem',
+                                margin: '0',
+                                color: '#ff0000',
+                              }}
+                            />
+                          </Button>
                         }
                         closeIcon
                         size="tiny"

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './App.scss';
 
@@ -7,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <ToastContainer autoClose={5000} />
         <h1 className="toothy"> My React App!! </h1>
         <Link to="/login">
           <button>Login</button>

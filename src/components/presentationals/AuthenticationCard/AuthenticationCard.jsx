@@ -2,8 +2,6 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 import { Switch, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import Title from '../Title/Title.jsx';
 import './AuthenticationCard.scss';
@@ -14,16 +12,21 @@ import GoogleIcon from '../../../assets/images/google-icon.svg';
 import FacebookIcon from '../../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../../assets/images/twitter-icon.svg';
 
+import { FRONTEND_URL, HOST_URL } from '../../../config/config';
+
+const googleUrl = `${HOST_URL}/auth/google?redirectTo=${FRONTEND_URL}/social-auth`;
+const facebookUrl = `${HOST_URL}/auth/facebook?redirectTo=${FRONTEND_URL}/social-auth`;
+const twitterUrl = `${HOST_URL}/auth/twitter?redirectTo=${FRONTEND_URL}/social-auth`;
+
 const AuthenticationCard = ({ pathname }) => {
   const loginClass = pathname === '/login' ? 'active item' : 'item';
   const signupClass = pathname === '/signup' ? 'active item' : 'item';
 
   return (
     <div className="right">
-      <ToastContainer autoClose={8000} />
       <div className="auth-card">
         <Title content="Become an Author" className="text-center" />
-        <hr />
+        <hr className="hr" />
         <div className="tab-label">
           <div className="ui pointing secondary menu">
             <Link className={signupClass} to="/signup">
@@ -43,15 +46,21 @@ const AuthenticationCard = ({ pathname }) => {
             <hr />
           </div>
           <div className="icon-container">
-            <div className="icon-card">
-              <Image src={GoogleIcon} />
-            </div>
-            <div className="icon-card">
-              <Image src={FacebookIcon} />
-            </div>
-            <div className="icon-card">
-              <Image src={TwitterIcon} />
-            </div>
+            <a href={googleUrl}>
+              <div className="icon-card" data-test="social-icon">
+                <Image src={GoogleIcon} />
+              </div>
+            </a>
+            <a href={facebookUrl}>
+              <div className="icon-card" data-test="social-icon">
+                <Image src={FacebookIcon} />
+              </div>
+            </a>
+            <a href={twitterUrl}>
+              <div className="icon-card" data-test="social-icon">
+                <Image src={TwitterIcon} />
+              </div>
+            </a>
           </div>
         </div>
       </div>

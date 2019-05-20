@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+
 import { signUpRequest, loginRequest } from '../../api/auth';
 import { setToken } from '../../api/helpers';
 
@@ -9,11 +10,13 @@ export const SIGNUP_INITIALIZED = 'SIGNUP_INITIALIZED';
 export const LOGIN_INITIALIZED = 'LOGIN_REQUESTED';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const SOCIAL_SUCCESS = 'SOCIAL_SUCCESS';
 
 export const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: { status: '' },
+  loggedInUser: {},
 };
 
 export const signUpIntialize = () => {
@@ -53,6 +56,13 @@ export const loginError = error => {
   return {
     type: LOGIN_ERROR,
     error,
+  };
+};
+
+export const socialSuccess = user => {
+  return {
+    type: SOCIAL_SUCCESS,
+    user,
   };
 };
 
@@ -127,6 +137,12 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         errorResponse: action.error,
+      };
+    case SOCIAL_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        loggedInUser: action.user,
       };
 
     default:
