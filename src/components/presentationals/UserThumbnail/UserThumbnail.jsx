@@ -8,15 +8,18 @@ import './UserThumbnail.scss';
 
 import Avatar from '../../presentationals/Avatar/Avatar';
 
-const UserThumbnail = ({ url, image = DEFAULT_USER_IMAGE_URL, name, info }) => (
-  <a className="user-thumbnail" href={url}>
-    <Avatar url={image} className="avatar-m" />
-    <div>
-      <span className="name"> {name} </span>
-      <span className="info"> {info} </span>
-    </div>
-  </a>
-);
+const UserThumbnail = ({ url, image, name, info }) => {
+  image = image !== null ? image : DEFAULT_USER_IMAGE_URL;
+  return (
+    <a className="user-thumbnail" href={url}>
+      <Avatar url={image} className="avatar-m" />
+      <div>
+        <span className="name"> {name} </span>
+        <span className="info"> {info} </span>
+      </div>
+    </a>
+  );
+};
 
 UserThumbnail.propTypes = {
   url: PropTypes.string,
