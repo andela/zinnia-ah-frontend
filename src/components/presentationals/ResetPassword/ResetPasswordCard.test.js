@@ -1,21 +1,27 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Form } from 'semantic-ui-react';
 
-import ForgotPasswordCard from './ForgotPasswordCard';
+import ResetPasswordCard from './ResetPasswordCard';
 import Title from '../Title/Title';
 import Button from '../Button/Button';
 
-describe('<ForgotPasswordCard />', () => {
+const props = {
+  password: '',
+  confirmPassword: '',
+  handleChange: jest.fn(),
+  validationErrors: [],
+  handleSubmit: jest.fn(),
+};
+
+describe('<ResetPasswordCard />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ForgotPasswordCard />);
+    wrapper = shallow(<ResetPasswordCard {...props} />);
   });
 
-  it('should render without errors', () => {
+  it('should render <ResetPasswordCard />', () => {
     expect(wrapper.exists()).toBe(true);
-    expect(wrapper.find('.auth-card').length).toBe(1);
   });
 
   it('should render a <Title />', () => {
@@ -31,20 +37,10 @@ describe('<ForgotPasswordCard />', () => {
       wrapper.containsAnyMatchingElements([
         <Button
           type="submit"
-          value="SEND INSTRUCTIONS"
+          value="RESET PASSWORD"
           className="btn-dark"
           key="first"
         />,
-      ]),
-    ).toEqual(true);
-  });
-
-  it('should contain a form', () => {
-    expect(
-      wrapper.containsAnyMatchingElements([
-        <Form.Field key="first">
-          <input />
-        </Form.Field>,
       ]),
     ).toEqual(true);
   });

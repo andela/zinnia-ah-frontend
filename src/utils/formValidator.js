@@ -25,6 +25,8 @@ export const validate = (values, validationErrors) => {
   return [...new Set(oldErrors.concat(newErrors))];
 };
 
+export const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
 export const emailError = 'email must be a valid email';
 
 export const alphanumError = field => {
@@ -68,8 +70,7 @@ const emailExistenceCheck = (isFieldEmpty, newErrors, oldErrors) => {
     if (isFieldEmpty('email', value)) {
       return;
     }
-    const pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    const isEmail = trim(value).match(pattern);
+    const isEmail = trim(value).match(emailRegex);
     getEmailError(isEmail, newErrors, oldErrors);
   };
 };
