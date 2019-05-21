@@ -7,6 +7,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';
+import NotFound from './pages/NotFound/NotFound';
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
       <Route path="/forgot-password" exact component={ForgotPassword} />
       <Route path="/@:username" component={Profile} />
       <Route path="/social-auth" exact component={SocialAuth} />
+      <Route component={NotFound} />
     </Switch>
   );
 };
