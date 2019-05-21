@@ -11,7 +11,7 @@ const setupComponent = (props = {}) => {
   return component;
 };
 
-describe('<Authentication Card />', () => {
+describe('<Authentication VerticalCard />', () => {
   let component;
 
   beforeEach(() => {

@@ -1,15 +1,10 @@
-@import '../../../assets/variables';
-
 .h-card {
   display: flex;
   max-height: 11.575rem;
-  min-height: 11.575rem;
-  padding-right: 2%;
   width: 100%;
 
   .h-card-image {
-    max-height: 11.575rem;
-    min-height: 11.575rem;
+    height: 100%;
     width: 12.5rem;
   }
 
