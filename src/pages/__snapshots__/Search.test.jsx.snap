@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Search renders without errors 1`] = `
+<Fragment>
+  <Navbar
+    profileUrl=""
+  />
+  <div
+    className="search-container"
+  >
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <Input
+        className="form-control"
+        data-test="search-input"
+        name="q"
+        onChange={[Function]}
+        placeholder="Search Authors' Haven"
+        type="search"
+        value=""
+      />
+      <Button
+        className="btn btn-dark form-control"
+        data-test="button"
+        value="SEARCH"
+      />
+    </form>
+  </div>
+  <Article />
+</Fragment>
+`;

@@ -180,7 +180,11 @@ exports[`BookmarkLists mounts correctly without image 1`] = `
                           }
                         }
                       >
+<<<<<<< HEAD
                         7 days
+=======
+                        5 days
+>>>>>>> [feature] reducers and actions test
                          ago
                       </p>
                       <div>
@@ -398,7 +402,11 @@ exports[`BookmarkLists should render correctly 1`] = `
                           }
                         }
                       >
+<<<<<<< HEAD
                         7 days
+=======
+                        5 days
+>>>>>>> [feature] reducers and actions test
                          ago
                       </p>
                       <div>
