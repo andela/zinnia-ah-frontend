@@ -12,7 +12,9 @@ const props = {
   },
   getSingleArticle: jest.fn(),
   isLoading: false,
-  article: {},
+  article: {
+    likes: [],
+  },
 };
 
 const loadingProps = {
@@ -23,7 +25,9 @@ const loadingProps = {
   },
   getSingleArticle: jest.fn(),
   isLoading: true,
-  article: {},
+  article: {
+    likes: [],
+  },
 };
 
 describe('Article', () => {

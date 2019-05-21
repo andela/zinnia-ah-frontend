@@ -12,6 +12,7 @@ import Title from '../components/presentationals/Title/Title';
 import Author from '../components/presentationals/Author/Author';
 import Button from '../components/presentationals/Button/Button';
 import Tag from '../components/presentationals/Tag/Tag';
+import Avatar from '../components/presentationals/Avatar/Avatar';
 
 // modules
 import { getSingleArticle } from '../store/modules/article';
@@ -23,7 +24,6 @@ import './Article.scss';
 import LikeIcon from '../assets/images/like.svg';
 import ShareIcon from '../assets/images/share.svg';
 import BookmarkIcon from '../assets/images/bookmark.svg';
-import Avatar from '../components/presentationals/Avatar/Avatar';
 import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 export class Article extends Component {

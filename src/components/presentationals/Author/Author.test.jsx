@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import checkPropTypes from 'check-prop-types';
 
 import Author from './Author';
-import { findByTestAttribute } from '../../../utils/testHelpers';
 
 const props = {
   profile: {
