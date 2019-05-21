@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vertical Card should render correctly 1`] = `
+<div
+  className="card-1"
+>
+  <Card>
+    <Link
+      to="/read/undefined"
+    >
+      <Image
+        as="img"
+        src="fgbjm"
+        ui={true}
+        wrapped={true}
+      />
+    </Link>
+    <CardContent>
+      <CardHeader>
+        <Link
+          to="/read/undefined"
+        >
+          <Title
+            className="title-avg"
+            content="wefds"
+          />
+        </Link>
+        <Button
+          className="btn-transparent"
+          type="button"
+          value={
+            <Icon
+              as="i"
+              name="bookmark outline"
+              style={
+                Object {
+                  "fontSize": "1.8rem",
+                  "margin": "0",
+                }
+              }
+            />
+          }
+        />
+      </CardHeader>
+      <CardDescription>
+         
+        <Link
+          style={
+            Object {
+              "color": "#777",
+            }
+          }
+          to="/read/undefined"
+        >
+           
+          werfderfde
+        </Link>
+      </CardDescription>
+    </CardContent>
+    <div
+      className="card-footer"
+    >
+      <PopularAuthorItem
+        image="wefdwed"
+        key="uiojklnmkopiuygh"
+        link="/read/undefined"
+        name=""
+        url="sdfgvds"
+        username="sdfgvds"
+        value="Read More"
+      />
+    </div>
+  </Card>
+</div>
+`;

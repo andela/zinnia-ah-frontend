@@ -1,0 +1,165 @@
+@import '../assets/variables';
+
+.article-container {
+  display: flex;
+  padding: 0 6%;
+
+  .sidebar {
+    display: flex;
+    justify-content: center;
+    padding-top: 10.25rem;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  .author {
+    display: flex;
+    justify-content: center;
+  }
+
+  .fixed-pos {
+    position: fixed;
+    //width: 20%;
+  }
+}
+
+.article-body {
+  color: $primary-black;
+  font-family: $lato;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  margin-bottom: 6.25rem;
+}
+
+.article-cta {
+  margin-bottom: 2.5rem;
+}
+
+.article-likes-count {
+  color: $primary-black;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+
+  .item {
+    width: 90%;
+  }
+}
+
+.share-cta {
+  display: flex;
+  justify-content: space-around;
+}
+
+.report-rate-container {
+  border-bottom: .0625rem solid $primary-grey;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+}
+
+.footer {
+  background: $primary-white;
+  border: 1px solid $primary-black-opacity-1;
+  bottom: 0;
+  display: none;
+  justify-content: space-between;
+  padding: 2% 6%;
+  position: fixed;
+  width: 100%;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.hide-sm {
+  display: block;
+}
+
+.hide-lg {
+  display: none;
+}
+
+.flag:hover {
+  color: $primary-red;
+}
+
+@media only screen and (max-width: 48rem) {
+  .article-container {
+    display: block;
+    padding: 0 6%;
+
+    .actions {
+      display: none;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5rem;
+      width: 100%;
+
+      .title-xl {
+        font-size: 2rem;
+      }
+
+      .item {
+        width: 90%;
+      }
+    }
+
+    .author {
+      display: none;
+    }
+  }
+
+  .footer {
+    display: flex;
+  }
+
+  .hide-sm {
+    display: none;
+  }
+
+  .hide-lg {
+    display: block;
+  }
+
+
+}
+@media only screen and (max-width: 32rem) {
+  .report-rate-container {
+    display: block;
+
+    .hide-sm {
+      display: block;
+    }
+
+    .rate-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .rate {
+      margin-top: 3rem;
+    }
+  }
+
+  .article-body {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    margin-bottom: 6.25rem;
+  }
+}

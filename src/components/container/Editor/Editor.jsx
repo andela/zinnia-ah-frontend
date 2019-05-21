@@ -18,7 +18,6 @@ import { createArticle } from '../../../store/modules/article';
 import Button from '../../presentationals/Button/Button';
 import Loader from '../../presentationals/Loader/Loader';
 import TextArea from '../../presentationals/TextArea/TextArea';
-import Navbar from '../../presentationals/Navbar/Navbar';
 
 export class EditorContainer extends Component {
   state = {
@@ -125,7 +124,6 @@ export class EditorContainer extends Component {
     return (
       <div>
         {isLoading && <Loader text="please wait" size="large" />}
-        <Navbar />
         <div className="editor-main">
           <TextArea
             autoFocus="autoFocus"
@@ -149,6 +147,7 @@ export class EditorContainer extends Component {
                 options: [
                   'inline',
                   'blockType',
+                  'fontSize',
                   'textAlign',
                   'colorPicker',
                   'link',
@@ -169,10 +168,6 @@ export class EditorContainer extends Component {
                     'image/gif,image/jpeg,image/jpg,image/png,image/svg',
                   alignmentEnabled: false,
                   alt: { present: false, mandatory: false },
-                  defaultSize: {
-                    height: '500',
-                    width: '1000',
-                  },
                 },
               }}
             />

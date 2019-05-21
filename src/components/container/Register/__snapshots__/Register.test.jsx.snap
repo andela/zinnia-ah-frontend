@@ -45,16 +45,14 @@ exports[`<Register /> mounts correctly 1`] = `
           type="text"
           value=""
         >
-          <div>
-            <input
-              className="form-control false"
-              name="username"
-              onChange={[Function]}
-              placeholder="Username"
-              type="text"
-              value=""
-            />
-          </div>
+          <input
+            className="form-control false"
+            name="username"
+            onChange={[Function]}
+            placeholder="Username"
+            type="text"
+            value=""
+          />
         </Input>
       </div>
       <div
@@ -68,16 +66,14 @@ exports[`<Register /> mounts correctly 1`] = `
           type="email"
           value=""
         >
-          <div>
-            <input
-              className="form-control false"
-              name="email"
-              onChange={[Function]}
-              placeholder="Email"
-              type="email"
-              value=""
-            />
-          </div>
+          <input
+            className="form-control false"
+            name="email"
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+            value=""
+          />
         </Input>
       </div>
       <div
@@ -91,16 +87,14 @@ exports[`<Register /> mounts correctly 1`] = `
           type="password"
           value=""
         >
-          <div>
-            <input
-              className="form-control false"
-              name="password"
-              onChange={[Function]}
-              placeholder="Password"
-              type="password"
-              value=""
-            />
-          </div>
+          <input
+            className="form-control false"
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
         </Input>
       </div>
       <Button

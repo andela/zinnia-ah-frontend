@@ -19,13 +19,19 @@ const OverlayImage = () => (
     <CameraIcon />
   </div>
 );
+
 const ProfileSidebar = ({
   followers,
   followings,
+  id,
   username,
   email,
   image,
   currentView,
+  isButtonLoading,
+  loginUser,
+  followAuthorHandler,
+  getButtonText,
 }) => {
   return (
     <div className="sidebar">
@@ -49,14 +55,15 @@ const ProfileSidebar = ({
           <p className="text-center type">Followers</p>
         </div>
       </div>
-      <div
-        style={{
-          paddingLeft: '15%',
-          paddingRight: '15%',
-          marginTop: '35px',
-        }}
-      >
-        <Button className="btn-white" value="FOLLOW" type="submit" />
+      <div className="profilebtn-container">
+        {isButtonLoading && <Button className="ui basic loading button" />}
+        {!isButtonLoading && loginUser && loginUser.id !== id && (
+          <Button
+            className={getButtonText() === 'FOLLOW' ? 'btn-white' : 'btn-dark'}
+            value={getButtonText()}
+            onClick={followAuthorHandler}
+          />
+        )}
       </div>
       <hr className="sidebar-hr" />
     </div>
@@ -66,9 +73,15 @@ const ProfileSidebar = ({
 ProfileSidebar.propTypes = {
   followers: PropTypes.array,
   followings: PropTypes.array,
+  id: PropTypes.string,
   username: PropTypes.string,
   email: PropTypes.string,
   image: PropTypes.string,
+  followAuthorHandler: PropTypes.func,
+  getButtonText: PropTypes.func,
+  isLoading: PropTypes.bool,
+  isButtonLoading: PropTypes.bool,
+  loginUser: PropTypes.object,
   currentView: PropTypes.string.isRequired,
 };
 

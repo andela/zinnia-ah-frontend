@@ -4,7 +4,5 @@ import { HOST_URL } from '../config/config';
 
 export const http = axios.create({
   baseURL: HOST_URL,
-  headers: {
-    Authorization: getToken(),
-  },
+  headers: { Authorization: getToken() },
 });

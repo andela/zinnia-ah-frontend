@@ -6,7 +6,6 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 import { ToastContainer } from 'react-toastify';
 
 // components
-import Navbar from '../components/presentationals/Navbar/Navbar';
 import ProfileSidebar from '../components/presentationals/ProfileSidebar/ProfileSidebar';
 import ProfileMain from '../components/presentationals/ProfileMain/ProfileMain';
 
@@ -14,23 +13,52 @@ import ProfileMain from '../components/presentationals/ProfileMain/ProfileMain';
 import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
 
-// images
-import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
-
 //actions
-import { getUserProfileRequest } from '../store/modules/profile';
-import { deleteArticle } from '../store/modules/profile';
+import {
+  getUserProfileRequest,
+  deleteArticle,
+  followAuthorRequest,
+} from '../store/modules/profile';
+
+// helpers
+import { getToken, decodeToken } from '../api/helpers';
 
 export class Profile extends Component {
   state = {
     view: 'default',
   };
+
   changeView = (view = 'userSettings') => {
     this.setState({ view });
   };
+
   componentDidMount() {
     this.props.getUserProfileRequest(this.props.match.params.username);
   }
+
+  loginUser = (() => {
+    if (getToken()) {
+      const loginStatus = decodeToken(getToken());
+      return loginStatus;
+    }
+  })();
+
+  isFollowing = () => {
+    return this.props.followers.find(
+      follower => follower.id === this.loginUser.id,
+    );
+  };
+
+  followAuthorHandler = () => {
+    const value = this.isFollowing() ? 'unfollow' : 'follow';
+    return this.props.followAuthorRequest(value, this.props.profile.username);
+  };
+
+  getButtonText = () => {
+    if (this.isFollowing()) return 'UNFOLLOW';
+    return 'FOLLOW';
+  };
+
   render() {
     const {
       profile,
@@ -38,13 +66,13 @@ export class Profile extends Component {
       followings,
       followers,
       isLoading,
+      isButtonLoading,
       deleteArticle: deleteArticleFunction,
       isDeleting,
     } = this.props;
     return (
       <div>
         <ToastContainer autoClose={4000} />
-        <Navbar url={profile.image || DEFAULT_USER_IMAGE_URL} className="" />
         <div className="profile-container">
           {isLoading && (
             <Dimmer active>
@@ -56,7 +84,11 @@ export class Profile extends Component {
             {...profile}
             followers={followers}
             followings={followings}
+            getButtonText={this.getButtonText}
+            followAuthorHandler={this.followAuthorHandler}
             currentView={this.state.view}
+            isButtonLoading={isButtonLoading}
+            loginUser={this.loginUser}
           />
           <ProfileMain
             {...profile}
@@ -81,6 +113,8 @@ Profile.propTypes = {
   deleteArticle: PropTypes.func,
   isDeleting: PropTypes.bool,
   isLoading: PropTypes.bool,
+  isButtonLoading: PropTypes.bool,
+  followAuthorRequest: PropTypes.func,
   match: PropTypes.shape({
     params: PropTypes.shape({
       username: PropTypes.string.isRequired,
@@ -90,6 +124,7 @@ Profile.propTypes = {
 
 export const mapStateToProps = state => ({
   profile: {
+    id: state.profile.id,
     firstName: state.profile.firstName,
     lastName: state.profile.lastName,
     bio: state.profile.bio,
@@ -99,6 +134,7 @@ export const mapStateToProps = state => ({
   },
   error: state.profile.error,
   isLoading: state.profile.isLoading,
+  isButtonLoading: state.profile.isButtonLoading,
   isDeleting: state.profile.isDeleting,
   publications: state.profile.publications,
   followings: state.profile.followings,
@@ -107,5 +143,5 @@ export const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUserProfileRequest, deleteArticle },
+  { getUserProfileRequest, deleteArticle, followAuthorRequest },
 )(Profile);

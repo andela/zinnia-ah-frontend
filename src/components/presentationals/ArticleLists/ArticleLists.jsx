@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Item, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react';
 import moment from 'moment';
 
@@ -9,8 +10,9 @@ import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
 // components
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import { getEncodedUser } from '../../../api/helpers';
 
-const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
+const ArticleLists = ({ articles, deleteArticle, isDeleting, email }) => {
   return (
     <div className="post-lists">
       {articles.length === 0 ? (
@@ -19,17 +21,28 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
         articles.map(article => (
           <Item.Group key={article.id}>
             <Item>
-              <Item.Image
-                src={article.imageThumbnail || DEFAULT_ARTICLE_IMAGE_URL}
-              />
-
+              <Link
+                to={`/read/${article.slug}`}
+                key={article.id}
+                style={{ padding: '10px' }}
+              >
+                <Item.Image
+                  src={article.imageThumbnail || DEFAULT_ARTICLE_IMAGE_URL}
+                />
+              </Link>
               <Item.Content>
                 <div className="d-flex">
                   <div style={{ marginRight: 'auto' }}>
-                    <Title
-                      content={article.title}
-                      className="title-article-lg"
-                    />
+                    <Link
+                      to={`/read/${article.slug}`}
+                      key={article.id}
+                      style={{ color: '#100' }}
+                    >
+                      <Title
+                        content={article.title}
+                        className="title-article-lg"
+                      />
+                    </Link>
                   </div>
                   <div style={{ marginRight: '0.8rem' }}>
                     <p
@@ -66,7 +79,13 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                       fontWeight: '200',
                     }}
                   >
-                    {article.description}
+                    <Link
+                      to={`/read/${article.slug}`}
+                      key={article.id}
+                      style={{ color: '#000' }}
+                    >
+                      {article.description}
+                    </Link>
                   </p>
                 </Item.Description>
                 <Item.Extra>
@@ -75,45 +94,52 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                       {moment().from(article.createdAt, 'YYYYMMDD')} ago
                     </p>
                     <div>
-                      <Modal
-                        trigger={
-                          <Button
-                            className="btn-transparent"
-                            type="button"
-                            value=""
-                          >
-                            <Icon
-                              name="trash"
-                              style={{
-                                fontSize: '1.5rem',
-                                margin: '0',
-                                color: '#ff0000',
-                              }}
+                      {(getEncodedUser() && getEncodedUser().email) ===
+                        email && (
+                        <Modal
+                          trigger={
+                            <Button
+                              className="btn-transparent"
+                              type="button"
+                              value=""
+                            >
+                              <Icon
+                                name="trash"
+                                className="delete-button"
+                                size="large"
+                                style={{
+                                  margin: '0',
+                                }}
+                              />
+                            </Button>
+                          }
+                          closeIcon
+                          size="tiny"
+                        >
+                          {isDeleting && (
+                            <Dimmer active>
+                              <Loader />
+                            </Dimmer>
+                          )}
+                          <Modal.Header>Delete Article!</Modal.Header>
+                          <Modal.Content>
+                            <p style={{ color: '#000' }}>
+                              Are you sure you want to delete this Article?
+                            </p>
+                          </Modal.Content>
+                          <Modal.Actions>
+                            <Button
+                              className="btn-dark mb-3"
+                              type="button"
+                              value="DELETE"
+                              key="delete"
+                              onClick={() =>
+                                deleteArticle(article.id, articles)
+                              }
                             />
-                          </Button>
-                        }
-                        closeIcon
-                        size="tiny"
-                      >
-                        {isDeleting && (
-                          <Dimmer active>
-                            <Loader />
-                          </Dimmer>
-                        )}
-                        <Modal.Header>Delete Article!</Modal.Header>
-                        <Modal.Content>
-                          <p>Are you sure you want to delete this Article?</p>
-                        </Modal.Content>
-                        <Modal.Actions>
-                          <Button
-                            className="btn-dark mb-3"
-                            type="button"
-                            value="DELETE"
-                            key="delete"
-                            onClick={() => deleteArticle(article.id, articles)}
-                          />
-                        </Modal.Actions>
-                      </Modal>
+                          </Modal.Actions>
+                        </Modal>
+                      )}
                     </div>
                   </div>
                 </Item.Extra>
@@ -130,6 +156,7 @@ ArticleLists.propTypes = {
   articles: PropTypes.array,
   deleteArticle: PropTypes.any,
   isDeleting: PropTypes.bool,
+  email: PropTypes.string,
 };
 
 export default ArticleLists;

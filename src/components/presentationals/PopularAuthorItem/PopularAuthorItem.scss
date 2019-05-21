@@ -1,0 +1,17 @@
+@import '../../../assets/variables';
+
+.author-slot {
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  padding: 0 1%;
+  width: 100%;
+}
+
+.popular-authors {
+  .author-slot {
+    margin-top: 1.25rem;
+    height: 4rem;
+  }
+}

@@ -58,6 +58,7 @@ describe('ProfileSettings', () => {
     profileData.data.email = '';
     const reducer = profileReducer(undefined, {});
     expect(reducer).toEqual({
+      authors: [],
       error: {},
       isLoading: true,
       bio: '',
@@ -67,11 +68,14 @@ describe('ProfileSettings', () => {
       followings: [],
       image: '',
       isDeleting: false,
+      id: '',
+      isButtonLoading: false,
       lastName: '',
       publications: [],
       bookmarks: [],
       updatedAt: '',
       username: '',
+      isGettingPopularAuthorsLoading: true,
     });
   });
 

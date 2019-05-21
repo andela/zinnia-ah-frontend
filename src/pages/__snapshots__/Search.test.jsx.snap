@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Search renders without errors when props are empty 1`] = `
+<Fragment>
+  <div
+    className="articles"
+  >
+    <Tab
+      grid={
+        Object {
+          "paneWidth": 12,
+          "tabWidth": 4,
+        }
+      }
+      key="[object Object],[object Object],[object Object]"
+      menu={
+        Object {
+          "attached": true,
+          "tabular": true,
+        }
+      }
+      panes={
+        Array [
+          Object {
+            "menuItem": <MenuItem>
+              Articles
+              <Label>
+                0
+              </Label>
+            </MenuItem>,
+            "render": [Function],
+          },
+          Object {
+            "menuItem": <MenuItem>
+              Authors
+              <Label>
+                0
+              </Label>
+            </MenuItem>,
+            "render": [Function],
+          },
+          Object {
+            "menuItem": <MenuItem>
+              Tags
+              <Label>
+                0
+              </Label>
+            </MenuItem>,
+            "render": [Function],
+          },
+        ]
+      }
+      renderActiveOnly={true}
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`Custom Search renders without errors when props are not empty 1`] = `
+<Fragment>
+  <div
+    className="articles"
+  >
+    <Tab
+      grid={
+        Object {
+          "paneWidth": 12,
+          "tabWidth": 4,
+        }
+      }
+      key="[object Object],[object Object],[object Object]"
+      menu={
+        Object {
+          "attached": true,
+          "tabular": true,
+        }
+      }
+      panes={
+        Array [
+          Object {
+            "menuItem": <MenuItem>
+              Articles
+              <Label>
+                6
+              </Label>
+            </MenuItem>,
+            "render": [Function],
+          },
+          Object {
+            "menuItem": <MenuItem>
+              Authors
+              <Label>
+                9
+              </Label>
+            </MenuItem>,
+            "render": [Function],
+          },
+          Object {
+            "menuItem": <MenuItem>
+              Tags
+              <Label>
+                1
+              </Label>
+            </MenuItem>,
+            "render": [Function],
+          },
+        ]
+      }
+      renderActiveOnly={true}
+    />
+  </div>
+</Fragment>
+`;

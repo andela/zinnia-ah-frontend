@@ -44,7 +44,7 @@ module.exports = {
       safe: true,
       systemvars: true,
       silent: true,
-      defaults: true
+      defaults: true,
     }),
     new HtmlWebpackPlugin({
       template: './index.html',

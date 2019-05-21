@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { Profile, mapStateToProps } from './Profile';
 
@@ -53,12 +53,12 @@ const propsWithoutImage = {
 
 describe('<Profile />', () => {
   it('mounts correctly', () => {
-    const shallowWrapper = mount(<Profile {...props} />);
+    const shallowWrapper = shallow(<Profile {...props} />);
     expect(shallowWrapper).toMatchSnapshot();
   });
 
   it('mounts correctly without image', () => {
-    const shallowWrapper = mount(<Profile {...propsWithoutImage} />);
+    const shallowWrapper = shallow(<Profile {...propsWithoutImage} />);
     expect(shallowWrapper).toMatchSnapshot();
   });
 

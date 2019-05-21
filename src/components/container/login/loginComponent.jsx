@@ -93,9 +93,22 @@ export class Login extends Component {
 
   submitForm = () => {
     const { userCredentials } = this.state;
-    this.props.loginUser({
-      ...userCredentials,
-    });
+    const {
+      history,
+      location: { state },
+    } = this.props;
+
+    let redirectUrl;
+
+    state ? (redirectUrl = state.from.pathname) : (redirectUrl = '/');
+
+    this.props.loginUser(
+      {
+        ...userCredentials,
+      },
+      history,
+      redirectUrl,
+    );
 
     this.setState({
       userCredentials: {
@@ -108,7 +121,6 @@ export class Login extends Component {
   render() {
     const { isLoading, errorResponse } = this.props.auth;
     const { invalidFields } = this.state;
-
     return (
       <div>
         {isLoading && <Loader text="please wait" size="large" />}
@@ -164,6 +176,8 @@ export class Login extends Component {
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  location: PropTypes.object,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = state => ({ auth: state.auth });

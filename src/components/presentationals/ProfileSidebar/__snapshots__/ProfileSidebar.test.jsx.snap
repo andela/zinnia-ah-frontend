@@ -60,27 +60,8 @@ exports[`ProfileSidebar should not render correctly 1`] = `
       </div>
     </div>
     <div
-      style={
-        Object {
-          "marginTop": "35px",
-          "paddingLeft": "15%",
-          "paddingRight": "15%",
-        }
-      }
-    >
-      <Button
-        className="btn-white"
-        type="submit"
-        value="FOLLOW"
-      >
-        <button
-          className="btn btn-white"
-          type="submit"
-        >
-          FOLLOW
-        </button>
-      </Button>
-    </div>
+      className="profilebtn-container"
+    />
     <hr
       className="sidebar-hr"
     />
@@ -150,27 +131,8 @@ exports[`ProfileSidebar should render correctly 1`] = `
       </div>
     </div>
     <div
-      style={
-        Object {
-          "marginTop": "35px",
-          "paddingLeft": "15%",
-          "paddingRight": "15%",
-        }
-      }
-    >
-      <Button
-        className="btn-white"
-        type="submit"
-        value="FOLLOW"
-      >
-        <button
-          className="btn btn-white"
-          type="submit"
-        >
-          FOLLOW
-        </button>
-      </Button>
-    </div>
+      className="profilebtn-container"
+    />
     <hr
       className="sidebar-hr"
     />

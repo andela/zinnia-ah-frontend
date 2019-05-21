@@ -1,0 +1,33 @@
+@import '../../../assets/variables';
+
+.tags {
+  border-radius: .3125rem;
+  display: flex;
+  font-size: .75rem;
+  height: 1.4375rem;
+  justify-content: flex-start;
+}
+
+.tag {
+  align-items: center;
+  background: $secondary-grey;
+  border-radius: .3125rem;
+  cursor: pointer;
+  display: flex;
+  font-size: .75rem;
+  height: 1.4375rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  padding: 0 .625rem;
+  width: inherit;
+}
+
+.active {
+  background: $primary-black;
+  color: $primary-white;
+}
+
+.tag:hover {
+  background: $primary-black;
+  color: $primary-white;
+}

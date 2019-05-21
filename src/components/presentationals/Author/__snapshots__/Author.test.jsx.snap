@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author Render should render without errors 1`] = `
+<div
+  className="container"
+  data-test="author"
+>
+  <div
+    className="avatar-div"
+  >
+    <Link
+      to="/@"
+    >
+      <Avatar
+        className="avatar-lg"
+        url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+      />
+    </Link>
+  </div>
+  <Title
+    className="title-md text-center"
+    content=" "
+  />
+  <Link
+    to="/@"
+  >
+    <p
+      className="text-center username"
+    >
+      @
+    </p>
+  </Link>
+</div>
+`;
+
+exports[`Author Render should render without errors ans without props 1`] = `""`;

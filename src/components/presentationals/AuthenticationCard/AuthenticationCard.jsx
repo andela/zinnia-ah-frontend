@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'semantic-ui-react';
 import { Switch, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -11,6 +10,7 @@ import SignupForm from '../../container/Register/Register';
 import GoogleIcon from '../../../assets/images/google-icon.svg';
 import FacebookIcon from '../../../assets/images/facebook-icon.svg';
 import TwitterIcon from '../../../assets/images/twitter-icon.svg';
+import Image from '../Image/Image';
 
 import { FRONTEND_URL, HOST_URL } from '../../../config/config';
 
@@ -25,7 +25,11 @@ const AuthenticationCard = ({ pathname }) => {
   return (
     <div className="right">
       <div className="auth-card">
-        <Title content="Become an Author" className="text-center" />
+        {pathname === '/signup' ? (
+          <Title content="Become an Author" className="text-center" />
+        ) : (
+          <Title content="Welcome Back" className="text-center" />
+        )}
         <hr className="hr" />
         <div className="tab-label">
           <div className="ui pointing secondary menu">

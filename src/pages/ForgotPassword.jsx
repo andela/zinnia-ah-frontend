@@ -36,7 +36,6 @@ class ForgotPassword extends Component {
     const { email } = this.state;
     return (
       <React.Fragment>
-        <Navbar />
         <div className="d-flex auth-container">
           <AuthenticationIllustration />
           {this.props.isLoading && <Loader text="please wait" size="large" />}

@@ -1,0 +1,32 @@
+.user-thumbnail {
+  align-items: center;
+  color: #000;
+  display: flex;
+  flex-basis: 70%;
+  flex-direction: row;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  justify-content: left;
+  .avatar {
+    margin-right: 10px;
+  }
+
+  span {
+    display: block;
+    .name {
+      font-size: 16px;
+      line-height: 17px;
+    }
+  }
+
+  .info {
+    opacity: .6;
+  }
+
+  &:hover,
+  &:hover img {
+    color: #666;
+    opacity: .9;
+  }
+}

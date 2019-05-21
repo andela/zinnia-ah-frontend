@@ -5,6 +5,8 @@ import {
   getProfileRequest,
   deleteArticleRequest,
   getBookmarksRequest,
+  getPopularAuthorsRequest,
+  postFollowAuthor,
 } from '../../api/profile';
 
 export const GET_PROFILE_ERROR = 'GET_PROFILE_ERROR';
@@ -19,6 +21,11 @@ export const UPDATE_IMAGE_SUCCESS = 'UPDATE_IMAGE_SUCCESS';
 export const GET_BOOKMARKS_PROCESS = 'GET_BOOKMARKS_PROCESS';
 export const GET_BOOKMARKS_SUCCESS = 'GET_BOOKMARKS_SUCCESS';
 export const GET_BOOKMARKS_ERROR = 'GET_BOOKMARKS_ERROR';
+export const GET_POPULAR_AUTHORS_SUCCESS = 'GET_POPULAR_AUTHORS_SUCCESS';
+export const GET_POPULAR_AUTHORS_ERROR = 'GET_POPULAR_AUTHORS_ERROR';
+export const FOLLOW_AUTHOR_PROCESS = 'FOLLOW_AUTHOR_PROCESS';
+export const FOLLOW_AUTHOR_SUCCESS = 'FOLLOW_AUTHOR_SUCCESS';
+export const FOLLOW_AUTHOR_ERROR = 'FOLLOW_AUTHOR_ERROR';
 
 export const getUserProfileError = error => ({
   type: GET_PROFILE_ERROR,
@@ -28,6 +35,7 @@ export const getUserProfileError = error => ({
 export const getUserProfile = profile => ({
   type: GET_PROFILE_SUCCESS,
   publications: profile.publications,
+  id: profile.id,
   firstName: profile.firstName,
   lastName: profile.lastName,
   bio: profile.bio,
@@ -77,10 +85,32 @@ export const updateUserProfile = profile => ({
   ...profile,
 });
 
+export const getPopularAuthorsSuccess = authors => ({
+  type: GET_POPULAR_AUTHORS_SUCCESS,
+  authors,
+});
+
+export const getPopularAuthorsError = error => ({
+  type: GET_POPULAR_AUTHORS_ERROR,
+  error,
+});
+
+export const followAuthorProcess = () => ({
+  type: FOLLOW_AUTHOR_PROCESS,
+});
+
+export const followAuthorSuccess = response => ({
+  type: FOLLOW_AUTHOR_SUCCESS,
+  response: response.data.followers,
+});
+
+export const followAuthorError = () => ({
+  type: FOLLOW_AUTHOR_ERROR,
+});
+
 export const getUserProfileRequest = username => async dispatch => {
   try {
     const res = await getProfileRequest(username);
-    localStorage.setItem('userprofile', JSON.stringify(res.data));
     dispatch(getUserProfile(res.data.data));
   } catch (error) {
     return dispatch(getUserProfileError(error));
@@ -104,7 +134,6 @@ export const updateUserProfileRequest = formData => async dispatch => {
   try {
     const { data } = await http.put('/users/profile/', formData);
     if (data.status === 'success') {
-      localStorage.setItem('userprofile', JSON.stringify(data));
       toast.success('Profile updated successfully');
       return dispatch(updateUserProfile(data.data));
     }
@@ -125,7 +154,31 @@ export const getBookmarks = () => async dispatch => {
   }
 };
 
+export const getPopularAuthors = () => async dispatch => {
+  try {
+    const { data } = await getPopularAuthorsRequest();
+    dispatch(getPopularAuthorsSuccess(data.data));
+  } catch (error) {
+    dispatch(getPopularAuthorsError(error));
+  }
+};
+
+export const followAuthorRequest = (
+  followState,
+  username,
+) => async dispatch => {
+  try {
+    dispatch(followAuthorProcess());
+    const { data } = await postFollowAuthor(followState, username);
+    dispatch(followAuthorSuccess(data));
+  } catch (error) {
+    dispatch(followAuthorError());
+    toast.error(`${followState} request was unsuccessful`);
+  }
+};
+
 export const DEFAULT_STATE = {
+  id: '',
   firstName: '',
   lastName: '',
   bio: '',
@@ -139,7 +192,10 @@ export const DEFAULT_STATE = {
   updatedAt: '',
   error: {},
   isLoading: true,
+  isButtonLoading: false,
   isDeleting: false,
+  isGettingPopularAuthorsLoading: true,
+  authors: [],
 };
 
 export const profileReducer = (state = DEFAULT_STATE, action) => {
@@ -150,6 +206,7 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
       return {
         ...state,
         publications: action.publications,
+        id: action.id,
         firstName: action.firstName,
         lastName: action.lastName,
         bio: action.bio,
@@ -202,6 +259,34 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
         ...state,
         error: action.error,
         isLoading: false,
+      };
+    case GET_POPULAR_AUTHORS_SUCCESS:
+      return {
+        ...state,
+        isGettingPopularAuthorsLoading: false,
+        authors: action.authors,
+      };
+    case GET_POPULAR_AUTHORS_ERROR:
+      return {
+        ...state,
+        isGettingPopularAuthorsLoading: false,
+        error: action.error,
+      };
+    case FOLLOW_AUTHOR_PROCESS:
+      return {
+        ...state,
+        isButtonLoading: true,
+      };
+    case FOLLOW_AUTHOR_SUCCESS:
+      return {
+        ...state,
+        followers: action.response,
+        isButtonLoading: false,
+      };
+    case FOLLOW_AUTHOR_ERROR:
+      return {
+        ...state,
+        isButtonLoading: false,
       };
     default:
       return state;
