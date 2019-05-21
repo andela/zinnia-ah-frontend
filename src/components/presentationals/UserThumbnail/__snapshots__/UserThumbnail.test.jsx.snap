@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserThumbnail:::  should render UserThumbnail correctly 1`] = `
+<UserThumbnail
+  image="image_url.png"
+  info="@sample_name"
+  name="sample name"
+  url="http://example.com/randomuser"
+>
+  <a
+    className="user-thumbnail"
+    href="@http://example.com/randomuser"
+  >
+    <Avatar
+      className="avatar-m"
+      url="image_url.png"
+    >
+      <img
+        alt="avatar"
+        className="avatar avatar-m"
+        src="image_url.png"
+      />
+    </Avatar>
+    <div>
+      <span
+        className="name"
+      >
+         
+        sample name
+         
+      </span>
+      <span
+        className="info"
+      >
+         
+        @sample_name
+         
+      </span>
+    </div>
+  </a>
+</UserThumbnail>
+`;
