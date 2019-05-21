@@ -6,7 +6,7 @@ import UserThumbnail from '../UserThumbnail/UserThumbnail';
 
 import './PopularAuthorItem.scss';
 
-const PopularAuthorItem = ({ name, url, image, info }) => {
+const PopularAuthorItem = ({ name, url, image, username }) => {
   return (
     <div className="author-slot">
       <UserThumbnail
@@ -15,7 +15,7 @@ const PopularAuthorItem = ({ name, url, image, info }) => {
         name={name}
         url={url}
         image={image}
-        info={info}
+        username={username}
       />
       <Button
         type="submit"
@@ -30,7 +30,7 @@ PopularAuthorItem.propTypes = {
   name: PropTypes.string,
   url: PropTypes.string,
   image: PropTypes.string,
-  info: PropTypes.string,
+  username: PropTypes.string,
 };
 
 export default PopularAuthorItem;

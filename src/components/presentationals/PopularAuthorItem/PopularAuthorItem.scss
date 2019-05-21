@@ -1,15 +1,13 @@
 .author-slot {
-  // position: absolute;
-  display: flex;
   align-items: center;
+  display: flex;
   height: 4rem;
-  width: 200px;
-  left: 0;
-  top: 0;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  &:hover {
-    border: 1px solid #000;
-    box-sizing: border-box;
-    opacity: 0.2;
+.popular-authors {
+  .author-slot {
+    margin-top: 1.25rem;
   }
 }

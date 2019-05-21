@@ -1,16 +1,15 @@
-// .search {
-//   height: 3.25rem;
-// }
-
 .search-bar {
-  width: 32rem;
-  height: 3.25rem;
+  height: 3.125rem;
+  width: 22.9375rem;
+
+  .left {
+    margin-top: 0;
+    padding-right: 0;
+  }
+
+  input[type='text'] {
+    height: 3.125rem;
+    width: 22.9375rem;
+  }
 }
-.search-icon {
-font-family: Font Awesome 5 Free;
-font-style: normal;
-font-weight: 900;
-font-size: 16px;
-line-height: 18px;
-text-align: center;
-}
+

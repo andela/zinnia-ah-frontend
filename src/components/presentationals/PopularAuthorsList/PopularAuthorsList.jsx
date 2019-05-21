@@ -2,24 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import PopularAuthorItem from '../PopularAuthorItem/PopularAuthorItem';
+import Title from '../Title/Title';
 
 const PopularAuthorsList = ({ authors }) => {
-  console.log('Kinging', authors);
-  const popAuthorsList = authors.map(author => {
-    return (
-      <PopularAuthorItem
-        key={author.id}
-        name={author.name}
-        url={author.url}
-        image={author.image}
-        info={author.info}
-      />
-    );
-  });
   return (
-    <div>
-      <h1>Popular Authors</h1>
-      {popAuthorsList}
+    <div className="popular-authors">
+      <Title content="Popular Authors" className="title-md index-title" />
+      <div className="author-slot-container">
+        {authors.map(author => (
+          <PopularAuthorItem
+            key={author.id}
+            name={author.name}
+            url={author.url}
+            image={author.image}
+            username={author.username}
+          />
+        ))}
+      </div>
     </div>
   );
 };

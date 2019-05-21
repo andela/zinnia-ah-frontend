@@ -5,23 +5,26 @@ import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import './UserThumbnail.scss';
 
+// configs
+import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
+
 import Avatar from '../../presentationals/Avatar/Avatar';
 
-const UserThumbnail = ({ url, image, name, info }) => (
+const UserThumbnail = ({ url, image, name, username }) => (
   <a className="user-thumbnail" href={url}>
-    <Avatar url={image} className="avatar-m" />
+    <Avatar url={image ? image : DEFAULT_USER_IMAGE_URL} className="" />
     <div>
       <span className="name"> {name} </span>
-      <span className="info"> {info} </span>
+      <span className="info"> @{username} </span>
     </div>
   </a>
 );
 
 UserThumbnail.propTypes = {
   url: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  info: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  username: PropTypes.string.isRequired,
 };
 
 export default UserThumbnail;

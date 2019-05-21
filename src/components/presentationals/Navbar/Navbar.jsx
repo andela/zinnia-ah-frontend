@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { Dropdown } from 'semantic-ui-react';
 import Avatar from '../Avatar/Avatar';
@@ -10,21 +11,32 @@ const Navbar = ({ url, className, children }) => {
     <div>
       <div className="navbar">
         <div>
-          <h1 className="brand">Authors Haven</h1>
+          <h1 className="brand">
+            <Link
+              to="/"
+              style={{
+                color: 'inherit',
+              }}
+            >
+              Authors Haven
+            </Link>
+          </h1>
         </div>
-        {url && (
-          <div className="navbar-avatar">
-            <Avatar className={className} url={url} />
-            <Dropdown className="dropdown">
-              <Dropdown.Menu>
-                <Dropdown.Item>
-                  <a>Logout</a>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-        )}
-        {children && children}
+        <div className="sm-hide">
+          {url && (
+            <div className="navbar-avatar">
+              <Avatar className={className} url={url} />
+              <Dropdown className="dropdown">
+                <Dropdown.Menu>
+                  <Dropdown.Item>
+                    <a>Logout</a>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+          )}
+          {children && children}
+        </div>
       </div>
     </div>
   );
