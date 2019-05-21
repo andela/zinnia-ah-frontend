@@ -1,21 +1,22 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Dimmer, Icon, Image, Item, Modal } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Icon, Image, Item, Modal } from 'semantic-ui-react';
 import moment from 'moment';
 
 // components
 import Navbar from '../components/presentationals/Navbar/Navbar';
-
-//modules
-import { getSingleArticle } from '../store/modules/article';
 import Loader from '../components/presentationals/Loader/Loader';
 import Title from '../components/presentationals/Title/Title';
 import Author from '../components/presentationals/Author/Author';
 import Button from '../components/presentationals/Button/Button';
 import Tag from '../components/presentationals/Tag/Tag';
 
-//stylesheets
+// modules
+import { getSingleArticle } from '../store/modules/article';
+
+// stylesheets
 import './Article.scss';
 
 // Images
@@ -24,7 +25,6 @@ import ShareIcon from '../assets/images/share.svg';
 import BookmarkIcon from '../assets/images/bookmark.svg';
 import Avatar from '../components/presentationals/Avatar/Avatar';
 import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
-import { Link } from 'react-router-dom';
 
 export class Article extends Component {
   componentDidMount() {
@@ -32,7 +32,6 @@ export class Article extends Component {
   }
   render() {
     const { article } = this.props;
-
     return (
       <Fragment>
         {this.props.isLoading && (
@@ -188,7 +187,7 @@ export class Article extends Component {
                   type="button"
                   value={<Image src={LikeIcon} />}
                 />
-                <p className="article-likes-count">{article.likes || 0}</p>
+                <p className="article-likes-count">{article.likes.length}</p>
               </div>
               <div className="article-cta">
                 <Modal
