@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { getToken } from '../utils/helpers';
+import { getToken } from './helpers';
+import { HOST_URL } from '../config/config';
 
 export const http = axios.create({
-  baseURL: 'https://zinnia-ah-backend-staging.herokuapp.com/api/v1',
+  baseURL: HOST_URL,
   headers: {
     Authorization: getToken(),
   },

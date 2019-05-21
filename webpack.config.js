@@ -1,8 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 
-module.exports = {
+const env = dotenv.config();
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
+
+module.exports =  {
   entry: './src/Index.jsx',
   output: {
     path: path.join(__dirname, '/public'),
@@ -39,10 +48,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv({
-      path: './.env', // Path to .env file (this is the default)
-      safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
-    }),
+    new webpack.DefinePlugin(envKeys),
     new HtmlWebpackPlugin({
       template: './index.html',
       inject: 'body',
