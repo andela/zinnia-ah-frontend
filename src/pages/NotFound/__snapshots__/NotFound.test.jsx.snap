@@ -2,9 +2,7 @@
 
 exports[`Not Found renders without errors 1`] = `
 <Fragment>
-  <Navbar
-    profileUrl=""
-  >
+  <Navbar>
     <div
       className="hide-sm w-15"
     >
