@@ -1,17 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { Input } from 'semantic-ui-react';
 import 'react-toastify/dist/ReactToastify.css';
 
+// components
 import Navbar from '../components/presentationals/Navbar/Navbar';
 import Button from '../components/presentationals/Button/Button';
 import PopularAuthorsList from '../components/presentationals/PopularAuthorsList/PopularAuthorsList';
-import Searchbar from '../components/presentationals/Searchbar/Searchbar';
 import Title from '../components/presentationals/Title/Title';
 import VerticalCard from '../components/presentationals/VerticalCard/VerticalCard';
-import LadyAd from '../assets/images/lady-ad.png';
-import JumiaAd from '../assets/images/jumia-ad.png';
-import KongaAd from '../assets/images/konga-ad.png';
 
+// styles
 import './App.scss';
 import HorizontalCard from '../components/presentationals/HorizontalCard/HorizontalCard';
 import Image from '../components/presentationals/Image/Image';
@@ -45,6 +44,13 @@ class App extends Component {
       },
     ],
   };
+  Searchbar() {
+    return (
+      <form className="search-bar">
+        <Input icon="search" iconPosition="left" placeholder="Search..." />
+      </form>
+    );
+  }
 
   render() {
     return (
@@ -52,8 +58,10 @@ class App extends Component {
         <div className="pt-3">
           <Navbar>
             <div className="nav-items">
-              <Searchbar />
-              <Button type="submit" value="WRITE" className="btn-dark w-10" />
+              {this.Searchbar()}
+              <Link to="/login">
+                <Button type="submit" value="WRITE" className="btn-dark w-10" />
+              </Link>
             </div>
           </Navbar>
         </div>
@@ -90,7 +98,7 @@ class App extends Component {
                 }}
               >
                 <Image
-                  src={JumiaAd}
+                  src="https://res.cloudinary.com/nedy123/image/upload/v1558511972/jumia-ad_hvrkw8.png"
                   style={{
                     maxWidth: '100%',
                     position: 'relative',
@@ -98,7 +106,7 @@ class App extends Component {
                   }}
                 />
                 <Image
-                  src={LadyAd}
+                  src="https://res.cloudinary.com/nedy123/image/upload/v1558511973/lady-ad_jc3tth.png"
                   style={{
                     maxWidth: '100%',
                     marginTop: '-2.8125rem',
@@ -107,7 +115,7 @@ class App extends Component {
                   }}
                 />
                 <Image
-                  src={KongaAd}
+                  src="https://res.cloudinary.com/nedy123/image/upload/v1558511972/konga-ad_cw2mpn.png"
                   style={{
                     maxWidth: '100%',
                     marginTop: '-3.2625rem',

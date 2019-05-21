@@ -12,6 +12,21 @@
   }
 }
 
+.search-bar {
+  height: 3.125rem;
+  width: 22.9375rem;
+
+  .left {
+    margin-top: 0;
+    padding-right: 0;
+  }
+
+  input[type='text'] {
+    height: 3.125rem;
+    width: 22.9375rem;
+  }
+}
+
 .top {
   display: flex;
   margin-top: 4.875rem;

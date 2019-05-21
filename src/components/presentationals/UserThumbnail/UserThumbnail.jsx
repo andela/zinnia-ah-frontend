@@ -21,10 +21,10 @@ const UserThumbnail = ({ url, image, name, username }) => (
 );
 
 UserThumbnail.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   image: PropTypes.string,
   name: PropTypes.string,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
 };
 
 export default UserThumbnail;
