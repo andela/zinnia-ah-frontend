@@ -1,215 +1,261 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ArticleLists should render correctly 1`] = `
-<BrowserRouter>
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
+<ArticleLists
+  articles={
+    Array [
+      Object {},
+      Object {},
+    ]
+  }
+  deleteArticle={[MockFunction]}
+  isDeleting={false}
+>
+  <div
+    className="post-lists"
   >
-    <ArticleLists
-      articles={
-        Array [
-          Object {},
-          Object {},
-        ]
-      }
-      deleteArticle={[MockFunction]}
-      isDeleting={false}
-    >
+    <ItemGroup>
       <div
-        className="post-lists"
+        className="ui items"
       >
-        <Link
-          to="/post=undefined"
-        >
-          <a
-            href="/post=undefined"
-            onClick={[Function]}
+        <Item>
+          <div
+            className="item"
           >
-            <ItemGroup>
-              <div
-                className="ui items"
+            <ItemImage
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+            >
+              <Image
+                as="img"
+                src="https://react.semantic-ui.com/images/wireframe/image.png"
+                ui={false}
+                wrapped={true}
               >
-                <Item>
+                <div
+                  className="image"
+                >
+                  <img
+                    src="https://react.semantic-ui.com/images/wireframe/image.png"
+                  />
+                </div>
+              </Image>
+            </ItemImage>
+            <ItemContent>
+              <div
+                className="content"
+              >
+                <div
+                  className="d-flex"
+                >
                   <div
-                    className="item"
+                    style={
+                      Object {
+                        "marginRight": "auto",
+                      }
+                    }
                   >
-                    <ItemImage
-                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                    <Title
+                      className="title-article-lg"
                     >
-                      <Image
-                        as="img"
-                        src="https://react.semantic-ui.com/images/wireframe/image.png"
-                        ui={false}
-                        wrapped={true}
+                      <h1
+                        className="title title-article-lg"
+                      />
+                    </Title>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "marginRight": "0.8rem",
+                      }
+                    }
+                  >
+                    <p
+                      style={
+                        Object {
+                          "fontSize": "1rem",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                       mins read
+                    </p>
+                  </div>
+                  <div>
+                    <Button
+                      className="btn-transparent"
+                      type="button"
+                      value=""
+                    >
+                      <button
+                        className="btn btn-transparent"
+                        type="button"
                       >
-                        <div
-                          className="image"
+                        <Icon
+                          as="i"
+                          name="bookmark outline"
+                          style={
+                            Object {
+                              "color": "#000000",
+                              "fontSize": "1.25rem",
+                              "margin": "0",
+                            }
+                          }
                         >
-                          <img
-                            src="https://react.semantic-ui.com/images/wireframe/image.png"
+                          <i
+                            aria-hidden="true"
+                            className="bookmark outline icon"
+                            onClick={[Function]}
+                            style={
+                              Object {
+                                "color": "#000000",
+                                "fontSize": "1.25rem",
+                                "margin": "0",
+                              }
+                            }
                           />
-                        </div>
-                      </Image>
-                    </ItemImage>
-                    <ItemContent>
-                      <div
-                        className="content"
+                        </Icon>
+                      </button>
+                    </Button>
+                  </div>
+                </div>
+                <ItemDescription
+                  style={
+                    Object {
+                      "marginBottom": "auto",
+                    }
+                  }
+                >
+                  <div
+                    className="description"
+                    style={
+                      Object {
+                        "marginBottom": "auto",
+                      }
+                    }
+                  >
+                    <p
+                      style={
+                        Object {
+                          "fontSize": "1.125rem",
+                          "fontWeight": "200",
+                          "lineHeight": "1.375rem",
+                        }
+                      }
+                    />
+                  </div>
+                </ItemDescription>
+                <ItemExtra>
+                  <div
+                    className="extra"
+                  >
+                    <div
+                      className="d-flex justify-content-between"
+                    >
+                      <p
+                        style={
+                          Object {
+                            "fontSize": "1rem",
+                          }
+                        }
                       >
-                        <div
-                          className="d-flex"
-                        >
-                          <div
-                            style={
-                              Object {
-                                "marginRight": "auto",
-                              }
-                            }
-                          >
-                            <Title
-                              className="title-article-lg"
-                            >
-                              <h1
-                                className="title title-article-lg"
-                              />
-                            </Title>
-                          </div>
-                          <div
-                            style={
-                              Object {
-                                "marginRight": "0.8rem",
-                              }
-                            }
-                          >
-                            <p
-                              style={
-                                Object {
-                                  "color": "#000",
-                                  "fontSize": "1rem",
-                                  "width": "100%",
-                                }
-                              }
-                            >
-                               mins read
-                            </p>
-                          </div>
-                          <div>
+                        a few seconds
+                         ago
+                      </p>
+                      <div>
+                        <Modal
+                          centered={true}
+                          closeIcon={true}
+                          closeOnDimmerClick={true}
+                          closeOnDocumentClick={false}
+                          dimmer={true}
+                          eventPool="Modal"
+                          size="tiny"
+                          trigger={
                             <Button
                               className="btn-transparent"
                               type="button"
                               value=""
                             >
-                              <button
-                                className="btn btn-transparent"
+                              <Icon
+                                as="i"
+                                name="trash"
+                                style={
+                                  Object {
+                                    "color": "#ff0000",
+                                    "fontSize": "1.5rem",
+                                    "margin": "0",
+                                  }
+                                }
+                              />
+                            </Button>
+                          }
+                        >
+                          <Portal
+                            closeOnDocumentClick={false}
+                            closeOnEscape={true}
+                            eventPool="Modal"
+                            mountNode={<body />}
+                            onClose={[Function]}
+                            onMount={[Function]}
+                            onOpen={[Function]}
+                            onUnmount={[Function]}
+                            openOnTriggerClick={true}
+                            trigger={
+                              <Button
+                                className="btn-transparent"
                                 type="button"
+                                value=""
                               >
                                 <Icon
                                   as="i"
-                                  name="bookmark outline"
+                                  name="trash"
                                   style={
                                     Object {
-                                      "color": "#000000",
-                                      "fontSize": "1.25rem",
+                                      "color": "#ff0000",
+                                      "fontSize": "1.5rem",
                                       "margin": "0",
                                     }
                                   }
-                                >
-                                  <i
-                                    aria-hidden="true"
-                                    className="bookmark outline icon"
-                                    onClick={[Function]}
-                                    style={
-                                      Object {
-                                        "color": "#000000",
-                                        "fontSize": "1.25rem",
-                                        "margin": "0",
-                                      }
-                                    }
-                                  />
-                                </Icon>
-                              </button>
-                            </Button>
-                          </div>
-                        </div>
-                        <ItemDescription
-                          style={
-                            Object {
-                              "marginBottom": "auto",
-                            }
-                          }
-                        >
-                          <div
-                            className="description"
-                            style={
-                              Object {
-                                "marginBottom": "auto",
-                              }
+                                />
+                              </Button>
                             }
                           >
-                            <p
-                              style={
-                                Object {
-                                  "fontSize": "1.125rem",
-                                  "fontWeight": "200",
-                                  "lineHeight": "1.375rem",
-                                }
-                              }
-                            />
-                          </div>
-                        </ItemDescription>
-                        <ItemExtra>
-                          <div
-                            className="extra"
-                          >
-                            <div
-                              className="d-flex justify-content-between"
+                            <Ref
+                              innerRef={[Function]}
                             >
-                              <p
-                                style={
-                                  Object {
-                                    "fontSize": "1rem",
-                                  }
-                                }
+                              <RefFindNode
+                                innerRef={[Function]}
                               >
-                                a few seconds
-                                 ago
-                              </p>
-                              <div>
-                                <Modal
-                                  centered={true}
-                                  closeIcon={true}
-                                  closeOnDimmerClick={true}
-                                  closeOnDocumentClick={false}
-                                  dimmer={true}
-                                  eventPool="Modal"
-                                  size="tiny"
-                                  trigger={
-                                    <Button
-                                      className="btn-transparent"
-                                      type="button"
-                                      value=""
+                                <Button
+                                  className="btn-transparent"
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onFocus={[Function]}
+                                  onMouseEnter={[Function]}
+                                  onMouseLeave={[Function]}
+                                  type="button"
+                                  value=""
+                                >
+                                  <button
+                                    className="btn btn-transparent"
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    <Icon
+                                      as="i"
+                                      name="trash"
+                                      style={
+                                        Object {
+                                          "color": "#ff0000",
+                                          "fontSize": "1.5rem",
+                                          "margin": "0",
+                                        }
+                                      }
                                     >
-                                      <Icon
-                                        as="i"
-                                        name="trash"
+                                      <i
+                                        aria-hidden="true"
+                                        className="trash icon"
+                                        onClick={[Function]}
                                         style={
                                           Object {
                                             "color": "#ff0000",
@@ -218,381 +264,290 @@ exports[`ArticleLists should render correctly 1`] = `
                                           }
                                         }
                                       />
-                                    </Button>
-                                  }
-                                >
-                                  <Portal
-                                    closeOnDocumentClick={false}
-                                    closeOnEscape={true}
-                                    eventPool="Modal"
-                                    mountNode={<body />}
-                                    onClose={[Function]}
-                                    onMount={[Function]}
-                                    onOpen={[Function]}
-                                    onUnmount={[Function]}
-                                    openOnTriggerClick={true}
-                                    trigger={
-                                      <Button
-                                        className="btn-transparent"
-                                        type="button"
-                                        value=""
-                                      >
-                                        <Icon
-                                          as="i"
-                                          name="trash"
-                                          style={
-                                            Object {
-                                              "color": "#ff0000",
-                                              "fontSize": "1.5rem",
-                                              "margin": "0",
-                                            }
-                                          }
-                                        />
-                                      </Button>
-                                    }
-                                  >
-                                    <Ref
-                                      innerRef={[Function]}
-                                    >
-                                      <RefFindNode
-                                        innerRef={[Function]}
-                                      >
-                                        <Button
-                                          className="btn-transparent"
-                                          onBlur={[Function]}
-                                          onClick={[Function]}
-                                          onFocus={[Function]}
-                                          onMouseEnter={[Function]}
-                                          onMouseLeave={[Function]}
-                                          type="button"
-                                          value=""
-                                        >
-                                          <button
-                                            className="btn btn-transparent"
-                                            onClick={[Function]}
-                                            type="button"
-                                          >
-                                            <Icon
-                                              as="i"
-                                              name="trash"
-                                              style={
-                                                Object {
-                                                  "color": "#ff0000",
-                                                  "fontSize": "1.5rem",
-                                                  "margin": "0",
-                                                }
-                                              }
-                                            >
-                                              <i
-                                                aria-hidden="true"
-                                                className="trash icon"
-                                                onClick={[Function]}
-                                                style={
-                                                  Object {
-                                                    "color": "#ff0000",
-                                                    "fontSize": "1.5rem",
-                                                    "margin": "0",
-                                                  }
-                                                }
-                                              />
-                                            </Icon>
-                                          </button>
-                                        </Button>
-                                      </RefFindNode>
-                                    </Ref>
-                                  </Portal>
-                                </Modal>
-                              </div>
-                            </div>
-                          </div>
-                        </ItemExtra>
+                                    </Icon>
+                                  </button>
+                                </Button>
+                              </RefFindNode>
+                            </Ref>
+                          </Portal>
+                        </Modal>
                       </div>
-                    </ItemContent>
+                    </div>
                   </div>
-                </Item>
+                </ItemExtra>
               </div>
-            </ItemGroup>
-          </a>
-        </Link>
-        <Link
-          to="/post=undefined"
-        >
-          <a
-            href="/post=undefined"
-            onClick={[Function]}
-          >
-            <ItemGroup>
-              <div
-                className="ui items"
-              >
-                <Item>
-                  <div
-                    className="item"
-                  >
-                    <ItemImage
-                      src="https://react.semantic-ui.com/images/wireframe/image.png"
-                    >
-                      <Image
-                        as="img"
-                        src="https://react.semantic-ui.com/images/wireframe/image.png"
-                        ui={false}
-                        wrapped={true}
-                      >
-                        <div
-                          className="image"
-                        >
-                          <img
-                            src="https://react.semantic-ui.com/images/wireframe/image.png"
-                          />
-                        </div>
-                      </Image>
-                    </ItemImage>
-                    <ItemContent>
-                      <div
-                        className="content"
-                      >
-                        <div
-                          className="d-flex"
-                        >
-                          <div
-                            style={
-                              Object {
-                                "marginRight": "auto",
-                              }
-                            }
-                          >
-                            <Title
-                              className="title-article-lg"
-                            >
-                              <h1
-                                className="title title-article-lg"
-                              />
-                            </Title>
-                          </div>
-                          <div
-                            style={
-                              Object {
-                                "marginRight": "0.8rem",
-                              }
-                            }
-                          >
-                            <p
-                              style={
-                                Object {
-                                  "color": "#000",
-                                  "fontSize": "1rem",
-                                  "width": "100%",
-                                }
-                              }
-                            >
-                               mins read
-                            </p>
-                          </div>
-                          <div>
-                            <Button
-                              className="btn-transparent"
-                              type="button"
-                              value=""
-                            >
-                              <button
-                                className="btn btn-transparent"
-                                type="button"
-                              >
-                                <Icon
-                                  as="i"
-                                  name="bookmark outline"
-                                  style={
-                                    Object {
-                                      "color": "#000000",
-                                      "fontSize": "1.25rem",
-                                      "margin": "0",
-                                    }
-                                  }
-                                >
-                                  <i
-                                    aria-hidden="true"
-                                    className="bookmark outline icon"
-                                    onClick={[Function]}
-                                    style={
-                                      Object {
-                                        "color": "#000000",
-                                        "fontSize": "1.25rem",
-                                        "margin": "0",
-                                      }
-                                    }
-                                  />
-                                </Icon>
-                              </button>
-                            </Button>
-                          </div>
-                        </div>
-                        <ItemDescription
-                          style={
-                            Object {
-                              "marginBottom": "auto",
-                            }
-                          }
-                        >
-                          <div
-                            className="description"
-                            style={
-                              Object {
-                                "marginBottom": "auto",
-                              }
-                            }
-                          >
-                            <p
-                              style={
-                                Object {
-                                  "fontSize": "1.125rem",
-                                  "fontWeight": "200",
-                                  "lineHeight": "1.375rem",
-                                }
-                              }
-                            />
-                          </div>
-                        </ItemDescription>
-                        <ItemExtra>
-                          <div
-                            className="extra"
-                          >
-                            <div
-                              className="d-flex justify-content-between"
-                            >
-                              <p
-                                style={
-                                  Object {
-                                    "fontSize": "1rem",
-                                  }
-                                }
-                              >
-                                a few seconds
-                                 ago
-                              </p>
-                              <div>
-                                <Modal
-                                  centered={true}
-                                  closeIcon={true}
-                                  closeOnDimmerClick={true}
-                                  closeOnDocumentClick={false}
-                                  dimmer={true}
-                                  eventPool="Modal"
-                                  size="tiny"
-                                  trigger={
-                                    <Button
-                                      className="btn-transparent"
-                                      type="button"
-                                      value=""
-                                    >
-                                      <Icon
-                                        as="i"
-                                        name="trash"
-                                        style={
-                                          Object {
-                                            "color": "#ff0000",
-                                            "fontSize": "1.5rem",
-                                            "margin": "0",
-                                          }
-                                        }
-                                      />
-                                    </Button>
-                                  }
-                                >
-                                  <Portal
-                                    closeOnDocumentClick={false}
-                                    closeOnEscape={true}
-                                    eventPool="Modal"
-                                    mountNode={<body />}
-                                    onClose={[Function]}
-                                    onMount={[Function]}
-                                    onOpen={[Function]}
-                                    onUnmount={[Function]}
-                                    openOnTriggerClick={true}
-                                    trigger={
-                                      <Button
-                                        className="btn-transparent"
-                                        type="button"
-                                        value=""
-                                      >
-                                        <Icon
-                                          as="i"
-                                          name="trash"
-                                          style={
-                                            Object {
-                                              "color": "#ff0000",
-                                              "fontSize": "1.5rem",
-                                              "margin": "0",
-                                            }
-                                          }
-                                        />
-                                      </Button>
-                                    }
-                                  >
-                                    <Ref
-                                      innerRef={[Function]}
-                                    >
-                                      <RefFindNode
-                                        innerRef={[Function]}
-                                      >
-                                        <Button
-                                          className="btn-transparent"
-                                          onBlur={[Function]}
-                                          onClick={[Function]}
-                                          onFocus={[Function]}
-                                          onMouseEnter={[Function]}
-                                          onMouseLeave={[Function]}
-                                          type="button"
-                                          value=""
-                                        >
-                                          <button
-                                            className="btn btn-transparent"
-                                            onClick={[Function]}
-                                            type="button"
-                                          >
-                                            <Icon
-                                              as="i"
-                                              name="trash"
-                                              style={
-                                                Object {
-                                                  "color": "#ff0000",
-                                                  "fontSize": "1.5rem",
-                                                  "margin": "0",
-                                                }
-                                              }
-                                            >
-                                              <i
-                                                aria-hidden="true"
-                                                className="trash icon"
-                                                onClick={[Function]}
-                                                style={
-                                                  Object {
-                                                    "color": "#ff0000",
-                                                    "fontSize": "1.5rem",
-                                                    "margin": "0",
-                                                  }
-                                                }
-                                              />
-                                            </Icon>
-                                          </button>
-                                        </Button>
-                                      </RefFindNode>
-                                    </Ref>
-                                  </Portal>
-                                </Modal>
-                              </div>
-                            </div>
-                          </div>
-                        </ItemExtra>
-                      </div>
-                    </ItemContent>
-                  </div>
-                </Item>
-              </div>
-            </ItemGroup>
-          </a>
-        </Link>
+            </ItemContent>
+          </div>
+        </Item>
       </div>
-    </ArticleLists>
-  </Router>
-</BrowserRouter>
+    </ItemGroup>
+    <ItemGroup>
+      <div
+        className="ui items"
+      >
+        <Item>
+          <div
+            className="item"
+          >
+            <ItemImage
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+            >
+              <Image
+                as="img"
+                src="https://react.semantic-ui.com/images/wireframe/image.png"
+                ui={false}
+                wrapped={true}
+              >
+                <div
+                  className="image"
+                >
+                  <img
+                    src="https://react.semantic-ui.com/images/wireframe/image.png"
+                  />
+                </div>
+              </Image>
+            </ItemImage>
+            <ItemContent>
+              <div
+                className="content"
+              >
+                <div
+                  className="d-flex"
+                >
+                  <div
+                    style={
+                      Object {
+                        "marginRight": "auto",
+                      }
+                    }
+                  >
+                    <Title
+                      className="title-article-lg"
+                    >
+                      <h1
+                        className="title title-article-lg"
+                      />
+                    </Title>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "marginRight": "0.8rem",
+                      }
+                    }
+                  >
+                    <p
+                      style={
+                        Object {
+                          "fontSize": "1rem",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                       mins read
+                    </p>
+                  </div>
+                  <div>
+                    <Button
+                      className="btn-transparent"
+                      type="button"
+                      value=""
+                    >
+                      <button
+                        className="btn btn-transparent"
+                        type="button"
+                      >
+                        <Icon
+                          as="i"
+                          name="bookmark outline"
+                          style={
+                            Object {
+                              "color": "#000000",
+                              "fontSize": "1.25rem",
+                              "margin": "0",
+                            }
+                          }
+                        >
+                          <i
+                            aria-hidden="true"
+                            className="bookmark outline icon"
+                            onClick={[Function]}
+                            style={
+                              Object {
+                                "color": "#000000",
+                                "fontSize": "1.25rem",
+                                "margin": "0",
+                              }
+                            }
+                          />
+                        </Icon>
+                      </button>
+                    </Button>
+                  </div>
+                </div>
+                <ItemDescription
+                  style={
+                    Object {
+                      "marginBottom": "auto",
+                    }
+                  }
+                >
+                  <div
+                    className="description"
+                    style={
+                      Object {
+                        "marginBottom": "auto",
+                      }
+                    }
+                  >
+                    <p
+                      style={
+                        Object {
+                          "fontSize": "1.125rem",
+                          "fontWeight": "200",
+                          "lineHeight": "1.375rem",
+                        }
+                      }
+                    />
+                  </div>
+                </ItemDescription>
+                <ItemExtra>
+                  <div
+                    className="extra"
+                  >
+                    <div
+                      className="d-flex justify-content-between"
+                    >
+                      <p
+                        style={
+                          Object {
+                            "fontSize": "1rem",
+                          }
+                        }
+                      >
+                        a few seconds
+                         ago
+                      </p>
+                      <div>
+                        <Modal
+                          centered={true}
+                          closeIcon={true}
+                          closeOnDimmerClick={true}
+                          closeOnDocumentClick={false}
+                          dimmer={true}
+                          eventPool="Modal"
+                          size="tiny"
+                          trigger={
+                            <Button
+                              className="btn-transparent"
+                              type="button"
+                              value=""
+                            >
+                              <Icon
+                                as="i"
+                                name="trash"
+                                style={
+                                  Object {
+                                    "color": "#ff0000",
+                                    "fontSize": "1.5rem",
+                                    "margin": "0",
+                                  }
+                                }
+                              />
+                            </Button>
+                          }
+                        >
+                          <Portal
+                            closeOnDocumentClick={false}
+                            closeOnEscape={true}
+                            eventPool="Modal"
+                            mountNode={<body />}
+                            onClose={[Function]}
+                            onMount={[Function]}
+                            onOpen={[Function]}
+                            onUnmount={[Function]}
+                            openOnTriggerClick={true}
+                            trigger={
+                              <Button
+                                className="btn-transparent"
+                                type="button"
+                                value=""
+                              >
+                                <Icon
+                                  as="i"
+                                  name="trash"
+                                  style={
+                                    Object {
+                                      "color": "#ff0000",
+                                      "fontSize": "1.5rem",
+                                      "margin": "0",
+                                    }
+                                  }
+                                />
+                              </Button>
+                            }
+                          >
+                            <Ref
+                              innerRef={[Function]}
+                            >
+                              <RefFindNode
+                                innerRef={[Function]}
+                              >
+                                <Button
+                                  className="btn-transparent"
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onFocus={[Function]}
+                                  onMouseEnter={[Function]}
+                                  onMouseLeave={[Function]}
+                                  type="button"
+                                  value=""
+                                >
+                                  <button
+                                    className="btn btn-transparent"
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    <Icon
+                                      as="i"
+                                      name="trash"
+                                      style={
+                                        Object {
+                                          "color": "#ff0000",
+                                          "fontSize": "1.5rem",
+                                          "margin": "0",
+                                        }
+                                      }
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="trash icon"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "#ff0000",
+                                            "fontSize": "1.5rem",
+                                            "margin": "0",
+                                          }
+                                        }
+                                      />
+                                    </Icon>
+                                  </button>
+                                </Button>
+                              </RefFindNode>
+                            </Ref>
+                          </Portal>
+                        </Modal>
+                      </div>
+                    </div>
+                  </div>
+                </ItemExtra>
+              </div>
+            </ItemContent>
+          </div>
+        </Item>
+      </div>
+    </ItemGroup>
+  </div>
+</ArticleLists>
 `;

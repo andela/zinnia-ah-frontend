@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import checkPropTypes from 'check-prop-types';
 
-import Article from './Article';
+import { Article } from './Article';
 
 const props = {
   match: {

@@ -11,12 +11,12 @@ export function setToken(token) {
   if (getToken()) {
     destroyToken();
   }
-  localStorage.setItem('token', token);
+  localStorage.setItem('token', JSON.stringify(token));
 }
 
 export function getToken() {
   const token = localStorage.getItem('token');
-  return token;
+  return JSON.parse(token);
 }
 
 export const destroyToken = () => {

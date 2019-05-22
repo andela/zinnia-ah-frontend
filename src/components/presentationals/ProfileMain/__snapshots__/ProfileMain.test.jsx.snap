@@ -513,7 +513,6 @@ exports[`ProfileMain should render Likes Tab correctly 1`] = `
 exports[`ProfileMain should render Posts Tab correctly 1`] = `
 <ProfileMain
   bio="I am the correct user"
-  bookmarks={Array []}
   email="dummy@user.com"
   error={Object {}}
   firstName="mr"
@@ -781,7 +780,6 @@ exports[`ProfileMain should render Reports Tab correctly 1`] = `
 exports[`ProfileMain should render Settings Tab correctly 1`] = `
 <ProfileMain
   bio="I am the correct user"
-  bookmarks={Array []}
   email="dummy@user.com"
   error={Object {}}
   firstName="mr"
@@ -1049,7 +1047,6 @@ exports[`ProfileMain should render Stats Tab correctly 1`] = `
 exports[`ProfileMain should render correctly 1`] = `
 <ProfileMain
   bio="I am the correct user"
-  bookmarks={Array []}
   email="dummy@user.com"
   error={Object {}}
   firstName="mr"

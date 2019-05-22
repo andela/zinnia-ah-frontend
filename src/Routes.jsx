@@ -22,8 +22,8 @@ const Routes = () => {
       <Route path="/@:username" component={Profile} />
       <Route path="/social-auth" exact component={SocialAuth} />
       <Route path="/editor" component={Editor} />
+      <Route path="/post=:articleId" component={Article} />
       <Route component={NotFound} />
-      <Route path="/:articleId" component={Article} />
     </Switch>
   );
 };

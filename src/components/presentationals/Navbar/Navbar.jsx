@@ -33,7 +33,6 @@ const Navbar = ({ url, className, children }) => {
 Navbar.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  profileUrl: PropTypes.string,
   url: PropTypes.string,
 };
 

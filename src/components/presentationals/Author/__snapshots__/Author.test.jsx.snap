@@ -42,3 +42,4 @@ exports[`Author Render should render without errors 1`] = `
 </div>
 `;
 
+exports[`Author Render should render without errors ans without props 1`] = `""`;

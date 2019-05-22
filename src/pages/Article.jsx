@@ -11,7 +11,6 @@ import Loader from '../components/presentationals/Loader/Loader';
 import Title from '../components/presentationals/Title/Title';
 import Author from '../components/presentationals/Author/Author';
 import Button from '../components/presentationals/Button/Button';
-import Tag from '../components/presentationals/Tag/Tag';
 import Avatar from '../components/presentationals/Avatar/Avatar';
 
 // modules
@@ -73,11 +72,7 @@ export class Article extends Component {
                   justifyContent: 'start',
                   margingBottom: '2rem',
                 }}
-              >
-                <Tag className="tag-lg" value="Nature" />
-                <Tag className="tag-lg" value="Science" />
-                <Tag className="tag-lg" value="Photography" />
-              </div>
+              />
               <Item.Content>
                 <Item.Image src={article.imageThumbnail} size="massive" />
                 <br />

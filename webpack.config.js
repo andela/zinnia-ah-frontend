@@ -40,16 +40,11 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-<<<<<<< HEAD
       path: './.env.production',
       safe: true,
       systemvars: true,
       silent: true,
       defaults: true
-=======
-      path: './.env', // Path to .env file (this is the default)
-      safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
->>>>>>> [feature #164797112] Saving to rebase
     }),
     new HtmlWebpackPlugin({
       template: './index.html',

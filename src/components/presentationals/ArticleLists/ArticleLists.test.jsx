@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
 
 import ArticleLists from './ArticleLists';
 
@@ -12,11 +11,7 @@ const props = {
 
 describe('ArticleLists', () => {
   it('should render correctly', () => {
-    const component = mount(
-      <BrowserRouter>
-        <ArticleLists {...props} />
-      </BrowserRouter>,
-    );
+    const component = mount(<ArticleLists {...props} />);
     expect(component).toMatchSnapshot();
   });
 });

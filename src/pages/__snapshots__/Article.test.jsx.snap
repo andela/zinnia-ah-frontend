@@ -59,20 +59,7 @@ exports[`Article should render without errors 1`] = `
               "margingBottom": "2rem",
             }
           }
-        >
-          <Tag
-            className="tag-lg"
-            value="Nature"
-          />
-          <Tag
-            className="tag-lg"
-            value="Science"
-          />
-          <Tag
-            className="tag-lg"
-            value="Photography"
-          />
-        </div>
+        />
         <ItemContent>
           <ItemImage
             size="massive"
@@ -495,20 +482,7 @@ exports[`Article should render without errors 2`] = `
               "margingBottom": "2rem",
             }
           }
-        >
-          <Tag
-            className="tag-lg"
-            value="Nature"
-          />
-          <Tag
-            className="tag-lg"
-            value="Science"
-          />
-          <Tag
-            className="tag-lg"
-            value="Photography"
-          />
-        </div>
+        />
         <ItemContent>
           <ItemImage
             size="massive"
