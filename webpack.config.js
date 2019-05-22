@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-module.exports =  {
+module.exports = {
   entry: './src/Index.jsx',
   output: {
     path: path.join(__dirname, '/public'),
