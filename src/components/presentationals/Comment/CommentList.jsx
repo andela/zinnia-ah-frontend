@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CommentCard from './CommentCard';
 import PropTypes from 'prop-types';
 

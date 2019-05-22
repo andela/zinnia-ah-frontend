@@ -9,6 +9,10 @@ import './CommentCard.scss';
 class CommentCard extends Component {
   state = {};
 
+  componentDidMount() {
+    // const { data } = JSON.parse(localStorage.getItem('userprofile'));
+  }
+
   render() {
     const { body, createdAt, likes, id, articleId } = this.props.commentDetails;
     const { username, image } = this.props.commentDetails.author;

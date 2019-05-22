@@ -14,10 +14,7 @@ export function setToken(token) {
   localStorage.setItem('token', JSON.stringify(token));
 }
 
-export function getToken() {
-  const token = localStorage.getItem('token');
-  return JSON.parse(token);
-}
+export const getToken = () => localStorage.getItem('token');
 
 export const destroyToken = () => {
   return localStorage.removeItem('token');

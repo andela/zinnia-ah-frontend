@@ -2,27 +2,31 @@ import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { likeCommentRequest } from '../../../store/modules/comment';
 
 class CommentReaction extends Component {
   state = {
-    likesCount: this.props.likes.length,
     isLiked: false,
   };
+
   componentDidMount() {
-    const { data } = JSON.parse(localStorage.getItem('userprofile'));
-    const isLiked = this.props.likes.find(user => user.userId === data.id);
-    if (isLiked) {
-      this.setState({ isLiked: true });
-    }
+    // this.props.getCurrentLikesRequest(this.props.likes);
+    // const { userId } = this.props;
+    // const isLiked = this.props.likes.find(like => like.userId === userId);
+    // if (isLiked) {
+    //   this.setState({ isLiked: true });
+    // }
   }
+
   clickHandler = commentId => {
-    const { articleId } = this.props;
-    this.props.likeCommentRequest(articleId, commentId);
+    // const { articleId } = this.props;
+    // this.props.likeCommentRequest(articleId, commentId);
   };
+
   render() {
-    const likes = this.props.likes;
+    const { likes } = this.props;
     const count = likes.length > 0 ? likes.length : '';
+    const { isLiked } = this.state;
+    const activeLike = isLiked ? '' : ' outline';
 
     return (
       <div>
@@ -31,7 +35,7 @@ class CommentReaction extends Component {
           className="like-button"
         >
           <Icon
-            name="thumbs up outline"
+            name={`thumbs up${activeLike}`}
             style={{
               fontSize: '1.80rem',
             }}
@@ -46,15 +50,18 @@ class CommentReaction extends Component {
 CommentReaction.propTypes = {
   articleId: PropTypes.string.isRequired,
   likeCommentRequest: PropTypes.any,
-  likes: PropTypes.any.isRequired,
+  likes: PropTypes.array.isRequired,
   commentId: PropTypes.string.isRequired,
+  comments: PropTypes.array,
+  // getCurrentLikesRequest: PropTypes.any,
+  userId: PropTypes.string,
 };
 
 const mapStateToProps = state => {
-  return { data: state.profile };
+  return { data: state.profile, comment: state.comment };
 };
 
 export default connect(
   mapStateToProps,
-  { likeCommentRequest },
+  {},
 )(CommentReaction);

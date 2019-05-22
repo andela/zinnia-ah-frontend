@@ -3,10 +3,10 @@ import CommentList from './CommentList';
 import CommentForm from '../../container/Comment/CommentForm';
 import PropTypes from 'prop-types';
 
-const CommentSection = ({ comments }) => {
+const CommentSection = ({ articleId, comments }) => {
   return (
     <div>
-      <CommentForm />
+      <CommentForm articleId={articleId} />
       <CommentList comments={comments} />
     </div>
   );
@@ -14,6 +14,7 @@ const CommentSection = ({ comments }) => {
 
 CommentSection.propTypes = {
   comments: PropTypes.array.isRequired,
+  articleId: PropTypes.string.isRequired,
 };
 
 export default CommentSection;

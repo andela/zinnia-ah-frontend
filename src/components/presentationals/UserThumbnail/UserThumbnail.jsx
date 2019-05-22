@@ -12,7 +12,9 @@ const UserThumbnail = ({ url, image, name, info }) => {
   image = image !== null ? image : DEFAULT_USER_IMAGE_URL;
   return (
     <a className="user-thumbnail" href={url}>
-      <Avatar url={image} className="avatar-m" />
+      <div className="user-avatar">
+        <Avatar url={image} className="avatar-m" />
+      </div>
       <div>
         <span className="name"> {name} </span>
         <span className="info"> {info} </span>
