@@ -1,0 +1,26 @@
+@import '../../../assets/variables';
+
+.ui.card {
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+}
+
+.ui.card > .content > .header {
+  display: flex;
+  font-family: $lato;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.ui.card > :first-child {
+  border-radius: 0;
+}
+
+.ui.card > .image > img {
+  border-radius: 0;
+  display: block;
+  max-height: 12.5rem;
+  min-height: 12.5rem;
+  width: 100%;
+}

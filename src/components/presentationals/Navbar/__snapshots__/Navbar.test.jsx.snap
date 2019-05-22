@@ -1,22 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar should render correctly 1`] = `
-<Navbar
-  className=""
-  profileUrl="http://dummyimage.com"
->
-  <div>
-    <div
-      className="navbar"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Navbar
+      className=""
+      profileUrl="http://dummyimage.com"
     >
       <div>
-        <h1
-          className="brand"
+        <div
+          className="navbar"
         >
-          Authors Haven
-        </h1>
+          <div>
+            <h1
+              className="brand"
+            >
+              <Link
+                style={
+                  Object {
+                    "color": "inherit",
+                  }
+                }
+                to="/"
+              >
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Authors Haven
+                </a>
+              </Link>
+            </h1>
+          </div>
+          <div
+            className="sm-hide"
+          />
+        </div>
       </div>
-    </div>
-  </div>
-</Navbar>
+    </Navbar>
+  </Router>
+</BrowserRouter>
 `;

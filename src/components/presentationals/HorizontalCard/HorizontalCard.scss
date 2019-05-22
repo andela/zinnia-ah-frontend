@@ -1,0 +1,22 @@
+.h-card {
+  display: flex;
+  max-height: 11.575rem;
+  width: 100%;
+
+  .h-card-image {
+    height: 100%;
+    width: 12.5rem;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+
+.mb-0 {
+  margin-bottom: .2rem;
+}
+
+.h-card:nth-child(1) {
+  margin-bottom: 2.8125rem;
+}

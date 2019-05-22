@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Horizontal Card should render correctly 1`] = `
+<HorizontalCard
+  className=""
+>
+  <div
+    className="h-card"
+  >
+    <div>
+      <Image
+        className="h-card-image"
+        src="https://res.cloudinary.com/nedy123/image/upload/v1514128720/mike_vobxlw.jpg"
+      >
+        <img
+          className="h-card-image"
+          src="https://res.cloudinary.com/nedy123/image/upload/v1514128720/mike_vobxlw.jpg"
+        />
+      </Image>
+    </div>
+    <div
+      className="content"
+      style={
+        Object {
+          "paddingLeft": "1rem",
+        }
+      }
+    >
+      <Title
+        className="title-md mb-0"
+        content="Nature and Life"
+      >
+        <h1
+          className="title title-md mb-0"
+        >
+          Nature and Life
+        </h1>
+      </Title>
+      <p
+        className="description"
+      >
+        A tab could be a different number of columns depending on your environment, but a space is always one column.
+      </p>
+      <PopularAuthorItem
+        image=""
+        key="uiojklnmkopiuygh"
+        name="ebenezer"
+        url="notontwitter.com"
+        username="eben"
+      >
+        <div
+          className="author-slot"
+        >
+          <UserThumbnail
+            href="#"
+            image=""
+            name="ebenezer"
+            tag="a"
+            url="notontwitter.com"
+            username="eben"
+          >
+            <a
+              className="user-thumbnail"
+              href="notontwitter.com"
+            >
+              <Avatar
+                className=""
+                url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+              >
+                <img
+                  alt="avatar"
+                  className="avatar "
+                  src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+                />
+              </Avatar>
+              <div>
+                <span
+                  className="name"
+                >
+                   
+                  ebenezer
+                   
+                </span>
+                <span
+                  className="info"
+                >
+                   @
+                  eben
+                   
+                </span>
+              </div>
+            </a>
+          </UserThumbnail>
+          <Button
+            className="btn-white right-small"
+            type="submit"
+            value="See Posts"
+          >
+            <button
+              className="btn btn-white right-small"
+              type="submit"
+            >
+              See Posts
+            </button>
+          </Button>
+        </div>
+      </PopularAuthorItem>
+    </div>
+  </div>
+</HorizontalCard>
+`;

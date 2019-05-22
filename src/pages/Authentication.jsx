@@ -13,7 +13,7 @@ import '../pages/Authentication.scss';
 const AuthenticationLayout = ({ profileUrl, location }) => {
   return (
     <div>
-      <ToastContainer autoClose={4000} />;
+      <ToastContainer autoClose={4000} />
       <Navbar profileUrl={profileUrl} />
       <div className="d-flex auth-container">
         <AuthenticationIllustration className="illustration" />
