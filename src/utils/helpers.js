@@ -39,11 +39,11 @@ export function generateFormData(formElement) {
 
 export const uploadImageToServer = ({ image, tag }, callback) => async () => {
   const formData = new FormData();
-  formData.append('upload_preset', CLOUD_PRESET);
+  formData.append('upload_preset', process.env.CLOUD_PRESET);
   formData.append('tags', tag);
   formData.append('file', image);
 
-  const uploadedImage = await axios(CLOUDINARY_API, {
+  const uploadedImage = await axios(process.env.CLOUDINARY_API, {
     method: 'POST',
     data: formData,
   });
