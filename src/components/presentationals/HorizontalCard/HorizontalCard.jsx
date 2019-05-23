@@ -21,10 +21,17 @@ const HorizontalCard = () => (
       className="content"
       style={{
         paddingLeft: '1rem',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <Title className="title-md mb-0" content="Nature and Life" />
-      <p className="description">
+      <p
+        className="description"
+        style={{
+          marginBottom: 'auto',
+        }}
+      >
         A tab could be a different number of columns depending on your
         environment, but a space is always one column.
       </p>

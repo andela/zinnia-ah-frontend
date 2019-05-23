@@ -17,6 +17,11 @@
   border-radius: 0;
 }
 
+.ui.card:hover {
+  box-shadow: 0 4px 4px $primary-black-opacity-2;
+  cursor: pointer;
+}
+
 .ui.card > .image > img {
   border-radius: 0;
   display: block;

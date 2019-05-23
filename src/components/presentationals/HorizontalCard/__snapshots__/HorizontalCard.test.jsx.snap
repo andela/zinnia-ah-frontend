@@ -22,6 +22,8 @@ exports[`Horizontal Card should render correctly 1`] = `
       className="content"
       style={
         Object {
+          "display": "flex",
+          "flexDirection": "column",
           "paddingLeft": "1rem",
         }
       }
@@ -38,6 +40,11 @@ exports[`Horizontal Card should render correctly 1`] = `
       </Title>
       <p
         className="description"
+        style={
+          Object {
+            "marginBottom": "auto",
+          }
+        }
       >
         A tab could be a different number of columns depending on your environment, but a space is always one column.
       </p>

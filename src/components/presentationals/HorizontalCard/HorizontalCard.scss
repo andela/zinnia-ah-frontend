@@ -1,10 +1,15 @@
+@import '../../../assets/variables';
+
 .h-card {
   display: flex;
   max-height: 11.575rem;
+  min-height: 11.575rem;
+  padding-right: 2%;
   width: 100%;
 
   .h-card-image {
-    height: 100%;
+    max-height: 11.575rem;
+    min-height: 11.575rem;
     width: 12.5rem;
   }
 
@@ -13,10 +18,35 @@
   }
 }
 
+.h-card:hover {
+  box-shadow: 0 4px 4px $primary-black-opacity-2;
+  cursor: pointer;
+}
+
 .mb-0 {
   margin-bottom: .2rem;
 }
 
 .h-card:nth-child(1) {
   margin-bottom: 2.8125rem;
+}
+
+@media only screen and (max-width: 28.625rem) {
+  .h-card {
+    display: block;
+    max-height: fit-content;
+    min-height: fit-content;
+    padding-right: 0;
+    width: 100%;
+
+    .h-card-image {
+      max-height: 11.575rem;
+      min-height: 11.575rem;
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+    }
+  }
 }

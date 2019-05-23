@@ -180,7 +180,7 @@ exports[`BookmarkLists mounts correctly without image 1`] = `
                           }
                         }
                       >
-                        6 days
+                        7 days
                          ago
                       </p>
                       <div>
@@ -398,7 +398,7 @@ exports[`BookmarkLists should render correctly 1`] = `
                           }
                         }
                       >
-                        6 days
+                        7 days
                          ago
                       </p>
                       <div>

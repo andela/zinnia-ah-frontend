@@ -1,154 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render correctly 1`] = `
-<Fragment>
-  <div
-    className="pt-3"
-  >
-    <Navbar>
-      <div
-        className="nav-items"
-      >
-        <form
-          className="search-bar"
-        >
-          <Input
-            icon="search"
-            iconPosition="left"
-            placeholder="Search..."
-            type="text"
-          />
-        </form>
-        <Link
-          to="/login"
-        >
-          <Button
-            className="btn-dark w-10"
-            type="submit"
-            value="WRITE"
-          />
-        </Link>
-      </div>
-    </Navbar>
-  </div>
-  <div
-    className="top"
-  >
-    <div
-      className="trending"
-    >
-      <Title
-        className="title-md index-title"
-        content="Trending"
-      />
-      <div
-        className="trending-inner up"
-      >
-        <div
-          className="v-card-container"
-        >
-          <VerticalCard />
-        </div>
-        <div
-          className="h-card-container"
-        >
-          <HorizontalCard />
-          <HorizontalCard />
-        </div>
-      </div>
-      <div
-        className="trending-inner bottom"
-      >
-        <div
-          className="h-card-container"
-        >
-          <HorizontalCard />
-          <HorizontalCard />
-        </div>
-        <div
-          className="v-card-container"
-        >
-          <VerticalCard />
-        </div>
-      </div>
-    </div>
-    <div
-      className="popular"
-    >
-      <PopularAuthorsList
-        authors={
-          Array [
-            Object {
-              "id": 23,
-              "image": "https://res.cloudinary.com/nedy123/image/upload/v1544002134/xykn3yriqcsgrbwrqwa6.jpg",
-              "name": "Nedy",
-              "url": "https://google.com",
-              "username": "nedyudombat",
-            },
-            Object {
-              "id": 24,
-              "image": "https://res.cloudinary.com/nedy123/image/upload/v1516819339/lady-2_jqx4go.jpg",
-              "name": "Samantha",
-              "url": "https://google.com",
-              "username": "samanthress",
-            },
-            Object {
-              "id": 25,
-              "image": "https://res.cloudinary.com/nedy123/image/upload/v1516819339/dummy-av.jpg",
-              "name": "Hilary",
-              "url": "https://google.com",
-              "username": "noMoreEben",
-            },
-          ]
-        }
-      />
-      <div
-        className="justify-content-center ads"
-      >
-        <div
-          style={
-            Object {
-              "marginTop": "2rem",
-              "maxWidth": "100%",
-              "position": "relative",
-            }
-          }
-        >
-          <Image
-            src="https://res.cloudinary.com/nedy123/image/upload/v1558511972/jumia-ad_hvrkw8.png"
-            style={
-              Object {
-                "maxWidth": "100%",
-                "position": "relative",
-                "zIndex": "2",
-              }
-            }
-          />
-          <Image
-            src="https://res.cloudinary.com/nedy123/image/upload/v1558511973/lady-ad_jc3tth.png"
-            style={
-              Object {
-                "marginTop": "-2.8125rem",
-                "maxWidth": "100%",
-                "position": "relative",
-                "zIndex": "1",
-              }
-            }
-          />
-          <Image
-            src="https://res.cloudinary.com/nedy123/image/upload/v1558511972/konga-ad_cw2mpn.png"
-            style={
-              Object {
-                "marginTop": "-3.2625rem",
-                "maxWidth": "100%",
-                "position": "relative",
-                "zIndex": "2",
-              }
-            }
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</Fragment>
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <App />
+</Router>
 `;

@@ -1,8 +1,11 @@
+@import '../../../assets/variables';
+
 .author-slot {
   align-items: center;
   display: flex;
   height: 4rem;
   justify-content: space-between;
+  padding: 0 1%;
   width: 100%;
 }
 
