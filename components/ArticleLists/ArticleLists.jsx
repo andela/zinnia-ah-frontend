@@ -18,8 +18,8 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
         <p>You have no publications</p>
       ) : (
         articles.map(article => (
-          <Link to={`/post=${article.slug}`} key={article.id}>
-            <Item.Group key={article.id}>
+          <Link to={`/post=${article.id}`} key={article.id}>
+            <Item.Group>
               <Item>
                 <Item.Image
                   src={article.imageThumbnail || DEFAULT_ARTICLE_IMAGE_URL}

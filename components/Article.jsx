@@ -2,11 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { Icon, Item, Modal } from 'semantic-ui-react';
-=======
 import { Icon, Image, Item, Modal } from 'semantic-ui-react';
->>>>>>> [feature] add author and icons
 import moment from 'moment';
 
 // components
@@ -31,23 +27,15 @@ import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 export class Article extends Component {
   componentDidMount() {
-    const {
-      article,
-      match: {
-        params: { articleId },
-      },
-      history,
-    } = this.props;
-    if (!article.id) {
-      this.props.getSingleArticle(articleId, history);
-    }
+    this.props.getSingleArticle(this.props.match.params.articleId);
   }
-
   render() {
-    const { article, isLoading } = this.props;
+    const { article } = this.props;
     return (
       <Fragment>
-        {isLoading && <Loader size="large" text="loading, please wait" />}
+        {this.props.isLoading && (
+          <Loader size="large" text="loading, please wait" />
+        )}
         <Navbar profileUrl={this.props.profileUrl} />
         <div className="article-container" data-test="article">
           {/*sidebar*/}
@@ -325,20 +313,16 @@ Article.propTypes = {
     }),
   }),
   profileUrl: PropTypes.string,
-  history: PropTypes.object,
 };
 
 Article.defaultProps = {
   profileUrl: '',
 };
 
-const mapStateToProps = (state, props) => {
-  const { articleId } = props.match.params;
-  return {
-    isLoading: state.article.isLoading,
-    article: state.article.articles[articleId] || {},
-  };
-};
+const mapStateToProps = state => ({
+  isLoading: state.article.isLoading,
+  article: state.article.article,
+});
 
 export default connect(
   mapStateToProps,
