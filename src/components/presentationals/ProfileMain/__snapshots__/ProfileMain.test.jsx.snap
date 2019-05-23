@@ -50,30 +50,6 @@ exports[`ProfileMain should not render correctly 1`] = `
               "menuItem": "Posts",
               "render": [Function],
             },
-            Object {
-              "menuItem": "Stats",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Likes",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Comments",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Bookmarks",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Reports",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Settings",
-              "render": [Function],
-            },
           ]
         }
         renderActiveOnly={true}
@@ -84,12 +60,6 @@ exports[`ProfileMain should not render correctly 1`] = `
             items={
               Array [
                 "Posts",
-                "Stats",
-                "Likes",
-                "Comments",
-                "Bookmarks",
-                "Reports",
-                "Settings",
               ]
             }
             onItemClick={[Function]}
@@ -112,96 +82,6 @@ exports[`ProfileMain should not render correctly 1`] = `
                   onClick={[Function]}
                 >
                   Posts
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Stats"
-                index={1}
-                key="Stats"
-                name="Stats"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Stats
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Likes"
-                index={2}
-                key="Likes"
-                name="Likes"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Likes
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Comments"
-                index={3}
-                key="Comments"
-                name="Comments"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Comments
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Bookmarks"
-                index={4}
-                key="Bookmarks"
-                name="Bookmarks"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Bookmarks
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Reports"
-                index={5}
-                key="Reports"
-                name="Reports"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Reports
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Settings"
-                index={6}
-                key="Settings"
-                name="Settings"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Settings
                 </a>
               </MenuItem>
             </div>
@@ -285,30 +165,6 @@ exports[`ProfileMain should not render correctly 2`] = `
               "menuItem": "Posts",
               "render": [Function],
             },
-            Object {
-              "menuItem": "Stats",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Likes",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Comments",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Bookmarks",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Reports",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Settings",
-              "render": [Function],
-            },
           ]
         }
         renderActiveOnly={true}
@@ -319,12 +175,6 @@ exports[`ProfileMain should not render correctly 2`] = `
             items={
               Array [
                 "Posts",
-                "Stats",
-                "Likes",
-                "Comments",
-                "Bookmarks",
-                "Reports",
-                "Settings",
               ]
             }
             onItemClick={[Function]}
@@ -347,96 +197,6 @@ exports[`ProfileMain should not render correctly 2`] = `
                   onClick={[Function]}
                 >
                   Posts
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Stats"
-                index={1}
-                key="Stats"
-                name="Stats"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Stats
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Likes"
-                index={2}
-                key="Likes"
-                name="Likes"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Likes
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Comments"
-                index={3}
-                key="Comments"
-                name="Comments"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Comments
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Bookmarks"
-                index={4}
-                key="Bookmarks"
-                name="Bookmarks"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Bookmarks
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Reports"
-                index={5}
-                key="Reports"
-                name="Reports"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Reports
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Settings"
-                index={6}
-                key="Settings"
-                name="Settings"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Settings
                 </a>
               </MenuItem>
             </div>
@@ -569,30 +329,6 @@ exports[`ProfileMain should render Posts Tab correctly 1`] = `
               "menuItem": "Posts",
               "render": [Function],
             },
-            Object {
-              "menuItem": "Stats",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Likes",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Comments",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Bookmarks",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Reports",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Settings",
-              "render": [Function],
-            },
           ]
         }
         renderActiveOnly={true}
@@ -603,12 +339,6 @@ exports[`ProfileMain should render Posts Tab correctly 1`] = `
             items={
               Array [
                 "Posts",
-                "Stats",
-                "Likes",
-                "Comments",
-                "Bookmarks",
-                "Reports",
-                "Settings",
               ]
             }
             onItemClick={[Function]}
@@ -633,96 +363,6 @@ exports[`ProfileMain should render Posts Tab correctly 1`] = `
                   Posts
                 </a>
               </MenuItem>
-              <MenuItem
-                active={false}
-                content="Stats"
-                index={1}
-                key="Stats"
-                name="Stats"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Stats
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Likes"
-                index={2}
-                key="Likes"
-                name="Likes"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Likes
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Comments"
-                index={3}
-                key="Comments"
-                name="Comments"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Comments
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Bookmarks"
-                index={4}
-                key="Bookmarks"
-                name="Bookmarks"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Bookmarks
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Reports"
-                index={5}
-                key="Reports"
-                name="Reports"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Reports
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Settings"
-                index={6}
-                key="Settings"
-                name="Settings"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Settings
-                </a>
-              </MenuItem>
             </div>
           </Menu>
           <TabPane
@@ -740,6 +380,7 @@ exports[`ProfileMain should render Posts Tab correctly 1`] = `
                 <ArticleLists
                   articles={Array []}
                   isDeleting={false}
+                  username="dummyuser"
                 >
                   <div
                     className="post-lists"
@@ -836,30 +477,6 @@ exports[`ProfileMain should render Settings Tab correctly 1`] = `
               "menuItem": "Posts",
               "render": [Function],
             },
-            Object {
-              "menuItem": "Stats",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Likes",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Comments",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Bookmarks",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Reports",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Settings",
-              "render": [Function],
-            },
           ]
         }
         renderActiveOnly={true}
@@ -870,12 +487,6 @@ exports[`ProfileMain should render Settings Tab correctly 1`] = `
             items={
               Array [
                 "Posts",
-                "Stats",
-                "Likes",
-                "Comments",
-                "Bookmarks",
-                "Reports",
-                "Settings",
               ]
             }
             onItemClick={[Function]}
@@ -900,96 +511,6 @@ exports[`ProfileMain should render Settings Tab correctly 1`] = `
                   Posts
                 </a>
               </MenuItem>
-              <MenuItem
-                active={false}
-                content="Stats"
-                index={1}
-                key="Stats"
-                name="Stats"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Stats
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Likes"
-                index={2}
-                key="Likes"
-                name="Likes"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Likes
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Comments"
-                index={3}
-                key="Comments"
-                name="Comments"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Comments
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Bookmarks"
-                index={4}
-                key="Bookmarks"
-                name="Bookmarks"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Bookmarks
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Reports"
-                index={5}
-                key="Reports"
-                name="Reports"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Reports
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Settings"
-                index={6}
-                key="Settings"
-                name="Settings"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Settings
-                </a>
-              </MenuItem>
             </div>
           </Menu>
           <TabPane
@@ -1007,6 +528,7 @@ exports[`ProfileMain should render Settings Tab correctly 1`] = `
                 <ArticleLists
                   articles={Array []}
                   isDeleting={false}
+                  username="dummyuser"
                 >
                   <div
                     className="post-lists"
@@ -1103,30 +625,6 @@ exports[`ProfileMain should render correctly 1`] = `
               "menuItem": "Posts",
               "render": [Function],
             },
-            Object {
-              "menuItem": "Stats",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Likes",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Comments",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Bookmarks",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Reports",
-              "render": [Function],
-            },
-            Object {
-              "menuItem": "Settings",
-              "render": [Function],
-            },
           ]
         }
         renderActiveOnly={true}
@@ -1137,12 +635,6 @@ exports[`ProfileMain should render correctly 1`] = `
             items={
               Array [
                 "Posts",
-                "Stats",
-                "Likes",
-                "Comments",
-                "Bookmarks",
-                "Reports",
-                "Settings",
               ]
             }
             onItemClick={[Function]}
@@ -1167,96 +659,6 @@ exports[`ProfileMain should render correctly 1`] = `
                   Posts
                 </a>
               </MenuItem>
-              <MenuItem
-                active={false}
-                content="Stats"
-                index={1}
-                key="Stats"
-                name="Stats"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Stats
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Likes"
-                index={2}
-                key="Likes"
-                name="Likes"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Likes
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Comments"
-                index={3}
-                key="Comments"
-                name="Comments"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Comments
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Bookmarks"
-                index={4}
-                key="Bookmarks"
-                name="Bookmarks"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Bookmarks
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Reports"
-                index={5}
-                key="Reports"
-                name="Reports"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Reports
-                </a>
-              </MenuItem>
-              <MenuItem
-                active={false}
-                content="Settings"
-                index={6}
-                key="Settings"
-                name="Settings"
-                onClick={[Function]}
-              >
-                <a
-                  className="item"
-                  onClick={[Function]}
-                >
-                  Settings
-                </a>
-              </MenuItem>
             </div>
           </Menu>
           <TabPane
@@ -1274,6 +676,7 @@ exports[`ProfileMain should render correctly 1`] = `
                 <ArticleLists
                   articles={Array []}
                   isDeleting={false}
+                  username="dummyuser"
                 >
                   <div
                     className="post-lists"

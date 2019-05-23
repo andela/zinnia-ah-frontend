@@ -33,4 +33,7 @@ export const getEncodedUser = () => {
 export const destroyEncodedUser = () => {
   localStorage.removeItem('encodedUser');
   return null;
+}
+export const isFollowing = followers => {
+  return followers.find(user => user.email === decodeToken(getToken()).email);
 };

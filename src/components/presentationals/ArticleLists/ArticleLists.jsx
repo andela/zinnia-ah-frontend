@@ -9,8 +9,9 @@ import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
 // components
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import { decodeToken, getToken } from '../../../api/helpers';
 
-const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
+const ArticleLists = ({ articles, deleteArticle, isDeleting, email }) => {
   return (
     <div className="post-lists">
       {articles.length === 0 ? (
@@ -75,45 +76,49 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                       {moment().from(article.createdAt, 'YYYYMMDD')} ago
                     </p>
                     <div>
-                      <Modal
-                        trigger={
-                          <Button
-                            className="btn-transparent"
-                            type="button"
-                            value=""
-                          >
-                            <Icon
-                              name="trash"
-                              style={{
-                                fontSize: '1.5rem',
-                                margin: '0',
-                                color: '#ff0000',
-                              }}
+                      {decodeToken(getToken()).email === email && (
+                        <Modal
+                          trigger={
+                            <Button
+                              className="btn-transparent"
+                              type="button"
+                              value=""
+                            >
+                              <Icon
+                                name="trash"
+                                style={{
+                                  fontSize: '1.5rem',
+                                  margin: '0',
+                                  color: '#ff0000',
+                                }}
+                              />
+                            </Button>
+                          }
+                          closeIcon
+                          size="tiny"
+                        >
+                          {isDeleting && (
+                            <Dimmer active>
+                              <Loader />
+                            </Dimmer>
+                          )}
+                          <Modal.Header>Delete Article!</Modal.Header>
+                          <Modal.Content>
+                            <p>Are you sure you want to delete this Article?</p>
+                          </Modal.Content>
+                          <Modal.Actions>
+                            <Button
+                              className="btn-dark mb-3"
+                              type="button"
+                              value="DELETE"
+                              key="delete"
+                              onClick={() =>
+                                deleteArticle(article.id, articles)
+                              }
                             />
-                          </Button>
-                        }
-                        closeIcon
-                        size="tiny"
-                      >
-                        {isDeleting && (
-                          <Dimmer active>
-                            <Loader />
-                          </Dimmer>
-                        )}
-                        <Modal.Header>Delete Article!</Modal.Header>
-                        <Modal.Content>
-                          <p>Are you sure you want to delete this Article?</p>
-                        </Modal.Content>
-                        <Modal.Actions>
-                          <Button
-                            className="btn-dark mb-3"
-                            type="button"
-                            value="DELETE"
-                            key="delete"
-                            onClick={() => deleteArticle(article.id, articles)}
-                          />
-                        </Modal.Actions>
-                      </Modal>
+                          </Modal.Actions>
+                        </Modal>
+                      )}
                     </div>
                   </div>
                 </Item.Extra>
@@ -130,6 +135,7 @@ ArticleLists.propTypes = {
   articles: PropTypes.array,
   deleteArticle: PropTypes.any,
   isDeleting: PropTypes.bool,
+  email: PropTypes.string,
 };
 
 export default ArticleLists;

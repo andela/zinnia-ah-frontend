@@ -12,6 +12,7 @@ import './ProfileSidebar.scss';
 // config and helpers
 import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
 import { handleImageEventClick } from '../../../utils/helpers';
+import { decodeToken, getToken, isFollowing } from '../../../api/helpers';
 
 const CameraIcon = () => <Icon name="camera" />;
 const OverlayImage = () => (
@@ -56,7 +57,13 @@ const ProfileSidebar = ({
           marginTop: '35px',
         }}
       >
-        <Button className="btn-white" value="FOLLOW" type="submit" />
+        {decodeToken(getToken()).email !== email && (
+          <Button
+            className="btn-white"
+            value={isFollowing(followers) ? '`UNFOLLOW' : 'FOLLOW'}
+            type="submit"
+          />
+        )}
       </div>
       <hr className="sidebar-hr" />
     </div>
