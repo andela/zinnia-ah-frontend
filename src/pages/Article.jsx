@@ -24,15 +24,22 @@ import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 export class Article extends Component {
   componentDidMount() {
-    this.props.getSingleArticle(this.props.match.params.articleId);
+    const {
+      article,
+      match: {
+        params: { articleId },
+      },
+    } = this.props;
+    if (!article.id) {
+      this.props.getSingleArticle(articleId);
+    }
   }
+
   render() {
-    const { article } = this.props;
+    const { article, isLoading } = this.props;
     return (
       <Fragment>
-        {this.props.isLoading && (
-          <Loader size="large" text="loading, please wait" />
-        )}
+        {isLoading && <Loader size="large" text="loading, please wait" />}
         <Navbar profileUrl={this.props.profileUrl} />
         <div className="article-container" data-test="article">
           {/*sidebar*/}
@@ -175,6 +182,7 @@ export class Article extends Component {
             <div className="fixed-pos" />
           </div>
         </div>
+
         <div className="footer">
           <div>
             <Button className="btn-transparent" value="" type="button">
@@ -260,10 +268,13 @@ Article.defaultProps = {
   profileUrl: '',
 };
 
-const mapStateToProps = state => ({
-  isLoading: state.article.isLoading,
-  article: state.article.article,
-});
+const mapStateToProps = (state, props) => {
+  const { articleId } = props.match.params;
+  return {
+    isLoading: state.article.isLoading,
+    article: state.article.articles[articleId] || {},
+  };
+};
 
 export default connect(
   mapStateToProps,

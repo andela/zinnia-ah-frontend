@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Item, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react';
 import moment from 'moment';
 
@@ -26,10 +27,12 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
               <Item.Content>
                 <div className="d-flex">
                   <div style={{ marginRight: 'auto' }}>
-                    <Title
-                      content={article.title}
-                      className="title-article-lg"
-                    />
+                    <Link to={`/post=${article.slug}`}>
+                      <Title
+                        content={article.title}
+                        className="title-article-lg"
+                      />
+                    </Link>
                   </div>
                   <div style={{ marginRight: '0.8rem' }}>
                     <p

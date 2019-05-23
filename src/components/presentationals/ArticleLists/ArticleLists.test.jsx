@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import ArticleLists from './ArticleLists';
 
@@ -11,7 +11,7 @@ const props = {
 
 describe('ArticleLists', () => {
   it('should render correctly', () => {
-    const component = mount(<ArticleLists {...props} />);
+    const component = shallow(<ArticleLists {...props} />);
     expect(component).toMatchSnapshot();
   });
 });

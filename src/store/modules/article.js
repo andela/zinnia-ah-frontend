@@ -55,6 +55,7 @@ export const initialState = {
   successResponse: {
     status: '',
   },
+  articles: {},
 };
 
 export const createArticle = articleData => {
@@ -70,12 +71,12 @@ export const createArticle = articleData => {
   };
 };
 
-export const getSingleArticle = uniqueId => {
+export const getSingleArticle = articleId => {
   return async dispatch => {
     dispatch(getArticleStart());
     try {
-      const { data } = await fetchArticle(uniqueId);
-      dispatch(getArticleSuccess(data));
+      const { data } = await fetchArticle(articleId);
+      dispatch(getArticleSuccess(data.data));
     } catch (error) {
       dispatch(getArticleFailure(error));
     }
@@ -95,7 +96,12 @@ export const articleReducer = (state = initialState, action) => {
         ...state,
         successResponse: action.response,
         isLoading: false,
-        errorResponse: [],
+      };
+
+    case CREATE_ARTCLE_INITIALIZED:
+      return {
+        ...state,
+        isLoading: true,
       };
 
     case CREATE_ARTICLE_ERROR:
@@ -109,7 +115,10 @@ export const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        article: action.article,
+        articles: {
+          ...state.articles,
+          [action.article.slug]: action.article,
+        },
       };
 
     case FETCH_ARTICLE_FAILURE:

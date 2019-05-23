@@ -21,7 +21,7 @@ import { setupStore } from '../../utils/testHelpers';
 
 const initialState = {
   isLoading: false,
-  article: {},
+  articles: {},
   error: {},
 };
 
@@ -137,12 +137,15 @@ describe('ARTICLES', () => {
       expect(state.isLoading).toBe(true);
     });
 
-    it('updates the store when article success action', () => {
-      const article = { id: 1, title: 'hello' };
+    it('updates the store for article success action', () => {
+      const article = {
+        slug: 'Hello-Article-1-7442ba96-fb5a-46b5-a05c-7178bac80810',
+        title: 'hello',
+      };
       const action = getArticleSuccess(article);
       const state = articleReducer(initialState, action);
       expect(state.isLoading).toBe(false);
-      expect(state.article).toEqual(article);
+      expect(state.articles[article.slug]).toEqual(article);
     });
 
     it('updates the store correctly when the article fetch action fails', () => {
@@ -150,7 +153,7 @@ describe('ARTICLES', () => {
       const action = getArticleFailure(error);
       const state = articleReducer(initialState, action);
       expect(state.isLoading).toBe(false);
-      expect(state.article).toEqual({});
+      expect(state.articles).toEqual({});
       expect(state.error).toEqual(error);
     });
   });
