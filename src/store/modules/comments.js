@@ -5,6 +5,10 @@ export const SAVE_COMMENTS = 'SAVE_COMMENTS';
 export const CREATE_COMMENT_REQUEST = 'CREATE_COMMENT_REQUEST';
 export const CREATE_COMMENT_ERROR = 'CREATE_COMMENT_ERROR';
 export const REQUEST_PROCESSING = 'REQUEST_PROCESSING';
+export const COMMENT_REACTION_REQUEST = 'COMMENT_REACTION_REQUEST';
+export const UNLIKE_COMMENT_REQUEST = 'UNLIKE_REACTION_REQUEST';
+export const COMMENT_REACTION_SUCCESS = 'COMMENT_REACTION_SUCCESS';
+export const COMMENT_REACTION_ERROR = 'COMMENT_REACTION_ERROR';
 
 export const saveComments = comments => ({
   type: SAVE_COMMENTS,
@@ -15,6 +19,61 @@ export const createCommentError = error => ({
   type: CREATE_COMMENT_ERROR,
   error,
 });
+
+export const commentReactionSuccess = (comments, commentId, reaction) => ({
+  type: COMMENT_REACTION_SUCCESS,
+  comments,
+  commentId,
+  reaction,
+});
+
+export const commentReactionError = error => ({
+  type: COMMENT_REACTION_ERROR,
+  error,
+});
+
+const updateLikes = (comments, commentId, reaction) => {
+  const addLike = likes => {
+    likes.push({
+      userId: getUserId(),
+      commentId,
+    });
+    return likes;
+  };
+
+  const removeLike = likes => {
+    return likes.filter(like => {
+      like.userId !== getUserId();
+    });
+  };
+
+  comments.forEach(comment => {
+    if (comment.id === commentId) {
+      comment.likes =
+        reaction === 'like'
+          ? addLike(comment.likes)
+          : removeLike(comment.likes);
+    }
+  });
+
+  return comments;
+};
+
+export const reactToComment = options => async dispatch => {
+  const { comments, commentId, articleId } = options;
+
+  try {
+    const { data } = await http.post(
+      `/articles/${articleId}/comments/${commentId}/like`,
+    );
+    if (data.message === 'You have liked this post') {
+      return dispatch(commentReactionSuccess(comments, commentId, 'like'));
+    }
+    dispatch(commentReactionSuccess(comments, commentId, 'unlike'));
+  } catch (error) {
+    dispatch(commentReactionError(error.response));
+  }
+};
 
 export const requestProcessing = () => ({
   type: REQUEST_PROCESSING,
@@ -40,8 +99,16 @@ export const createComment = data => async dispatch => {
   }
 };
 
+const getUserId = () => {
+  const {
+    data: { id: userId },
+  } = JSON.parse(localStorage.getItem('userprofile'));
+  return userId;
+};
+
 export const initialState = {
   isLoading: false,
+  userId: getUserId(),
   comments: [
     {
       id: '0c034589-ba07-45fb-b383-9c4e516beb19',
@@ -56,7 +123,7 @@ export const initialState = {
       },
       likes: [
         {
-          userId: '0298932c-d9ab-4d32-abca-be92a771ef2c',
+          userId: '0298932c-d9ab-4d31-abca-be92a771ef2c',
           commentId: '0c034589-ba07-45fb-b383-9c4e516beb19',
           createdAt: '2019-05-21T11:46:46.684Z',
           updatedAt: '2019-05-21T11:46:46.684Z',
@@ -94,6 +161,15 @@ export const commentReducer = (state = initialState, action) => {
       };
     case REQUEST_PROCESSING:
       return { ...state, isLoading: true };
+    case COMMENT_REACTION_SUCCESS:
+      return {
+        ...state,
+        comments: updateLikes(
+          action.comments,
+          action.commentId,
+          action.reaction,
+        ),
+      };
     default:
       return state;
   }

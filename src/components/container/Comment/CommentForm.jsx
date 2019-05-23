@@ -57,7 +57,7 @@ class CommentForm extends Component {
     return (
       <div>
         <form className="comment-form" onSubmit={this.submitHandler}>
-          {this.props.isLoading && <Loader text="Creating your comment" />}
+          {this.props.isLoading && <Loader text="Processing..." />}
           <div className="comment-content">
             <Avatar url={userAvatar} className="avatar-m" />
             <input
