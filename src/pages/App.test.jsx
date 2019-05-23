@@ -1,14 +1,14 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme/build';
 import { BrowserRouter } from 'react-router-dom';
 
-import Navbar from './Navbar';
+import App from './App';
 
-describe('Navbar', () => {
+describe('App', () => {
   it('should render correctly', () => {
-    const component = mount(
+    const component = shallow(
       <BrowserRouter>
-        <Navbar profileUrl="http://dummyimage.com" className="" />
+        <App />
       </BrowserRouter>,
     );
     expect(component).toMatchSnapshot();
