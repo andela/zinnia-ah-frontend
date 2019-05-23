@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Icon, Image, Item, Modal } from 'semantic-ui-react';
+import { Icon, Item, Modal } from 'semantic-ui-react';
 import moment from 'moment';
 
 // components
@@ -20,9 +20,6 @@ import { getSingleArticle } from '../store/modules/article';
 import './Article.scss';
 
 // Images
-import LikeIcon from '../assets/images/like.svg';
-import ShareIcon from '../assets/images/share.svg';
-import BookmarkIcon from '../assets/images/bookmark.svg';
 import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 export class Article extends Component {
@@ -175,63 +172,7 @@ export class Article extends Component {
           </div>
           {/*right side*/}
           <div className="sidebar actions justify-content-center">
-            <div className="fixed-pos">
-              <div className="article-cta">
-                <Button
-                  className="btn-transparent"
-                  type="button"
-                  value={<Image src={LikeIcon} />}
-                />
-                <p className="article-likes-count">{article.likes.length}</p>
-              </div>
-              <div className="article-cta">
-                <Modal
-                  trigger={
-                    <Button className="btn-transparent" type="button" value="">
-                      <Image src={ShareIcon} />
-                    </Button>
-                  }
-                  closeIcon
-                  size="tiny"
-                >
-                  <Modal.Header>Share this Article!</Modal.Header>
-                  <Modal.Content>
-                    <div className="share-cta">
-                      <a
-                        className="links"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={`https://twitter.com/intent/tweet?text=${
-                          article.title
-                        }&url=${location.href}`}
-                      >
-                        <Icon name="twitter" size="big" />
-                      </a>
-                      <a
-                        className="links"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href={`mailto:''?subject=${article.title}&body=${
-                          location.href
-                        }`}
-                      >
-                        <Icon name="mail" color="red" size="big" />
-                      </a>
-                      <a>
-                        <Icon name="facebook" size="big" />
-                      </a>
-                    </div>
-                  </Modal.Content>
-                </Modal>
-              </div>
-              <div className="article-cta">
-                <Button
-                  className="btn-transparent"
-                  type="button"
-                  value={<Image src={BookmarkIcon} />}
-                />
-              </div>
-            </div>
+            <div className="fixed-pos" />
           </div>
         </div>
         <div className="footer">
