@@ -1,6 +1,12 @@
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
+import {
+  CLOUDINARY_API,
+  CLOUD_PRESET,
+  CREATE_ARTICLE_CLOUDINARY_ULR,
+} from '../config/config.js';
+
 export const decodeToken = token => {
   return jwt.decode(token);
 };
@@ -49,4 +55,18 @@ export const uploadImageToServer = ({ image, tag }, callback) => async () => {
 
 export const handleImageEventClick = () => {
   return document.querySelector('input[name=upload_profile_picture]').click();
+};
+
+export const imageHandler = async file => {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', 'zinniahteam');
+
+  const data = await axios.post(CREATE_ARTICLE_CLOUDINARY_ULR, formData, {
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+  });
+
+  return data;
 };

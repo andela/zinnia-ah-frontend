@@ -17,6 +17,9 @@ class App extends Component {
         <Link to="/signup">
           <button>Signup</button>
         </Link>
+        <Link to="/editor">
+          <button>Editor</button>
+        </Link>
       </div>
     );
   }

@@ -8,5 +8,9 @@ export const DEFAULT_ARTICLE_PICTURE =
   'https://alagirart.com/wp-content/uploads/2015/07/import_placeholder.png';
 
 export const CLOUDINARY_API = process.env.CLOUDINARY_API;
+
 export const CLOUD_PRESET = 'upload_app';
 export const FRONTEND_URL = 'https://zinnia-ah-frontend-staging.herokuapp.com';
+
+export const CREATE_ARTICLE_CLOUDINARY_ULR =
+  'https://api.cloudinary.com/v1_1/trix/image/upload';
