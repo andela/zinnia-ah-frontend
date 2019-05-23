@@ -398,7 +398,7 @@ exports[`BookmarkLists should render correctly 1`] = `
                           }
                         }
                       >
-                        10 days
+                        7 days
                          ago
                       </p>
                       <div>
