@@ -29,9 +29,10 @@ export class Article extends Component {
       match: {
         params: { articleId },
       },
+      history,
     } = this.props;
     if (!article.id) {
-      this.props.getSingleArticle(articleId);
+      this.props.getSingleArticle(articleId, history);
     }
   }
 
@@ -262,6 +263,7 @@ Article.propTypes = {
     }),
   }),
   profileUrl: PropTypes.string,
+  history: PropTypes.object,
 };
 
 Article.defaultProps = {

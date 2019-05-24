@@ -4,297 +4,297 @@ exports[`ArticleLists should render correctly 1`] = `
 <div
   className="post-lists"
 >
-  <ItemGroup>
-    <Item>
-      <ItemImage
-        src="https://react.semantic-ui.com/images/wireframe/image.png"
-      />
-      <ItemContent>
-        <div
-          className="d-flex"
-        >
+  <Link
+    to="/post=undefined"
+  >
+    <ItemGroup>
+      <Item>
+        <ItemImage
+          src="https://react.semantic-ui.com/images/wireframe/image.png"
+        />
+        <ItemContent>
           <div
-            style={
-              Object {
-                "marginRight": "auto",
-              }
-            }
+            className="d-flex"
           >
-            <Link
-              to="/post=undefined"
+            <div
+              style={
+                Object {
+                  "marginRight": "auto",
+                }
+              }
             >
               <Title
                 className="title-article-lg"
               />
-            </Link>
-          </div>
-          <div
-            style={
-              Object {
-                "marginRight": "0.8rem",
-              }
-            }
-          >
-            <p
+            </div>
+            <div
               style={
                 Object {
-                  "fontSize": "1rem",
-                  "width": "100%",
+                  "marginRight": "0.8rem",
                 }
               }
             >
-               mins read
-            </p>
-          </div>
-          <div>
-            <Button
-              className="btn-transparent"
-              type="button"
-              value=""
-            >
-              <Icon
-                as="i"
-                name="bookmark outline"
+              <p
                 style={
                   Object {
-                    "color": "#000000",
-                    "fontSize": "1.25rem",
-                    "margin": "0",
+                    "fontSize": "1rem",
+                    "width": "100%",
                   }
                 }
-              />
-            </Button>
+              >
+                 mins read
+              </p>
+            </div>
+            <div>
+              <Button
+                className="btn-transparent"
+                type="button"
+                value=""
+              >
+                <Icon
+                  as="i"
+                  name="bookmark outline"
+                  style={
+                    Object {
+                      "color": "#000000",
+                      "fontSize": "1.25rem",
+                      "margin": "0",
+                    }
+                  }
+                />
+              </Button>
+            </div>
           </div>
-        </div>
-        <ItemDescription
-          style={
-            Object {
-              "marginBottom": "auto",
-            }
-          }
-        >
-          <p
+          <ItemDescription
             style={
               Object {
-                "fontSize": "1.125rem",
-                "fontWeight": "200",
-                "lineHeight": "1.375rem",
+                "marginBottom": "auto",
               }
             }
-          />
-        </ItemDescription>
-        <ItemExtra>
-          <div
-            className="d-flex justify-content-between"
           >
             <p
               style={
                 Object {
-                  "fontSize": "1rem",
+                  "fontSize": "1.125rem",
+                  "fontWeight": "200",
+                  "lineHeight": "1.375rem",
                 }
               }
+            />
+          </ItemDescription>
+          <ItemExtra>
+            <div
+              className="d-flex justify-content-between"
             >
-              a few seconds
-               ago
-            </p>
-            <div>
-              <Modal
-                centered={true}
-                closeIcon={true}
-                closeOnDimmerClick={true}
-                closeOnDocumentClick={false}
-                dimmer={true}
-                eventPool="Modal"
-                size="tiny"
-                trigger={
-                  <Button
-                    className="btn-transparent"
-                    type="button"
-                    value=""
-                  >
-                    <Icon
-                      as="i"
-                      name="trash"
-                      style={
-                        Object {
-                          "color": "#ff0000",
-                          "fontSize": "1.5rem",
-                          "margin": "0",
-                        }
-                      }
-                    />
-                  </Button>
+              <p
+                style={
+                  Object {
+                    "fontSize": "1rem",
+                  }
                 }
               >
-                <ModalHeader>
-                  Delete Article!
-                </ModalHeader>
-                <ModalContent>
-                  <p>
-                    Are you sure you want to delete this Article?
-                  </p>
-                </ModalContent>
-                <ModalActions>
-                  <Button
-                    className="btn-dark mb-3"
-                    key="delete"
-                    onClick={[Function]}
-                    type="button"
-                    value="DELETE"
-                  />
-                </ModalActions>
-              </Modal>
+                a few seconds
+                 ago
+              </p>
+              <div>
+                <Modal
+                  centered={true}
+                  closeIcon={true}
+                  closeOnDimmerClick={true}
+                  closeOnDocumentClick={false}
+                  dimmer={true}
+                  eventPool="Modal"
+                  size="tiny"
+                  trigger={
+                    <Button
+                      className="btn-transparent"
+                      type="button"
+                      value=""
+                    >
+                      <Icon
+                        as="i"
+                        name="trash"
+                        style={
+                          Object {
+                            "color": "#ff0000",
+                            "fontSize": "1.5rem",
+                            "margin": "0",
+                          }
+                        }
+                      />
+                    </Button>
+                  }
+                >
+                  <ModalHeader>
+                    Delete Article!
+                  </ModalHeader>
+                  <ModalContent>
+                    <p>
+                      Are you sure you want to delete this Article?
+                    </p>
+                  </ModalContent>
+                  <ModalActions>
+                    <Button
+                      className="btn-dark mb-3"
+                      key="delete"
+                      onClick={[Function]}
+                      type="button"
+                      value="DELETE"
+                    />
+                  </ModalActions>
+                </Modal>
+              </div>
             </div>
-          </div>
-        </ItemExtra>
-      </ItemContent>
-    </Item>
-  </ItemGroup>
-  <ItemGroup>
-    <Item>
-      <ItemImage
-        src="https://react.semantic-ui.com/images/wireframe/image.png"
-      />
-      <ItemContent>
-        <div
-          className="d-flex"
-        >
+          </ItemExtra>
+        </ItemContent>
+      </Item>
+    </ItemGroup>
+  </Link>
+  <Link
+    to="/post=undefined"
+  >
+    <ItemGroup>
+      <Item>
+        <ItemImage
+          src="https://react.semantic-ui.com/images/wireframe/image.png"
+        />
+        <ItemContent>
           <div
-            style={
-              Object {
-                "marginRight": "auto",
-              }
-            }
+            className="d-flex"
           >
-            <Link
-              to="/post=undefined"
+            <div
+              style={
+                Object {
+                  "marginRight": "auto",
+                }
+              }
             >
               <Title
                 className="title-article-lg"
               />
-            </Link>
-          </div>
-          <div
-            style={
-              Object {
-                "marginRight": "0.8rem",
-              }
-            }
-          >
-            <p
+            </div>
+            <div
               style={
                 Object {
-                  "fontSize": "1rem",
-                  "width": "100%",
+                  "marginRight": "0.8rem",
                 }
               }
             >
-               mins read
-            </p>
-          </div>
-          <div>
-            <Button
-              className="btn-transparent"
-              type="button"
-              value=""
-            >
-              <Icon
-                as="i"
-                name="bookmark outline"
+              <p
                 style={
                   Object {
-                    "color": "#000000",
-                    "fontSize": "1.25rem",
-                    "margin": "0",
+                    "fontSize": "1rem",
+                    "width": "100%",
                   }
                 }
-              />
-            </Button>
+              >
+                 mins read
+              </p>
+            </div>
+            <div>
+              <Button
+                className="btn-transparent"
+                type="button"
+                value=""
+              >
+                <Icon
+                  as="i"
+                  name="bookmark outline"
+                  style={
+                    Object {
+                      "color": "#000000",
+                      "fontSize": "1.25rem",
+                      "margin": "0",
+                    }
+                  }
+                />
+              </Button>
+            </div>
           </div>
-        </div>
-        <ItemDescription
-          style={
-            Object {
-              "marginBottom": "auto",
-            }
-          }
-        >
-          <p
+          <ItemDescription
             style={
               Object {
-                "fontSize": "1.125rem",
-                "fontWeight": "200",
-                "lineHeight": "1.375rem",
+                "marginBottom": "auto",
               }
             }
-          />
-        </ItemDescription>
-        <ItemExtra>
-          <div
-            className="d-flex justify-content-between"
           >
             <p
               style={
                 Object {
-                  "fontSize": "1rem",
+                  "fontSize": "1.125rem",
+                  "fontWeight": "200",
+                  "lineHeight": "1.375rem",
                 }
               }
+            />
+          </ItemDescription>
+          <ItemExtra>
+            <div
+              className="d-flex justify-content-between"
             >
-              a few seconds
-               ago
-            </p>
-            <div>
-              <Modal
-                centered={true}
-                closeIcon={true}
-                closeOnDimmerClick={true}
-                closeOnDocumentClick={false}
-                dimmer={true}
-                eventPool="Modal"
-                size="tiny"
-                trigger={
-                  <Button
-                    className="btn-transparent"
-                    type="button"
-                    value=""
-                  >
-                    <Icon
-                      as="i"
-                      name="trash"
-                      style={
-                        Object {
-                          "color": "#ff0000",
-                          "fontSize": "1.5rem",
-                          "margin": "0",
-                        }
-                      }
-                    />
-                  </Button>
+              <p
+                style={
+                  Object {
+                    "fontSize": "1rem",
+                  }
                 }
               >
-                <ModalHeader>
-                  Delete Article!
-                </ModalHeader>
-                <ModalContent>
-                  <p>
-                    Are you sure you want to delete this Article?
-                  </p>
-                </ModalContent>
-                <ModalActions>
-                  <Button
-                    className="btn-dark mb-3"
-                    key="delete"
-                    onClick={[Function]}
-                    type="button"
-                    value="DELETE"
-                  />
-                </ModalActions>
-              </Modal>
+                a few seconds
+                 ago
+              </p>
+              <div>
+                <Modal
+                  centered={true}
+                  closeIcon={true}
+                  closeOnDimmerClick={true}
+                  closeOnDocumentClick={false}
+                  dimmer={true}
+                  eventPool="Modal"
+                  size="tiny"
+                  trigger={
+                    <Button
+                      className="btn-transparent"
+                      type="button"
+                      value=""
+                    >
+                      <Icon
+                        as="i"
+                        name="trash"
+                        style={
+                          Object {
+                            "color": "#ff0000",
+                            "fontSize": "1.5rem",
+                            "margin": "0",
+                          }
+                        }
+                      />
+                    </Button>
+                  }
+                >
+                  <ModalHeader>
+                    Delete Article!
+                  </ModalHeader>
+                  <ModalContent>
+                    <p>
+                      Are you sure you want to delete this Article?
+                    </p>
+                  </ModalContent>
+                  <ModalActions>
+                    <Button
+                      className="btn-dark mb-3"
+                      key="delete"
+                      onClick={[Function]}
+                      type="button"
+                      value="DELETE"
+                    />
+                  </ModalActions>
+                </Modal>
+              </div>
             </div>
-          </div>
-        </ItemExtra>
-      </ItemContent>
-    </Item>
-  </ItemGroup>
+          </ItemExtra>
+        </ItemContent>
+      </Item>
+    </ItemGroup>
+  </Link>
 </div>
 `;

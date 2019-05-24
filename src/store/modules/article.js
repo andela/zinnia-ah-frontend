@@ -71,14 +71,15 @@ export const createArticle = articleData => {
   };
 };
 
-export const getSingleArticle = articleId => {
+export const getSingleArticle = (articleId, history) => {
   return async dispatch => {
     dispatch(getArticleStart());
     try {
       const { data } = await fetchArticle(articleId);
       dispatch(getArticleSuccess(data.data));
-    } catch (error) {
-      dispatch(getArticleFailure(error));
+    } catch ({ response }) {
+      response.status === 404 ? history.push('/404') : '';
+      dispatch(getArticleFailure(response.data));
     }
   };
 };

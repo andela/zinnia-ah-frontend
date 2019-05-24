@@ -35,7 +35,7 @@ exports[`BookmarkLists mounts correctly without image 1`] = `
     Array [
       Object {
         "body": "Another cgdsibcod cwdjcb djcubd cjdbc jdwbcikcuic dBody",
-        "createdAt": "2019-05-16T11:32:52.024Z",
+        "createdAt": "",
         "description": "Emmawkfvgwbvu wubvw djkvhis article",
         "id": "2345rfghujhjk",
         "imageThumbnail": "",
@@ -180,8 +180,7 @@ exports[`BookmarkLists mounts correctly without image 1`] = `
                           }
                         }
                       >
-                        8 days
-                         ago
+                        Invalid date
                       </p>
                       <div>
                         <div>
@@ -253,7 +252,7 @@ exports[`BookmarkLists should render correctly 1`] = `
     Array [
       Object {
         "body": "Another cgdsibcod cwdjcb djcubd cjdbc jdwbcikcuic dBody",
-        "createdAt": "2019-05-16T11:32:52.024Z",
+        "createdAt": "",
         "description": "Emmawkfvgwbvu wubvw djkvhis article",
         "id": "2345rfghujhjk",
         "imageThumbnail": "https://dummy.jpg",
@@ -398,8 +397,7 @@ exports[`BookmarkLists should render correctly 1`] = `
                           }
                         }
                       >
-                        8 days
-                         ago
+                        Invalid date
                       </p>
                       <div>
                         <div>

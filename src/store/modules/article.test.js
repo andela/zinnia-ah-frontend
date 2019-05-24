@@ -236,11 +236,16 @@ describe('ARTICLES', () => {
 
     it('fails to fetch an article', () => {
       const error = {
-        status: 'error',
-        message: 'Article does not exist',
+        response: {
+          status: 404,
+          data: {
+            message: 'Article does not exist',
+          },
+        },
       };
 
-      http.get = jest.fn().mockReturnValue(Promise.reject(error));
+      const history = { push: jest.fn() };
+      http.get = jest.fn().mockReturnValue(Promise.reject({ ...error }));
 
       const expectedActions = [
         {
@@ -248,11 +253,11 @@ describe('ARTICLES', () => {
         },
         {
           type: 'FETCH_ARTICLE_FAILURE',
-          error,
+          error: error.response.data,
         },
       ];
 
-      return store.dispatch(getSingleArticle('article')).then(() => {
+      return store.dispatch(getSingleArticle('article', history)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
