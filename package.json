@@ -23,7 +23,7 @@
     ]
   },
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest",
     "test:watch": "jest -u --watchAll --verbose",
     "test:coverage": "jest --verbose --coverage",
     "watch": "webpack-dev-server --mode development --open --hot",

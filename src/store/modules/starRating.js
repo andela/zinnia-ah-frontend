@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-import { http } from '../../api/client';
+import { postStarRating } from '../../api/starRating';
 
 export const RATE_ARTICLE_SUCCESS = 'RATE_ARTICLE_SUCCESS';
 export const RATE_ARTICLE_ERROR = 'RATE_ARTICLE_ERROR';
@@ -21,17 +21,14 @@ export const rateArticleError = () => {
   };
 };
 
-export const starRating = (rating, articleId) => {
-  console.log(articleId);
+export const starRatingRequest = (
+  rating,
+  articleId = '141f4f05-7d81-4593-ab54-e256c1006210',
+) => {
   return async dispatch => {
     try {
-      const response = await http.post(
-        `/articles/141f4f05-7d81-4593-ab54-e256c1006210/rate`,
-        {
-          rating,
-        },
-      );
-      const averageRating = response.data.data.averageRating;
+      const { data } = await postStarRating(rating, articleId);
+      const averageRating = data.data.averageRating;
       dispatch(rateArticleSuccess(rating, averageRating));
     } catch (error) {
       dispatch(rateArticleError());
@@ -45,7 +42,7 @@ const initialState = {
   averageRating: null,
 };
 
-export const articleReducer = (state = initialState, action) => {
+export const starRatingReducer = (state = initialState, action) => {
   switch (action.type) {
     case RATE_ARTICLE_SUCCESS:
       return {

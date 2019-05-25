@@ -3,20 +3,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Rating } from 'semantic-ui-react';
 
-import { starRating } from '../../../store/modules/article';
+import { starRatingRequest } from '../../../store/modules/starRating';
 
-class StarRating extends Component {
+export class StarRating extends Component {
   handleRate = (e, { rating }) => {
-    return this.props.starRating(rating);
+    return this.props.starRatingRequest(rating);
   };
 
   componentDidMount() {
-    return this.props.starRating(this.props.rating);
+    return this.props.starRatingRequest(this.props.rating);
   }
 
   render() {
     return (
-      <div>
+      <div data-test="starRatingComponent">
         <Rating maxRating={5} onRate={this.handleRate} size="massive" />
       </div>
     );
@@ -24,16 +24,16 @@ class StarRating extends Component {
 }
 
 StarRating.propTypes = {
-  starRating: PropTypes.func,
+  starRatingRequest: PropTypes.func,
   rating: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
-  rating: state.article.rating,
-  averageRating: state.article.averageRating,
+  rating: state.starRating.rating,
+  averageRating: state.starRating.averageRating,
 });
 
 export default connect(
   mapStateToProps,
-  { starRating },
+  { starRatingRequest },
 )(StarRating);
