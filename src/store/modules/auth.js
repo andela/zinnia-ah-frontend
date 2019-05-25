@@ -66,13 +66,14 @@ export const socialSuccess = user => {
   };
 };
 
-export const loginUser = userData => {
+export const loginUser = (userData, history, redirectUrl) => {
   return async dispatch => {
     try {
       dispatch(loginInitialize());
       const { data } = await loginRequest(userData);
       setToken(data.data.token);
       dispatch(loginSuccess(data));
+      history.push(redirectUrl);
       toast.success(data.message);
     } catch (error) {
       const { data } = error.response;
@@ -81,12 +82,13 @@ export const loginUser = userData => {
   };
 };
 
-export const signupUser = userData => {
+export const signupUser = (userData, history) => {
   return async dispatch => {
     try {
       dispatch(signUpIntialize());
       const { data } = await signUpRequest(userData);
       dispatch(signUpSuccess(data));
+      history.push('/');
       toast.success(data.message);
     } catch (error) {
       const { data } = error.response;

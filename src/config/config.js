@@ -1,5 +1,6 @@
 export const HOST_URL =
-  'https://zinnia-ah-backend-staging.herokuapp.com/api/v1';
+  // 'https://zinnia-ah-backend-staging.herokuapp.com/api/v1';
+  'http://localhost:3000/api/v1';
 
 export const DEFAULT_PROFILE_PICTURE =
   'https://res.cloudinary.com/emmsdan/image/upload/v1557817225/authors-haven/avatar_pupqrh_hylxen.svg';

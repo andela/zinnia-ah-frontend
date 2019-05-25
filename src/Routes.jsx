@@ -9,18 +9,19 @@ import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';
 import NotFound from './pages/NotFound/NotFound';
 import Editor from './pages/Editor';
+import PrivateRoute from './components/presentationals/AuthenticationWrapper/AuthenticationWrapper';
 
 const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={App} />
-      <Route exact path="/login" component={AuthenticationLayout} />
+      <Route path="/@:username" component={Profile} />
       <Route exact path="/signup" component={AuthenticationLayout} />
       <Route path="/users/reset-password" exact component={ResetPassword} />
       <Route path="/forgot-password" exact component={ForgotPassword} />
-      <Route path="/@:username" component={Profile} />
       <Route path="/social-auth" exact component={SocialAuth} />
-      <Route path="/editor" component={Editor} />
+      <Route exact path="/login" component={AuthenticationLayout} />
+      <PrivateRoute path="/editor" component={Editor} />
       <Route component={NotFound} />
     </Switch>
   );
