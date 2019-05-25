@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 import { signUpRequest, loginRequest } from '../../api/auth';
-import { setToken } from '../../api/helpers';
+import { setToken, encodeUserObject } from '../../api/helpers';
 
 //constants
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
@@ -72,7 +72,8 @@ export const loginUser = (userData, history, redirectUrl) => {
       dispatch(loginInitialize());
       const { data } = await loginRequest(userData);
       setToken(data.data.token);
-      dispatch(loginSuccess(data));
+      encodeUserObject(data.data.authenticatedUser);
+      dispatch(loginSuccess(data.data.authenticatedUser));
       history.push(redirectUrl);
       toast.success(data.message);
     } catch (error) {
@@ -93,6 +94,18 @@ export const signupUser = (userData, history) => {
     } catch (error) {
       const { data } = error.response;
       dispatch(signUpError([data]));
+    }
+  };
+};
+
+export const autoLogin = userObject => {
+  return async dispatch => {
+    try {
+      dispatch(loginInitialize());
+      dispatch(loginSuccess(userObject));
+    } catch (error) {
+      toast.error(error.message);
+      dispatch(loginError(error));
     }
   };
 };
@@ -129,7 +142,7 @@ export const authReducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
+        loggedInUser: action.response,
         isLoading: false,
         errorResponse: [],
       };

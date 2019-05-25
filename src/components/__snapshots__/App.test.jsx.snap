@@ -2,6 +2,7 @@
 
 exports[`App should render correctly 1`] = `
 <div>
+  <Navbar />
   <ToastContainer
     autoClose={5000}
     bodyClassName={null}

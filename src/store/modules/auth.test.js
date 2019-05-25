@@ -14,6 +14,7 @@ import {
   loginInitialize,
   loginSuccess,
   socialSuccess,
+  autoLogin,
 } from './auth';
 import { setupStore } from '../../utils/testHelpers';
 
@@ -62,6 +63,9 @@ describe('SIGNUP ACTIONS', () => {
     expect(signUpError(error)).toEqual(action);
   });
   it('should dispatch a successful signup action', () => {
+    const history = {
+      push: jest.fn(),
+    };
     http.post = jest
       .fn()
       .mockReturnValue(Promise.resolve({ data: signupMockData }));
@@ -74,7 +78,7 @@ describe('SIGNUP ACTIONS', () => {
         response: signupMockData,
       },
     ];
-    return store.dispatch(signupUser()).then(() => {
+    return store.dispatch(signupUser({}, history)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -89,6 +93,16 @@ describe('SIGNUP ACTIONS', () => {
     ];
     store.dispatch(signupUser()).then(() => {
       expect(store.getActions()).toEqual(errorActions);
+    });
+  });
+
+  it('should dispatch a successful autologin action', () => {
+    const autoLoginActions = [
+      { type: 'LOGIN_REQUESTED' },
+      { type: 'LOGIN_SUCCESS', response: {} },
+    ];
+    store.dispatch(autoLogin({})).then(() => {
+      expect(store.getActions()).toEqual(autoLoginActions);
     });
   });
 });
@@ -163,6 +177,7 @@ describe('auth reducer test suite', () => {
   it('should return loginIntialize reducer', () => {
     const action = loginInitialize();
     const state = authReducer(initialState, action);
+
     expect(state.isLoading).toBe(true);
   });
 
@@ -170,7 +185,6 @@ describe('auth reducer test suite', () => {
     const action = loginSuccess();
     const state = authReducer(initialState, action);
     expect(state.isLoading).toBe(false);
-    expect(state.successResponse).toEqual(action.response);
   });
 
   it('should return social success reducer', () => {
