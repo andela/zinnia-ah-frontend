@@ -7,10 +7,12 @@ import 'semantic-ui-css/semantic.min.css';
 
 import Routes from './Routes.jsx';
 import store from './store/store';
+import Navbar from './components/presentationals/Navbar/Navbar.jsx';
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
+      <Navbar />
       <Routes />
     </Provider>
   </BrowserRouter>,

@@ -4,13 +4,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.scss';
-import Navbar from './presentationals/Navbar/Navbar';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <ToastContainer autoClose={5000} />
         <h1 className="toothy"> My React App!! </h1>
         <Link to="/login">
