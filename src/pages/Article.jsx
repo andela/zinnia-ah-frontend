@@ -11,9 +11,6 @@ import Button from '../components/presentationals/Button/Button';
 //Reducer
 import { likeArticle } from '../store/modules/article';
 
-// stylesheets
-// import './Article.scss';
-
 // Images
 import LikeIcon from '../components/images/like.svg';
 import UnLikeIcon from '../components/images/unlike.svg';
