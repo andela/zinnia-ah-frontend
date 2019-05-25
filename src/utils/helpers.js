@@ -1,11 +1,7 @@
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-import {
-  CLOUDINARY_API,
-  CLOUD_PRESET,
-  CREATE_ARTICLE_CLOUDINARY_ULR,
-} from '../config/config.js';
+import { CREATE_ARTICLE_CLOUDINARY_ULR } from '../config/config.js';
 
 export const decodeToken = token => {
   return jwt.decode(token);
