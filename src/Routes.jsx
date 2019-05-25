@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import AuthenticationLayout from './pages/Authentication';
 import ForgotPassword from './pages/ForgotPassword';
+import Article from './pages/Article';
 import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';
@@ -20,6 +21,7 @@ const Routes = () => {
       <Route path="/forgot-password" exact component={ForgotPassword} />
       <Route path="/@:username" component={Profile} />
       <Route path="/social-auth" exact component={SocialAuth} />
+      <Route path="/article" component={Article} />
       <Route path="/editor" component={Editor} />
       <Route component={NotFound} />
     </Switch>
