@@ -1,5 +1,6 @@
 import { http } from '../../api/client';
 import uniqueBy from 'unique-by';
+import { decodeToken, getToken } from '../../api/helpers';
 
 export const SAVE_COMMENTS = 'SAVE_COMMENTS';
 export const CREATE_COMMENT_REQUEST = 'CREATE_COMMENT_REQUEST';
@@ -100,56 +101,14 @@ export const createComment = data => async dispatch => {
 };
 
 const getUserId = () => {
-  const {
-    data: { id: userId },
-  } = JSON.parse(localStorage.getItem('userprofile'));
-  return userId;
+  const user = decodeToken(getToken()) || { id: '' };
+  return user.id;
 };
 
 export const initialState = {
   isLoading: false,
   userId: getUserId(),
-  comments: [
-    {
-      id: '0c034589-ba07-45fb-b383-9c4e516beb19',
-      userId: '0298932c-d9ab-4d32-abca-be92a771ef2c',
-      articleId: '141f4f05-7d81-4593-ab54-e256c1006210',
-      body: 'My second comment here',
-      createdAt: '2019-05-20T19:20:33.191Z',
-      updatedAt: '2019-05-20T19:20:33.191Z',
-      author: {
-        username: 'musonant',
-        image: null,
-      },
-      likes: [
-        {
-          userId: '0298932c-d9ab-4d31-abca-be92a771ef2c',
-          commentId: '0c034589-ba07-45fb-b383-9c4e516beb19',
-          createdAt: '2019-05-21T11:46:46.684Z',
-          updatedAt: '2019-05-21T11:46:46.684Z',
-        },
-        {
-          userId: '0298932c-d9ab-4d32-abca-be92a771ef2c',
-          commentId: '0c034589-ba07-45fb-b383-9c4e516beb19',
-          createdAt: '2019-05-21T11:46:46.684Z',
-          updatedAt: '2019-05-21T11:46:46.684Z',
-        },
-      ],
-    },
-    {
-      id: '5d17614e-5a51-47ea-a6eb-63853a4634ee',
-      userId: '0298932c-d9ab-4d32-abca-be92a771ef2c',
-      articleId: '141f4f05-7d81-4593-ab54-e256c1006210',
-      body: 'My first initial comment here',
-      createdAt: '2019-05-20T19:25:21.782Z',
-      updatedAt: '2019-05-20T19:25:21.782Z',
-      author: {
-        username: 'musonant',
-        image: null,
-      },
-      likes: [],
-    },
-  ],
+  comments: [],
 };
 export const commentReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -12,6 +12,7 @@ import Title from '../components/presentationals/Title/Title';
 import Author from '../components/presentationals/Author/Author';
 import Button from '../components/presentationals/Button/Button';
 import Avatar from '../components/presentationals/Avatar/Avatar';
+import CommentSection from '../components/presentationals/Comment/CommentSection';
 
 // modules
 import { getSingleArticle } from '../store/modules/article';
@@ -24,6 +25,7 @@ import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 export class Article extends Component {
   componentDidMount() {
+    console.log('Mounted:::');
     const {
       article,
       match: {
@@ -38,6 +40,9 @@ export class Article extends Component {
 
   render() {
     const { article, isLoading } = this.props;
+    const articleComments = this.props.comments.filter(
+      comment => comment.articleId === article.id,
+    );
     return (
       <Fragment>
         {isLoading && <Loader size="large" text="loading, please wait" />}
@@ -176,6 +181,10 @@ export class Article extends Component {
                   </div>
                 </div>
               </Item.Content>
+              <CommentSection
+                articleId={article.id || ''}
+                comments={articleComments}
+              />
             </Item>
           </div>
           {/*right side*/}
@@ -264,6 +273,7 @@ Article.propTypes = {
   }),
   profileUrl: PropTypes.string,
   history: PropTypes.object,
+  comments: PropTypes.array.isRequired,
 };
 
 Article.defaultProps = {
@@ -275,6 +285,7 @@ const mapStateToProps = (state, props) => {
   return {
     isLoading: state.article.isLoading,
     article: state.article.articles[articleId] || {},
+    comments: state.comments.comments,
   };
 };
 

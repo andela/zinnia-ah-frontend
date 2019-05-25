@@ -71,6 +71,10 @@ export const loginUser = userData => {
     try {
       dispatch(loginInitialize());
       const { data } = await loginRequest(userData);
+      localStorage.setItem(
+        'authenticatedUser',
+        JSON.stringify(data.data.authenticatedUser),
+      );
       setToken(data.data.token);
       dispatch(loginSuccess(data));
       toast.success(data.message);

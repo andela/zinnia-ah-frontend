@@ -18,9 +18,9 @@ class CommentForm extends Component {
   };
 
   componentDidMount() {
-    const { data } = JSON.parse(localStorage.getItem('userprofile'));
+    const image = JSON.parse(localStorage.getItem('authenticatedUser')).image;
     this.setState({
-      userAvatar: data.image,
+      userAvatar: image,
     });
   }
 

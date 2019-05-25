@@ -1,4 +1,5 @@
 import { articleRequest, fetchArticle } from '../../api/article';
+import { saveComments } from './comments';
 
 //constants
 export const CREATE_ARTCLE_INITIALIZED = 'CREATE_ARTCLE_INITIALIZED';
@@ -77,6 +78,7 @@ export const getSingleArticle = (articleId, history) => {
     try {
       const { data } = await fetchArticle(articleId);
       dispatch(getArticleSuccess(data.data));
+      dispatch(saveComments(data.data.comments));
     } catch ({ response }) {
       response.status === 404 ? history.push('/404') : '';
       dispatch(getArticleFailure(response.data));
