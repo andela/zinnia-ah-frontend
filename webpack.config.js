@@ -40,7 +40,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: './.env.production',
+      path: './.env.production.production',
       safe: true,
       systemvars: true,
       silent: true,
