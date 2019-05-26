@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleCard:::  should render ArticleCard correctly 1`] = `
+<div
+  className="article"
+>
+  <div
+    className="thumbnail"
+  >
+    <img
+      src="https://react.semantic-ui.com/images/wireframe/image.png"
+    />
+  </div>
+  <div
+    className="description"
+  >
+    <Link
+      to="/read/article-card-title-1234"
+    >
+      <Title
+        className="ui header"
+        content="article card title"
+      />
+    </Link>
+    <p>
+      article card testing sample, layout
+    </p>
+  </div>
+</div>
+`;

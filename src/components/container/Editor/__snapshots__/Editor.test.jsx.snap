@@ -6,7 +6,6 @@ exports[`<EditorContainer /> renders the component 1`] = `
     size="large"
     text="please wait"
   />
-  <Navbar />
   <div
     className="editor-main"
   >

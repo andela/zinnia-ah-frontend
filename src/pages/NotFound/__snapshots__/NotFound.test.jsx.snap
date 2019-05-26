@@ -2,7 +2,7 @@
 
 exports[`Not Found renders without errors 1`] = `
 <Fragment>
-  <Navbar>
+  <ConnectFunction>
     <div
       className="hide-sm w-15"
     >
@@ -15,7 +15,7 @@ exports[`Not Found renders without errors 1`] = `
         />
       </Link>
     </div>
-  </Navbar>
+  </ConnectFunction>
   <div
     className="d-flex justify-content-center text-content"
   >

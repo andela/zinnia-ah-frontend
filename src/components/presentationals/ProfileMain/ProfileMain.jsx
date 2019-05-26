@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React from 'react';
 import { Tab } from 'semantic-ui-react';
 import PropTypes from 'prop-types';

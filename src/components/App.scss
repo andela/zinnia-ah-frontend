@@ -3,3 +3,45 @@
 .toothy {
   color: $primary-black;
 }
+
+.pt-3 {
+  padding-top: 3.125rem;
+}
+
+.nav-items {
+  display: flex;
+
+  .search-bar {
+    margin-right: 1.25rem;
+  }
+}
+
+.search-bar {
+  height: 3.125rem;
+  width: 22.9375rem;
+
+  .left {
+    margin-top: 0;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 37.5rem) {
+
+  .pt-3 {
+    padding-top: .5rem;
+  }
+}
+
+@media screen and (min-width: 37.5rem) and ( max-width: 64rem) {
+  .pt-3 {
+    padding-top: .5rem;
+  }
+}
+
+
+@media only screen and (max-width: 28.625rem) {
+  .pt-3 {
+    padding-top: .5rem;
+  }
+}
