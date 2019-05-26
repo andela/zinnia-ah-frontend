@@ -1,168 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Vertical Card should render correctly 1`] = `
-<VerticalCard>
+<div
+  className="card-1"
+>
   <Card>
-    <div
-      className="ui card"
-      onClick={[Function]}
-    >
-      <Image
-        as="img"
-        src="https://res.cloudinary.com/nedy123/image/upload/v1531499318/mbppkzeehprspnbbcym8.png"
-        ui={false}
-        wrapped={true}
-      >
-        <div
-          className="image"
-        >
-          <img
-            src="https://res.cloudinary.com/nedy123/image/upload/v1531499318/mbppkzeehprspnbbcym8.png"
-          />
-        </div>
-      </Image>
-      <CardContent>
-        <div
-          className="content"
-        >
-          <CardHeader>
-            <div
-              className="header"
-            >
-              <Title
-                className="title-avg"
-                content="City of France"
-              >
-                <h1
-                  className="title title-avg"
-                >
-                  City of France
-                </h1>
-              </Title>
-              <Button
-                className="btn-transparent"
-                type="button"
-                value={
-                  <Icon
-                    as="i"
-                    name="bookmark outline"
-                    style={
-                      Object {
-                        "fontSize": "1.8rem",
-                        "margin": "0",
-                      }
-                    }
-                  />
+    <Image
+      as="img"
+      src="fgbjm"
+      ui={false}
+      wrapped={true}
+    />
+    <CardContent>
+      <CardHeader>
+        <Title
+          className="title-avg"
+          content="wefds"
+        />
+        <Button
+          className="btn-transparent"
+          type="button"
+          value={
+            <Icon
+              as="i"
+              name="bookmark outline"
+              style={
+                Object {
+                  "fontSize": "1.8rem",
+                  "margin": "0",
                 }
-              >
-                <button
-                  className="btn btn-transparent"
-                  type="button"
-                >
-                  <Icon
-                    as="i"
-                    name="bookmark outline"
-                    style={
-                      Object {
-                        "fontSize": "1.8rem",
-                        "margin": "0",
-                      }
-                    }
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="bookmark outline icon"
-                      onClick={[Function]}
-                      style={
-                        Object {
-                          "fontSize": "1.8rem",
-                          "margin": "0",
-                        }
-                      }
-                    />
-                  </Icon>
-                </button>
-              </Button>
-            </div>
-          </CardHeader>
-          <CardDescription>
-            <div
-              className="description"
-            >
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected.
-            </div>
-          </CardDescription>
-        </div>
-      </CardContent>
-      <div
-        className="card-footer"
-      >
-        <PopularAuthorItem
-          image=""
-          key="uiojklnmkopiuygh"
-          name="ebenezer"
-          url="notontwitter.com"
-          username="eben"
-        >
-          <div
-            className="author-slot"
-          >
-            <UserThumbnail
-              href="#"
-              image=""
-              name="ebenezer"
-              tag="a"
-              url="notontwitter.com"
-              username="eben"
-            >
-              <a
-                className="user-thumbnail"
-                href="notontwitter.com"
-              >
-                <Avatar
-                  className=""
-                  url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
-                >
-                  <img
-                    alt="avatar"
-                    className="avatar "
-                    src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
-                  />
-                </Avatar>
-                <div>
-                  <span
-                    className="name"
-                  >
-                     
-                    ebenezer
-                     
-                  </span>
-                  <span
-                    className="info"
-                  >
-                     @
-                    eben
-                     
-                  </span>
-                </div>
-              </a>
-            </UserThumbnail>
-            <Button
-              className="btn-white right-small"
-              type="submit"
-              value="See Posts"
-            >
-              <button
-                className="btn btn-white right-small"
-                type="submit"
-              >
-                See Posts
-              </button>
-            </Button>
-          </div>
-        </PopularAuthorItem>
-      </div>
+              }
+            />
+          }
+        />
+      </CardHeader>
+      <CardDescription>
+        werfderfde
+      </CardDescription>
+    </CardContent>
+    <div
+      className="card-footer"
+    >
+      <PopularAuthorItem
+        image="wefdwed"
+        key="uiojklnmkopiuygh"
+        name=""
+        url="sdfgvds"
+        username="sdfgvds"
+        value="Read More"
+      />
     </div>
   </Card>
-</VerticalCard>
+</div>
 `;

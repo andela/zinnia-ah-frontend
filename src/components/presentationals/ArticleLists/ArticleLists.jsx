@@ -84,10 +84,10 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                           >
                             <Icon
                               name="trash"
+                              className="delete-button"
+                              size="large"
                               style={{
-                                fontSize: '1.5rem',
                                 margin: '0',
-                                color: '#ff0000',
                               }}
                             />
                           </Button>
@@ -102,7 +102,13 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                         )}
                         <Modal.Header>Delete Article!</Modal.Header>
                         <Modal.Content>
-                          <p>Are you sure you want to delete this Article?</p>
+                          <p
+                            style={{
+                              color: '#000000',
+                            }}
+                          >
+                            Are you sure you want to delete this Article?
+                          </p>
                         </Modal.Content>
                         <Modal.Actions>
                           <Button

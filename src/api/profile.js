@@ -11,3 +11,7 @@ export const deleteArticleRequest = async articleId => {
 export const getBookmarksRequest = async () => {
   return await http.get(`/users/bookmarks`);
 };
+
+export const getPopularAuthorsRequest = async () => {
+  return await http.get(`/users/popular-authors`);
+};

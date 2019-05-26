@@ -1,114 +1,241 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Input } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import Glide from '@glidejs/glide';
+import PropTypes from 'prop-types';
 
 // components
-import Navbar from '../components/presentationals/Navbar/Navbar';
-import Button from '../components/presentationals/Button/Button';
 import PopularAuthorsList from '../components/presentationals/PopularAuthorsList/PopularAuthorsList';
 import Title from '../components/presentationals/Title/Title';
 import VerticalCard from '../components/presentationals/VerticalCard/VerticalCard';
 import Tag from '../components/presentationals/Tag/Tag';
-// import Carousel from '../components/presentationals/Carousel/Carousel';
 
 // styles
 import './App.scss';
 import HorizontalCard from '../components/presentationals/HorizontalCard/HorizontalCard';
 import Image from '../components/presentationals/Image/Image';
 
+// actions
+import { getPopularAuthors } from '../store/modules/profile';
+import { getTrendingArticles } from '../store/modules/article';
+import { getAllTags, getArticleByTag } from '../store/modules/tag';
+import { getBookmarks } from '../store/modules/profile';
+
 class App extends Component {
   componentDidMount() {
-    new Glide('.glide', {
-      type: 'carousel',
-      perView: 2,
-      focusAt: 'center',
-      gap: '50',
-      autoplay: '3000',
-      hoverpause: true,
-      keyboard: true,
-      animationDuration: '2000',
-      breakpoints: {
-        1250: {
-          perView: 1,
-        },
-        800: {
-          perView: 1,
-        },
-        480: {
-          perView: 1,
-        },
-        399: {
-          perView: 1,
-        },
-      },
-    }).mount();
+    // new Glide('.glide', {
+    //   type: 'carousel',
+    //   perView: 2,
+    //   focusAt: 'center',
+    //   gap: '50',
+    //   autoplay: '3000',
+    //   hoverpause: true,
+    //   keyboard: true,
+    //   animationDuration: '2000',
+    //   breakpoints: {
+    //     1250: {
+    //       perView: 1,
+    //     },
+    //     800: {
+    //       perView: 1,
+    //     },
+    //     480: {
+    //       perView: 1,
+    //     },
+    //     399: {
+    //       perView: 1,
+    //     },
+    //   },
+    // }).mount();
+    this.props.getTrendingArticles();
+    this.props.getPopularAuthors();
+    this.props.getAllTags();
+    this.props.getArticleByTag('technology');
   }
-
-  state = {
-    authors: [
-      {
-        id: 23,
-        name: 'Nedy',
-        url: 'https://google.com',
-        image:
-          'https://res.cloudinary.com/nedy123/image/upload/v1544002134/xykn3yriqcsgrbwrqwa6.jpg',
-        username: 'nedyudombat',
-      },
-      {
-        id: 24,
-        name: 'Samantha',
-        url: 'https://google.com',
-        image:
-          'https://res.cloudinary.com/nedy123/image/upload/v1516819339/lady-2_jqx4go.jpg',
-        username: 'samanthress',
-      },
-      {
-        id: 25,
-        name: 'Hilary',
-        url: 'https://google.com',
-        image:
-          'https://res.cloudinary.com/nedy123/image/upload/v1516819339/dummy-av.jpg',
-        username: 'noMoreEben',
-      },
-    ],
-  };
-  Searchbar() {
-    return (
-      <form className="search-bar">
-        <Input icon="search" iconPosition="left" placeholder="Search..." />
-      </form>
-    );
-  }
-
   render() {
+    const {
+      isGettingPopularAuthorsLoading,
+      authors,
+      trendingArticles,
+      isGettingTrendingArticles,
+      taggedArticles,
+      tags,
+      getArticleByTag,
+    } = this.props;
     return (
       <Fragment>
         <div className="top">
           <div className="trending">
             <Title content="Trending" className="title-md index-title" />
-            <div className="trending-inner up">
-              <div className="v-card-container">
-                <VerticalCard />
+            {!isGettingTrendingArticles ? (
+              <div className="trending-main-div">
+                {trendingArticles.map((article, index) =>
+                  index === 0 || index === 5 ? (
+                    <VerticalCard article={article} index={index} />
+                  ) : (
+                    <HorizontalCard article={article} index={index} />
+                  ),
+                )}
               </div>
-              <div className="h-card-container">
-                <HorizontalCard />
-                <HorizontalCard />
+            ) : (
+              <div className="trending-main-div">
+                <div className="card-0">
+                  <div className="ui">
+                    <div className="ui card">
+                      <div className="image">
+                        <div className="ui placeholder">
+                          <div className="square image" />
+                        </div>
+                      </div>
+                      <div className="content">
+                        <div className="ui placeholder">
+                          <div className="header">
+                            <div className="very short line" />
+                            <div className="medium line" />
+                          </div>
+                          <div className="paragraph">
+                            <div className="short line" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="extra content">
+                        <div className="ui disabled button">Read More</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-1">
+                  <div className="ui">
+                    <div className="column">
+                      <div className="ui raised segment">
+                        <div className="ui placeholder">
+                          <div className="image header">
+                            <div className="line" />
+                            <div className="line" />
+                          </div>
+                          <div className="paragraph">
+                            <div className="medium line" />
+                            <div className="short line" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-2">
+                  <div className="ui">
+                    <div className="column">
+                      <div className="ui raised segment">
+                        <div className="ui placeholder">
+                          <div className="image header">
+                            <div className="line" />
+                            <div className="line" />
+                          </div>
+                          <div className="paragraph">
+                            <div className="medium line" />
+                            <div className="short line" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-3">
+                  <div className="ui">
+                    <div className="column">
+                      <div className="ui raised segment">
+                        <div className="ui placeholder">
+                          <div className="image header">
+                            <div className="line" />
+                            <div className="line" />
+                          </div>
+                          <div className="paragraph">
+                            <div className="medium line" />
+                            <div className="short line" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-4">
+                  <div className="ui">
+                    <div className="column">
+                      <div className="ui raised segment">
+                        <div className="ui placeholder">
+                          <div className="image header">
+                            <div className="line" />
+                            <div className="line" />
+                          </div>
+                          <div className="paragraph">
+                            <div className="medium line" />
+                            <div className="short line" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-5">
+                  <div className="ui">
+                    <div className="ui card">
+                      <div className="image">
+                        <div className="ui placeholder">
+                          <div className="square image" />
+                        </div>
+                      </div>
+                      <div className="content">
+                        <div className="ui placeholder">
+                          <div className="header">
+                            <div className="very short line" />
+                            <div className="medium line" />
+                          </div>
+                          <div className="paragraph">
+                            <div className="short line" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="extra content">
+                        <div className="ui disabled button">Read More</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="trending-inner bottom">
-              <div className="h-card-container">
-                <HorizontalCard />
-                <HorizontalCard />
-              </div>
-              <div className="v-card-container">
-                <VerticalCard />
-              </div>
-            </div>
+            )}
           </div>
           <div className="popular">
-            <PopularAuthorsList authors={this.state.authors} />
+            {!isGettingPopularAuthorsLoading ? (
+              <PopularAuthorsList authors={authors} />
+            ) : (
+              <div className="skeletal-loader">
+                <div className="ui fluid placeholder">
+                  <div className="image header">
+                    <div className="line" />
+                    <div className="line" />
+                  </div>
+                </div>
+                <div className="ui fluid placeholder">
+                  <div className="image header">
+                    <div className="line" />
+                    <div className="line" />
+                  </div>
+                </div>
+                <div className="ui fluid placeholder">
+                  <div className="image header">
+                    <div className="line" />
+                    <div className="line" />
+                  </div>
+                </div>
+                <div className="ui fluid placeholder">
+                  <div className="image header">
+                    <div className="line" />
+                    <div className="line" />
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="justify-content-center ads">
               <div
                 style={{
@@ -149,81 +276,177 @@ class App extends Component {
         </div>
         <div className="middle">
           <div className="tag-result-div">
-            <div
-              className="h-card-container"
-              style={{
-                marginRight: 'auto',
-              }}
-            >
-              <HorizontalCard />
-              <HorizontalCard />
-            </div>
             <div className="h-card-container">
-              <HorizontalCard />
-              <HorizontalCard />
+              {taggedArticles.length === 0 ? (
+                <div className="ui">
+                  <div className="column">
+                    <div className="ui raised segment">
+                      <div className="ui placeholder">
+                        <div className="image header">
+                          <div className="line" />
+                          <div className="line" />
+                        </div>
+                        <div className="paragraph">
+                          <div className="medium line" />
+                          <div className="short line" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                taggedArticles.map(article => (
+                  <HorizontalCard article={article} key={article.id} />
+                ))
+              )}
             </div>
           </div>
           <div className="tag-div">
             <Title content="Tags" className="title-md index-title" />
-            <div className="inner">
-              <Tag value="Sports" />
-              <Tag value="Technology" className="active" />
-              <Tag value="Finance" />
-              <Tag value="International Relations" />
-              <Tag value="Religion" />
-              <Tag value="Nature & Life" />
-              <Tag value="Arts & Culture" />
-            </div>
+            {tags.length === 0 ? (
+              <div className="ui placeholder d-flex">
+                <div className="very short line" />
+                <div className="very short line" />
+              </div>
+            ) : (
+              <div className="inner">
+                {tags.map(tag => (
+                  <Tag
+                    value={tag.name}
+                    key={tag.id}
+                    onClick={() => getArticleByTag(tag.name)}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="main-bottom">
-          <div className="suggested-reads">
-            <Title content="Suggested Reads" className="title-md index-title" />
-            <div>
-              <div className="glide">
-                <div className="glide__track" data-glide-el="track">
-                  <ul className="glide__slides">
-                    <li className="glide__slide">
-                      <HorizontalCard />
-                    </li>
-                    <li className="glide__slide">
-                      <HorizontalCard />
-                    </li>
-                    <li className="glide__slide">
-                      <HorizontalCard />
-                    </li>
-                  </ul>
-                </div>
-                <div className="glide__bullets" data-glide-el="controls[nav]">
-                  <button className="glide__bullet" data-glide-dir="=0" />
-                  <button className="glide__bullet" data-glide-dir="=1" />
-                  <button className="glide__bullet" data-glide-dir="=2" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="footer">
-            <Link to="/" className="footer-link">
-              About
-            </Link>
-            <Link to="/" className="footer-link">
-              Terms & Conditions
-            </Link>
-            <Link to="/" className="footer-link">
-              Contact
-            </Link>
-            <Link to="/" className="footer-link">
-              Support
-            </Link>
-            <Link to="/" className="footer-link">
-              Cookies
-            </Link>
-          </div>
-        </div>
+        {/*{isGettingTrendingArticles === true ? (*/}
+
+        {/*  <div className="main-bottom">*/}
+        {/*    <div className="suggested-reads">*/}
+        {/*      <Title content="Suggested Reads" className="title-md index-title" />*/}
+        {/*      <div>*/}
+        {/*        <div className="glide">*/}
+        {/*          <div className="glide__track" data-glide-el="track">*/}
+        {/*            <ul className="glide__slides">*/}
+        {/*              <li className="glide__slide">*/}
+        {/*                <HorizontalCard />*/}
+        {/*              </li>*/}
+        {/*              <li className="glide__slide">*/}
+        {/*                <HorizontalCard />*/}
+        {/*              </li>*/}
+        {/*              <li className="glide__slide">*/}
+        {/*                <HorizontalCard />*/}
+        {/*              </li>*/}
+        {/*            </ul>*/}
+        {/*          </div>*/}
+        {/*          <div className="glide__bullets" data-glide-el="controls[nav]">*/}
+        {/*            <button className="glide__bullet" data-glide-dir="=0" />*/}
+        {/*            <button className="glide__bullet" data-glide-dir="=1" />*/}
+        {/*            <button className="glide__bullet" data-glide-dir="=2" />*/}
+        {/*          </div>*/}
+        {/*        </div>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*    <div className="footer">*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        About*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Terms & Conditions*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Contact*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Support*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Cookies*/}
+        {/*      </Link>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*) : (*/}
+
+        {/*  <div className="main-bottom">*/}
+        {/*    <div className="suggested-reads">*/}
+        {/*      <Title content="Suggested Reads" className="title-md index-title" />*/}
+        {/*      <div>*/}
+        {/*        <div className="glide">*/}
+        {/*          <div className="glide__track" data-glide-el="track">*/}
+        {/*            <ul className="glide__slides">*/}
+        {/*              {suggestedReads.map(article => (*/}
+        {/*                <li className="glide__slide" key={article.id}>*/}
+        {/*                  <HorizontalCard article={article} />*/}
+        {/*                </li>*/}
+        {/*              ))}*/}
+        {/*            </ul>*/}
+        {/*          </div>*/}
+        {/*          <div className="glide__bullets" data-glide-el="controls[nav]">*/}
+        {/*            <button className="glide__bullet" data-glide-dir="=0" />*/}
+        {/*            <button className="glide__bullet" data-glide-dir="=1" />*/}
+        {/*            <button className="glide__bullet" data-glide-dir="=2" />*/}
+        {/*          </div>*/}
+        {/*        </div>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*    <div className="footer">*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        About*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Terms & Conditions*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Contact*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Support*/}
+        {/*      </Link>*/}
+        {/*      <Link to="/" className="footer-link">*/}
+        {/*        Cookies*/}
+        {/*      </Link>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*)}*/}
       </Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  authors: state.profile.authors,
+  isGettingPopularAuthorsLoading: state.profile.isGettingPopularAuthorsLoading,
+  trendingArticles: state.article.trendingArticles,
+  isGettingTrendingArticles: state.article.isGettingTrendingArticles,
+  taggedArticles: state.tag.articles,
+  tags: state.tag.tags,
+  isSuggestedReadsLoading: state.profile.isLoading,
+  bookmarks: state.profile.bookmarks,
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    getPopularAuthors,
+    getTrendingArticles,
+    getAllTags,
+    getArticleByTag,
+    getBookmarks,
+  },
+)(App);
+
+App.propTypes = {
+  authors: PropTypes.array.isRequired,
+  getAllTags: PropTypes.func.isRequired,
+  getArticleByTag: PropTypes.func.isRequired,
+  getPopularAuthors: PropTypes.func.isRequired,
+  getTrendingArticles: PropTypes.func.isRequired,
+  isGettingPopularAuthorsLoading: PropTypes.bool.isRequired,
+  isGettingTrendingArticles: PropTypes.bool.isRequired,
+  taggedArticles: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
+  trendingArticles: PropTypes.array.isRequired,
+};

@@ -16,3 +16,7 @@ export const likeArticleRequest = async action => {
     headers: { 'x-access-token': token },
   });
 };
+
+export const getTrendingArticlesRequest = async () => {
+  return await http.get('/articles/trending');
+};

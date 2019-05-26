@@ -5,6 +5,7 @@ import {
   getProfileRequest,
   deleteArticleRequest,
   getBookmarksRequest,
+  getPopularAuthorsRequest,
 } from '../../api/profile';
 
 export const GET_PROFILE_ERROR = 'GET_PROFILE_ERROR';
@@ -19,6 +20,8 @@ export const UPDATE_IMAGE_SUCCESS = 'UPDATE_IMAGE_SUCCESS';
 export const GET_BOOKMARKS_PROCESS = 'GET_BOOKMARKS_PROCESS';
 export const GET_BOOKMARKS_SUCCESS = 'GET_BOOKMARKS_SUCCESS';
 export const GET_BOOKMARKS_ERROR = 'GET_BOOKMARKS_ERROR';
+export const GET_POPULAR_AUTHORS_SUCCESS = 'GET_POPULAR_AUTHORS_SUCCESS';
+export const GET_POPULAR_AUTHORS_ERROR = 'GET_POPULAR_AUTHORS_ERROR';
 
 export const getUserProfileError = error => ({
   type: GET_PROFILE_ERROR,
@@ -77,6 +80,16 @@ export const updateUserProfile = profile => ({
   ...profile,
 });
 
+export const getPopularAuthorsSuccess = authors => ({
+  type: GET_POPULAR_AUTHORS_SUCCESS,
+  authors,
+});
+
+export const getPopularAuthorsError = error => ({
+  type: GET_POPULAR_AUTHORS_ERROR,
+  error,
+});
+
 export const getUserProfileRequest = username => async dispatch => {
   try {
     const res = await getProfileRequest(username);
@@ -125,6 +138,15 @@ export const getBookmarks = () => async dispatch => {
   }
 };
 
+export const getPopularAuthors = () => async dispatch => {
+  try {
+    const { data } = await getPopularAuthorsRequest();
+    dispatch(getPopularAuthorsSuccess(data.data));
+  } catch (error) {
+    dispatch(getPopularAuthorsError(error));
+  }
+};
+
 export const DEFAULT_STATE = {
   firstName: '',
   lastName: '',
@@ -140,6 +162,8 @@ export const DEFAULT_STATE = {
   error: {},
   isLoading: true,
   isDeleting: false,
+  isGettingPopularAuthorsLoading: true,
+  authors: [],
 };
 
 export const profileReducer = (state = DEFAULT_STATE, action) => {
@@ -202,6 +226,18 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
         ...state,
         error: action.error,
         isLoading: false,
+      };
+    case GET_POPULAR_AUTHORS_SUCCESS:
+      return {
+        ...state,
+        isGettingPopularAuthorsLoading: false,
+        authors: action.authors,
+      };
+    case GET_POPULAR_AUTHORS_ERROR:
+      return {
+        ...state,
+        isGettingPopularAuthorsLoading: false,
+        error: action.error,
       };
     default:
       return state;

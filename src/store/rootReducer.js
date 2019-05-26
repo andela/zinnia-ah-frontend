@@ -4,6 +4,7 @@ import { profileReducer } from './modules/profile';
 import { articleReducer } from './modules/article';
 import { passwordReducer } from './modules/password';
 import { starRatingReducer } from './modules/starRating';
+import { tagReducer } from './modules/tag';
 
 export default combineReducers({
   auth: authReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   article: articleReducer,
   password: passwordReducer,
   starRating: starRatingReducer,
+  tag: tagReducer,
 });

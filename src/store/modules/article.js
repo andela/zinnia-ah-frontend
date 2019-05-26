@@ -1,4 +1,8 @@
-import { articleRequest, likeArticleRequest } from '../../api/article';
+import {
+  articleRequest,
+  getTrendingArticlesRequest,
+  likeArticleRequest,
+} from '../../api/article';
 
 //constants
 export const CREATE_ARTCLE_INITIALIZED = 'CREATE_ARTCLE_INITIALIZED';
@@ -7,6 +11,8 @@ export const CREATE_ARTICLE_ERROR = 'CREATE_ARTICLE_ERROR';
 export const LIKE_ARTCLE_INITIALIZED = 'LIKE_ARTCLE_INITIALIZED';
 export const LIKE_ARTICLE_SUCCESS = 'LIKE_ARTICLE_SUCCESS';
 export const LIKE_ARTICLE_ERROR = 'LIKE_ARTICLE_ERROR';
+export const GET_TRENDING_ARTICLES_SUCCESS = 'GET_TRENDING_ARTICLES_SUCCESS';
+export const GET_TRENDING_ARTICLES_ERROR = 'GET_TRENDING_ARTICLES_ERROR';
 
 export const createArticleInitialized = () => {
   return {
@@ -48,12 +54,24 @@ export const likeArticleError = error => {
   };
 };
 
+export const getTrendingArticlesSuccess = trendingArticles => ({
+  type: GET_TRENDING_ARTICLES_SUCCESS,
+  trendingArticles,
+});
+
+export const getTrendingArticlesError = error => ({
+  type: GET_TRENDING_ARTICLES_ERROR,
+  error,
+});
+
 export const initialState = {
   isLoading: false,
   errorResponse: [],
   successResponse: {
     status: '',
   },
+  trendingArticles: [],
+  isGettingTrendingArticles: true,
 };
 
 export const createArticle = articleData => {
@@ -80,6 +98,15 @@ export const likeArticle = action => {
       dispatch(likeArticleError([data]));
     }
   };
+};
+
+export const getTrendingArticles = () => async dispatch => {
+  try {
+    const { data } = await getTrendingArticlesRequest();
+    dispatch(getTrendingArticlesSuccess(data.data.rows));
+  } catch (error) {
+    dispatch(getTrendingArticlesError(error.response));
+  }
 };
 
 export const articleReducer = (state = initialState, action) => {
@@ -124,6 +151,18 @@ export const articleReducer = (state = initialState, action) => {
         errorResponse: action.error,
       };
 
+    case GET_TRENDING_ARTICLES_SUCCESS:
+      return {
+        ...state,
+        isGettingTrendingArticles: false,
+        trendingArticles: action.trendingArticles,
+      };
+    case GET_TRENDING_ARTICLES_ERROR:
+      return {
+        ...state,
+        isGettingTrendingArticles: false,
+        error: action.error,
+      };
     default:
       return state;
   }

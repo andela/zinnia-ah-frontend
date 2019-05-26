@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Button from '../Button/Button';
 import UserThumbnail from '../UserThumbnail/UserThumbnail';
 
 import './PopularAuthorItem.scss';
 
-const PopularAuthorItem = ({ name, url, image, username }) => {
+const PopularAuthorItem = ({ name, url, image, username, value, link }) => {
   return (
     <div className="author-slot">
       <UserThumbnail
@@ -17,11 +18,9 @@ const PopularAuthorItem = ({ name, url, image, username }) => {
         image={image}
         username={username}
       />
-      <Button
-        type="submit"
-        value="See Posts"
-        className="btn-white right-small"
-      />
+      <Link to={`/${link}`}>
+        <Button type="submit" value={value} className="btn-white right-small" />
+      </Link>
     </div>
   );
 };
@@ -31,6 +30,7 @@ PopularAuthorItem.propTypes = {
   url: PropTypes.string,
   image: PropTypes.string,
   username: PropTypes.string,
+  value: PropTypes.string,
 };
 
 export default PopularAuthorItem;

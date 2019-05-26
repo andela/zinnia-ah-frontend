@@ -40,11 +40,11 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: './.env.production.production',
+      path: './.env.production',
       safe: true,
       systemvars: true,
       silent: true,
-      defaults: true
+      defaults: true,
     }),
     new HtmlWebpackPlugin({
       template: './index.html',

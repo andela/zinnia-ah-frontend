@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 //style
 import 'semantic-ui-css/semantic.min.css';
@@ -11,13 +12,13 @@ import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
 import Avatar from '../../presentationals/Avatar/Avatar';
 
 const UserThumbnail = ({ url, image, name, username }) => (
-  <a className="user-thumbnail" href={url}>
+  <Link className="user-thumbnail" to={`/@${url}`}>
     <Avatar url={image ? image : DEFAULT_USER_IMAGE_URL} className="" />
     <div>
       <span className="name"> {name} </span>
       <span className="info"> @{username} </span>
     </div>
-  </a>
+  </Link>
 );
 
 UserThumbnail.propTypes = {

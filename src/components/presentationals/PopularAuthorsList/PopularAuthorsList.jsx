@@ -13,9 +13,11 @@ const PopularAuthorsList = ({ authors }) => {
           <PopularAuthorItem
             key={author.id}
             name={author.name}
-            url={author.url}
+            url={author.username}
             image={author.image}
             username={author.username}
+            value="See Posts"
+            link={`@${author.username}`}
           />
         ))}
       </div>
