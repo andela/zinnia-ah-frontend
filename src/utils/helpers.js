@@ -1,11 +1,7 @@
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-import {
-  CLOUDINARY_API,
-  CLOUD_PRESET,
-  CREATE_ARTICLE_CLOUDINARY_ULR,
-} from '../config/config.js';
+import { CREATE_ARTICLE_CLOUDINARY_URL } from '../config/config.js';
 
 export const decodeToken = token => {
   return jwt.decode(token);
@@ -18,10 +14,7 @@ export function setToken(token) {
   localStorage.setItem('token', JSON.stringify(token));
 }
 
-export function getToken() {
-  const token = localStorage.getItem('token');
-  return JSON.parse(token);
-}
+export const getToken = () => localStorage.getItem('token');
 
 export const destroyToken = () => {
   return localStorage.removeItem('token');
@@ -62,7 +55,7 @@ export const imageHandler = async file => {
   formData.append('file', file);
   formData.append('upload_preset', 'zinniahteam');
 
-  const data = await axios.post(CREATE_ARTICLE_CLOUDINARY_ULR, formData, {
+  const data = await axios.post(CREATE_ARTICLE_CLOUDINARY_URL, formData, {
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
     },
