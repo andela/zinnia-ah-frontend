@@ -6,20 +6,25 @@ exports[`Navbar should render correctly 1`] = `
     className="navbar"
   >
     <div>
-      <h1
-        className="brand"
+      <Link
+        to="/"
       >
-        Authors Haven
-      </h1>
+        <h1
+          className="brand"
+        >
+          Authors Haven
+        </h1>
+      </Link>
     </div>
-    <Link
-      to="/editor"
-    >
-      <Button
-        className="btn-dark"
-        value="BECOME AN AUTHOR"
-      />
-    </Link>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "row-reverse",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
   </div>
 </div>
 `;
