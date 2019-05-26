@@ -1,7 +1,6 @@
 import { toast } from 'react-toastify';
 
 import { articleRequest, likeArticleRequest } from '../../api/article';
-import { http } from '../../api/client';
 import { postStarRating } from '../../api/starRating';
 
 //constants

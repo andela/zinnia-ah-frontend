@@ -85,16 +85,6 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <div className="pt-3">
-          <Navbar>
-            <div className="nav-items">
-              {this.Searchbar()}
-              <Link to="/login">
-                <Button type="submit" value="WRITE" className="btn-dark w-10" />
-              </Link>
-            </div>
-          </Navbar>
-        </div>
         <div className="top">
           <div className="trending">
             <Title content="Trending" className="title-md index-title" />
