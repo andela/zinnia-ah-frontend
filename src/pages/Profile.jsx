@@ -6,16 +6,12 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 import { ToastContainer } from 'react-toastify';
 
 // components
-import Navbar from '../components/presentationals/Navbar/Navbar';
 import ProfileSidebar from '../components/presentationals/ProfileSidebar/ProfileSidebar';
 import ProfileMain from '../components/presentationals/ProfileMain/ProfileMain';
 
 // styles
 import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
-
-// images
-import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 //actions
 import { getUserProfileRequest } from '../store/modules/profile';
@@ -44,7 +40,6 @@ export class Profile extends Component {
     return (
       <div>
         <ToastContainer autoClose={4000} />
-        <Navbar url={profile.image || DEFAULT_USER_IMAGE_URL} className="" />
         <div className="profile-container">
           {isLoading && (
             <Dimmer active>

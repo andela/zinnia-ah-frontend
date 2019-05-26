@@ -18,3 +18,19 @@ export const destroyToken = () => {
   localStorage.removeItem('token');
   return null;
 };
+
+export const encodeUserObject = (user, expiresIn = '30days') => {
+  const encodedUser = jwt.sign(user, process.env.SECRET_KEY, { expiresIn });
+  localStorage.setItem('encodedUser', encodedUser);
+  return;
+};
+
+export const getEncodedUser = () => {
+  const encodedUser = localStorage.getItem('encodedUser');
+  return decodeToken(encodedUser);
+};
+
+export const destroyEncodedUser = () => {
+  localStorage.removeItem('encodedUser');
+  return null;
+};

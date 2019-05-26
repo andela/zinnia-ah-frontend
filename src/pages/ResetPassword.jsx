@@ -53,7 +53,6 @@ class ResetPassword extends Component {
 
     return (
       <div>
-        <Navbar />
         <div className="d-flex auth-container">
           <AuthenticationIllustration />
           {this.props.isLoading && <Loader text="please wait" size="large" />}
