@@ -1,125 +1,1011 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Profile /> mounts correctly 1`] = `
-<div>
-  <ToastContainer
-    autoClose={4000}
-    bodyClassName={null}
-    className={null}
-    closeButton={
-      <CloseButton
-        ariaLabel="close"
-      />
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
     }
-    closeOnClick={true}
-    draggable={true}
-    draggablePercent={80}
-    hideProgressBar={false}
-    newestOnTop={false}
-    pauseOnFocusLoss={true}
-    pauseOnHover={true}
-    position="top-right"
-    progressClassName={null}
-    progressStyle={null}
-    rtl={false}
-    style={null}
-    toastClassName={null}
-    transition={[Function]}
-  />
-  <div
-    className="profile-container"
   >
-    <Dimmer
-      active={true}
-    >
-      <Loader />
-    </Dimmer>
-    <ProfileSidebar
-      bio="I am the correct user"
-      currentView="default"
-      email="dummy@user.com"
-      firstName="mr"
+    <Profile
+      deleteArticle={[MockFunction]}
+      error={Object {}}
       followers={Array []}
       followings={Array []}
-      image="https://dummyimage.com"
-      lastName="user"
-      username="dummyuser"
-    />
-    <ProfileMain
-      bio="I am the correct user"
-      currentView="default"
-      deleteArticle={[MockFunction]}
-      email="dummy@user.com"
-      firstName="mr"
-      image="https://dummyimage.com"
+      getUserProfileRequest={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "igbominadeveloper",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
       isDeleting={false}
-      lastName="user"
+      isLoading={true}
+      match={
+        Object {
+          "params": Object {
+            "username": "igbominadeveloper",
+          },
+        }
+      }
+      profile={
+        Object {
+          "bio": "I am the correct user",
+          "email": "dummy@user.com",
+          "firstName": "mr",
+          "image": "https://dummyimage.com",
+          "lastName": "user",
+          "username": "dummyuser",
+        }
+      }
       publications={Array []}
-      username="dummyuser"
-      view={[Function]}
-    />
-  </div>
-</div>
+    >
+      <div>
+        <ToastContainer
+          autoClose={4000}
+          bodyClassName={null}
+          className={null}
+          closeButton={
+            <CloseButton
+              ariaLabel="close"
+            />
+          }
+          closeOnClick={true}
+          draggable={true}
+          draggablePercent={80}
+          hideProgressBar={false}
+          newestOnTop={false}
+          pauseOnFocusLoss={true}
+          pauseOnHover={true}
+          position="top-right"
+          progressClassName={null}
+          progressStyle={null}
+          rtl={false}
+          style={null}
+          toastClassName={null}
+          transition={[Function]}
+        >
+          <div
+            className="Toastify"
+          />
+        </ToastContainer>
+        <div
+          className="profile-container"
+        >
+          <Dimmer
+            active={true}
+          >
+            <DimmerInner
+              active={true}
+            >
+              <Ref
+                innerRef={
+                  Object {
+                    "current": <div
+                      class="ui active transition visible dimmer"
+                      style="display: flex;"
+                    >
+                      <div
+                        class="content"
+                      >
+                        <div
+                          class="ui loader"
+                        />
+                      </div>
+                    </div>,
+                  }
+                }
+              >
+                <RefFindNode
+                  innerRef={
+                    Object {
+                      "current": <div
+                        class="ui active transition visible dimmer"
+                        style="display: flex;"
+                      >
+                        <div
+                          class="content"
+                        >
+                          <div
+                            class="ui loader"
+                          />
+                        </div>
+                      </div>,
+                    }
+                  }
+                >
+                  <div
+                    className="ui active transition visible dimmer"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="content"
+                    >
+                      <Loader>
+                        <div
+                          className="ui loader"
+                        />
+                      </Loader>
+                    </div>
+                  </div>
+                </RefFindNode>
+              </Ref>
+            </DimmerInner>
+          </Dimmer>
+          <ProfileSidebar
+            bio="I am the correct user"
+            currentView="default"
+            email="dummy@user.com"
+            firstName="mr"
+            followers={Array []}
+            followings={Array []}
+            image="https://dummyimage.com"
+            lastName="user"
+            username="dummyuser"
+          >
+            <div
+              className="sidebar"
+            >
+              <div
+                className="avatar-div"
+              >
+                <Avatar
+                  className="avatar-xl"
+                  url="https://dummyimage.com"
+                >
+                  <img
+                    alt="avatar"
+                    className="avatar avatar-xl"
+                    src="https://dummyimage.com"
+                  />
+                </Avatar>
+              </div>
+              <p
+                className="text-center username"
+              >
+                dummyuser
+              </p>
+              <p
+                className="text-center email"
+              >
+                dummy@user.com
+              </p>
+              <div
+                className="follow-div"
+              >
+                <div
+                  className="follow-stats"
+                >
+                  <p
+                    className="text-center count"
+                  >
+                    0
+                  </p>
+                  <p
+                    className="text-center type"
+                  >
+                    Followings
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="text-center count"
+                  >
+                    0
+                  </p>
+                  <p
+                    className="text-center type"
+                  >
+                    Followers
+                  </p>
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "marginTop": "35px",
+                    "paddingLeft": "15%",
+                    "paddingRight": "15%",
+                  }
+                }
+              >
+                <Button
+                  className="btn-white"
+                  type="submit"
+                  value="FOLLOW"
+                >
+                  <button
+                    className="btn btn-white"
+                    type="submit"
+                  >
+                    FOLLOW
+                  </button>
+                </Button>
+              </div>
+              <hr
+                className="sidebar-hr"
+              />
+            </div>
+          </ProfileSidebar>
+          <ProfileMain
+            bio="I am the correct user"
+            currentView="default"
+            deleteArticle={[MockFunction]}
+            email="dummy@user.com"
+            firstName="mr"
+            image="https://dummyimage.com"
+            isDeleting={false}
+            lastName="user"
+            publications={Array []}
+            username="dummyuser"
+            view={[Function]}
+          >
+            <div
+              className="main"
+            >
+              <Title
+                className="title-lg"
+                content="mr user"
+              >
+                <h1
+                  className="title title-lg"
+                >
+                  mr user
+                </h1>
+              </Title>
+              <div
+                style={
+                  Object {
+                    "maxHeight": "200px",
+                  }
+                }
+              >
+                I am the correct user
+              </div>
+              <div
+                className="profile-tab-menu"
+              >
+                <Tab
+                  grid={
+                    Object {
+                      "paneWidth": 12,
+                      "tabWidth": 4,
+                    }
+                  }
+                  menu={
+                    Object {
+                      "pointing": true,
+                      "secondary": true,
+                    }
+                  }
+                  panes={
+                    Array [
+                      Object {
+                        "menuItem": "Posts",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Stats",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Likes",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Comments",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Bookmarks",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Reports",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Settings",
+                        "render": [Function],
+                      },
+                    ]
+                  }
+                  renderActiveOnly={true}
+                >
+                  <div>
+                    <Menu
+                      activeIndex={0}
+                      items={
+                        Array [
+                          "Posts",
+                          "Stats",
+                          "Likes",
+                          "Comments",
+                          "Bookmarks",
+                          "Reports",
+                          "Settings",
+                        ]
+                      }
+                      onItemClick={[Function]}
+                      pointing={true}
+                      secondary={true}
+                    >
+                      <div
+                        className="ui pointing secondary menu"
+                      >
+                        <MenuItem
+                          active={true}
+                          content="Posts"
+                          index={0}
+                          key="Posts"
+                          name="Posts"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="active item"
+                            onClick={[Function]}
+                          >
+                            Posts
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Stats"
+                          index={1}
+                          key="Stats"
+                          name="Stats"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Stats
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Likes"
+                          index={2}
+                          key="Likes"
+                          name="Likes"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Likes
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Comments"
+                          index={3}
+                          key="Comments"
+                          name="Comments"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Comments
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Bookmarks"
+                          index={4}
+                          key="Bookmarks"
+                          name="Bookmarks"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Bookmarks
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Reports"
+                          index={5}
+                          key="Reports"
+                          name="Reports"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Reports
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Settings"
+                          index={6}
+                          key="Settings"
+                          name="Settings"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Settings
+                          </a>
+                        </MenuItem>
+                      </div>
+                    </Menu>
+                    <TabPane
+                      active={true}
+                      as={[Function]}
+                      attached={false}
+                    >
+                      <Segment
+                        attached={false}
+                        className="active tab"
+                      >
+                        <div
+                          className="ui segment active tab"
+                        >
+                          <ArticleLists
+                            articles={Array []}
+                            deleteArticle={[MockFunction]}
+                            isDeleting={false}
+                          >
+                            <div
+                              className="post-lists"
+                            >
+                              <p>
+                                You have no publications
+                              </p>
+                            </div>
+                          </ArticleLists>
+                        </div>
+                      </Segment>
+                    </TabPane>
+                  </div>
+                </Tab>
+              </div>
+            </div>
+          </ProfileMain>
+        </div>
+      </div>
+    </Profile>
+  </Router>
+</BrowserRouter>
 `;
 
 exports[`<Profile /> mounts correctly without image 1`] = `
-<div>
-  <ToastContainer
-    autoClose={4000}
-    bodyClassName={null}
-    className={null}
-    closeButton={
-      <CloseButton
-        ariaLabel="close"
-      />
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
     }
-    closeOnClick={true}
-    draggable={true}
-    draggablePercent={80}
-    hideProgressBar={false}
-    newestOnTop={false}
-    pauseOnFocusLoss={true}
-    pauseOnHover={true}
-    position="top-right"
-    progressClassName={null}
-    progressStyle={null}
-    rtl={false}
-    style={null}
-    toastClassName={null}
-    transition={[Function]}
-  />
-  <div
-    className="profile-container"
   >
-    <Dimmer
-      active={true}
-    >
-      <Loader />
-    </Dimmer>
-    <ProfileSidebar
-      bio="I am the correct user"
-      currentView="default"
-      email="dummy@user.com"
-      firstName="mr"
+    <Profile
+      deleteArticle={[MockFunction]}
+      error={Object {}}
       followers={Array []}
       followings={Array []}
-      image=""
-      lastName="user"
-      username="dummyuser"
-    />
-    <ProfileMain
-      bio="I am the correct user"
-      currentView="default"
-      deleteArticle={[MockFunction]}
-      email="dummy@user.com"
-      firstName="mr"
-      image=""
+      getUserProfileRequest={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "igbominadeveloper",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
       isDeleting={false}
-      lastName="user"
+      isLoading={true}
+      match={
+        Object {
+          "params": Object {
+            "username": "igbominadeveloper",
+          },
+        }
+      }
+      profile={
+        Object {
+          "bio": "I am the correct user",
+          "email": "dummy@user.com",
+          "firstName": "mr",
+          "image": "",
+          "lastName": "user",
+          "username": "dummyuser",
+        }
+      }
       publications={Array []}
-      username="dummyuser"
-      view={[Function]}
-    />
-  </div>
-</div>
+    >
+      <div>
+        <ToastContainer
+          autoClose={4000}
+          bodyClassName={null}
+          className={null}
+          closeButton={
+            <CloseButton
+              ariaLabel="close"
+            />
+          }
+          closeOnClick={true}
+          draggable={true}
+          draggablePercent={80}
+          hideProgressBar={false}
+          newestOnTop={false}
+          pauseOnFocusLoss={true}
+          pauseOnHover={true}
+          position="top-right"
+          progressClassName={null}
+          progressStyle={null}
+          rtl={false}
+          style={null}
+          toastClassName={null}
+          transition={[Function]}
+        >
+          <div
+            className="Toastify"
+          />
+        </ToastContainer>
+        <div
+          className="profile-container"
+        >
+          <Dimmer
+            active={true}
+          >
+            <DimmerInner
+              active={true}
+            >
+              <Ref
+                innerRef={
+                  Object {
+                    "current": <div
+                      class="ui active transition visible dimmer"
+                      style="display: flex;"
+                    >
+                      <div
+                        class="content"
+                      >
+                        <div
+                          class="ui loader"
+                        />
+                      </div>
+                    </div>,
+                  }
+                }
+              >
+                <RefFindNode
+                  innerRef={
+                    Object {
+                      "current": <div
+                        class="ui active transition visible dimmer"
+                        style="display: flex;"
+                      >
+                        <div
+                          class="content"
+                        >
+                          <div
+                            class="ui loader"
+                          />
+                        </div>
+                      </div>,
+                    }
+                  }
+                >
+                  <div
+                    className="ui active transition visible dimmer"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="content"
+                    >
+                      <Loader>
+                        <div
+                          className="ui loader"
+                        />
+                      </Loader>
+                    </div>
+                  </div>
+                </RefFindNode>
+              </Ref>
+            </DimmerInner>
+          </Dimmer>
+          <ProfileSidebar
+            bio="I am the correct user"
+            currentView="default"
+            email="dummy@user.com"
+            firstName="mr"
+            followers={Array []}
+            followings={Array []}
+            image=""
+            lastName="user"
+            username="dummyuser"
+          >
+            <div
+              className="sidebar"
+            >
+              <div
+                className="avatar-div"
+              >
+                <Avatar
+                  className="avatar-xl"
+                  url="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+                >
+                  <img
+                    alt="avatar"
+                    className="avatar avatar-xl"
+                    src="https://res.cloudinary.com/nedy123/image/upload/v1557149386/avatar_pupqrh.svg"
+                  />
+                </Avatar>
+              </div>
+              <p
+                className="text-center username"
+              >
+                dummyuser
+              </p>
+              <p
+                className="text-center email"
+              >
+                dummy@user.com
+              </p>
+              <div
+                className="follow-div"
+              >
+                <div
+                  className="follow-stats"
+                >
+                  <p
+                    className="text-center count"
+                  >
+                    0
+                  </p>
+                  <p
+                    className="text-center type"
+                  >
+                    Followings
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="text-center count"
+                  >
+                    0
+                  </p>
+                  <p
+                    className="text-center type"
+                  >
+                    Followers
+                  </p>
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "marginTop": "35px",
+                    "paddingLeft": "15%",
+                    "paddingRight": "15%",
+                  }
+                }
+              >
+                <Button
+                  className="btn-white"
+                  type="submit"
+                  value="FOLLOW"
+                >
+                  <button
+                    className="btn btn-white"
+                    type="submit"
+                  >
+                    FOLLOW
+                  </button>
+                </Button>
+              </div>
+              <hr
+                className="sidebar-hr"
+              />
+            </div>
+          </ProfileSidebar>
+          <ProfileMain
+            bio="I am the correct user"
+            currentView="default"
+            deleteArticle={[MockFunction]}
+            email="dummy@user.com"
+            firstName="mr"
+            image=""
+            isDeleting={false}
+            lastName="user"
+            publications={Array []}
+            username="dummyuser"
+            view={[Function]}
+          >
+            <div
+              className="main"
+            >
+              <Title
+                className="title-lg"
+                content="mr user"
+              >
+                <h1
+                  className="title title-lg"
+                >
+                  mr user
+                </h1>
+              </Title>
+              <div
+                style={
+                  Object {
+                    "maxHeight": "200px",
+                  }
+                }
+              >
+                I am the correct user
+              </div>
+              <div
+                className="profile-tab-menu"
+              >
+                <Tab
+                  grid={
+                    Object {
+                      "paneWidth": 12,
+                      "tabWidth": 4,
+                    }
+                  }
+                  menu={
+                    Object {
+                      "pointing": true,
+                      "secondary": true,
+                    }
+                  }
+                  panes={
+                    Array [
+                      Object {
+                        "menuItem": "Posts",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Stats",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Likes",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Comments",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Bookmarks",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Reports",
+                        "render": [Function],
+                      },
+                      Object {
+                        "menuItem": "Settings",
+                        "render": [Function],
+                      },
+                    ]
+                  }
+                  renderActiveOnly={true}
+                >
+                  <div>
+                    <Menu
+                      activeIndex={0}
+                      items={
+                        Array [
+                          "Posts",
+                          "Stats",
+                          "Likes",
+                          "Comments",
+                          "Bookmarks",
+                          "Reports",
+                          "Settings",
+                        ]
+                      }
+                      onItemClick={[Function]}
+                      pointing={true}
+                      secondary={true}
+                    >
+                      <div
+                        className="ui pointing secondary menu"
+                      >
+                        <MenuItem
+                          active={true}
+                          content="Posts"
+                          index={0}
+                          key="Posts"
+                          name="Posts"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="active item"
+                            onClick={[Function]}
+                          >
+                            Posts
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Stats"
+                          index={1}
+                          key="Stats"
+                          name="Stats"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Stats
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Likes"
+                          index={2}
+                          key="Likes"
+                          name="Likes"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Likes
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Comments"
+                          index={3}
+                          key="Comments"
+                          name="Comments"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Comments
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Bookmarks"
+                          index={4}
+                          key="Bookmarks"
+                          name="Bookmarks"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Bookmarks
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Reports"
+                          index={5}
+                          key="Reports"
+                          name="Reports"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Reports
+                          </a>
+                        </MenuItem>
+                        <MenuItem
+                          active={false}
+                          content="Settings"
+                          index={6}
+                          key="Settings"
+                          name="Settings"
+                          onClick={[Function]}
+                        >
+                          <a
+                            className="item"
+                            onClick={[Function]}
+                          >
+                            Settings
+                          </a>
+                        </MenuItem>
+                      </div>
+                    </Menu>
+                    <TabPane
+                      active={true}
+                      as={[Function]}
+                      attached={false}
+                    >
+                      <Segment
+                        attached={false}
+                        className="active tab"
+                      >
+                        <div
+                          className="ui segment active tab"
+                        >
+                          <ArticleLists
+                            articles={Array []}
+                            deleteArticle={[MockFunction]}
+                            isDeleting={false}
+                          >
+                            <div
+                              className="post-lists"
+                            >
+                              <p>
+                                You have no publications
+                              </p>
+                            </div>
+                          </ArticleLists>
+                        </div>
+                      </Segment>
+                    </TabPane>
+                  </div>
+                </Tab>
+              </div>
+            </div>
+          </ProfileMain>
+        </div>
+      </div>
+    </Profile>
+  </Router>
+</BrowserRouter>
 `;

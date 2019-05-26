@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popular Authors List should render correctly 1`] = `
+<PopularAuthorsList
+  authors={Array []}
+  className=""
+>
+  <div
+    className="popular-authors"
+  >
+    <Title
+      className="title-md index-title"
+      content="Popular Authors"
+    >
+      <h1
+        className="title title-md index-title"
+      >
+        Popular Authors
+      </h1>
+    </Title>
+    <div
+      className="author-slot-container"
+    />
+  </div>
+</PopularAuthorsList>
+`;

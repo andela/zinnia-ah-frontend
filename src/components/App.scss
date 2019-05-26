@@ -45,3 +45,16 @@
     padding-top: .5rem;
   }
 }
+.nav-items {
+  display: flex;
+  justify-content: space-evenly;
+  width: 47rem;
+}
+
+.landing-container {
+  padding: 0% 6%;
+}
+
+.toothy {
+  color: $primary-black;
+}

@@ -7,6 +7,13 @@
   width: 2.8125rem;
 }
 
+.avatar-sm,
+.avatar-sm ~ .overlay-image {
+  border-radius: 100%;
+  height: 3.8125rem;
+  width: 3.8125rem;
+}
+
 .avatar-xl,
 .avatar-xl ~ .overlay-image {
   border-radius: 100%;

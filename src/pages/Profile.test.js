@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Profile, mapStateToProps } from './Profile';
 
@@ -53,12 +54,20 @@ const propsWithoutImage = {
 
 describe('<Profile />', () => {
   it('mounts correctly', () => {
-    const shallowWrapper = shallow(<Profile {...props} />);
+    const shallowWrapper = mount(
+      <BrowserRouter>
+        <Profile {...props} />
+      </BrowserRouter>,
+    );
     expect(shallowWrapper).toMatchSnapshot();
   });
 
   it('mounts correctly without image', () => {
-    const shallowWrapper = shallow(<Profile {...propsWithoutImage} />);
+    const shallowWrapper = mount(
+      <BrowserRouter>
+        <Profile {...propsWithoutImage} />
+      </BrowserRouter>,
+    );
     expect(shallowWrapper).toMatchSnapshot();
   });
 

@@ -1,4 +1,7 @@
+import { toast } from 'react-toastify';
+
 import { articleRequest, likeArticleRequest } from '../../api/article';
+import { postStarRating } from '../../api/starRating';
 
 //constants
 export const CREATE_ARTCLE_INITIALIZED = 'CREATE_ARTCLE_INITIALIZED';
@@ -7,6 +10,8 @@ export const CREATE_ARTICLE_ERROR = 'CREATE_ARTICLE_ERROR';
 export const LIKE_ARTCLE_INITIALIZED = 'LIKE_ARTCLE_INITIALIZED';
 export const LIKE_ARTICLE_SUCCESS = 'LIKE_ARTICLE_SUCCESS';
 export const LIKE_ARTICLE_ERROR = 'LIKE_ARTICLE_ERROR';
+export const RATE_ARTICLE_SUCCESS = 'RATE_ARTICLE_SUCCESS';
+export const RATE_ARTICLE_ERROR = 'RATE_ARTICLE_ERROR';
 
 export const createArticleInitialized = () => {
   return {
@@ -48,14 +53,6 @@ export const likeArticleError = error => {
   };
 };
 
-export const initialState = {
-  isLoading: false,
-  errorResponse: [],
-  successResponse: {
-    status: '',
-  },
-};
-
 export const createArticle = articleData => {
   return async dispatch => {
     try {
@@ -65,6 +62,38 @@ export const createArticle = articleData => {
     } catch (error) {
       const { data } = error.response;
       dispatch(createArticleError([data]));
+    }
+  };
+};
+
+export const rateArticleSuccess = (rating, averageRating) => {
+  return {
+    type: RATE_ARTICLE_SUCCESS,
+    value: {
+      rating,
+      averageRating,
+    },
+  };
+};
+
+export const rateArticleError = () => {
+  return {
+    type: RATE_ARTICLE_ERROR,
+  };
+};
+
+export const starRatingRequest = (
+  rating,
+  articleId = '141f4f05-7d81-4593-ab54-e256c1006210',
+) => {
+  return async dispatch => {
+    try {
+      const { data } = await postStarRating(rating, articleId);
+      const averageRating = data.data.averageRating;
+      dispatch(rateArticleSuccess(rating, averageRating));
+    } catch (error) {
+      dispatch(rateArticleError());
+      toast.error('Rating was unsuccessful!');
     }
   };
 };
@@ -82,7 +111,17 @@ export const likeArticle = action => {
   };
 };
 
-export const articleReducer = (state = initialState, action) => {
+const initialState = {
+  rating: 0,
+  averageRating: null,
+  isLoading: false,
+  errorResponse: [],
+  successResponse: {
+    status: '',
+  },
+};
+
+export const starRatingReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_ARTCLE_INITIALIZED:
       return {
@@ -124,6 +163,17 @@ export const articleReducer = (state = initialState, action) => {
         errorResponse: action.error,
       };
 
+    case RATE_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        rating: action.value.rating,
+        averageRating: action.value.averageRating,
+      };
+    case RATE_ARTICLE_ERROR:
+      return {
+        ...state,
+        rating: 0,
+      };
     default:
       return state;
   }

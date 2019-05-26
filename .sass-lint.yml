@@ -40,18 +40,18 @@ rules:
   no-universal-selectors: 0
   no-url-domains: 0
   no-url-protocols: 0
-  no-vendor-prefixes: 1
+  no-vendor-prefixes: 0
   no-warn: 1
   property-units: 0
 
   # Nesting
   declarations-before-nesting: 1
-  force-attribute-nesting: 1
+  force-attribute-nesting: 0
   force-element-nesting: 0
   force-pseudo-nesting: 0
 
   # Name Formats
-  class-name-format: 1
+  class-name-format: 0
   function-name-format: 1
   id-name-format: 0
   mixin-name-format: 1

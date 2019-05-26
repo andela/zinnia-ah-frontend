@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import App from './components/App';
+import App from './pages/App';
 import AuthenticationLayout from './pages/Authentication';
 import ForgotPassword from './pages/ForgotPassword';
+import Article from './pages/Article';
 import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
 import SocialAuth from './components/presentationals/SocialAuth/SocialAuth';

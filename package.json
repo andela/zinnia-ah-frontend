@@ -24,10 +24,10 @@
   },
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
-    "start": "node server.js",
+    "test:watch": "jest -u --watchAll --verbose",
+    "test:coverage": "jest --verbose --coverage",
     "watch": "webpack-dev-server --mode development --open --hot",
+    "start": "node server.js",
     "build": "NODE_ENV=production webpack --mode production",
     "prettier": "prettier --write '**/*.{js,jsx}'",
     "lint": "node_modules/eslint/bin/eslint.js src --fix",
@@ -117,6 +117,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.3.0",
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
     "draft-js": "^0.10.5",
