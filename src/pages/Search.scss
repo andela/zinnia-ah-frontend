@@ -7,6 +7,7 @@
   width: 66.25rem;
 
   .form {
+    display: flex;
     width: 100%;
 
   }
@@ -20,6 +21,18 @@
     }
   }
 
+  Input {
+    width: 80%;
+  }
+
+  .btn-dark {
+    margin: 1.25rem 0 0;
+    width: 20%;
+  }
+
+  .header {
+    font-size: 10px;
+ }
 }
 
 .articles-container,

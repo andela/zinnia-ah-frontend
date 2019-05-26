@@ -1,92 +1,113 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 //components
-import Input from '../components/presentationals/Input/Input';
-import Button from '../components/presentationals/Button/Button';
-import Navbar from '../components/presentationals/Navbar/Navbar';
+import { Tab, Menu, Label } from 'semantic-ui-react';
+import PopularAuthorItem from '../components/presentationals/PopularAuthorItem/PopularAuthorItem';
+import ArticleCard from '../components/presentationals/ArticleCard/ArticleCard';
+import Loader from '../components/presentationals/Loader/Loader';
+import Tag from '../components/presentationals/Tag/Tag';
 
 //stylesheets
 import './Search.scss';
 
+//images
+import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
+
 //modules
-import { customSearch } from '../store/modules/search';
-import Loader from '../components/presentationals/Loader/Loader';
+import { getTagArticles } from '../store/modules/search';
 
 export class Search extends Component {
-  state = {
-    keyword: '',
-  };
-
-  inputHandler = event => {
-    const { value } = event.target;
-    this.setState({ keyword: value });
-  };
-
-  submitHandler = event => {
-    event.preventDefault();
-    this.props.customSearch(this.state.keyword);
+  tagArticleSearch = tag => {
+    this.props.getTagArticles(tag);
   };
   render() {
+    this.props.isLoading && <Loader text="please wait" size="large" />;
     let articles;
-
     if (this.props.articles.length > 0) {
-      articles = this.props.articles.map(article => (
-        <div key={article.id} className="article">
-          Article
-          <p key={article.title}>{article.title}</p>
-          <p key={article.id}>{article.description}</p>
-          <p key={article.id}>{article.body}</p>
-          <p key={article.id}>{article.readTime}</p>
-        </div>
+      articles = this.props.articles.map((article, key) => (
+        <ArticleCard key={key} article={article} />
       ));
     } else {
       articles = null;
     }
-    let authors;
 
+    let authors;
     if (this.props.authors.length > 0) {
       authors = this.props.authors.map(author => (
-        <div key={author.username} className="author">
-          Author
-          <p key={author.firstName}>{author.firstName}</p>
-          <p>{author.username}</p>
-          <p>{author.lastName}</p>
-        </div>
+        <PopularAuthorItem
+          key={author.name}
+          name={`${author.firstName} ${author.lastName}` || author.username}
+          url={author.username}
+          image={author.image || DEFAULT_USER_IMAGE_URL}
+          username={author.username}
+        />
       ));
     } else {
       authors = null;
+    }
+
+    let tags;
+    if (this.props.tags.length > 0) {
+      tags = this.props.tags.map((tag, key) => (
+        <Tag
+          key={key}
+          className="tag"
+          value={tag.name}
+          onClick={() => this.tagArticleSearch(tag.name)}
+        />
+      ));
+    } else {
+      tags = null;
     }
 
     const loader = this.props.isLoading && (
       <Loader size="large" text="Loading... please wait" />
     );
 
+    const panes = [
+      {
+        menuItem: (
+          <Menu.Item key="articles">
+            Articles<Label>{this.props.articles.length}</Label>
+          </Menu.Item>
+        ),
+        render: () => (
+          <Tab.Pane>
+            <div className="articles">{articles}</div>
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: (
+          <Menu.Item key="authors">
+            Authors<Label>{this.props.authors.length}</Label>
+          </Menu.Item>
+        ),
+        render: () => <Tab.Pane>{authors}</Tab.Pane>,
+      },
+      {
+        menuItem: (
+          <Menu.Item key="tags">
+            Tags<Label>{this.props.tags.length}</Label>
+          </Menu.Item>
+        ),
+        render: () => (
+          <Tab.Pane>
+            <div className="tags">{tags}</div>
+          </Tab.Pane>
+        ),
+      },
+    ];
+
     return (
       <Fragment>
-        <Navbar />
         {loader}
-        <div className="search-container">
-          <form className="form" onSubmit={this.submitHandler}>
-            <Input
-              value={this.state.keyword}
-              className="form-control"
-              type="search"
-              placeholder="Search Authors' Haven"
-              onChange={this.inputHandler}
-              name="q"
-              data-test="search-input"
-            />
-            <Button
-              className="btn-dark form-control"
-              value="SEARCH"
-              data-test="button"
-            />
-          </form>
+        <div className="articles">
+          <Tab panes={panes} key={panes} />
         </div>
-        <div className="articles-container">{articles}</div>
-        <div className="authors-container">{authors}</div>
       </Fragment>
     );
   }
@@ -95,19 +116,21 @@ export class Search extends Component {
 Search.propTypes = {
   articles: PropTypes.any,
   authors: PropTypes.any,
-  customSearch: PropTypes.any,
+  tags: PropTypes.any,
   isLoading: PropTypes.bool,
-  searchResult: PropTypes.array,
   users: PropTypes.any,
+  location: PropTypes.object,
+  getTagArticles: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   articles: state.search.successResponse.data.articles,
   authors: state.search.successResponse.data.authors,
+  tags: state.search.successResponse.data.tags,
   isLoading: state.search.isLoading,
 });
 
 export default connect(
   mapStateToProps,
-  { customSearch },
-)(Search);
+  { getTagArticles },
+)(withRouter(Search));

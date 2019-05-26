@@ -45,16 +45,14 @@ exports[`<Login /> should mount correctly 1`] = `
           type="email"
           value=""
         >
-          <div>
-            <input
-              className="form-control false"
-              name="email"
-              onChange={[Function]}
-              placeholder="Email"
-              type="email"
-              value=""
-            />
-          </div>
+          <input
+            className="form-control false"
+            name="email"
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+            value=""
+          />
         </Input>
       </div>
       <div
@@ -68,16 +66,14 @@ exports[`<Login /> should mount correctly 1`] = `
           type="password"
           value=""
         >
-          <div>
-            <input
-              className="form-control false"
-              name="password"
-              onChange={[Function]}
-              placeholder="Password"
-              type="password"
-              value=""
-            />
-          </div>
+          <input
+            className="form-control false"
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
         </Input>
       </div>
       <div

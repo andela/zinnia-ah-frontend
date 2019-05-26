@@ -1,22 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar should render correctly 1`] = `
-<Navbar
-  className=""
-  profileUrl="http://dummyimage.com"
->
-  <div>
-    <div
-      className="navbar"
-    >
-      <div>
-        <h1
-          className="brand"
+<div>
+  <div
+    className="navbar"
+  >
+    <div>
+      <h1
+        className="brand"
+      >
+        <Link
+          style={
+            Object {
+              "color": "inherit",
+            }
+          }
+          to="/"
         >
           Authors Haven
-        </h1>
+        </Link>
+      </h1>
+    </div>
+    <div
+      className="sm-hide"
+    >
+      <div
+        className="nav-items"
+      >
+        <form
+          className="search-bar"
+          onSubmit={[Function]}
+        >
+          <Input
+            className="form-control"
+            data-test="search-input"
+            icon="search"
+            iconPosition="left"
+            name="keyword"
+            onChange={[Function]}
+            placeholder="Search Authors' Haven"
+            type="search"
+            value=""
+          />
+        </form>
+        <Link
+          to="/login"
+        >
+          <Button
+            className="btn btn-dark w-10"
+            type="submit"
+            value="WRITE"
+          />
+        </Link>
       </div>
     </div>
   </div>
-</Navbar>
+</div>
 `;

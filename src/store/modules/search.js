@@ -1,4 +1,4 @@
-import { customSearchRequest } from '../../api/search';
+import { customSearchRequest, tagArticlesRequest } from '../../api/search';
 
 //constants
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
@@ -43,6 +43,26 @@ export const customSearch = keyword => {
       dispatch(searchIntialize());
       const { data } = await customSearchRequest(keyword);
       dispatch(searchSuccess(data));
+    } catch (error) {
+      const { data } = error.response;
+      dispatch(searchError([data]));
+    }
+  };
+};
+export const getTagArticles = tag => {
+  return async dispatch => {
+    try {
+      dispatch(searchIntialize());
+      const { data } = await tagArticlesRequest(tag);
+      dispatch(
+        searchSuccess({
+          data: {
+            articles: data.data.articles,
+            authors: [],
+            tags: [{ name: data.data.name }],
+          },
+        }),
+      );
     } catch (error) {
       const { data } = error.response;
       dispatch(searchError([data]));

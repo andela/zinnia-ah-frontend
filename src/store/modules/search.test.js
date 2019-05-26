@@ -8,6 +8,7 @@ import {
   searchError,
   searchReducer,
   customSearch,
+  getTagArticles,
 } from './search';
 import { setupStore } from '../../utils/testHelpers';
 
@@ -95,7 +96,7 @@ describe('SEARCH ACTIONS AND REDUCER', () => {
     });
   });
 
-  it('should dispatch a failed signup action', () => {
+  it('should dispatch a failed search action', () => {
     http.get = jest
       .fn()
       .mockReturnValue(Promise.reject('what did you do now?'));
@@ -105,6 +106,17 @@ describe('SEARCH ACTIONS AND REDUCER', () => {
     ];
     store.dispatch(customSearch()).then(() => {
       expect(store.getActions()).toEqual(errorActions);
+    });
+  });
+
+  it('should dispatch a successful tags search action', () => {
+    http.get = jest.fn().mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [
+      { type: 'SEARCH_INITIALIZED' },
+      { type: 'SEARCH_SUCCESS', response: { data: {} } },
+    ];
+    store.dispatch(getTagArticles()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 });

@@ -20,8 +20,16 @@
   }
 }
 
+.sm-hide {
+  display: block;
+}
+
 @media only screen and (max-width: 56.25rem) {
   .navbar {
     justify-content: center;
+  }
+
+  .sm-hide {
+    display: none;
   }
 }
