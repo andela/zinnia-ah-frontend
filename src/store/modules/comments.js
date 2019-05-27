@@ -10,6 +10,19 @@ export const COMMENT_REACTION_REQUEST = 'COMMENT_REACTION_REQUEST';
 export const UNLIKE_COMMENT_REQUEST = 'UNLIKE_REACTION_REQUEST';
 export const COMMENT_REACTION_SUCCESS = 'COMMENT_REACTION_SUCCESS';
 export const COMMENT_REACTION_ERROR = 'COMMENT_REACTION_ERROR';
+export const DELETE_COMMENT_REQUEST = 'DELETE_COMMENT_REQUEST';
+export const DELETE_COMMENT_SUCCESS = 'DELETE_COMMENT_SUCCESS';
+export const DELETE_COMMENT_ERROR = 'DELETE_COMMENT_ERROR';
+
+export const deleteCommentSuccess = comments => ({
+  type: DELETE_COMMENT_SUCCESS,
+  comments,
+});
+
+export const deleteCommentError = error => ({
+  type: DELETE_COMMENT_ERROR,
+  error,
+});
 
 export const saveComments = comments => ({
   type: SAVE_COMMENTS,
@@ -58,6 +71,11 @@ const updateLikes = (comments, commentId, reaction) => {
   });
 
   return comments;
+};
+
+export const deleteComment = (comments, commentId) => dispatch => {
+  comments = comments.filter(comment => comment.id !== commentId);
+  return dispatch(deleteCommentSuccess(comments));
 };
 
 export const reactToComment = options => async dispatch => {
@@ -128,6 +146,11 @@ export const commentReducer = (state = initialState, action) => {
           action.commentId,
           action.reaction,
         ),
+      };
+    case DELETE_COMMENT_SUCCESS:
+      return {
+        ...state,
+        comments: action.comments,
       };
     default:
       return state;

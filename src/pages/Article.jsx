@@ -25,7 +25,6 @@ import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 export class Article extends Component {
   componentDidMount() {
-    console.log('Mounted:::');
     const {
       article,
       match: {

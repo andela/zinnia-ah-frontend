@@ -4,22 +4,23 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { Dropdown } from 'semantic-ui-react';
 
-import { reactToComment } from '../../../store/modules/comments';
+import { reactToComment, deleteComment } from '../../../store/modules/comments';
 import UserThumbnail from '../UserThumbnail/UserThumbnail';
 import CommentReaction from '../../container/Comment/CommentReaction';
 import './CommentCard.scss';
-import { decodeToken, getToken } from '../../../api/helpers';
 
 class CommentCard extends Component {
   state = {
     isLiked: false,
     selectedCommentId: '',
     isOwnComment: false,
+    isModalOpen: false,
+    actionToConfirm: {},
     options: [
       {
         key: 'edit',
         icon: 'edit',
-        value: 'delete',
+        value: 'edit',
         text: 'Edit comment',
       },
       {
@@ -36,7 +37,6 @@ class CommentCard extends Component {
   }
 
   displayOptions = commentAuthorId => {
-    // const user = decodeToken(getToken()) || { id: null };
     if (commentAuthorId === this.props.userId) {
       this.setState({
         isOwnComment: true,
@@ -70,9 +70,14 @@ class CommentCard extends Component {
     });
   };
 
-  optionHandler = () => {
-    const { userId } = this.props;
+  optionHandler = operation => {
     const commentId = this.props.commentDetails.id;
+
+    if (operation === 'delete') {
+      this.props.displayModal(() =>
+        this.props.deleteComment(this.props.comments, commentId),
+      );
+    }
   };
 
   render() {
@@ -90,7 +95,7 @@ class CommentCard extends Component {
           info={time}
         />
         <p className="comment-body">{body}</p>
-        <div className="react">
+        <div className="reaction">
           <span onClick={this.reactionClickHandler}>
             <CommentReaction isLiked={this.state.isLiked} />
           </span>
@@ -106,7 +111,7 @@ class CommentCard extends Component {
                   <Dropdown.Item
                     key={option.value}
                     {...option}
-                    onClick={this.optionHandler}
+                    onClick={() => this.optionHandler(option.value)}
                   />
                 ))}
               </Dropdown.Menu>
@@ -123,6 +128,8 @@ CommentCard.propTypes = {
   reactToComment: PropTypes.func,
   comments: PropTypes.array.isRequired,
   userId: PropTypes.string.isRequired,
+  deleteComment: PropTypes.func,
+  displayModal: PropTypes.func,
 };
 
 const mapStateToProps = state => {
@@ -134,5 +141,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { reactToComment },
+  { reactToComment, deleteComment },
 )(CommentCard);
