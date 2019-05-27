@@ -1,17 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { BrowserRouter } from 'react-router-dom';
 
 import ArticleLists from './ArticleLists';
 
 const props = {
   deleteArticle: jest.fn(),
   isDeleting: false,
-  articles: [{}, {}],
+  articles: [{ id: 1 }, { id: 2 }],
 };
 
 describe('ArticleLists', () => {
   it('should render correctly', () => {
-    const component = shallow(<ArticleLists {...props} />);
+    const component = mount(
+      <BrowserRouter>
+        <ArticleLists {...props} />
+      </BrowserRouter>,
+    );
     expect(component).toMatchSnapshot();
   });
 });

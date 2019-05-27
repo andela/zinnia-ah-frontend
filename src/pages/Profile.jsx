@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
 
 // images
-import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
+import { DEFAULT_USER_PROFILE_IMAGE } from '../config/config';
 
 //actions
 import { getUserProfileRequest } from '../store/modules/profile';
@@ -44,7 +44,10 @@ export class Profile extends Component {
     return (
       <div>
         <ToastContainer autoClose={4000} />
-        <Navbar url={profile.image || DEFAULT_USER_IMAGE_URL} className="" />
+        <Navbar
+          url={profile.image || DEFAULT_USER_PROFILE_IMAGE}
+          className=""
+        />
         <div className="profile-container">
           {isLoading && (
             <Dimmer active>

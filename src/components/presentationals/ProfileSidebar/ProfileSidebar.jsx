@@ -10,7 +10,7 @@ import Button from '../Button/Button';
 import './ProfileSidebar.scss';
 
 // config and helpers
-import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
+import { DEFAULT_USER_PROFILE_IMAGE } from '../../../config/config';
 import { handleImageEventClick } from '../../../utils/helpers';
 
 const CameraIcon = () => <Icon name="camera" />;
@@ -30,7 +30,10 @@ const ProfileSidebar = ({
   return (
     <div className="sidebar">
       <div className="avatar-div">
-        <Avatar url={image || DEFAULT_USER_IMAGE_URL} className="avatar-xl" />
+        <Avatar
+          url={image || DEFAULT_USER_PROFILE_IMAGE}
+          className="avatar-xl"
+        />
         {currentView === 'userSettings' ? <OverlayImage /> : ''}
       </div>
       <p className="text-center username">{username}</p>

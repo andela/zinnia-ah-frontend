@@ -15,6 +15,17 @@
   width: 100%;
 }
 
+.btn-xs {
+  font-size: .75rem;
+  height: .9375rem;
+  width: 75%;
+}
+
+.btn-sm {
+  height: 2.1875rem;
+  width: 75%;
+}
+
 .btn-dark {
   background-color: $primary-black;
   border: .0625rem solid $primary-black;

@@ -5,7 +5,7 @@ import { Item, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react';
 import moment from 'moment';
 
 // config
-import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
+import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../config/config';
 
 // components
 import Button from '../Button/Button';
@@ -18,7 +18,7 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
         <p>You have no publications</p>
       ) : (
         articles.map(article => (
-          <Link to={`/post=${article.slug}`} key={article.id}>
+          <Link to={`/read/${article.slug}`} key={article.id}>
             <Item.Group key={article.id}>
               <Item>
                 <Item.Image
@@ -36,6 +36,7 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting }) => {
                     <div style={{ marginRight: '0.8rem' }}>
                       <p
                         style={{
+                          color: '#000',
                           fontSize: '1rem',
                           width: '100%',
                         }}

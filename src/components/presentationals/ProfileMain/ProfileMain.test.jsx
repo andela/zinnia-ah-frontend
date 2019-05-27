@@ -10,6 +10,7 @@ const props = {
   publications: [],
   followings: [],
   followers: [],
+  bookmarks: [],
   image: 'http://dummyImage.jpg',
   email: 'dummy@user.com',
   username: 'dummyuser',

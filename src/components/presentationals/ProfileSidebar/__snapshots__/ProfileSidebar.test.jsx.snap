@@ -2,6 +2,7 @@
 
 exports[`ProfileSidebar should not render correctly 1`] = `
 <ProfileSidebar
+  currentView=""
   email=""
   image=""
   username=""
@@ -90,6 +91,7 @@ exports[`ProfileSidebar should not render correctly 1`] = `
 
 exports[`ProfileSidebar should render correctly 1`] = `
 <ProfileSidebar
+  currentView=""
   email=""
   followers={Array []}
   followings={Array []}
