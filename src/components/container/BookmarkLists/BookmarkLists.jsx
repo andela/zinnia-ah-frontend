@@ -5,7 +5,7 @@ import { Item, Icon } from 'semantic-ui-react';
 import moment from 'moment';
 
 // config
-import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
+import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../config/config';
 
 // components
 import Button from '../../presentationals/Button/Button';

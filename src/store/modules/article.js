@@ -55,7 +55,7 @@ export const initialState = {
   successResponse: {
     status: '',
   },
-  articles: {},
+  articles: { likes: [] },
 };
 
 export const createArticle = articleData => {

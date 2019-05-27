@@ -7,7 +7,7 @@ import ArticleLists from './ArticleLists';
 const props = {
   deleteArticle: jest.fn(),
   isDeleting: false,
-  articles: [{}, {}],
+  articles: [{ id: 1 }, { id: 2 }],
 };
 
 describe('ArticleLists', () => {

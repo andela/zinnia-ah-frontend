@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 //utils
-import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
+import { DEFAULT_USER_PROFILE_IMAGE } from '../../../config/config';
 
 //components
 import Avatar from '../Avatar/Avatar';
@@ -19,7 +19,7 @@ const Author = ({ profile }) => {
       <div className="avatar-div">
         <Link to={`@${profile.username}`}>
           <Avatar
-            url={profile.image || DEFAULT_USER_IMAGE_URL}
+            url={profile.image || DEFAULT_USER_PROFILE_IMAGE}
             className="avatar-lg"
           />
         </Link>

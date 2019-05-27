@@ -9,12 +9,14 @@ const profile = {
   username: '',
   email: '',
   image: '',
+  currentView: '',
 };
 
 const undefinedProfile = {
   username: '',
   email: '',
   image: '',
+  currentView: '',
 };
 
 describe('ProfileSidebar', () => {

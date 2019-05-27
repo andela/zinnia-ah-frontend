@@ -180,12 +180,7 @@ exports[`BookmarkLists mounts correctly without image 1`] = `
                           }
                         }
                       >
-<<<<<<< HEAD
                         Invalid date
-=======
-                        7 days
-                         ago
->>>>>>> [feature] add author and icons
                       </p>
                       <div>
                         <div>
@@ -402,12 +397,7 @@ exports[`BookmarkLists should render correctly 1`] = `
                           }
                         }
                       >
-<<<<<<< HEAD
                         Invalid date
-=======
-                        7 days
-                         ago
->>>>>>> [feature] add author and icons
                       </p>
                       <div>
                         <div>

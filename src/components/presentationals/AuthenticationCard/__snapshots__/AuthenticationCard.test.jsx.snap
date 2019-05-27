@@ -74,7 +74,7 @@ exports[`<Authentication Card /> should render with no errors 1`] = `
         className="icon-container"
       >
         <a
-          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/google?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
+          href="http://localhost:3000/api/v1/auth/google?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
         >
           <div
             className="icon-card"
@@ -88,7 +88,7 @@ exports[`<Authentication Card /> should render with no errors 1`] = `
           </div>
         </a>
         <a
-          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/facebook?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
+          href="http://localhost:3000/api/v1/auth/facebook?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
         >
           <div
             className="icon-card"
@@ -102,7 +102,7 @@ exports[`<Authentication Card /> should render with no errors 1`] = `
           </div>
         </a>
         <a
-          href="https://zinnia-ah-backend-staging.herokuapp.com/api/v1/auth/twitter?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
+          href="http://localhost:3000/api/v1/auth/twitter?redirectTo=https://zinnia-ah-frontend-staging.herokuapp.com/social-auth"
         >
           <div
             className="icon-card"
