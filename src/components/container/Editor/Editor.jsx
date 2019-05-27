@@ -78,7 +78,7 @@ export class EditorContainer extends Component {
     event.preventDefault();
 
     const getPreview = string => {
-      return string.substring(0, 500);
+      return string.substring(0, 200);
     };
 
     const { title, body, imageThumbnail, tags } = this.state;

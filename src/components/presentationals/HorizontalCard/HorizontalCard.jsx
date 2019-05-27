@@ -13,6 +13,8 @@ import Image from '../Image/Image';
 // config
 import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
+import { Card, Icon } from 'semantic-ui-react';
 
 const HorizontalCard = ({ index, article }) => {
   return (
@@ -39,7 +41,28 @@ const HorizontalCard = ({ index, article }) => {
               to={`/read/${article.slug}`}
               style={{ color: '#777', marginBottom: 'auto' }}
             >
-              <Title className="title-md mb-0" content={article.title} />
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <Title className="title-md mb-0" content={article.title} />
+
+                <Button
+                  className="btn-transparent"
+                  type="button"
+                  value={
+                    <Icon
+                      name="bookmark outline"
+                      style={{
+                        fontSize: '1.8rem',
+                        margin: '0',
+                      }}
+                    />
+                  }
+                />
+              </div>
               <p
                 className="description"
                 style={{

@@ -14,8 +14,7 @@ const UserThumbnail = ({ url, image, name }) => (
   <Link className="user-thumbnail" to={`/@${url}`}>
     <Avatar url={image ? image : DEFAULT_USER_IMAGE_URL} className="" />
     <div>
-      <span className="info"> {name} </span>
-      <span className="name">@{url} </span>
+      <span className="name ellipsis">@{url} </span>
     </div>
   </Link>
 );

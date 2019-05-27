@@ -45,7 +45,7 @@ const VerticalCard = ({ index, article }) => {
           </Card.Header>
           <Card.Description>
             {' '}
-            <Link to={`/read/${article.slug}`} style={{ color: '#777' }}>
+            <Link to={`/read/${article.slug}`} style={{ color: 'inherit' }}>
               {' '}
               {article.description}
             </Link>

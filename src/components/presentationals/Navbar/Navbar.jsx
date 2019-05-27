@@ -24,6 +24,7 @@ import { logout, autoLogin } from '../../../store/modules/auth';
 import { customSearch } from '../../../store/modules/search';
 import Button from '../Button/Button';
 import { getToken, getEncodedUser } from '../../../api/helpers';
+
 export class Navbar extends Component {
   state = {
     keyword: '',
