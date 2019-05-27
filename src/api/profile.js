@@ -11,3 +11,10 @@ export const deleteArticleRequest = async articleId => {
 export const getBookmarksRequest = async () => {
   return await http.get(`/users/bookmarks`);
 };
+
+export const postFollowAuthor = async (followStatus, username) => {
+  const action = followStatus === 'follow' ? http.post : http.delete;
+  return await action(`/profiles/${username}/${followStatus}`, {
+    params: { username },
+  });
+};

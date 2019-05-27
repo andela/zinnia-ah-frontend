@@ -5,6 +5,7 @@ import {
   getProfileRequest,
   deleteArticleRequest,
   getBookmarksRequest,
+  postFollowAuthor,
 } from '../../api/profile';
 
 export const GET_PROFILE_ERROR = 'GET_PROFILE_ERROR';
@@ -19,6 +20,9 @@ export const UPDATE_IMAGE_SUCCESS = 'UPDATE_IMAGE_SUCCESS';
 export const GET_BOOKMARKS_PROCESS = 'GET_BOOKMARKS_PROCESS';
 export const GET_BOOKMARKS_SUCCESS = 'GET_BOOKMARKS_SUCCESS';
 export const GET_BOOKMARKS_ERROR = 'GET_BOOKMARKS_ERROR';
+export const FOLLOW_AUTHOR_PROCESS = 'FOLLOW_AUTHOR_PROCESS';
+export const FOLLOW_AUTHOR_SUCCESS = 'FOLLOW_AUTHOR_SUCCESS';
+export const FOLLOW_AUTHOR_ERROR = 'FOLLOW_AUTHOR_ERROR';
 
 export const getUserProfileError = error => ({
   type: GET_PROFILE_ERROR,
@@ -28,6 +32,7 @@ export const getUserProfileError = error => ({
 export const getUserProfile = profile => ({
   type: GET_PROFILE_SUCCESS,
   publications: profile.publications,
+  id: profile.id,
   firstName: profile.firstName,
   lastName: profile.lastName,
   bio: profile.bio,
@@ -75,6 +80,19 @@ export const updateUserProfileError = error => ({
 export const updateUserProfile = profile => ({
   type: UPDATE_USER_PROFILE_SUCCESS,
   ...profile,
+});
+
+export const followAuthorProcess = () => ({
+  type: FOLLOW_AUTHOR_PROCESS,
+});
+
+export const followAuthorSuccess = response => ({
+  type: FOLLOW_AUTHOR_SUCCESS,
+  response: response.data.followers,
+});
+
+export const followAuthorError = () => ({
+  type: FOLLOW_AUTHOR_ERROR,
 });
 
 export const getUserProfileRequest = username => async dispatch => {
@@ -125,7 +143,22 @@ export const getBookmarks = () => async dispatch => {
   }
 };
 
+export const followAuthorRequest = (
+  followState,
+  username,
+) => async dispatch => {
+  try {
+    dispatch(followAuthorProcess());
+    const { data } = await postFollowAuthor(followState, username);
+    dispatch(followAuthorSuccess(data));
+  } catch (error) {
+    dispatch(followAuthorError());
+    toast.error(`${followState} request was unsuccessful`);
+  }
+};
+
 export const DEFAULT_STATE = {
+  id: '',
   firstName: '',
   lastName: '',
   bio: '',
@@ -139,6 +172,7 @@ export const DEFAULT_STATE = {
   updatedAt: '',
   error: {},
   isLoading: true,
+  isButtonLoading: false,
   isDeleting: false,
 };
 
@@ -150,6 +184,7 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
       return {
         ...state,
         publications: action.publications,
+        id: action.id,
         firstName: action.firstName,
         lastName: action.lastName,
         bio: action.bio,
@@ -202,6 +237,22 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
         ...state,
         error: action.error,
         isLoading: false,
+      };
+    case FOLLOW_AUTHOR_PROCESS:
+      return {
+        ...state,
+        isButtonLoading: true,
+      };
+    case FOLLOW_AUTHOR_SUCCESS:
+      return {
+        ...state,
+        followers: action.response,
+        isButtonLoading: false,
+      };
+    case FOLLOW_AUTHOR_ERROR:
+      return {
+        ...state,
+        isButtonLoading: false,
       };
     default:
       return state;

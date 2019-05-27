@@ -306,8 +306,10 @@ exports[`<Profile /> mounts correctly 1`] = `
         currentView="default"
         email="dummy@user.com"
         firstName="mr"
+        followAuthorHandler={[Function]}
         followers={Array []}
         followings={Array []}
+        getButtonText="FOLLOW"
         image="https://dummyimage.com"
         lastName="user"
         username="dummyuser"
@@ -370,27 +372,8 @@ exports[`<Profile /> mounts correctly 1`] = `
             </div>
           </div>
           <div
-            style={
-              Object {
-                "marginTop": "35px",
-                "paddingLeft": "15%",
-                "paddingRight": "15%",
-              }
-            }
-          >
-            <Button
-              className="btn-white"
-              type="submit"
-              value="FOLLOW"
-            >
-              <button
-                className="btn btn-white"
-                type="submit"
-              >
-                FOLLOW
-              </button>
-            </Button>
-          </div>
+            className="profilebtn-container"
+          />
           <hr
             className="sidebar-hr"
           />
@@ -953,8 +936,10 @@ exports[`<Profile /> mounts correctly without image 1`] = `
         currentView="default"
         email="dummy@user.com"
         firstName="mr"
+        followAuthorHandler={[Function]}
         followers={Array []}
         followings={Array []}
+        getButtonText="FOLLOW"
         image=""
         lastName="user"
         username="dummyuser"
@@ -1017,27 +1002,8 @@ exports[`<Profile /> mounts correctly without image 1`] = `
             </div>
           </div>
           <div
-            style={
-              Object {
-                "marginTop": "35px",
-                "paddingLeft": "15%",
-                "paddingRight": "15%",
-              }
-            }
-          >
-            <Button
-              className="btn-white"
-              type="submit"
-              value="FOLLOW"
-            >
-              <button
-                className="btn btn-white"
-                type="submit"
-              >
-                FOLLOW
-              </button>
-            </Button>
-          </div>
+            className="profilebtn-container"
+          />
           <hr
             className="sidebar-hr"
           />

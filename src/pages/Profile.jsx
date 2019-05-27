@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 
 // components
 import Navbar from '../components/presentationals/Navbar/Navbar';
-import ProfileSidebar from '../components/presentationals/ProfileSidebar/ProfileSidebar';
+import ProfileSidebarContainer from '../components/container/ProfileSidebarContainer/ProfileSidebarContainer';
 import ProfileMain from '../components/presentationals/ProfileMain/ProfileMain';
 
 // styles
@@ -18,19 +18,21 @@ import './Profile.scss';
 import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
 
 //actions
-import { getUserProfileRequest } from '../store/modules/profile';
-import { deleteArticle } from '../store/modules/profile';
+import { getUserProfileRequest, deleteArticle } from '../store/modules/profile';
 
 export class Profile extends Component {
   state = {
     view: 'default',
   };
+
   changeView = (view = 'userSettings') => {
     this.setState({ view });
   };
+
   componentDidMount() {
     this.props.getUserProfileRequest(this.props.match.params.username);
   }
+
   render() {
     const {
       profile,
@@ -52,8 +54,8 @@ export class Profile extends Component {
             </Dimmer>
           )}
 
-          <ProfileSidebar
-            {...profile}
+          <ProfileSidebarContainer
+            profile={profile}
             followers={followers}
             followings={followings}
             currentView={this.state.view}
@@ -90,6 +92,7 @@ Profile.propTypes = {
 
 export const mapStateToProps = state => ({
   profile: {
+    id: state.profile.id,
     firstName: state.profile.firstName,
     lastName: state.profile.lastName,
     bio: state.profile.bio,
