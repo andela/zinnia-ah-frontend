@@ -20,6 +20,7 @@ const ProfileMain = ({
   lastName,
   bio,
   email,
+  username,
   publications,
   deleteArticle,
   isDeleting,
@@ -81,7 +82,10 @@ const ProfileMain = ({
 
   return (
     <div className="main">
-      <Title content={`${firstName} ${lastName}`} className="title-lg" />
+      <Title
+        content={`${firstName || ''} ${lastName || ''}`}
+        className="title-lg"
+      />
       <div
         style={{
           maxHeight: '200px',
@@ -89,6 +93,8 @@ const ProfileMain = ({
       >
         {bio}
       </div>
+      <br />
+      <br />
       <div className="profile-tab-menu">
         <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
       </div>

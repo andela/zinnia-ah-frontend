@@ -11,12 +11,12 @@ exports[`ProfileMain should not render correctly 1`] = `
   >
     <Title
       className="title-lg"
-      content="ererger undefined"
+      content="ererger "
     >
       <h1
         className="title title-lg"
       >
-        ererger undefined
+        ererger 
       </h1>
     </Title>
     <div
@@ -28,6 +28,8 @@ exports[`ProfileMain should not render correctly 1`] = `
     >
       egrerg
     </div>
+    <br />
+    <br />
     <div
       className="profile-tab-menu"
     >
@@ -128,12 +130,12 @@ exports[`ProfileMain should not render correctly 2`] = `
   >
     <Title
       className="title-lg"
-      content="undefined undefined"
+      content=" "
     >
       <h1
         className="title title-lg"
       >
-        undefined undefined
+         
       </h1>
     </Title>
     <div
@@ -143,6 +145,8 @@ exports[`ProfileMain should not render correctly 2`] = `
         }
       }
     />
+    <br />
+    <br />
     <div
       className="profile-tab-menu"
     >
@@ -271,6 +275,8 @@ exports[`ProfileMain should render Posts Tab correctly 1`] = `
     >
       I am the correct user
     </div>
+    <br />
+    <br />
     <div
       className="profile-tab-menu"
     >
@@ -401,6 +407,8 @@ exports[`ProfileMain should render correctly 1`] = `
     >
       I am the correct user
     </div>
+    <br />
+    <br />
     <div
       className="profile-tab-menu"
     >
