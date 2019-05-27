@@ -98,9 +98,14 @@ export class Register extends Component {
 
   submitForm = () => {
     const { userCredentials } = this.state;
-    this.props.signupUser({
-      ...userCredentials,
-    });
+    const { history } = this.props;
+
+    this.props.signupUser(
+      {
+        ...userCredentials,
+      },
+      history,
+    );
 
     this.setState({
       userCredentials: {
@@ -175,6 +180,7 @@ export class Register extends Component {
 Register.propTypes = {
   signupUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = state => ({ auth: state.auth });

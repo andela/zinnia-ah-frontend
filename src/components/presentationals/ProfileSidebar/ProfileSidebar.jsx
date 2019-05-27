@@ -12,7 +12,7 @@ import './ProfileSidebar.scss';
 // config and helpers
 import { DEFAULT_USER_IMAGE_URL } from '../../../utils/config';
 import { handleImageEventClick } from '../../../utils/helpers';
-import { decodeToken, getToken, isFollowing } from '../../../api/helpers';
+import { getEncodedUser, isFollowing } from '../../../api/helpers';
 
 const CameraIcon = () => <Icon name="camera" />;
 const OverlayImage = () => (
@@ -57,7 +57,7 @@ const ProfileSidebar = ({
           marginTop: '35px',
         }}
       >
-        {decodeToken(getToken()).email !== email && (
+        {(getEncodedUser() && getEncodedUser().email) !== email && (
           <Button
             className="btn-white"
             value={isFollowing(followers) ? '`UNFOLLOW' : 'FOLLOW'}

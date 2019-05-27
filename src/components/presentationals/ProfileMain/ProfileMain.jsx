@@ -13,7 +13,7 @@ import BookmarkLists from '../../container/BookmarkLists/BookmarkLists';
 import './ProfileMain.scss';
 
 //helper
-import { decodeToken, getToken } from '../../../api/helpers';
+import { getEncodedUser } from '../../../api/helpers';
 
 const ProfileMain = ({
   firstName,
@@ -26,7 +26,7 @@ const ProfileMain = ({
   view,
 }) => {
   const signedInUserTabs =
-    decodeToken(getToken()).email !== email
+    (getEncodedUser() && getEncodedUser().email) !== email
       ? []
       : [
           {

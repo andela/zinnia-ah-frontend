@@ -9,7 +9,7 @@ import { DEFAULT_ARTICLE_IMAGE_URL } from '../../../utils/config';
 // components
 import Button from '../Button/Button';
 import Title from '../Title/Title';
-import { decodeToken, getToken } from '../../../api/helpers';
+import { getEncodedUser } from '../../../api/helpers';
 
 const ArticleLists = ({ articles, deleteArticle, isDeleting, email }) => {
   return (
@@ -76,7 +76,7 @@ const ArticleLists = ({ articles, deleteArticle, isDeleting, email }) => {
                       {moment().from(article.createdAt, 'YYYYMMDD')} ago
                     </p>
                     <div>
-                      {decodeToken(getToken()).email === email && (
+                      {(getEncodedUser() && getEncodedUser().email) === email && (
                         <Modal
                           trigger={
                             <Button
