@@ -7,6 +7,6 @@ import { passwordReducer } from './modules/password';
 export default combineReducers({
   auth: authReducer,
   profile: profileReducer,
-  article: articleReducer,
   password: passwordReducer,
+  article: articleReducer,
 });

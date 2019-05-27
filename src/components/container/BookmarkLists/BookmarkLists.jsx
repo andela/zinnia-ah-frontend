@@ -66,7 +66,7 @@ export class BookmarkLists extends Component {
                   <Item.Extra>
                     <div className="d-flex justify-content-between">
                       <p style={{ fontSize: '1rem' }}>
-                        {moment().from(bookmark.createdAt, 'YYYYMMDD')} ago
+                        {moment().from(bookmark.createdAt, 'YYYYMMDD')}
                       </p>
                       <div>
                         <div>

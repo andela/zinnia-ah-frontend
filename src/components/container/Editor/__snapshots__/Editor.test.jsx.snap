@@ -128,10 +128,6 @@ exports[`<EditorContainer /> renders the component 1`] = `
                 "mandatory": false,
                 "present": false,
               },
-              "defaultSize": Object {
-                "height": "500",
-                "width": "1000",
-              },
               "inputAccept": "image/gif,image/jpeg,image/jpg,image/png,image/svg",
               "placeHolder": "Write your story...",
               "previewImage": true,

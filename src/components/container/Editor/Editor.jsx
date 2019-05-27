@@ -169,10 +169,6 @@ export class EditorContainer extends Component {
                     'image/gif,image/jpeg,image/jpg,image/png,image/svg',
                   alignmentEnabled: false,
                   alt: { present: false, mandatory: false },
-                  defaultSize: {
-                    height: '500',
-                    width: '1000',
-                  },
                 },
               }}
             />
