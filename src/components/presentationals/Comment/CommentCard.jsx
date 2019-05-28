@@ -44,8 +44,7 @@ class CommentCard extends Component {
     }
   };
 
-  indicateLikeStatus = () => {
-    const comment = this.props.commentDetails;
+  indicateLikeStatus = (comment = this.props.commentDetails) => {
     this.displayOptions(comment.userId);
 
     comment.likes.forEach(like => {
@@ -63,11 +62,12 @@ class CommentCard extends Component {
     });
     const { articleId, id: commentId } = this.props.commentDetails;
     const { comments } = this.props;
-    this.props.reactToComment({
+    await this.props.reactToComment({
       comments,
       commentId,
       articleId,
     });
+    this.indicateLikeStatus();
   };
 
   optionHandler = operation => {
