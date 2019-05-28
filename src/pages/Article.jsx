@@ -21,6 +21,7 @@ import './Article.scss';
 
 // Images
 import { DEFAULT_USER_IMAGE_URL } from '../utils/config';
+import { ReactDOM } from 'react-dom';
 
 export class Article extends Component {
   componentDidMount() {
@@ -81,10 +82,12 @@ export class Article extends Component {
                     }}
                   />
                   <Item.Content>
-                    <Item.Image src={article.imageThumbnail} size="massive" />
-                    <br />
+                    {/* <Item.Image src={article.imageThumbnail} size="massive" /> */}
+                    {/* <br /> */}
                     <Item.Description>
-                      <div className="article-body">{article.body}</div>
+                      <div className="article-body" dangerouslySetInnerHTML = {{
+                            __html: article.body,
+                          }}/>
                     </Item.Description>
                     <div className="report-rate-container">
                       <div className="rate-inner">
