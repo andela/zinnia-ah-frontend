@@ -204,65 +204,6 @@ export class Article extends Component {
               {/*right side*/}
               <div className="sidebar actions justify-content-center">
                 <div className="fixed-pos" />
-                <div className="article-cta">
-                  <Button
-                    className="btn-transparent"
-                    type="button"
-                    value={<Image src={LikeIcon} />}
-                  />
-                  <p className="article-likes-count">{article.likes || 0}</p>
-                </div> <br/>
-                <div className="article-cta">
-                  <Modal
-                    trigger={
-                      <Button
-                        className="btn-transparent"
-                        type="button"
-                        value=""
-                      >
-                        <Image src={ShareIcon} />
-                      </Button>
-                    }
-                    closeIcon
-                    size="tiny"
-                  >
-                    <Modal.Header>Share this Article!</Modal.Header>
-                    <Modal.Content>
-                      <div className="share-cta">
-                        <a
-                          className="links"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href={`https://twitter.com/intent/tweet?text=${
-                            article.title
-                          }&url=${location.href}`}
-                        >
-                          <Icon name="twitter" size="big" />
-                        </a>
-                        <a
-                          className="links"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                          href={`mailto:''?subject=${article.title}&body=${
-                            location.href
-                          }`}
-                        >
-                          <Icon name="mail" color="red" size="big" />
-                        </a>
-                        <a>
-                          <Icon name="facebook" size="big" />
-                        </a>
-                      </div>
-                    </Modal.Content>
-                  </Modal>
-                </div>
-                <div className="article-cta">
-                  <Button
-                    className="btn-transparent"
-                    type="button"
-                    value={<Image src={BookmarkIcon} />}
-                  />
-                </div>
               </div>
             </div>
             <div className="footer">
