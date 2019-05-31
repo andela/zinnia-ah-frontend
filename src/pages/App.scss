@@ -89,6 +89,10 @@
 	}
 }
 
+.tagged-posts {
+
+}
+
 .h-card-container {
 	padding-right: 6%;
 	width: 56%;
@@ -107,15 +111,28 @@
 		border-bottom: .0625rem solid $secondary-grey;
 		border-top: .0625rem solid $secondary-grey;
 		display: flex;
+    flex-flow: wrap;
 		margin-right: auto;
 		padding: 3.125rem 0;
 		width: 76%;
 	}
 
-	.h-card-container {
-		padding-right: 0;
-		width: 56%;
-	}
+  .tag-result-div .h-card {
+    margin-right: 0;
+    max-height: 11.575rem;
+    min-height: 11.575rem;
+    width: 50%;
+  }
+
+  .tag-result-div .h-card .h-card-image {
+    max-height: 11.575rem;
+    min-height: 11.575rem;
+    width: 11.5rem;
+  }
+
+  .tag-result-div .h-card:nth-child(2n+1){
+    margin-right: 0;
+  }
 
 	.h-card-container:first-child {
 		padding-right: 3%;

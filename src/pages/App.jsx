@@ -276,30 +276,28 @@ class App extends Component {
         </div>
         <div className="middle">
           <div className="tag-result-div">
-            <div className="h-card-container">
-              {taggedArticles.length === 0 ? (
-                <div className="ui">
-                  <div className="column">
-                    <div className="ui raised segment">
-                      <div className="ui placeholder">
-                        <div className="image header">
-                          <div className="line" />
-                          <div className="line" />
-                        </div>
-                        <div className="paragraph">
-                          <div className="medium line" />
-                          <div className="short line" />
-                        </div>
+            {taggedArticles.length === 0 ? (
+              <div className="ui">
+                <div className="column">
+                  <div className="ui raised segment">
+                    <div className="ui placeholder">
+                      <div className="image header">
+                        <div className="line" />
+                        <div className="line" />
+                      </div>
+                      <div className="paragraph">
+                        <div className="medium line" />
+                        <div className="short line" />
                       </div>
                     </div>
                   </div>
                 </div>
-              ) : (
-                taggedArticles.map(article => (
-                  <HorizontalCard article={article} key={article.id} />
-                ))
-              )}
-            </div>
+              </div>
+            ) : (
+              taggedArticles.map(article => (
+                <HorizontalCard article={article} key={article.id} />
+              ))
+            )}
           </div>
           <div className="tag-div">
             <Title content="Tags" className="title-md index-title" />
