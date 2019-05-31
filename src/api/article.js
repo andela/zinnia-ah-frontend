@@ -1,5 +1,7 @@
 import { http } from './client';
+import axios from 'axios';
 import { getToken } from './helpers';
+import { HOST_URL } from '../config/config';
 
 export const articleRequest = async credentials => {
   const token = getToken();
@@ -8,15 +10,14 @@ export const articleRequest = async credentials => {
   });
 };
 
-export const fetchArticle = async articleId => {
-  return await http.get(`/articles/${articleId}`);
-};
+export const fetchArticle = async articleId =>
+  await axios.get(`${HOST_URL}/articles/${articleId}`);
 
 export const likeArticleRequest = async action => {
   const token = getToken();
   const articleId = '0aedc83d-5172-4874-bc43-7826e955fccb';
-  return await http.post(`/articles/${articleId}/${action}`, {
-    headers: { 'x-access-token': token },
+  return await axios.post(`${HOST_URL}/articles/${articleId}/${action}`, {
+    headers: { Authorization: token },
   });
 };
 

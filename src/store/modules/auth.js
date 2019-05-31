@@ -137,7 +137,7 @@ export const logout = () => {
     destroyEncodedUser();
     destroyToken();
     dispatch(logoutSuccess());
-    location.reload();
+    location.href = '/';
   };
 };
 

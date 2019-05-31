@@ -38,3 +38,7 @@ export const isFollowing = (followers = []) => {
   const encodedEmail = getEncodedUser() ? getEncodedUser().email.email : null;
   return followers.find(user => user.email === encodedEmail);
 };
+
+export const setEncodedUserObject = encodedUser => {
+  return localStorage.setItem('encodedUser', encodedUser);
+};

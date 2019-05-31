@@ -122,9 +122,10 @@ export const getSingleArticle = (articleId, history) => {
       const { data } = await fetchArticle(articleId);
       dispatch(getArticleSuccess(data.data));
       dispatch(saveComments(data.data.comments));
-    } catch ({ response }) {
-      response.status === 404 ? history.push('/404') : '';
-      dispatch(getArticleFailure(response.data));
+    } catch (error) {
+      const { data } = error.response;
+      data.status && data.status === 404 ? history.push('/404') : '';
+      dispatch(getArticleFailure(data));
     }
   };
 };

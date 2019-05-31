@@ -91,7 +91,6 @@ export const createComment = data => async dispatch => {
     } = await http.post(`/articles/${articleId}/comments`, {
       comment,
     });
-
     createdComment.articleId = articleId;
     createdComment.likes = [];
     return dispatch(saveComments([createdComment]));

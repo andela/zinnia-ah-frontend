@@ -41,7 +41,7 @@ export class Article extends Component {
       this.props.getSingleArticle(articleId, history);
     }
   }
-
+g
   render() {
     const { article, isLoading, loggedInUser } = this.props;
     const articleComments = this.props.comments.filter(

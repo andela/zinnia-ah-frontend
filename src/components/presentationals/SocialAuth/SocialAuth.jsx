@@ -14,7 +14,11 @@ import {
 import Loader from '../Loader/Loader';
 
 //helpers
-import { setToken, decodeToken } from '../../../api/helpers';
+import {
+  setToken,
+  decodeToken,
+  setEncodedUserObject,
+} from '../../../api/helpers';
 
 const SocialAuth = ({ location, history, ...props }) => {
   props.loginInitialize();
@@ -26,9 +30,9 @@ const SocialAuth = ({ location, history, ...props }) => {
   try {
     let query = location.search;
     query = query.replace('?', '');
-    const { token, isNewRecord } = qs.parse(query);
-    const { user } = decodeToken(token);
-    const { username, email, id } = user;
+    const { token, isNewRecord, encodedUser } = qs.parse(query);
+    const userObject = decodeToken(encodedUser);
+    const { username, email } = userObject;
     let message;
 
     isNewRecord === 'true'
@@ -38,7 +42,8 @@ const SocialAuth = ({ location, history, ...props }) => {
     history.push('/');
     toast.success(message);
     setToken(token);
-    props.socialSuccess({ email, username, id });
+    setEncodedUserObject(encodedUser);
+    props.socialSuccess(userObject);
 
     return loader;
   } catch (error) {
