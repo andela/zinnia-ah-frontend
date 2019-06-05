@@ -205,17 +205,7 @@ export const profileReducer = (state = DEFAULT_STATE, action) => {
     case UPDATE_IMAGE_SUCCESS:
       return {
         ...state,
-        publications: action.publications,
-        id: action.id,
-        firstName: action.firstName,
-        lastName: action.lastName,
-        bio: action.bio,
-        followings: action.followings,
-        followers: action.followers,
-        image: action.image,
-        email: action.email,
-        username: action.username,
-        updatedAt: action.updatedAt,
+        ...action,
         isLoading: false,
       };
     case GET_PROFILE_ERROR:

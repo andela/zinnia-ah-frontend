@@ -25,7 +25,7 @@ const Author = ({ profile, authUser }) => {
         </Link>
       </div>
       <Title
-        content={`${profile.firstName} ${profile.lastName}`}
+        content={`${profile.firstName} ${profile.lastName || ''}`}
         className="title-md text-center"
       />
       <Link to={`/@${profile.username}`}>
@@ -47,8 +47,8 @@ const Author = ({ profile, authUser }) => {
 
 Author.propTypes = {
   profile: PropTypes.shape({
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
     username: PropTypes.string.isRequired,
   }),
   authUser: PropTypes.object,

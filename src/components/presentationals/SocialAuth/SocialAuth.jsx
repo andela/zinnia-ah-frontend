@@ -32,11 +32,12 @@ const SocialAuth = ({ location, history, ...props }) => {
     query = query.replace('?', '');
     const { token, isNewRecord, encodedUser } = qs.parse(query);
     const userObject = decodeToken(encodedUser);
-    const { username, email } = userObject;
+    const { username } = userObject;
+
     let message;
 
     isNewRecord === 'true'
-      ? (message = `Hi, ${email}, Welcome to Authors Haven`)
+      ? (message = `Hi, ${username}, Welcome to Authors Haven`)
       : (message = `Welcome Back ${username}`);
 
     history.push('/');

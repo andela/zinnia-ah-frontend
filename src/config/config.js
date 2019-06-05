@@ -9,9 +9,8 @@ export const DEFAULT_ARTICLE_PICTURE =
 
 export const CLOUDINARY_API = process.env.CLOUDINARY_API;
 export const CLOUD_PRESET = 'upload_app';
-export const FRONTEND_URL =
-  // 'https://zinnia-ah-frontend-staging.herokuapp.com';
-  'http://localhost:8080';
+export const FRONTEND_URL = 'https://zinnia-ah-frontend-staging.herokuapp.com';
+// 'http://localhost:8080';
 
 export const CREATE_ARTICLE_CLOUDINARY_URL =
   'https://api.cloudinary.com/v1_1/trix/image/upload';
