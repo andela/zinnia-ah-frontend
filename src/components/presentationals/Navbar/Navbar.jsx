@@ -131,12 +131,12 @@ export class Navbar extends Component {
                       pointing="top right"
                       trigger={
                         <Avatar
-                          className='avatar-sm-2'
+                          className="avatar-sm-2"
                           url={user.image || DEFAULT_PROFILE_PICTURE}
                         />
                       }
                     >
-                      <Dropdown.Menu position='right'>
+                      <Dropdown.Menu position="right">
                         <Dropdown.Item>
                           <Link
                             to={`/@${user.username}`}
@@ -149,7 +149,7 @@ export class Navbar extends Component {
                           </Link>
                         </Dropdown.Item>
                         <Dropdown.Item>
-                          <Link
+                          <p
                             to="#"
                             onClick={this.logOut}
                             style={{
@@ -158,7 +158,7 @@ export class Navbar extends Component {
                           >
                             <Icon name="sign out" className="right floated" />
                             Logout
-                          </Link>
+                          </p>
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>

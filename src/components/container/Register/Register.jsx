@@ -12,6 +12,7 @@ import { validate } from '../../../utils/formValidator';
 import Button from '../../presentationals/Button/Button';
 import Loader from '../../presentationals/Loader/Loader';
 import Input from '../../presentationals/Input/Input';
+import { getItem } from '../../../utils/helpers';
 
 export class Register extends Component {
   state = {
@@ -99,12 +100,18 @@ export class Register extends Component {
   submitForm = () => {
     const { userCredentials } = this.state;
     const { history } = this.props;
+    let redirectUrl;
+
+    getItem('redirectUrl')
+      ? (redirectUrl = getItem('redirectUrl'))
+      : (redirectUrl = '/');
 
     this.props.signupUser(
       {
         ...userCredentials,
       },
       history,
+      redirectUrl,
     );
 
     this.setState({

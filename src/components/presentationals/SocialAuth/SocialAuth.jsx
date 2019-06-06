@@ -19,6 +19,7 @@ import {
   decodeToken,
   setEncodedUserObject,
 } from '../../../api/helpers';
+import { getItem, removeItem } from '../../../utils/helpers';
 
 const SocialAuth = ({ location, history, ...props }) => {
   props.loginInitialize();
@@ -32,16 +33,17 @@ const SocialAuth = ({ location, history, ...props }) => {
     query = query.replace('?', '');
     const { token, isNewRecord, encodedUser } = qs.parse(query);
     const userObject = decodeToken(encodedUser);
-    const { username } = userObject;
 
     let message;
 
     isNewRecord === 'true'
-      ? (message = `Hi, ${username}, Welcome to Authors Haven`)
-      : (message = `Welcome Back ${username}`);
+      ? (message = `Hi, Welcome to Authors Haven`)
+      : (message = `Welcome Back`);
 
-    history.push('/');
+    const redirectUrl = getItem('redirectUrl');
+    history.push(redirectUrl);
     toast.success(message);
+    removeItem('redirectUrl');
     setToken(token);
     setEncodedUserObject(encodedUser);
     props.socialSuccess(userObject);

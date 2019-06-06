@@ -12,6 +12,7 @@ import { loginUser } from '../../../store/modules/auth';
 
 //helper function
 import { validate } from '../../../utils/formValidator';
+import { getItem } from '../../../utils/helpers';
 
 export class Login extends Component {
   state = {
@@ -93,14 +94,12 @@ export class Login extends Component {
 
   submitForm = () => {
     const { userCredentials } = this.state;
-    const {
-      history,
-      location: { state },
-    } = this.props;
-
+    const { history } = this.props;
     let redirectUrl;
 
-    state ? (redirectUrl = state.from.pathname) : (redirectUrl = '/');
+    getItem('redirectUrl')
+      ? (redirectUrl = getItem('redirectUrl'))
+      : (redirectUrl = '/');
 
     this.props.loginUser(
       {

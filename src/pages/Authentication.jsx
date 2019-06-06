@@ -8,8 +8,16 @@ import AuthenticationCard from '../components/presentationals/AuthenticationCard
 
 // styles
 import '../pages/Authentication.scss';
+import { setItem, getItem } from '../utils/helpers';
 
 const AuthenticationLayout = ({ location }) => {
+  if (!getItem('redirectUrl')) {
+    let pathname;
+    location.state
+      ? (pathname = location.state.from.pathname)
+      : (pathname = '/');
+    setItem('redirectUrl', pathname);
+  }
   return (
     <div>
       <ToastContainer autoClose={4000} />

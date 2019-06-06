@@ -8,6 +8,7 @@ import {
   destroyToken,
   getEncodedUser,
 } from '../../api/helpers';
+import { removeItem } from '../../utils/helpers';
 
 //constants
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
@@ -94,8 +95,9 @@ export const loginUser = (userData, history, redirectUrl) => {
       setToken(data.data.token);
       encodeUserObject(data.data.authenticatedUser);
       dispatch(loginSuccess(data.data.authenticatedUser));
-      toast.success(data.message);
       history.push(redirectUrl);
+      toast.success(`Welcome back`);
+      removeItem('redirectUrl');
     } catch (error) {
       const { data } = error.response;
       dispatch(loginError([data]));
@@ -103,15 +105,15 @@ export const loginUser = (userData, history, redirectUrl) => {
   };
 };
 
-export const signupUser = (userData, history) => {
+export const signupUser = (userData, history, redirectUrl) => {
   return async dispatch => {
     try {
       dispatch(signUpIntialize());
       const { data } = await signUpRequest(userData);
       dispatch(signUpSuccess(data));
-      history.push('/');
-      toast.success(data.message);
-      history.push('/');
+      history.push(redirectUrl);
+      toast.success(`Hi, welcome to Authors' Haven`);
+      removeItem('redirectUrl');
     } catch (error) {
       const { data } = error.response;
       dispatch(signUpError([data]));

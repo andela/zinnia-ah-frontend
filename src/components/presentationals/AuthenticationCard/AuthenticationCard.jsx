@@ -21,7 +21,6 @@ const twitterUrl = `${HOST_URL}/auth/twitter?redirectTo=${FRONTEND_URL}/social-a
 const AuthenticationCard = ({ pathname }) => {
   const loginClass = pathname === '/login' ? 'active item' : 'item';
   const signupClass = pathname === '/signup' ? 'active item' : 'item';
-
   return (
     <div className="right">
       <div className="auth-card">
@@ -41,8 +40,8 @@ const AuthenticationCard = ({ pathname }) => {
             </Link>
           </div>
           <Switch>
-            <Route path="/login" component={LoginForm} />
-            <Route path="/signup" component={SignupForm} />
+            <Route path="/login" render={props => <LoginForm {...props} />} />
+            <Route path="/signup" render={props => <SignupForm {...props} />} />
           </Switch>
           <div className="d-flex or-div">
             <hr />
