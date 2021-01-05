@@ -117,7 +117,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.0.0",
     "draft-js": "^0.10.5",
     "draft-js-plugins-editor": "^2.1.1",
