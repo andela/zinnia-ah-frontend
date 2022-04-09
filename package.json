@@ -126,7 +126,7 @@
     "express": "^4.16.4",
     "html-to-draftjs": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-dnd": "^7.4.5",
