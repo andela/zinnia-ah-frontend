@@ -123,7 +123,7 @@
     "draft-js-plugins-editor": "^2.1.1",
     "draftjs-to-html": "^0.8.4",
     "dotenv-webpack": "^1.7.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "html-to-draftjs": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
